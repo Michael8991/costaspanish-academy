@@ -1,0 +1,34 @@
+.topBarWrapper {
+    /* background-color: #014325; */
+    background-color: #FFCCD5;
+    width: 100%;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.topBarSecondColumn {
+    /* text-align: end; */
+    justify-content: end;
+    align-items: center;
+}
+
+.icons {
+    /* color: red; */
+    display: inline;
+}
+
+@media(max-width:1023px) {
+    .topBarColumn {
+        text-align: center;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media(max-width:768px) {
+    .topBarWrapper {
+        display: none;
+    }
+}

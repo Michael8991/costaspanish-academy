@@ -1,0 +1,159 @@
+.headerspacerfixedbigscreen {
+    margin-top: 0;
+}
+
+/* .headerspacerfixed {
+    padding-bottom: 320px !important;
+    height: 120px;
+} */
+
+@media(width>1150px) {
+    .headerspacerfixedbigscreen {
+        margin-top: 130px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1150px) {
+    .headerspacerfixed {
+        padding-bottom: 130px !important;
+        min-height: 130px;
+    }
+}
+
+@media(width<=640px) {
+    .headerspacerfixed {
+        padding-bottom: 120px !important;
+        min-height: 120px;
+    }
+}
+
+.heroH1 {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+    --tw-font-weight: var(--font-weight-extrabold)
+        /* 800 */
+    ;
+    font-weight: var(--font-weight-extrabold)
+        /* 800 */
+    ;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+    /* si usas flex */
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.floatingBoxShadow {
+    box-shadow: 0px 0px 15px -3px white;
+}
+
+@media(width>=640px) {
+    .heroH1 {
+        font-size: var(--text-6xl);
+        line-height: var(--tw-leading, var(--text-6xl--line-height));
+        --tw-font-weight: var(--font-weight-extrabold)
+            /* 800 */
+        ;
+        font-weight: var(--font-weight-extrabold)
+            /* 800 */
+        ;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        flex-wrap: wrap;
+        /* si usas flex */
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+}
+
+
+@property --tw-font-weight {
+    syntax: "*";
+    inherits: false;
+}
+
+.callToActionBtn {
+    /* padding: 10px 20px; */
+    background-color: #FB6F92;
+    color: white;
+    /* font-size: 16px; */
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 15px -3px #FB6F92;
+    /* font-weight: 300; */
+
+}
+
+.seeOurCoursesBtn {
+    text-decoration: none;
+    color: #FB6F92;
+    display: flex;
+    align-items: center;
+    /* margin-left: 20px; */
+}
+
+/* !! Swipe up text animation */
+.slidingVertical {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    height: 70px;
+    width: 100%;
+    min-width: 100px;
+    /* Ajusta según tu fuente */
+    overflow: hidden;
+    /* margin-left: 8px; */
+
+}
+
+.slidingVertical span {
+    font-weight: 800;
+    animation: bottomToTop 6.1s cubic-bezier(0.6, 0.05, 0.4, 1) infinite;
+    color: #FB6F92;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: left;
+    opacity: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.slidingVertical span:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.slidingVertical span:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes bottomToTop {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    35% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* !! Swipe up text animation */

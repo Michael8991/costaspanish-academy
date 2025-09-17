@@ -1,0 +1,19 @@
+.navLinks {
+    text-decoration: none;
+    color: #000000;
+}
+
+.designLink {
+    text-decoration: none;
+    color: #000000;
+}
+
+@media(max-width:1024px) {
+    .navLinks {
+        display: none;
+    }
+
+    .designLink {
+        display: inline;
+    }
+}
