@@ -1,0 +1,13 @@
+.gradientBordeSection {
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(177, 214, 182, 1) 50%, rgba(93, 170, 104, 1) 100%);
+}
+
+.gradientBordeSectionPink {
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 204, 221, 1) 100%);
+}

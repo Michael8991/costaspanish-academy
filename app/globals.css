@@ -18,9 +18,16 @@
     --foreground: #ededed;
   }
 }
-
+/* 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+body {
+  background: #ffe5ec !important;
+  /* background: #FFFFFF !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, hsl(344, 100%, 95%) 100%) !important; */
+  font-family: "Montserrat", sans-serif !important;
 }

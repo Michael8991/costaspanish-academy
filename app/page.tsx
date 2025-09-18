@@ -1,8 +1,13 @@
-import { AboutUsSection, CoursesSection, HeroSection, TestimonialsSection } from "./sections";
+import {
+  AboutUsSection,
+  CoursesSection,
+  HeroSection,
+  TestimonialsSection,
+} from "./sections";
+import styles from "./LandingPage.module.css";
 
 export default function Home() {
   return (
-
     <section>
       <HeroSection />
       <AboutUsSection />
@@ -11,5 +16,5 @@ export default function Home() {
       <div className={`${styles.gradientBordeSectionPink}`}></div>
       {/* <TestimonialsSection /> */}
     </section>
-  )
+  );
 }
