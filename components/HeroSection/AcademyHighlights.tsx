@@ -7,23 +7,31 @@ export const AcademyHighlights = () => {
       initial={{ opacity: 0, y: -80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-      className={`${styles.highLightsContainer} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 align-middle z-2 px-5`}
+      className={`${styles.highLightsContainer} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 align-middle z-2 px-9 py-4 max-w-6xl mx-auto `}
     >
       <div className={`flex flex-col justify-center`}>
-        <p className="font-extrabold text-4xl">Why choose us?</p>
+        <p className="font-extrabold text-4xl mb-2">Why choose us?</p>
         <p className="italic font-light m-0">
           The difference is in the details, and how much we care.
         </p>
       </div>
       <div className={`flex flex-col items-center justify-center`}>
         <h5 className={`flex text-center items-center font-normal`}>
-          <Image
-            src={"/assets/CheckIcon.png"}
-            alt="qualified icon"
-            height={0}
-            width={0}
-            style={{ height: "50px", marginRight: "5px" }}
-          />
+          <div
+            style={{
+              width: 50,
+              height: 50,
+              position: "relative",
+              marginRight: "5px",
+            }}
+          >
+            <Image
+              src={"/assets/CheckIcon.png"}
+              alt="qualified icon"
+              fill
+              style={{ objectFit: "contain", marginRight: "5px" }}
+            />
+          </div>
           Native & Qualified
         </h5>
         <p className={`text-center font-normal text-base`}>
@@ -32,13 +40,21 @@ export const AcademyHighlights = () => {
       </div>
       <div className={`flex flex-col items-center justify-center`}>
         <h5 className={`flex text-center items-center font-normal`}>
-          <img
-            src={"/assets/BooksIcon.png"}
-            alt="qualified icon"
-            height={0}
-            width={0}
-            style={{ height: "50px", marginRight: "5px" }}
-          />
+          <div
+            style={{
+              width: 50,
+              height: 50,
+              position: "relative",
+              marginRight: "5px",
+            }}
+          >
+            <Image
+              src={"/assets/BooksIcon.png"}
+              alt="qualified icon"
+              fill
+              style={{ objectFit: "contain", marginRight: "5px" }}
+            />
+          </div>
           Proven Methodology
         </h5>
         <p className={`text-center font-normal text-base`}>
@@ -47,13 +63,21 @@ export const AcademyHighlights = () => {
       </div>
       <div className={`flex flex-col items-center justify-center`}>
         <h5 className={`flex text-center items-center font-normal`}>
-          <Image
-            src={"/assets/WeCareIcon.png"}
-            alt="qualified icon"
-            height={0}
-            width={0}
-            style={{ height: "50px", marginRight: "5px" }}
-          />
+          <div
+            style={{
+              width: 50,
+              height: 50,
+              position: "relative",
+              marginRight: "5px",
+            }}
+          >
+            <Image
+              src={"/assets/WeCareIcon.png"}
+              alt="qualified icon"
+              fill
+              style={{ objectFit: "contain", marginRight: "5px" }}
+            />
+          </div>
           We Care
         </h5>
         <p className={`text-center font-normal text-base`}>
