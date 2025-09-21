@@ -45,7 +45,7 @@ export const AboutUsSection = () => {
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`${styles.aboutUsTitles} container pt-2 text-center text-8xl font-extrabold`}
+          className={`${styles.aboutUsTitles} @container pt-2 text-center text-8xl font-extrabold`}
         >
           About Us
         </motion.p>
@@ -63,9 +63,9 @@ export const AboutUsSection = () => {
           initial={{ opacity: 0, y: -30 }}
           animate={isInViewWHo ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-          className={`container grid grid-cols-1 my-12 gap-1`}
+          className={`@container grid grid-cols-1 my-12 gap-1`}
         >
-          <div>
+          <div className="w-full max-w-6xl mx-auto">
             <p
               className={`${styles.aboutUsSubtitles} w-full text-center text-2xl italic`}
             >
@@ -77,7 +77,7 @@ export const AboutUsSection = () => {
                         </p> */}
 
             <p
-              className={`${styles.aboutUsText} w-full text-justify mb-2 text-base font-normal`}
+              className={`${styles.aboutUsText} w-full max-w-6xl mx-auto text-justify mb-2 text-base font-normal`}
             >
               Founded with the passion to share the beauty of the Spanish
               language, our academy offers a warm, personalized environment
@@ -273,14 +273,22 @@ export const AboutUsSection = () => {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
               className="flex justify-center"
             >
-              <Image
-                src={"/assets/youngStudents.jpg"}
-                alt="OurMision"
-                className="overflow-auto  shadow"
-                width={0}
-                height={0}
-                style={{ objectFit: "cover", height: "350px", width: "auto" }}
-              />
+              <div
+                style={{
+                  width: 450,
+                  height: 350,
+                  position: "relative",
+                  marginRight: "5px",
+                }}
+              >
+                <Image
+                  src={"/assets/youngStudents.jpg"}
+                  alt="OurMision"
+                  className="shadow"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -302,9 +310,9 @@ export const AboutUsSection = () => {
             }}
             className="my-4"
           />
-          <div className={`container`}>
+          <div className={`@container`}>
             <p
-              className={`${styles.aboutUsSubtitles} w-full text-center mb-6 text-2xl italic`}
+              className={`${styles.aboutUsSubtitles} w-full max-w-6xl mx-auto text-center mb-6 text-2xl italic`}
             >
               What Makes Us Different
             </p>
