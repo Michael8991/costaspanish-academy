@@ -14,7 +14,7 @@ export const CoursesSection = () => {
   //   const { titleCard, maxPers, time, desc, moreInfo, typeCard, img } = props;
   return (
     <div id="courses" style={{ background: "white" }}>
-      <div className="container py-5">
+      <div className="@container py-5 max-w-7xl mx-auto">
         <p className="text-4xl font-extrabold mb-0">Classes</p>
         <p className="text-lg font-light">Spanish for foreign (ELE)</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-5">
