@@ -34,15 +34,13 @@ export const Header = () => {
       className="@container"
     >
       <div
-        className={`${
-          styles.headerWrapper
-        } w-full grid grid-cols-2 lg:grid-cols-3 
+        className={`${styles.headerWrapper
+          } w-full grid grid-cols-2 lg:grid-cols-3 
              sm:mt-0 
-            ${
-              scrolled
-                ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
-                : "bg-transparent "
-            } `}
+            ${scrolled
+            ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
+            : "bg-transparent "
+          } `}
       >
         {/* LOGO */}
         <div
@@ -85,7 +83,7 @@ export const Header = () => {
             <li className="mx-2 whitespace-nowrap">
               <Link
                 className={`${styles.navLinks} ${styles.activeNav}`}
-                href=""
+                href="/"
               >
                 Home
               </Link>

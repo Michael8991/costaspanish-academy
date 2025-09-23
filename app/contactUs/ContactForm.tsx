@@ -7,19 +7,44 @@ import {
   Phone,
   Weight,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+import { resolve } from "path";
 import { FormEvent } from "react";
 
-export const ContactForm = () => {
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const response = await fetch("/api/submit", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await response.json();
-  }
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+type FormFields = {
+  firstName: string,
+  lastName: string,
+  email: string,
+  topic: string,
+  about: string
+}
+
+
+export const ContactForm = () => {
+
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormFields>({
+    mode:
+      "onChange"
+  });
+
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(data)
+  };
+
+  //   const response = await fetch("/api/contact", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ data })
+  //   });
+  //   const result = await response.json();
+  //   console.log(result)
+  // }
+
 
   return (
     <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
@@ -59,7 +84,7 @@ export const ContactForm = () => {
         </p>
       </div>
       <div className="col-span-2 px-8">
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mb-3">
             <div className="sm:col-span-3">
               <label
@@ -70,13 +95,23 @@ export const ContactForm = () => {
               </label>
               <div className="mt-2">
                 <input
-                  id="first-name"
-                  name="first-name"
+                  {...register("firstName", {
+                    required: "Please enter your name."
+                  })}
+                  id="firstName"
                   type="text"
-                  autoComplete="given-name"
+                  autoComplete="off"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
                 />
               </div>
+              <AnimatePresence>
+                {errors.firstName && <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.firstName.message}</motion.div>}
+              </AnimatePresence>
             </div>
 
             <div className="sm:col-span-3">
@@ -88,13 +123,23 @@ export const ContactForm = () => {
               </label>
               <div className="mt-2">
                 <input
-                  id="last-name"
-                  name="last-name"
+                  {...register("lastName", {
+                    required: "Please enter your last name."
+                  })}
+                  id="lastName"
                   type="text"
-                  autoComplete="family-name"
+                  autoComplete="off"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
                 />
               </div>
+              <AnimatePresence>
+                {errors.lastName && <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.lastName.message}</motion.div>}
+              </AnimatePresence>
             </div>
           </div>
 
@@ -107,26 +152,42 @@ export const ContactForm = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("email", {
+                  required: "Please enter your email.",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
+                    message: "Please enter a valid email address."
+                  }
+                })}
                 id="email"
-                name="email"
                 type="email"
-                autoComplete="email"
+                autoComplete="off"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
               />
             </div>
+            <AnimatePresence>
+              {errors.email && <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.email.message}</motion.div>}
+            </AnimatePresence>
           </div>
 
           <div className="sm:col-span-3 mb-3">
             <label
-              htmlFor="Topic"
+              htmlFor="topic"
               className="block text-sm/6 font-medium text-gray-900"
             >
               Topic
             </label>
             <div className="mt-2 grid grid-cols-1">
               <select
+                {...register("topic", {
+                  required: "Please enter your topic."
+                })}
                 id="topic"
-                name="topic"
                 autoComplete="topic"
                 className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
               >
@@ -154,6 +215,14 @@ export const ContactForm = () => {
                 className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
               />
             </div>
+            <AnimatePresence>
+              {errors.topic && <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.topic.message}</motion.div>}
+            </AnimatePresence>
           </div>
 
           <div className="col-span-full mb-3">
@@ -165,27 +234,38 @@ export const ContactForm = () => {
             </label>
             <div className="mt-2">
               <textarea
+                {...register("about", {
+                  required: "Please enter your message."
+                })}
                 id="about"
-                name="about"
                 rows={3}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
                 defaultValue={""}
               />
             </div>
             <p className="mt-3 text-sm/6 text-gray-600">
-              Write a few sentences about yourself.
+              Let us know your request or suggestion in detail.
             </p>
           </div>
+          <AnimatePresence>
+            {errors.about && <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.about.message}</motion.div>}
+          </AnimatePresence>
           <div className="mt-6 flex items-center justify-end gap-x-6">
             <button
               type="submit"
+              disabled={isSubmitting}
               className="rounded-md bg-red-400 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               Send
             </button>
           </div>
         </form>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
