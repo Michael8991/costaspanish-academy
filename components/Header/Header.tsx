@@ -96,7 +96,7 @@ export const Header = () => {
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <Link className={`${styles.navLinks}`} href="">
+              <Link className={`${styles.navLinks}`} href="/contactUs">
                 Contact us
               </Link>
             </li>
@@ -164,7 +164,7 @@ export const Header = () => {
               </li>
               <li className="flex w-full justify-center">
                 <button className={`${styles.loginBtn}`}>
-                  <a className={`${styles.noneDecoration}`} href="/">
+                  <a className={`${styles.noneDecoration}`} href="">
                     Log in
                   </a>
                 </button>

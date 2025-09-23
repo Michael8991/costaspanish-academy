@@ -28,7 +28,7 @@ export default function ContactPage() {
 
   return (
     <div
-      className={`@container max-w-6xl mx-auto flex flex-col justify-center ${
+      className={`@container max-w-6xl mx-auto  ${
         scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
       }`}
       style={{
