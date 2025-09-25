@@ -1,13 +1,11 @@
 "use client";
 
-import { ChevronDownIcon, CircleAlert, Mail, Phone } from "lucide-react";
+import { ChevronDownIcon, CircleAlert, CircleCheck, Mail, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { resolve } from "path";
-import { FormEvent } from "react";
+import { useState } from "react";
 
 import { SubmitHandler, useForm } from "react-hook-form";
-import { div } from "framer-motion/client";
 
 type FormFields = {
   firstName: string;
@@ -18,27 +16,42 @@ type FormFields = {
 };
 
 export const ContactForm = () => {
+  const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset
   } = useForm<FormFields>({
     mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || "Error sending form.");
+      }
+
+      if (result.success) {
+        setSubmitMessage({ type: "success", text: "Your message has been sent!" });
+        reset();
+      }
+
+    } catch (error) {
+      setSubmitMessage({ type: "error", text: "Failed to send message. Please try again." });
+    } finally {
+      setTimeout(() => setSubmitMessage(null), 5000);
+    }
   };
 
-  //   const response = await fetch("/api/contact", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ data })
-  //   });
-  //   const result = await response.json();
-  //   console.log(result)
-  // }
 
   return (
     <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
@@ -334,6 +347,26 @@ export const ContactForm = () => {
                     Sending
                   </p>
                   <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-red-400"></div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <AnimatePresence>
+              {submitMessage && (
+                <motion.div
+                  key={submitMessage.text}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={
+                    submitMessage.type === "error"
+                      ? { opacity: 1, x: [100, -10, 10, -5, 0] }
+                      : { opacity: 1, x: 0 }
+                  }
+                  exit={{ opacity: 0, x: 100 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className={`p-2 rounded-xl shadow-xs flex items-center ${submitMessage.type === "success" ? "bg-green-200 text-green-800" : "bg-red-200 text-red-800"
+                    }`}
+                >
+                  {submitMessage.type === "success" ? <CircleCheck size={16} className="w-5 h-5" /> : <CircleAlert className="w-5 h-5" />}
+                  <span className="me-1" style={{ fontSize: 16 }}>{submitMessage.text}</span>
                 </motion.div>
               )}
             </AnimatePresence>
