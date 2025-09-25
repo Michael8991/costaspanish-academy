@@ -1,39 +1,34 @@
 "use client";
 
-import {
-  ChevronDownIcon,
-  CircleAlert,
-  Mail,
-  Phone,
-  Weight,
-} from "lucide-react";
+import { ChevronDownIcon, CircleAlert, Mail, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { resolve } from "path";
 import { FormEvent } from "react";
 
-
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from "react-hook-form";
+import { div } from "framer-motion/client";
 
 type FormFields = {
-  firstName: string,
-  lastName: string,
-  email: string,
-  topic: string,
-  about: string
-}
-
+  firstName: string;
+  lastName: string;
+  email: string;
+  topic: string;
+  textMessage: string;
+};
 
 export const ContactForm = () => {
-
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormFields>({
-    mode:
-      "onChange"
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormFields>({
+    mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data)
+    console.log(data);
   };
 
   //   const response = await fetch("/api/contact", {
@@ -45,10 +40,15 @@ export const ContactForm = () => {
   //   console.log(result)
   // }
 
-
   return (
     <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
-      <div>
+      <div className="bg-white p-6 rounded-2xl shadow-sm relative">
+        <div
+          className="absolute z-10 right-3 top-0 opacity-50"
+          style={{ color: "#C62B0C", fontSize: 32, fontWeight: 800 }}
+        >
+          ¿?
+        </div>
         <h2 className="font-bold text-6xl mb-8">
           have a <br /> question?
         </h2>
@@ -96,7 +96,7 @@ export const ContactForm = () => {
               <div className="mt-2">
                 <input
                   {...register("firstName", {
-                    required: "Please enter your name."
+                    required: "Please enter your name.",
                   })}
                   id="firstName"
                   type="text"
@@ -105,12 +105,24 @@ export const ContactForm = () => {
                 />
               </div>
               <AnimatePresence>
-                {errors.firstName && <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.firstName.message}</motion.div>}
+                {errors.firstName && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
+                    style={{ color: "#cc0000" }}
+                  >
+                    <CircleAlert
+                      style={{ color: "#ff0000" }}
+                      strokeWidth={1.5}
+                      size={16}
+                      className="me-2"
+                    />
+                    {errors.firstName.message}
+                  </motion.div>
+                )}
               </AnimatePresence>
             </div>
 
@@ -124,7 +136,7 @@ export const ContactForm = () => {
               <div className="mt-2">
                 <input
                   {...register("lastName", {
-                    required: "Please enter your last name."
+                    required: "Please enter your last name.",
                   })}
                   id="lastName"
                   type="text"
@@ -133,12 +145,24 @@ export const ContactForm = () => {
                 />
               </div>
               <AnimatePresence>
-                {errors.lastName && <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.lastName.message}</motion.div>}
+                {errors.lastName && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
+                    style={{ color: "#cc0000" }}
+                  >
+                    <CircleAlert
+                      style={{ color: "#ff0000" }}
+                      strokeWidth={1.5}
+                      size={16}
+                      className="me-2"
+                    />
+                    {errors.lastName.message}
+                  </motion.div>
+                )}
               </AnimatePresence>
             </div>
           </div>
@@ -156,8 +180,8 @@ export const ContactForm = () => {
                   required: "Please enter your email.",
                   pattern: {
                     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
-                    message: "Please enter a valid email address."
-                  }
+                    message: "Please enter a valid email address.",
+                  },
                 })}
                 id="email"
                 type="email"
@@ -166,12 +190,24 @@ export const ContactForm = () => {
               />
             </div>
             <AnimatePresence>
-              {errors.email && <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.email.message}</motion.div>}
+              {errors.email && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
+                  style={{ color: "#cc0000" }}
+                >
+                  <CircleAlert
+                    style={{ color: "#ff0000" }}
+                    strokeWidth={1.5}
+                    size={16}
+                    className="me-2"
+                  />
+                  {errors.email.message}
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
 
@@ -185,7 +221,7 @@ export const ContactForm = () => {
             <div className="mt-2 grid grid-cols-1">
               <select
                 {...register("topic", {
-                  required: "Please enter your topic."
+                  required: "Please enter your topic.",
                 })}
                 id="topic"
                 autoComplete="topic"
@@ -216,28 +252,40 @@ export const ContactForm = () => {
               />
             </div>
             <AnimatePresence>
-              {errors.topic && <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.topic.message}</motion.div>}
+              {errors.topic && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
+                  style={{ color: "#cc0000" }}
+                >
+                  <CircleAlert
+                    style={{ color: "#ff0000" }}
+                    strokeWidth={1.5}
+                    size={16}
+                    className="me-2"
+                  />
+                  {errors.topic.message}
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
 
           <div className="col-span-full mb-3">
             <label
-              htmlFor="about"
+              htmlFor="textMessage"
               className="block text-sm/6 font-medium text-gray-900"
             >
-              About
+              Message
             </label>
             <div className="mt-2">
               <textarea
-                {...register("about", {
-                  required: "Please enter your message."
+                {...register("textMessage", {
+                  required: "Please enter your message.",
                 })}
-                id="about"
+                id="textMessage"
                 rows={3}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
                 defaultValue={""}
@@ -248,14 +296,47 @@ export const ContactForm = () => {
             </p>
           </div>
           <AnimatePresence>
-            {errors.about && <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center" style={{ color: "#cc0000" }}><CircleAlert style={{ color: "#ff0000" }} strokeWidth={1.5} size={16} className="me-2" />{errors.about.message}</motion.div>}
+            {errors.textMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
+                style={{ color: "#cc0000" }}
+              >
+                <CircleAlert
+                  style={{ color: "#ff0000" }}
+                  strokeWidth={1.5}
+                  size={16}
+                  className="me-2"
+                />
+                {errors.textMessage.message}
+              </motion.div>
+            )}
           </AnimatePresence>
           <div className="mt-6 flex items-center justify-end gap-x-6">
+            <AnimatePresence>
+              {isSubmitting && (
+                <motion.div
+                  role="status"
+                  aria-live="polite"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className="flex items-center p-2  bg-white rounded-xl shadow-xs"
+                >
+                  <p
+                    className="me-1"
+                    style={{ fontSize: 16, color: "#cc0000" }}
+                  >
+                    Sending
+                  </p>
+                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-red-400"></div>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <button
               type="submit"
               disabled={isSubmitting}
@@ -265,7 +346,7 @@ export const ContactForm = () => {
             </button>
           </div>
         </form>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
