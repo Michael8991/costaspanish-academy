@@ -38,7 +38,7 @@ export const AboutUsSection = () => {
   });
 
   return (
-    <div id="aboutUs" className={`${styles.aboutUsWrapper} w-full py-5`}>
+    <section id="aboutUs" className={`${styles.aboutUsWrapper} w-full py-5`}>
       <div className={`grid grid-cols-1`}>
         <motion.p
           ref={ref}
@@ -330,6 +330,6 @@ export const AboutUsSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

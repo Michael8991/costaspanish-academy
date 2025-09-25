@@ -30,7 +30,8 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div
+    <section
+      id="home"
       className={`@container flex flex-col justify-center pb-5 md:pb-0 items-center ${
         scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
       }`}
@@ -185,6 +186,6 @@ export const HeroSection = () => {
         </div>
       </div>
       <AcademyHighlights />
-    </div>
+    </section>
   );
 };

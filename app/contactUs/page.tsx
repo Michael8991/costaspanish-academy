@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 
 import { ContactForm } from "./ContactForm";
@@ -27,7 +27,10 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
       className={`@container max-w-6xl mx-auto  ${
         scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
       }`}
@@ -41,6 +44,6 @@ export default function ContactPage() {
         } header-spacer`}
       ></div>
       <ContactForm />
-    </div>
+    </motion.div>
   );
 }

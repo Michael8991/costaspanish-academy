@@ -13,7 +13,7 @@ import { CourseCard } from "@/components";
 export const CoursesSection = () => {
   //   const { titleCard, maxPers, time, desc, moreInfo, typeCard, img } = props;
   return (
-    <div id="courses" style={{ background: "white" }}>
+    <section id="courses" style={{ background: "white" }}>
       <div className="@container py-5 max-w-7xl mx-auto">
         <p className="text-4xl font-extrabold mb-0">Classes</p>
         <p className="text-lg font-light">Spanish for foreign (ELE)</p>
@@ -89,6 +89,6 @@ export const CoursesSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

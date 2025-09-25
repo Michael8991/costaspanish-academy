@@ -4,7 +4,11 @@ import { TestimonialCard } from "@/components";
 
 export const TestimonialsSection = () => {
   return (
-    <div id="testimonials" style={{ backgroundColor: "#FFCCDD" }} className="">
+    <section
+      id="testimonials"
+      style={{ backgroundColor: "#FFCCDD" }}
+      className=""
+    >
       <div className="container py-5">
         <p className="text-4xl font-extrabold">Testimonials</p>
         <div className="grid grid-cols-1 lg:grid-cols-3">
@@ -24,6 +28,6 @@ export const TestimonialsSection = () => {
           <Dot className="w-8 h-8" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };

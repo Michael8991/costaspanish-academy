@@ -1,6 +1,12 @@
 "use client";
 
-import { ChevronDownIcon, CircleAlert, CircleCheck, Mail, Phone } from "lucide-react";
+import {
+  ChevronDownIcon,
+  CircleAlert,
+  CircleCheck,
+  Mail,
+  Phone,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useState } from "react";
@@ -16,12 +22,15 @@ type FormFields = {
 };
 
 export const ContactForm = () => {
-  const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
   } = useForm<FormFields>({
     mode: "onChange",
   });
@@ -41,17 +50,21 @@ export const ContactForm = () => {
       }
 
       if (result.success) {
-        setSubmitMessage({ type: "success", text: "Your message has been sent!" });
+        setSubmitMessage({
+          type: "success",
+          text: "Your message has been sent!",
+        });
         reset();
       }
-
     } catch (error) {
-      setSubmitMessage({ type: "error", text: "Failed to send message. Please try again." });
+      setSubmitMessage({
+        type: "error",
+        text: "Failed to send message. Please try again.",
+      });
     } finally {
       setTimeout(() => setSubmitMessage(null), 5000);
     }
   };
-
 
   return (
     <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
@@ -362,11 +375,20 @@ export const ContactForm = () => {
                   }
                   exit={{ opacity: 0, x: 100 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className={`p-2 rounded-xl shadow-xs flex items-center ${submitMessage.type === "success" ? "bg-green-200 text-green-800" : "bg-red-200 text-red-800"
-                    }`}
+                  className={`p-2 rounded-xl shadow-xs flex items-center ${
+                    submitMessage.type === "success"
+                      ? "bg-green-200 text-green-800"
+                      : "bg-red-200 text-red-800"
+                  }`}
                 >
-                  {submitMessage.type === "success" ? <CircleCheck size={16} className="w-5 h-5" /> : <CircleAlert className="w-5 h-5" />}
-                  <span className="me-1" style={{ fontSize: 16 }}>{submitMessage.text}</span>
+                  {submitMessage.type === "success" ? (
+                    <CircleCheck size={16} className="w-5 h-5" />
+                  ) : (
+                    <CircleAlert className="w-5 h-5" />
+                  )}
+                  <span className="me-1" style={{ fontSize: 16 }}>
+                    {submitMessage.text}
+                  </span>
                 </motion.div>
               )}
             </AnimatePresence>

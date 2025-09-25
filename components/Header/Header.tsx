@@ -11,10 +11,42 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
+  const [activeSection, setActiveSection] = useState<string>("home");
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // useEffect(() => {
+  //   if (pathname === "/") {
+  //     setActiveSection("home");
+  //   } else {
+  //     setActiveSection("");
+  //   }
+  // }, [pathname]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "-100px 0px 0px 0px" }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+
+    return () => {
+      sections.forEach((sec) => observer.unobserve(sec));
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,13 +66,15 @@ export const Header = () => {
       className="@container"
     >
       <div
-        className={`${styles.headerWrapper
-          } w-full grid grid-cols-2 lg:grid-cols-3 
+        className={`${
+          styles.headerWrapper
+        } w-full grid grid-cols-2 lg:grid-cols-3 
              sm:mt-0 
-            ${scrolled
-            ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
-            : "bg-transparent "
-          } `}
+            ${
+              scrolled
+                ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
+                : "bg-transparent "
+            } `}
       >
         {/* LOGO */}
         <div
@@ -71,35 +105,56 @@ export const Header = () => {
             className={`${styles.navContainer} flex align-middle items-center`}
           >
             <li className="mx-2 whitespace-nowrap">
-              <Link className={`${styles.navLinks}`} href="">
+              <Link
+                className={`${styles.navLinks} 
+                ${(activeSection === "aboutUs" && pathname === "/") || pathname === "/#aboutUs" ? styles.activeNav : ""}`}
+                href="/#aboutUs"
+              >
                 About us
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <Link className={`${styles.navLinks}`} href="">
+              <Link
+                className={`${styles.navLinks} 
+              ${activeSection === "courses" && pathname === "/" ? styles.activeNav : ""}`}
+                href="/#courses"
+              >
                 Our courses
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${styles.activeNav}`}
+                className={`${styles.navLinks} ${pathname === "/" && activeSection === "home" ? styles.activeNav : ""} `}
                 href="/"
               >
                 Home
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <Link className={`${styles.navLinks}`} href="">
+              <Link
+                className={`${styles.navLinks} ${activeSection === "testimonials" && pathname === "/" ? styles.activeNav : ""}`}
+                href="/#testimonials"
+              >
                 Testimonials
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <Link className={`${styles.navLinks}`} href="/contactUs">
+              <Link
+                className={`${styles.navLinks} ${
+                  pathname === "/contactUs" ? styles.activeNav : ""
+                }`}
+                href="/contactUs"
+              >
                 Contact us
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <Link className={`${styles.navLinks}`} href="">
+              <Link
+                className={`${styles.navLinks} ${
+                  pathname === "/blog" ? styles.activeNav : ""
+                }`}
+                href="/blog"
+              >
                 Blog
               </Link>
             </li>
