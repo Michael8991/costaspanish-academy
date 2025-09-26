@@ -71,7 +71,7 @@ export const ContactForm = () => {
       <div className="bg-white p-6 rounded-2xl shadow-sm relative">
         <div
           className="absolute z-10 right-3 top-0 opacity-50"
-          style={{ color: "#C62B0C", fontSize: 32, fontWeight: 800 }}
+          style={{ color: "#FF2E00", fontSize: 32, fontWeight: 800 }}
         >
           ¿?
         </div>
