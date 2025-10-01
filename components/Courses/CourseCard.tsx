@@ -1,6 +1,17 @@
 import { Clock, UsersRound } from 'lucide-react'
 import styles from './courseCard.module.css'
-export const CourseCard = ({ titleCard, maxPers, time, desc, moreInfo, typeCard, img }) => {
+
+interface CourseCardProps {
+    titleCard: string;
+    maxPers: string;
+    time: string;
+    desc: string;
+    moreInfo: string;
+    typeCard: string;
+    img: string;
+}
+
+export const CourseCard = ({ titleCard, maxPers, time, desc, moreInfo, typeCard, img }: CourseCardProps) => {
 
     return (
         <div className={`${styles[typeCard]} ${styles.courseCard} my-2`}>

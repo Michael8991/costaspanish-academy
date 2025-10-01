@@ -30,6 +30,8 @@ export interface ICourse extends Document {
 
     //Extras
     imageUrl?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
 
 const CourseSchema: Schema<ICourse> = new Schema(
@@ -63,6 +65,8 @@ const CourseSchema: Schema<ICourse> = new Schema(
 
         // Extras
         imageUrl: { type: String },
+        createdAt: { type: Date },
+        updatedAt: { type: Date },
     },
     { timestamps: true }
 );
