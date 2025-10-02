@@ -28,6 +28,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: true,
+        status: "inProgress",
     },
 
     // Inglés Semi-intensivo B1
@@ -57,6 +58,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: true,
+        status: "inProgress",
     },
 
     // Inglés Privado (nivel adaptado)
@@ -80,6 +82,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: true,
+        status: "inProgress",
     },
 
     // Español Intensivo B1
@@ -109,6 +112,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: true,
+        status: "inProgress",
     },
 
     // Español Semi-intensivo B1
@@ -138,6 +142,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: true,
+        status: "inProgress",
     },
 
     // Español Privado (nivel adaptado)
@@ -161,6 +166,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: true,
+        status: "inProgress",
     },
     {
         _id: 'eng-int-b1-2',
@@ -181,6 +187,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
     {
         _id: 'eng-int-b1-3',
@@ -201,6 +208,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
     {
         _id: 'eng-int-b1-4',
@@ -221,6 +229,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
     {
         _id: 'eng-int-b1-5',
@@ -241,6 +250,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
 
     // -------------------
@@ -264,6 +274,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
     {
         _id: 'esp-int-b1-3',
@@ -284,6 +295,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
     {
         _id: 'esp-int-b1-4',
@@ -304,6 +316,7 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
     {
         _id: 'esp-int-b1-5',
@@ -324,5 +337,6 @@ export const mockCourses: ICourseData[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         topCourses: false,
+        status: "inProgress",
     },
 ];

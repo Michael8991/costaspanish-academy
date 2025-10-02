@@ -25,6 +25,7 @@ export interface ICourseData {
     imageUrl?: string;
     createdAt?: Date;
     updatedAt?: Date;
+    status?: "inProgress" | "soon" | "pending";
 }
 
 // Para Mongoose (extiende Document, solo lo usas en el modelo)

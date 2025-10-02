@@ -5,3 +5,4 @@ export * from "./UI/Circle";
 export * from "./HeroSection/AcademyHighlights";
 export * from "./Courses/CourseCard";
 export * from "./Testimonials/TestimonialCard";
+export * from "./UI/Dropdown";
