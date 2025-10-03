@@ -11,12 +11,12 @@ export interface ICourseData {
     maxPeople: string;
     duration?: string;
     format: string;
-    level?: string;
+    level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
     requirements?: string;
     learningObjetives: string;
     modules: string;
     technicalRequirements?: string;
-    modality: string;
+    modality?: "Intensive" | "SemiIntensive" | "Standar" | "Private";
     startDate?: string;
     access?: string;
     support?: string;

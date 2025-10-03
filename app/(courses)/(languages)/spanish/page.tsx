@@ -13,7 +13,6 @@ export default function spanishCourses() {
     return (
         <>
             <FilterBarCourses filters={filters} setFilters={setFilters} />
-            <h1 className=''>Spanish courses</h1>
             <CoursesCatalog filters={filters} />
         </>
     )
