@@ -99,7 +99,9 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
               </span>
             )}
           </div>
-          <p className="font-light text-base my-4">{course.longDesc}</p>
+          <p className="font-light text-base my-4">{course.longDesc.length > 240
+            ? course.longDesc.substring(0, 240) + "…"
+            : course.longDesc}</p>
           <div className="flex gap-4 mt-4">
             <div className="flex gap-4 w-full">
               <span className="flex items-center w-fit text-xs bg-gray-100 py-2 px-3 rounded-4xl">

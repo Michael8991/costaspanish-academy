@@ -22,9 +22,11 @@ export const CoursesSection = () => {
                 titleCard={course.title}
                 maxPers={course.maxPeople + ' max.'}
                 time={course.hoursPerWeek}
-                desc={course.longDesc}
+                desc={course.longDesc.length > 120
+                  ? course.longDesc.substring(0, 120) + "…"
+                  : course.longDesc}
                 img={course.imageUrl || '/assets/intensiveGroup.png'}
-                moreInfo=""
+                moreInfo={`/${course.slug}`}
               />
             </div>
           ))}
@@ -44,9 +46,11 @@ export const CoursesSection = () => {
                 titleCard={course.title}
                 maxPers={course.maxPeople + ' max.'}
                 time={course.hoursPerWeek}
-                desc={course.longDesc}
+                desc={course.longDesc.length > 120
+                  ? course.longDesc.substring(0, 120) + "…"
+                  : course.longDesc}
                 img={course.imageUrl || '/assets/intensiveGroup.png'}
-                moreInfo=""
+                moreInfo={`/${course.slug}`}
               />
             </div>
           ))}

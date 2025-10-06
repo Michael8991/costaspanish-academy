@@ -1,4 +1,11 @@
 // Solo datos puros (para mocks, front, props, etc.)
+
+export interface IModuleData {
+  title: string;
+  duration?: string;
+  type?: string;
+}
+
 export interface ICourseData {
   _id: string;
   languageToLearn: string;
@@ -14,7 +21,7 @@ export interface ICourseData {
   level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   requirements?: string;
   learningObjetives: string;
-  modules: string;
+  modules: IModuleData[];
   technicalRequirements?: string;
   modality?: "Intensive" | "SemiIntensive" | "Standar" | "Private";
   startDate?: string;
@@ -22,7 +29,7 @@ export interface ICourseData {
   support?: string;
   gains?: string;
   certificate?: string;
-  imageUrl?: string;
+  imageUrl: string;
   createdAt?: Date;
   updatedAt?: Date;
   status?: "inProgress" | "soon" | "pending";
@@ -30,4 +37,4 @@ export interface ICourseData {
 }
 
 // Para Mongoose (extiende Document, solo lo usas en el modelo)
-export interface ICourse extends ICourseData, Document {}
+export interface ICourse extends ICourseData, Document { }

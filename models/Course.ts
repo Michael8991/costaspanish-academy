@@ -1,5 +1,17 @@
 import mongoose, { Document, Model, Schema } from "mongoose";
 
+export interface IModule {
+    title: string,
+    duration?: string;
+    type?: string
+}
+
+const moduleSchema = new Schema({
+    title: { type: String, required: true },
+    duration: { type: String },
+    type: { type: String }
+})
+
 export interface ICourse extends Document {
     //Hero del curso
     title: string;
@@ -17,7 +29,7 @@ export interface ICourse extends Document {
 
     //Descripción completa
     learningObjetives: string;
-    modules: string;
+    modules: IModule[];
     technicalRequirements?: string;
     modality: string;
     startDate?: string;
@@ -52,7 +64,7 @@ const CourseSchema: Schema<ICourse> = new Schema(
 
         // Descripción completa
         learningObjetives: { type: String, required: true },
-        modules: { type: String, required: true },
+        modules: { type: [moduleSchema], required: true },
         technicalRequirements: { type: String },
         modality: { type: String, required: true },
         startDate: { type: String },
