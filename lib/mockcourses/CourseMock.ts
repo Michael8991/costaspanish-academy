@@ -1,9 +1,16 @@
 // Solo datos puros (para mocks, front, props, etc.)
 
+export interface ISubModules {
+  type?: string;
+  duration?: string;
+  title: string;
+}
+
 export interface IModuleData {
   title: string;
   duration?: string;
   type?: string;
+  submodules?: ISubModules[];
 }
 
 export interface ICourseData {

@@ -19,11 +19,98 @@ export const mockCourses: ICourseData[] = [
     learningObjetives:
       "Mejorar comprensión auditiva y expresión oral; ampliar vocabulario y gramática avanzada.",
     modules: [
-      { title: "Gramática avanzada", duration: "2h", type: "video" },
-      { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "1h", type: "listening" },
-      { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min", type: "video" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -37,7 +124,7 @@ export const mockCourses: ICourseData[] = [
     createdAt: new Date(),
     updatedAt: new Date(),
     topCourses: true,
-    status: "inProgress",
+    status: "soon",
     slug: "eng-int-b1",
   },
 
@@ -59,11 +146,98 @@ export const mockCourses: ICourseData[] = [
     learningObjetives:
       "Refuerzo de gramática y vocabulario, mejora de conversación y comprensión.",
     modules: [
-      { title: "Gramática intermedia", duration: "1h", type: "video" },
-      { title: "Conversación guiada", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
-      { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -97,15 +271,98 @@ export const mockCourses: ICourseData[] = [
     learningObjetives:
       "Mejorar todas las competencias lingüísticas según necesidades personales.",
     modules: [
-      { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
-      { title: "Gramática personalizada", duration: "1h", type: "video" },
-      { title: "Conversación individual", duration: "1h", type: "práctica" },
       {
-        title: "Comprensión auditiva personalizada",
-        duration: "1h",
-        type: "listening",
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
       },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Private",
     access: "Plataforma online propia",
@@ -136,11 +393,98 @@ export const mockCourses: ICourseData[] = [
     requirements: "Nivel B1 certificado o experiencia previa",
     learningObjetives: "Refuerzo de gramática, vocabulario y fluidez oral.",
     modules: [
-      { title: "Gramática avanzada", duration: "2h", type: "video" },
-      { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "1h", type: "listening" },
-      { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      }
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -175,11 +519,98 @@ export const mockCourses: ICourseData[] = [
     requirements: "Nivel B1 certificado o experiencia previa",
     learningObjetives: "Refuerzo de gramática, vocabulario y fluidez oral.",
     modules: [
-      { title: "Gramática intermedia", duration: "1h", type: "video" },
-      { title: "Conversación guiada", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
-      { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -212,15 +643,98 @@ export const mockCourses: ICourseData[] = [
     learningObjetives:
       "Mejorar todas las competencias lingüísticas según necesidades personales.",
     modules: [
-      { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
-      { title: "Gramática personalizada", duration: "1h", type: "video" },
-      { title: "Conversación individual", duration: "1h", type: "práctica" },
       {
-        title: "Comprensión auditiva personalizada",
-        duration: "1h",
-        type: "listening",
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
       },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Private",
     access: "Plataforma online propia",
@@ -248,11 +762,98 @@ export const mockCourses: ICourseData[] = [
     level: "B1",
     learningObjetives: "Refuerzo de todas las competencias B1",
     modules: [
-      { title: "Gramática avanzada", duration: "2h", type: "video" },
-      { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "1h", type: "listening" },
-      { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -277,11 +878,98 @@ export const mockCourses: ICourseData[] = [
     level: "B1",
     learningObjetives: "Refuerzo de todas las competencias B1",
     modules: [
-      { title: "Gramática intermedia", duration: "1h", type: "video" },
-      { title: "Conversación guiada", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
-      { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -371,11 +1059,98 @@ export const mockCourses: ICourseData[] = [
     level: "B1",
     learningObjetives: "Refuerzo de todas las competencias B1",
     modules: [
-      { title: "Gramática intermedia", duration: "1h", type: "video" },
-      { title: "Conversación guiada", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
-      { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
+      {
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
+      },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -400,15 +1175,98 @@ export const mockCourses: ICourseData[] = [
     level: "B1",
     learningObjetives: "Refuerzo de todas las competencias B1",
     modules: [
-      { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
-      { title: "Gramática personalizada", duration: "1h", type: "video" },
-      { title: "Conversación individual", duration: "1h", type: "práctica" },
       {
-        title: "Comprensión auditiva personalizada",
-        duration: "1h",
-        type: "listening",
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
       },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -433,15 +1291,98 @@ export const mockCourses: ICourseData[] = [
     level: "B1",
     learningObjetives: "Refuerzo de todas las competencias B1",
     modules: [
-      { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
-      { title: "Gramática personalizada", duration: "1h", type: "video" },
-      { title: "Conversación individual", duration: "1h", type: "práctica" },
       {
-        title: "Comprensión auditiva personalizada",
-        duration: "1h",
-        type: "listening",
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
       },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -466,15 +1407,98 @@ export const mockCourses: ICourseData[] = [
     level: "B1",
     learningObjetives: "Refuerzo de todas las competencias B1",
     modules: [
-      { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
-      { title: "Gramática personalizada", duration: "1h", type: "video" },
-      { title: "Conversación individual", duration: "1h", type: "práctica" },
       {
-        title: "Comprensión auditiva personalizada",
-        duration: "1h",
-        type: "listening",
+        title: "Introduction to the Course",
+        type: "Lecture",
+        duration: "30 min",
+        submodules: [
+          { title: "Welcome & Objectives", duration: "10 min" },
+          { title: "Course Structure Overview", duration: "20 min" },
+        ],
       },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
+      {
+        title: "Basic Grammar",
+        type: "Theory",
+        duration: "2h",
+        submodules: [
+          { title: "Nouns and Articles", duration: "30 min" },
+          { title: "Pronouns", duration: "30 min" },
+          { title: "Verbs: Present Simple", duration: "1h" },
+        ],
+      },
+      {
+        title: "Vocabulary Building",
+        type: "Practice",
+        duration: "1h 30min",
+        submodules: [
+          { title: "Everyday Words", duration: "30 min" },
+          { title: "Food & Drink", duration: "30 min" },
+          { title: "Travel & Directions", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Listening & Speaking",
+        type: "Conversation",
+        duration: "2h",
+        submodules: [
+          { title: "Listening Comprehension Exercises", duration: "1h" },
+          { title: "Pair Speaking Practice", duration: "1h" },
+        ],
+      },
+      {
+        title: "Reading & Writing",
+        type: "Exercises",
+        duration: "1h 45min",
+        submodules: [
+          { title: "Reading Short Texts", duration: "45 min" },
+          { title: "Writing Simple Paragraphs", duration: "1h" },
+        ],
+      },
+      {
+        title: "Pronunciation & Phonetics",
+        type: "Workshop",
+        duration: "1h",
+        submodules: [
+          { title: "Vowel Sounds", duration: "30 min" },
+          { title: "Consonant Clusters", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Cultural Insights",
+        type: "Extra Material",
+        duration: "45 min",
+        submodules: [
+          { title: "Festivals & Traditions", duration: "20 min" },
+          { title: "Everyday Life", duration: "25 min" },
+        ],
+      },
+      {
+        title: "Mid-course Test",
+        type: "Assessment",
+        duration: "1h",
+        submodules: [
+          { title: "Grammar Test", duration: "30 min" },
+          { title: "Vocabulary Quiz", duration: "30 min" },
+        ],
+      },
+      {
+        title: "Final Project / Presentation",
+        type: "Project",
+        duration: "2h",
+        submodules: [
+          { title: "Prepare Presentation", duration: "1h" },
+          { title: "Deliver Presentation", duration: "1h" },
+        ],
+      },
+      {
+        title: "Optional Conversation Club",
+        type: "Extra Practice",
+        duration: "1h",
+        submodules: [
+          { title: "Group Discussion", duration: "30 min" },
+          { title: "Q&A with Teacher", duration: "30 min" },
+        ],
+      },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",

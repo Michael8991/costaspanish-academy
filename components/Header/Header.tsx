@@ -19,6 +19,14 @@ export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false); // si quieres cerrar el menú móvil
+  };
+
   // useEffect(() => {
   //   if (pathname === "/") {
   //     setActiveSection("home");
@@ -66,15 +74,13 @@ export const Header = () => {
       className="@container"
     >
       <div
-        className={`${
-          styles.headerWrapper
-        } w-full grid grid-cols-2 lg:grid-cols-3 
+        className={`${styles.headerWrapper
+          } w-full grid grid-cols-2 lg:grid-cols-3 
              sm:mt-0 
-            ${
-              scrolled
-                ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
-                : "bg-transparent "
-            } `}
+            ${scrolled
+            ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
+            : "bg-transparent "
+          } `}
       >
         {/* LOGO */}
         <div
@@ -104,20 +110,28 @@ export const Header = () => {
           <ul
             className={`${styles.navContainer} flex align-middle items-center`}
           >
-            <li className="mx-2 whitespace-nowrap">
+            {/* <li className="mx-2 whitespace-nowrap">
               <Link
                 className={`${styles.navLinks} 
                 ${(activeSection === "aboutUs" && pathname === "/") || pathname === "/#aboutUs" ? styles.activeNav : ""}`}
-                href="/#aboutUs"
+                href="#aboutUs"
               >
                 About us
               </Link>
+            </li> */}
+            <li className="mx-2 whitespace-nowrap">
+              <button
+                onClick={() => handleScroll("aboutUs")}
+                className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""}`}
+              >
+                About us
+              </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
                 className={`${styles.navLinks} 
               ${activeSection === "courses" && pathname === "/" ? styles.activeNav : ""}`}
-                href="/#courses"
+                href="#courses"
               >
                 Our courses
               </Link>
@@ -133,16 +147,15 @@ export const Header = () => {
             <li className="mx-2 whitespace-nowrap">
               <Link
                 className={`${styles.navLinks} ${activeSection === "testimonials" && pathname === "/" ? styles.activeNav : ""}`}
-                href="/#testimonials"
+                href="#testimonials"
               >
                 Testimonials
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${
-                  pathname === "/contactUs" ? styles.activeNav : ""
-                }`}
+                className={`${styles.navLinks} ${pathname === "/contactUs" ? styles.activeNav : ""
+                  }`}
                 href="/contactUs"
               >
                 Contact us
@@ -150,9 +163,8 @@ export const Header = () => {
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${
-                  pathname === "/blog" ? styles.activeNav : ""
-                }`}
+                className={`${styles.navLinks} ${pathname === "/blog" ? styles.activeNav : ""
+                  }`}
                 href="/blog"
               >
                 Blog
