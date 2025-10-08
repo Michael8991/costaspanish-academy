@@ -36,5 +36,10 @@ export interface ICourseData {
   slug: string;
 }
 
+export interface IFaqData {
+  question: string,
+  answer: string,
+}
+
 // Para Mongoose (extiende Document, solo lo usas en el modelo)
 export interface ICourse extends ICourseData, Document { }

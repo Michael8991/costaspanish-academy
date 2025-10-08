@@ -19,6 +19,8 @@ import { useMediaQuery } from "react-responsive";
 import { JSX, useEffect, useState } from "react";
 
 import styles from "@/app/sections/Hero/heroSection.module.css";
+import FaqAccordion from "@/components/Faq/FaqAccordion"
+import { generalFaq } from "@/lib/mockcourses/mockFaq";
 
 export default function Course() {
   const isRegularScreen = useMediaQuery({ maxWidth: 1150 });
@@ -60,17 +62,15 @@ export default function Course() {
   if (!course) {
     return (
       <div
-        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${
-          scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-        }`}
+        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+          }`}
         style={{
           minHeight: "calc( 100vh - 120px )",
         }}
       >
         <div
-          className={`divespaciador ${
-            scrolled ? `${styles.headerspacerfixed}` : ``
-          } header-spacer`}
+          className={`divespaciador ${scrolled ? `${styles.headerspacerfixed}` : ``
+            } header-spacer`}
         ></div>
         <h1 className="text-2xl mb-6">Course not available</h1>
         <Link
@@ -89,17 +89,15 @@ export default function Course() {
 
   return (
     <div
-      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${
-        scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-      }`}
+      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+        }`}
       style={{
         minHeight: "calc( 100vh - 120px )",
       }}
     >
       <div
-        className={`divespaciador ${
-          scrolled ? `${styles.headerspacerfixed}` : ``
-        } header-spacer`}
+        className={`divespaciador ${scrolled ? `${styles.headerspacerfixed}` : ``
+          } header-spacer`}
       ></div>
       <div className="grid grid-cols-2">
         <div className="w-full  items-center flex flex-col pt-5">
@@ -129,7 +127,7 @@ export default function Course() {
               {course.modules.map((module, i) => (
                 <div
                   key={i}
-                  className="bg-white shadow-md px-4 py-3 rounded-2xl mb-4 flex gap-1 items-center"
+                  className="bg-white shadow-md px-4 py-3 rounded-md mb-4 flex gap-1 items-center"
                 >
                   <ChevronDown />
                   <h3 className="font-semibold text-lg">{module.title}</h3>
@@ -159,7 +157,7 @@ export default function Course() {
           </div>
           <span className="text-2xl font-bold text-gray-900">{`${course.price}`}</span>
           <Link
-            className="py-3 px-10 bg-rose-400 text-white font-normal text-lg shadow-md rounded-2xl my-3"
+            className="py-3 px-10 bg-rose-400 text-white font-normal text-lg shadow-md rounded-md my-3"
             href=""
           >
             Pre-register for the course
@@ -209,6 +207,9 @@ export default function Course() {
             </ul>
           </div>
         </div>
+      </div>
+      <div>
+        <FaqAccordion faqs={generalFaq} />
       </div>
     </div>
   );
