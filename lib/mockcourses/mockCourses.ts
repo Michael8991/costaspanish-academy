@@ -9,7 +9,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Avanza rápido con clases intensivas",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -22,7 +23,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "1h", type: "listening" },
       { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" }
+      { title: "Expresión escrita", duration: "1h", type: "writing" },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -48,7 +49,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Mejora tu inglés sin saturarte",
     price: "120€",
     hoursPerWeek: "4h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "15",
     duration: "6 semanas",
     format: "Online",
@@ -61,7 +63,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación guiada", duration: "1h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
       { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" }
+      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -87,7 +89,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Clases personalizadas al nivel del estudiante",
     price: "220€",
     hoursPerWeek: "6h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
 
     maxPeople: "1",
     format: "Online",
@@ -97,8 +100,12 @@ export const mockCourses: ICourseData[] = [
       { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
       { title: "Gramática personalizada", duration: "1h", type: "video" },
       { title: "Conversación individual", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva personalizada", duration: "1h", type: "listening" },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" }
+      {
+        title: "Comprensión auditiva personalizada",
+        duration: "1h",
+        type: "listening",
+      },
+      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
     ],
     modality: "Private",
     access: "Plataforma online propia",
@@ -120,7 +127,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Aprende español de forma intensiva",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -132,7 +140,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "1h", type: "listening" },
       { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" }
+      { title: "Expresión escrita", duration: "1h", type: "writing" },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -158,7 +166,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Aprende español sin saturarte",
     price: "120€",
     hoursPerWeek: "4h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "15",
     duration: "6 semanas",
     format: "Online",
@@ -170,7 +179,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación guiada", duration: "1h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
       { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" }
+      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
     ],
     technicalRequirements:
       "Ordenador o tablet con cámara y micrófono; conexión a internet estable",
@@ -196,7 +205,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Clases personalizadas al nivel del estudiante",
     price: "220€",
     hoursPerWeek: "6h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "1",
     format: "Online",
     learningObjetives:
@@ -205,8 +215,12 @@ export const mockCourses: ICourseData[] = [
       { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
       { title: "Gramática personalizada", duration: "1h", type: "video" },
       { title: "Conversación individual", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva personalizada", duration: "1h", type: "listening" },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" }
+      {
+        title: "Comprensión auditiva personalizada",
+        duration: "1h",
+        type: "listening",
+      },
+      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
     ],
     modality: "Private",
     access: "Plataforma online propia",
@@ -226,7 +240,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -237,7 +252,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "1h", type: "listening" },
       { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" }
+      { title: "Expresión escrita", duration: "1h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -252,9 +267,10 @@ export const mockCourses: ICourseData[] = [
     languageToLearn: "English",
     title: "Inglés Intensivo B1 Extra 2",
     subTitle: "Curso intensivo adicional",
-    price: "180€",
+    price: "180€/Semana",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -265,7 +281,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación guiada", duration: "1h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
       { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" }
+      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -282,7 +298,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -292,8 +309,12 @@ export const mockCourses: ICourseData[] = [
       { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
       { title: "Gramática personalizada", duration: "1h", type: "video" },
       { title: "Conversación individual", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva personalizada", duration: "1h", type: "listening" },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" }
+      {
+        title: "Comprensión auditiva personalizada",
+        duration: "1h",
+        type: "listening",
+      },
+      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -310,7 +331,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -321,7 +343,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación práctica", duration: "1.5h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "1h", type: "listening" },
       { title: "Lectura y vocabulario", duration: "1h", type: "reading" },
-      { title: "Expresión escrita", duration: "1h", type: "writing" }
+      { title: "Expresión escrita", duration: "1h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -341,7 +363,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -352,7 +375,7 @@ export const mockCourses: ICourseData[] = [
       { title: "Conversación guiada", duration: "1h", type: "práctica" },
       { title: "Comprensión auditiva", duration: "0.5h", type: "listening" },
       { title: "Comprensión escrita", duration: "0.5h", type: "reading" },
-      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" }
+      { title: "Vocabulario aplicado", duration: "0.5h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -369,7 +392,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -379,8 +403,12 @@ export const mockCourses: ICourseData[] = [
       { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
       { title: "Gramática personalizada", duration: "1h", type: "video" },
       { title: "Conversación individual", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva personalizada", duration: "1h", type: "listening" },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" }
+      {
+        title: "Comprensión auditiva personalizada",
+        duration: "1h",
+        type: "listening",
+      },
+      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -397,7 +425,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -407,8 +436,12 @@ export const mockCourses: ICourseData[] = [
       { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
       { title: "Gramática personalizada", duration: "1h", type: "video" },
       { title: "Conversación individual", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva personalizada", duration: "1h", type: "listening" },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" }
+      {
+        title: "Comprensión auditiva personalizada",
+        duration: "1h",
+        type: "listening",
+      },
+      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",
@@ -425,7 +458,8 @@ export const mockCourses: ICourseData[] = [
     subTitle: "Curso intensivo adicional",
     price: "180€",
     hoursPerWeek: "8h",
-    longDesc: "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
+    longDesc:
+      "Magna laborum dolor non irure incididunt esse incididunt commodo nisi exercitation proident. Magna velit ullamco irure est aliqua do minim. Minim minim ea fugiat ea nostrud do sint anim. Nostrud reprehenderit sit magna cillum officia ipsum occaecat in reprehenderit Lorem ipsum ad eiusmod. Eiusmod consectetur aute elit laborum consectetur reprehenderit elit velit amet incididunt. Magna ea sunt mollit ut sint nisi velit pariatur minim duis. Tempor nisi amet do ullamco laborum cupidatat mollit id anim.Enim veniam est sunt in magna labore.Et incididunt Lorem aliqua veniam eiusmod dolor nisi sit voluptate culpa id qui fugiat minim.Nulla est aliquip laboris exercitation et esse exercitation aute incididunt veniam velit qui ea anim.Anim anim tempor adipisicing do magna nisi.Qui qui magna consectetur duis nulla ad ullamco anim nostrud.Et quis dolore id anim enim amet incididunt.",
     maxPeople: "10",
     duration: "4 semanas",
     format: "Online",
@@ -435,8 +469,12 @@ export const mockCourses: ICourseData[] = [
       { title: "Evaluación inicial", duration: "0.5h", type: "diagnostic" },
       { title: "Gramática personalizada", duration: "1h", type: "video" },
       { title: "Conversación individual", duration: "1h", type: "práctica" },
-      { title: "Comprensión auditiva personalizada", duration: "1h", type: "listening" },
-      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" }
+      {
+        title: "Comprensión auditiva personalizada",
+        duration: "1h",
+        type: "listening",
+      },
+      { title: "Proyecto final / ejercicios", duration: "1h", type: "writing" },
     ],
     modality: "Intensive",
     imageUrl: "/assets/intensiveGroup.png",

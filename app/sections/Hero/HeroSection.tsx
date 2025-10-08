@@ -4,20 +4,13 @@ import { AcademyHighlights, Circle } from "@/components";
 import styles from "./heroSection.module.css";
 import { ArrowIcon } from "@/assets/icons/ArrowIcon";
 
-import { motion, useAnimation, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { useMediaQuery } from "react-responsive";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { relative } from "path";
 
 export const HeroSection = () => {
-  // const ref = useRef(null);
-  // const isInView = useInView(ref, {
-  //   once: true,
-  //   margin: "-300px 0px -300px 0px",
-  // });
-
   const isRegularScreen = useMediaQuery({ maxWidth: 1150 });
 
   const [scrolled, setScrolled] = useState(false);
@@ -32,15 +25,17 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className={`@container flex flex-col justify-center pb-5 md:pb-0 items-center ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-        }`}
+      className={`@container flex flex-col justify-center pb-5 md:pb-0 items-center ${
+        scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+      }`}
       style={{
         minHeight: "calc( 100vh - 120px )",
       }}
     >
       <div
-        className={`${scrolled ? `${styles.headerspacerfixed}` : ``
-          } header-spacer`}
+        className={`${
+          scrolled ? `${styles.headerspacerfixed}` : ``
+        } header-spacer`}
       ></div>
       <div
         className={` grid grid-cols-1 lg:grid-cols-2 mt-3 h-fit max-w-7xl mx-auto`}
