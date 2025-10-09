@@ -23,20 +23,29 @@ export const Header = () => {
   const [scrollTarget, setScrollTarget] = useState<string | null>(null);
 
   const scrollToSection = (id: string) => {
+    const scrollWithOffset = (targetId: string) => {
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      const yOffset = -120; // altura de tu header fijo
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    };
+
     if (pathname !== "/") {
       setScrollTarget(id); // recordamos a qué sección queremos ir
       router.push("/"); // vamos a home
     } else {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      scrollWithOffset(id); // scroll con offset
     }
   };
 
-  // efecto que detecta cambio de pathname y scrollTarget
   useEffect(() => {
     if (pathname === "/" && scrollTarget) {
       const el = document.getElementById(scrollTarget);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        setActiveSection(scrollTarget); // activamos la sección en el header
+      }
       setScrollTarget(null); // reseteamos
     }
   }, [pathname, scrollTarget]);
