@@ -11,29 +11,35 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
-  const handleScroll = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+
+  const scrollToSection = (id: string) => {
+    if (pathname !== "/") {
+      setScrollTarget(id); // recordamos a qué sección queremos ir
+      router.push("/"); // vamos a home
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
-    setMenuOpen(false); // si quieres cerrar el menú móvil
   };
 
-  // useEffect(() => {
-  //   if (pathname === "/") {
-  //     setActiveSection("home");
-  //   } else {
-  //     setActiveSection("");
-  //   }
-  // }, [pathname]);
+  // efecto que detecta cambio de pathname y scrollTarget
+  useEffect(() => {
+    if (pathname === "/" && scrollTarget) {
+      const el = document.getElementById(scrollTarget);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      setScrollTarget(null); // reseteamos
+    }
+  }, [pathname, scrollTarget]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
@@ -74,13 +80,15 @@ export const Header = () => {
       className="@container"
     >
       <div
-        className={`${styles.headerWrapper
-          } w-full grid grid-cols-2 lg:grid-cols-3 
+        className={`${
+          styles.headerWrapper
+        } w-full grid grid-cols-2 lg:grid-cols-3 
              sm:mt-0 
-            ${scrolled
-            ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
-            : "bg-transparent "
-          } `}
+            ${
+              scrolled
+                ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
+                : "bg-transparent "
+            } `}
       >
         {/* LOGO */}
         <div
@@ -118,14 +126,6 @@ export const Header = () => {
               >
                 About us
               </Link>
-            </li> */}
-            <li className="mx-2 whitespace-nowrap">
-              <button
-                onClick={() => handleScroll("aboutUs")}
-                className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""}`}
-              >
-                About us
-              </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
@@ -143,19 +143,52 @@ export const Header = () => {
               >
                 Home
               </Link>
-            </li>
-            <li className="mx-2 whitespace-nowrap">
+            </li> */}
+            {/* <li className="mx-2 whitespace-nowrap">
               <Link
                 className={`${styles.navLinks} ${activeSection === "testimonials" && pathname === "/" ? styles.activeNav : ""}`}
                 href="#testimonials"
               >
                 Testimonials
               </Link>
+            </li> */}
+            <li className="mx-2 whitespace-nowrap">
+              <button
+                onClick={() => scrollToSection("aboutUs")}
+                className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""} cursor-pointer`}
+              >
+                About us
+              </button>
+            </li>
+            <li className="mx-2 whitespace-nowrap">
+              <button
+                onClick={() => scrollToSection("courses")}
+                className={`${styles.navLinks} ${activeSection === "courses" ? styles.activeNav : ""} cursor-pointer`}
+              >
+                Our courses
+              </button>
+            </li>
+            <li className="mx-2 whitespace-nowrap">
+              <button
+                onClick={() => scrollToSection("home")}
+                className={`${styles.navLinks} ${activeSection === "home" ? styles.activeNav : ""} cursor-pointer`}
+              >
+                Home
+              </button>
+            </li>
+            <li className="mx-2 whitespace-nowrap">
+              <button
+                onClick={() => scrollToSection("testimonials")}
+                className={`${styles.navLinks} ${activeSection === "testimonials" ? styles.activeNav : ""} cursor-pointer`}
+              >
+                Testimonials
+              </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${pathname === "/contactUs" ? styles.activeNav : ""
-                  }`}
+                className={`${styles.navLinks} ${
+                  pathname === "/contactUs" ? styles.activeNav : ""
+                }`}
                 href="/contactUs"
               >
                 Contact us
@@ -163,8 +196,9 @@ export const Header = () => {
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${pathname === "/blog" ? styles.activeNav : ""
-                  }`}
+                className={`${styles.navLinks} ${
+                  pathname === "/blog" ? styles.activeNav : ""
+                }`}
                 href="/blog"
               >
                 Blog
@@ -191,9 +225,9 @@ export const Header = () => {
           </div>
           <div className={``}>
             <button className={`${styles.loginBtn}`}>
-              <a className={`${styles.noneDecoration}`} href="/auth">
+              <Link className={`${styles.noneDecoration}`} href="/auth">
                 Log in
-              </a>
+              </Link>
             </button>
           </div>
         </div>
