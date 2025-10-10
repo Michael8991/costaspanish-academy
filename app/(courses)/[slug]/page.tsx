@@ -3,29 +3,16 @@
 import { mockCourses } from "@/lib/mockcourses/mockCourses";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Calendar,
-  Clock,
-  Tag,
-  Target,
-  UsersRound,
-  ChevronDown,
-  Circle,
-  CheckCircle,
-} from "lucide-react";
-import Image from "next/image";
-import { useMediaQuery } from "react-responsive";
-import { JSX, useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import styles from "@/app/sections/Hero/heroSection.module.css";
-import FaqAccordion from "@/components/Faq/FaqAccordion"
+import FaqAccordion from "@/components/Faq/FaqAccordion";
 import { generalFaq } from "@/lib/mockcourses/mockFaq";
-import CourseModule from '../../../components/CourseModules/CourseModule';
+import CourseModule from "../../../components/CourseModules/CourseModule";
 import CourseMainSection from "@/components/CourseMainSection/CourseMainSection";
 
 export default function Course() {
-
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -43,15 +30,17 @@ export default function Course() {
   if (!course) {
     return (
       <div
-        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-          }`}
+        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${
+          scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+        }`}
         style={{
           minHeight: "calc( 100vh - 120px )",
         }}
       >
         <div
-          className={`divespaciador ${scrolled ? `${styles.headerspacerfixed}` : ``
-            } header-spacer`}
+          className={`divespaciador ${
+            scrolled ? `${styles.headerspacerfixed}` : ``
+          } header-spacer`}
         ></div>
         <h1 className="text-2xl mb-6">Course not available</h1>
         <Link
@@ -70,30 +59,33 @@ export default function Course() {
 
   return (
     <div
-      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-        }`}
+      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${
+        scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+      }`}
       style={{
         minHeight: "calc( 100vh - 120px )",
       }}
     >
       <div
-        className={`divespaciador ${scrolled ? `${styles.headerspacerfixed}` : ``
-          } header-spacer`}
+        className={`divespaciador ${
+          scrolled ? `${styles.headerspacerfixed}` : ``
+        } header-spacer`}
       ></div>
 
       <div className="flex items-center text-sm text-gray-500 mb-3 space-x-2">
-        <Link href="/" className="hover:text-rose-400 transition-colors">Home</Link>
-        <span className="select-none">{'>'}</span>
+        <Link href="/" className="hover:text-rose-400 transition-colors">
+          Home
+        </Link>
+        <span className="select-none">{">"}</span>
         <Link
-          href={course.languageToLearn === 'Spanish' ? '/spanish' : '/english'}
+          href={course.languageToLearn === "Spanish" ? "/spanish" : "/english"}
           className="hover:text-rose-400 transition-colors"
         >
           Courses
         </Link>
-        <span className="select-none">{'>'}</span>
+        <span className="select-none">{">"}</span>
         <span className="text-gray-700 font-medium">{course.title}</span>
       </div>
-
 
       {/* Sección principal */}
       <CourseMainSection course={course} />
