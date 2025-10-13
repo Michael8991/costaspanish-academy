@@ -87,7 +87,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 </div>
             </div>
 
-            <div className="flex w-full items-center mt-10 gap-4 justify-center">
+            {/* <div className="flex w-full items-center mt-10 gap-4 justify-center">
                 <div className="embla__buttons">
                     <PrevButton
                         onClick={() => onButtonAutoplayClick(onPrevButtonClick)}
@@ -106,7 +106,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 >
                     {isPlaying ? <Pause size={22} /> : <Play size={22} />}
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }

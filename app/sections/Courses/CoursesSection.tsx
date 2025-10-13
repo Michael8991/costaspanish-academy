@@ -39,7 +39,7 @@ export const CoursesSection = () => {
           </Link>
         </div>
         <p className="text-lg font-light text-center lg:text-start mb-2">English for Spanish</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-5 mx-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mb-5 justify-center mx-3">
           {englishCourses.map(course => (
             <div key={course._id} className="flex justify-center">
               <CourseCard
