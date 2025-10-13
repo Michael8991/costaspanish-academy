@@ -1,32 +1,34 @@
-import { Dot } from "lucide-react";
-import { TestimonialCard } from "@/components";
-// import styles from "./testimonialsSection.module.css";
+"use client"
+
+import EmblaCarousel from "@/components/TestimonialsCarousel/EmblaCarousel";
+
+const testimonials = [
+  { id: 1, name: "Maria", text: "Excellent experience!" },
+  { id: 2, name: "John", text: "Very helpful teachers." },
+  { id: 3, name: "Laura", text: "Fun classes and great atmosphere." },
+  { id: 4, name: "Tom", text: "Improved my English a lot." },
+  { id: 5, name: "Ana", text: "Highly recommend!" },
+  { id: 6, name: "Alex", text: "Loved it!" },
+  { id: 7, name: "Sara", text: "So professional!" },
+  { id: 8, name: "Lucas", text: "The best academy ever!" },
+  { id: 9, name: "Emma", text: "Great prices and great people." },
+];
 
 export const TestimonialsSection = () => {
+
+
   return (
     <section
       id="testimonials"
       style={{ backgroundColor: "#FFCCDD" }}
       className=""
     >
-      <div className="container py-5">
-        <p className="text-4xl font-extrabold">Testimonials</p>
-        <div className="grid grid-cols-1 lg:grid-cols-3">
-          <div className="flex justify-center my-2">
-            <TestimonialCard />
-          </div>
-          <div className="flex justify-center my-2">
-            <TestimonialCard />
-          </div>
-          <div className="flex justify-center my-2">
-            <TestimonialCard />
-          </div>
+      <div className="@container w-full max-w-7xl mx-auto py-5">
+        <div className="flex flex-col w-full items-center lg:items-start">
+          <h3 className="text-4xl font-extrabold mt-5 mb-2">Testimonials</h3>
+          <p className="text-md font-normal mb-5">What our students say</p>
         </div>
-        <div className="flex justify-center my-2">
-          <Dot className="w-8 h-8" />
-          <Dot className="w-8 h-8" />
-          <Dot className="w-8 h-8" />
-        </div>
+        <EmblaCarousel slides={testimonials} options={{ loop: true, }} />
       </div>
     </section>
   );

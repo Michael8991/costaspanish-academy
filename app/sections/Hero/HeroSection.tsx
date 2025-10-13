@@ -9,6 +9,7 @@ import { useMediaQuery } from "react-responsive";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export const HeroSection = () => {
   const isRegularScreen = useMediaQuery({ maxWidth: 1150 });
@@ -21,21 +22,32 @@ export const HeroSection = () => {
     };
     window.addEventListener("scroll", handleScroll);
   }, []);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    const headerOffset = 120;
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
 
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section
       id="home"
-      className={`@container flex flex-col justify-center pb-5 md:pb-0 items-center ${
-        scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-      }`}
+      className={`@container flex flex-col justify-center pb-5 md:pb-0 items-center ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+        }`}
       style={{
         minHeight: "calc( 100vh - 120px )",
       }}
     >
       <div
-        className={`${
-          scrolled ? `${styles.headerspacerfixed}` : ``
-        } header-spacer`}
+        className={`${scrolled ? `${styles.headerspacerfixed}` : ``
+          } header-spacer`}
       ></div>
       <div
         className={` grid grid-cols-1 lg:grid-cols-2 mt-3 h-fit max-w-7xl mx-auto`}
@@ -72,21 +84,15 @@ export const HeroSection = () => {
           >
             <div className="justify-center items-center grid-rows-1 w-full flex">
               <a
-                href="#courses"
-                className={`${styles.callToActionBtn} text-base font-normal py-3 px-3.5 mb-3 sm:!mb-0`}
+                onClick={() => scrollToSection("courses")}
+                className={`${styles.callToActionBtn} hover:scale-103 transition duration-150 ease-in-out group flex items-center gap-1 cursor-pointer text-base font-normal py-3 px-3.5 mb-3 sm:!mb-0`}
                 style={{ textDecoration: "none" }}
               >
-                See our courses
+                Check Out Our Best-Selling Courses
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition duration-150 ease-in-out" />
               </a>
             </div>
-            <div className="justify-center items-center grid-rows-1 md:ms-4 w-full flex">
-              <a
-                className={`${styles.seeOurCoursesBtn} ms-2 text-base font-normal gap-1 cursor-pointer`}
-              >
-                Start Learning Today!
-                <ArrowIcon />
-              </a>
-            </div>
+
           </div>
         </motion.div>
 

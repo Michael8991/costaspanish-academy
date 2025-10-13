@@ -1,9 +1,33 @@
+"use client"
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import styles from "./Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export const Footer = () => {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+
+  const scrollToSection = (id: string) => {
+    const scrollWithOffset = (targetId: string) => {
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      const yOffset = -120; // altura de tu header fijo
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    };
+
+    if (pathname !== "/") {
+      setScrollTarget(id); // recordamos a qué sección queremos ir
+      router.push("/"); // vamos a home
+    } else {
+      scrollWithOffset(id); // scroll con offset
+    }
+  };
   return (
     <div className="py-5" style={{ backgroundColor: "#FFCCDD" }}>
       <div className="@container max-w-7xl mx-auto">
@@ -59,32 +83,50 @@ export const Footer = () => {
                 className={`${styles.navContainer} flex align-middle items-center`}
               >
                 <li className="mx-2 whitespace-nowrap">
-                  <Link className={`${styles.navLinks}`} href="">
+                  <button
+                    onClick={() => scrollToSection("aboutUs")}
+                    className={`${styles.navLinks} cursor-pointer`}
+                  >
                     About us
-                  </Link>
+                  </button>
                 </li>
                 <li className="mx-2 whitespace-nowrap">
-                  <Link className={`${styles.navLinks}`} href="">
+                  <button
+                    onClick={() => scrollToSection("courses")}
+                    className={`${styles.navLinks}  cursor-pointer`}
+                  >
                     Our courses
-                  </Link>
+                  </button>
                 </li>
                 <li className="mx-2 whitespace-nowrap">
-                  <Link className={`${styles.navLinks}`} href="">
+                  <button
+                    onClick={() => scrollToSection("home")}
+                    className={`${styles.navLinks}  cursor-pointer`}
+                  >
                     Home
-                  </Link>
+                  </button>
                 </li>
                 <li className="mx-2 whitespace-nowrap">
-                  <Link className={`${styles.navLinks}`} href="#testimonials">
+                  <button
+                    onClick={() => scrollToSection("testimonials")}
+                    className={`${styles.navLinks} cursor-pointer`}
+                  >
                     Testimonials
-                  </Link>
+                  </button>
                 </li>
                 <li className="mx-2 whitespace-nowrap">
-                  <Link className={`${styles.navLinks}`} href="">
+                  <Link
+                    className={`${styles.navLinks}`}
+                    href="/contactUs"
+                  >
                     Contact us
                   </Link>
                 </li>
                 <li className="mx-2 whitespace-nowrap">
-                  <Link className={`${styles.navLinks}`} href="">
+                  <Link
+                    className={`${styles.navLinks} `}
+                    href="/blog"
+                  >
                     Blog
                   </Link>
                 </li>

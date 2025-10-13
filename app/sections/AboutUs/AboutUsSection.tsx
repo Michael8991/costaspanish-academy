@@ -20,7 +20,7 @@ export const AboutUsSection = () => {
     }
   };
   return (
-    <section id="aboutUs" className="bg-white w-full flex justify-center py-10 my-4">
+    <section id="aboutUs" className="bg-white w-full flex justify-center py-10 shadow-md">
       <div className="max-w-7xl w-7xl m-auto  grid grid-cols-1 lg:grid-cols-2 mx-5 lg:mx-3 xl:mx-0 items-center gap-4">
         <div className="order-2 lg:order-1 my-5">
           <div className="relative w-full h-[500px]">
