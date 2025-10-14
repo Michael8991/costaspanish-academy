@@ -78,7 +78,7 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
         hidden: {},
         show: { transition: { staggerChildren: 0.05 } },
       }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+      className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-4 md:gap-6 mb-6 px-5"
     >
       {filteredCourses.map((course) => (
         <motion.div
@@ -86,24 +86,28 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="border-none rounded-lg p-4 shadow-md bg-white hover:scale-102 transition duration-150 ease-in-out"
+          className="border-none rounded-lg p-3 sm:p-4 shadow-md bg-white hover:scale-102 transition duration-150 ease-in-out"
         >
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold">{course.title}</h2>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+            <h2 className="text-lg font-semibold text-center w-full sm:w-fit">
+              {course.title}
+            </h2>
             {course.status && (
               <span
-                className={`flex items-center text-xs font-semibold ${statusStyles[course.status]}`}
+                className={`flex items-center text-xs font-semibold mt-1 sm:mt-0 mx-auto sm:mx-0 ${statusStyles[course.status]}`}
               >
                 {statusIcons[course.status]}
                 {statusLabel[course.status]}
               </span>
             )}
           </div>
-          <p className="font-light text-base my-4">{course.longDesc.length > 240
-            ? course.longDesc.substring(0, 240) + "…"
-            : course.longDesc}</p>
-          <div className="flex gap-4 mt-4">
-            <div className="flex gap-4 w-full">
+          <p className="font-light text-base my-4 max-sm:text-center">
+            {course.longDesc.length > 240
+              ? course.longDesc.substring(0, 240) + "…"
+              : course.longDesc}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4">
+            <div className="flex flex-wrap gap-2 sm:gap-4 w-full max-sm:justify-center">
               <span className="flex items-center w-fit text-xs bg-gray-100 py-2 px-3 rounded-4xl">
                 <Tag size={16} className="mr-1" />
                 {levelLabel[course.level ?? "default"]}
@@ -119,10 +123,7 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
                 <p className="ml-1">persons</p>
               </span>
             </div>
-            <div className=" float-end items-center flex ">
-              {/* <p className="flex items-center text-sm font-semibold  bg-green-50 text-green-700 py-2 px-3 rounded-4xl">
-                {course.price}
-              </p> */}
+            <div className="flex justify-start sm:justify-end items-center mt-2 sm:mt-0 max-sm:w-full max-sm:justify-center">
               <Link
                 href={`/${course.slug}`}
                 className="group flex items-center gap-0.5 whitespace-nowrap text-sm font-medium bg-rose-400 text-white rounded-2xl py-2 px-3 transition"
