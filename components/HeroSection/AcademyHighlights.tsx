@@ -7,7 +7,7 @@ export const AcademyHighlights = () => {
       initial={{ opacity: 0, y: -80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-      className={`${styles.highLightsContainer} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 align-middle z-2 px-9 py-4 max-w-6xl mx-auto `}
+      className={`${styles.highLightsContainer} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 align-middle z-2 px-9 py-4 max-w-6xl xl:mx-auto mx-3`}
     >
       <div className={`flex flex-col justify-center`}>
         <p className="font-extrabold text-4xl mb-2">Why choose us?</p>

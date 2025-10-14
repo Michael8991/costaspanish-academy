@@ -70,7 +70,7 @@ export const ContactForm = () => {
     <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
       <div className="bg-white p-6 rounded-2xl shadow-sm relative">
         <div
-          className="absolute z-10 right-3 top-0 opacity-50"
+          className="absolute right-3 top-0 opacity-50"
           style={{ color: "#FF2E00", fontSize: 32, fontWeight: 800 }}
         >
           ¿?

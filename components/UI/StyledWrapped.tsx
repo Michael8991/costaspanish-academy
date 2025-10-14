@@ -1,18 +1,25 @@
-import styled from './StyledWrapped.module.css'
+import styled from "./StyledWrapped.module.css";
+type StyledWrapperd = {
+  onToggle: (value: boolean) => void;
+  isOpen: boolean; // agregado
+};
 
-type StyledWrapperd = { onToggle: (value: boolean) => void }
-export const StyledWrapped = ({ onToggle }: StyledWrapperd) => {
+export const StyledWrapped = ({ onToggle, isOpen }: StyledWrapperd) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onToggle(e.target.checked);
+  };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onToggle(e.target.checked) // enviamos true/false al padre
-    }
-
-    return (
-        <label htmlFor="check" className={`${styled.menuButton}`}>
-            <input id="check" type="checkbox" onChange={handleChange} />
-            <span className={`${styled.top}`} />
-            <span className={`${styled.mid}`} />
-            <span className={`${styled.bot}`} />
-        </label>
-    )
-}
+  return (
+    <label htmlFor="check" className={`${styled.menuButton}`}>
+      <input
+        id="check"
+        type="checkbox"
+        checked={isOpen} // <-- sincroniza visualmente el toggle
+        onChange={handleChange}
+      />
+      <span className={`${styled.top}`} />
+      <span className={`${styled.mid}`} />
+      <span className={`${styled.bot}`} />
+    </label>
+  );
+};
