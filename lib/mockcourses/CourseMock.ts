@@ -39,7 +39,7 @@ export interface ICourseData {
   imageUrl: string;
   createdAt?: Date;
   updatedAt?: Date;
-  status?: "inProgress" | "soon" | "pending";
+  status?: "inProgress" | "soon" | "pending" | "private";
   slug: string;
 }
 

@@ -81,7 +81,7 @@ export default function CourseMainSection({ course }: CourseProps) {
           </span>
           <Link
             className="py-3 px-10 bg-rose-400 text-white font-normal text-lg shadow-md rounded-md my-3 hover:scale-105 transition-transform"
-            href=""
+            href={`/${course.slug}/preinscription`}
           >
             Pre-register for the course
           </Link>
