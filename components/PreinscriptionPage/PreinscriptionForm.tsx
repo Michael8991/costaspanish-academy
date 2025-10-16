@@ -1,11 +1,35 @@
 import { ICourseData } from '@/lib/mockcourses/CourseMock';
-import React from 'react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form';
 
 type CourseProp = {
     course: ICourseData;
 }
 
+type FormFields = {
+    name: string,
+    email: string,
+    phone: string,
+    counrty: string,
+    level: string,
+    nativeLanguage: string,
+    availability: string,
+    experience: string,
+    previousCourses: string,
+    goals: string,
+    notes: string,
+    privacy: boolean
+}
+
 export const PreinscriptionForm = ({ course }: CourseProp) => {
+
+    const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string; } | null>(null)
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+        reset,
+    } = useForm<FormFields>({ mode: "onChange" });
     return (
         <div className='col-span-2 mx-3 m-3 xl:m-1'>
             <form className="space-y-6 bg-white p-6 rounded-md shadow-md text-gray-800">
@@ -39,6 +63,7 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
                         <div>
                             <label className="block text-sm font-medium mb-1">Selected course</label>
                             <input
+
                                 type="text"
                                 name="course"
                                 value={course.title}
@@ -50,22 +75,17 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
                             <label className="block text-sm font-medium mb-1">Spanish level</label>
                             <select name="level" className="w-full border p-2 rounded-md">
                                 <option value="">Select your level</option>
-                                <option value="A1">A1 – Beginner</option>
-                                <option value="A2">A2 – Elementary</option>
-                                <option value="B1">B1 – Intermediate</option>
-                                <option value="B2">B2 – Upper Intermediate</option>
-                                <option value="C1">C1 – Advanced</option>
-                                <option value="C2">C2 – Proficient</option>
+                                <option value="A1">A1 - Beginner</option>
+                                <option value="A2">A2 - Elementary</option>
+                                <option value="B1">B1 - Intermediate</option>
+                                <option value="B2">B2 - Upper Intermediate</option>
+                                <option value="C1">C1 - Advanced</option>
+                                <option value="C2">C2 - Proficient</option>
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium mb-1">Preferred class type</label>
-                            <select name="classType" className="w-full border p-2 rounded-md">
-                                <option value="">Select an option</option>
-                                <option value="group">Group lessons</option>
-                                <option value="private">Private lessons</option>
-                                <option value="intensive">Intensive course</option>
-                            </select>
+                            <label className="block text-sm font-medium mb-1">Native language</label>
+                            <input type="text" name="nativeLanguage" className="w-full border p-2 rounded-md" />
                         </div>
                         <div>
                             <label className="block text-sm font-medium mb-1">Availability</label>
@@ -125,14 +145,13 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
                 </div>
 
                 {/* Consent */}
-                <div className="flex items-start gap-2 text-sm text-gray-600">
-                    <input type="checkbox" name="privacy" required className="mt-[3px]" />
+                <div className="flex gap-2 text-sm text-gray-600 items-center">
+                    <input type="checkbox" name="privacy" required className="" />
                     <label>
                         I agree to the processing of my data in accordance with the academy’s privacy policy and understand
                         that this form does not imply any payment or financial commitment.
                     </label>
                 </div>
-
                 {/* Submit */}
                 <button
                     type="submit"

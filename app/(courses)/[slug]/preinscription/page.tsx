@@ -58,7 +58,7 @@ export default function Preinscription() {
 
     return (
         <div
-            className={`max-w-7xl mx-auto min-h-[calc(100vh-120px)]
+            className={`max-w-7xl flex flex-col justify-center items-center mx-auto min-h-[calc(100vh-120px)]
                 ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``}
                 `}
         >
