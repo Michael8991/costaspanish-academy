@@ -35,7 +35,7 @@ export const ContactForm = () => {
     mode: "onChange",
   });
 
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data: FormFields) => {
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -375,11 +375,10 @@ export const ContactForm = () => {
                   }
                   exit={{ opacity: 0, x: 100 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className={`p-2 rounded-xl shadow-xs flex items-center ${
-                    submitMessage.type === "success"
+                  className={`p-2 rounded-xl shadow-xs flex items-center ${submitMessage.type === "success"
                       ? "bg-green-200 text-green-800"
                       : "bg-red-200 text-red-800"
-                  }`}
+                    }`}
                 >
                   {submitMessage.type === "success" ? (
                     <CircleCheck size={16} className="w-5 h-5" />
