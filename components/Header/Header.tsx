@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
@@ -91,15 +92,13 @@ export const Header = () => {
       className="@container"
     >
       <div
-        className={`${
-          styles.headerWrapper
-        } w-full grid grid-cols-2 lg:grid-cols-3 
+        className={`${styles.headerWrapper
+          } w-full grid grid-cols-2 lg:grid-cols-3 
             sm:mt-0 
-            ${
-              scrolled
-                ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
-                : "bg-transparent"
-            } `}
+            ${scrolled
+            ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
+            : "bg-transparent"
+          } `}
       >
         {/* LOGO */}
         <div
@@ -134,9 +133,8 @@ export const Header = () => {
             <li className="mx-2 whitespace-nowrap">
               <button
                 onClick={() => scrollToSection("aboutUs")}
-                className={`${styles.navLinks} ${
-                  activeSection === "aboutUs" ? styles.activeNav : ""
-                } cursor-pointer`}
+                className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""
+                  } cursor-pointer`}
               >
                 About us
               </button>
@@ -144,9 +142,8 @@ export const Header = () => {
             <li className="mx-2 whitespace-nowrap">
               <button
                 onClick={() => scrollToSection("courses")}
-                className={`${styles.navLinks} ${
-                  activeSection === "courses" ? styles.activeNav : ""
-                } cursor-pointer`}
+                className={`${styles.navLinks} ${activeSection === "courses" ? styles.activeNav : ""
+                  } cursor-pointer`}
               >
                 Our courses
               </button>
@@ -154,9 +151,8 @@ export const Header = () => {
             <li className="mx-2 whitespace-nowrap">
               <button
                 onClick={() => scrollToSection("home")}
-                className={`${styles.navLinks} ${
-                  activeSection === "home" ? styles.activeNav : ""
-                } cursor-pointer`}
+                className={`${styles.navLinks} ${activeSection === "home" ? styles.activeNav : ""
+                  } cursor-pointer`}
               >
                 Home
               </button>
@@ -164,18 +160,16 @@ export const Header = () => {
             <li className="mx-2 whitespace-nowrap">
               <button
                 onClick={() => scrollToSection("testimonials")}
-                className={`${styles.navLinks} ${
-                  activeSection === "testimonials" ? styles.activeNav : ""
-                } cursor-pointer`}
+                className={`${styles.navLinks} ${activeSection === "testimonials" ? styles.activeNav : ""
+                  } cursor-pointer`}
               >
                 Testimonials
               </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${
-                  pathname === "/contactUs" ? styles.activeNav : ""
-                }`}
+                className={`${styles.navLinks} ${pathname === "/contactUs" ? styles.activeNav : ""
+                  }`}
                 href="/contactUs"
               >
                 Contact us
@@ -183,9 +177,8 @@ export const Header = () => {
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${
-                  pathname === "/blog" ? styles.activeNav : ""
-                }`}
+                className={`${styles.navLinks} ${pathname === "/blog" ? styles.activeNav : ""
+                  }`}
                 href="/blog"
               >
                 Blog
@@ -229,9 +222,8 @@ export const Header = () => {
                     scrollToSection("aboutUs");
                     setMenuOpen(false);
                   }}
-                  className={`${styles.navLinks} ${
-                    activeSection === "aboutUs" ? styles.activeNav : ""
-                  } cursor-pointer`}
+                  className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""
+                    } cursor-pointer`}
                 >
                   About us
                 </button>
@@ -242,9 +234,8 @@ export const Header = () => {
                     scrollToSection("courses");
                     setMenuOpen(false);
                   }}
-                  className={`${styles.navLinks} ${
-                    activeSection === "courses" ? styles.activeNav : ""
-                  } cursor-pointer`}
+                  className={`${styles.navLinks} ${activeSection === "courses" ? styles.activeNav : ""
+                    } cursor-pointer`}
                 >
                   Our courses
                 </button>
@@ -255,9 +246,8 @@ export const Header = () => {
                     scrollToSection("home");
                     setMenuOpen(false);
                   }}
-                  className={`${styles.navLinks} ${
-                    activeSection === "home" ? styles.activeNav : ""
-                  } cursor-pointer`}
+                  className={`${styles.navLinks} ${activeSection === "home" ? styles.activeNav : ""
+                    } cursor-pointer`}
                 >
                   Home
                 </button>
@@ -268,9 +258,8 @@ export const Header = () => {
                     scrollToSection("testimonials");
                     setMenuOpen(false);
                   }}
-                  className={`${styles.navLinks} ${
-                    activeSection === "testimonials" ? styles.activeNav : ""
-                  } cursor-pointer`}
+                  className={`${styles.navLinks} ${activeSection === "testimonials" ? styles.activeNav : ""
+                    } cursor-pointer`}
                 >
                   Testimonials
                 </button>
@@ -278,9 +267,8 @@ export const Header = () => {
               <li>
                 <Link
                   onClick={() => setMenuOpen(false)}
-                  className={`${styles.navLinks} ${
-                    pathname === "/contactUs" ? styles.activeNav : ""
-                  }`}
+                  className={`${styles.navLinks} ${pathname === "/contactUs" ? styles.activeNav : ""
+                    }`}
                   href="/contactUs"
                 >
                   Contact us
@@ -289,9 +277,8 @@ export const Header = () => {
               <li>
                 <Link
                   onClick={() => setMenuOpen(false)}
-                  className={`${styles.navLinks} ${
-                    pathname === "/blog" ? styles.activeNav : ""
-                  }`}
+                  className={`${styles.navLinks} ${pathname === "/blog" ? styles.activeNav : ""
+                    }`}
                   href="/blog"
                 >
                   Blog
@@ -303,12 +290,7 @@ export const Header = () => {
                     Log in
                   </a>
                 </button>
-                <button className={`${styles.switchBtnLng} flex`}>
-                  <span className="font-medium" style={{ color: "#FB6F92" }}>
-                    EN
-                  </span>
-                  <Globe className="ms-1" color="#FB6F92" />
-                </button>
+                <LanguageSwitcher />
               </li>
             </ul>
           </motion.div>
