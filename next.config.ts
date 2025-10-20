@@ -1,7 +1,10 @@
+import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+// Indica la ruta de tu archivo de configuración de i18n
+const withNextIntl = createNextIntlPlugin('./lib/i18n/request.ts');
 
-export default nextConfig;
+const nextConfig: NextConfig = {
+
+};
+export default withNextIntl(nextConfig);

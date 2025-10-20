@@ -1,28 +1,41 @@
-import { useState } from "react";
-import { Globe } from "lucide-react";
-import { useTranslation } from "react-i18next";
+'use client';
+
+import { useState } from 'react';
+import { Globe } from 'lucide-react';
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
+  const { locale } = useParams(); // idioma actual
+  const pathname = usePathname();
+  const router = useRouter();
 
   const languages = [
-    { code: "es", label: "ES" },
-    { code: "en", label: "EN" },
-    { code: "fr", label: "FR" },
-    { code: "de", label: "DE" },
+    { code: 'es', label: 'ES' },
+    { code: 'en', label: 'EN' },
+    // { code: 'fr', label: 'FR' },
+    // { code: 'de', label: 'DE' },
   ];
 
+  // Cambia el idioma manteniendo la ruta actual
   const changeLanguage = (code: string) => {
-    i18n.changeLanguage(code);
+    if (code === locale) {
+      setOpen(false);
+      return;
+    }
+    const segments = pathname.split('/');
+    segments[1] = code; // reemplaza el primer segmento del locale
+    const newPath = segments.join('/') || '/';
+    router.push(newPath);
     setOpen(false);
   };
-  console.log("Render LanguageSwitcher, open:", open);
+
   return (
-    <div className="relative">
-      <button onClick={() => setOpen(!open)} className={`flex items-center`}>
-        <span className="font-medium" style={{ color: "#FB6F92" }}>
-          {i18n.language.toUpperCase()}
+    <div className="relative me-10" >
+      <button onClick={() => setOpen(!open)} className="flex items-center cursor-pointer">
+        <span className="font-medium" style={{ color: '#FB6F92' }}>
+          {String(locale).toUpperCase()}
         </span>
         <Globe className="ms-1" color="#FB6F92" />
       </button>
@@ -33,9 +46,9 @@ const LanguageSwitcher = () => {
             <button
               key={lng.code}
               onClick={() => changeLanguage(lng.code)}
-              className="w-full text-left px-3 py-2 text-sm font-medium hover:bg-pink-50 transition"
+              className="cursor-pointer w-full text-left px-3 py-2 text-sm font-medium hover:bg-pink-50 transition rounded-xl"
               style={{
-                color: i18n.language === lng.code ? "#FB6F92" : "#444",
+                color: locale === lng.code ? '#FB6F92' : '#444',
               }}
             >
               {lng.label}

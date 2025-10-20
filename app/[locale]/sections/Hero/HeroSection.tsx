@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { AcademyHighlights, Circle } from "@/components";
 import styles from "./heroSection.module.css";
@@ -11,7 +11,13 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
+import { useTranslations } from 'next-intl';
+
 export const HeroSection = () => {
+
+  //Translations
+  const t = useTranslations('common');
+
   const isRegularScreen = useMediaQuery({ maxWidth: 1150 });
 
   const [scrolled, setScrolled] = useState(false);
