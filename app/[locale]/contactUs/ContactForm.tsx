@@ -93,7 +93,7 @@ export const ContactForm = () => {
                 id="firstName"
                 type="text"
                 autoComplete="off"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
               />
               {errors.firstName && <p className="text-sm text-red-600 mt-1">{errors.firstName.message}</p>}
             </div>
@@ -107,7 +107,7 @@ export const ContactForm = () => {
                 id="lastName"
                 type="text"
                 autoComplete="off"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
               />
               {errors.lastName && <p className="text-sm text-red-600 mt-1">{errors.lastName.message}</p>}
             </div>
@@ -126,7 +126,7 @@ export const ContactForm = () => {
               id="email"
               type="email"
               autoComplete="off"
-              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
             />
             {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
           </div>
@@ -140,7 +140,7 @@ export const ContactForm = () => {
               <select
                 {...register("topic", { required: t("errors.topic") })}
                 id="topic"
-                className="w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+                className="w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
               >
                 {Object.entries(topics).map(([key, label]) => (
                   <option key={key} value={key}>
@@ -162,7 +162,7 @@ export const ContactForm = () => {
               {...register("textMessage", { required: t("errors.message") })}
               id="textMessage"
               rows={4}
-              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
               placeholder={t("form.messagePlaceholder")}
             />
             {errors.textMessage && <p className="text-sm text-red-600 mt-1">{errors.textMessage.message}</p>}
