@@ -1,0 +1,19 @@
+{
+    "status": {
+        "inProgress": "In progress",
+        "soon": "Coming soon",
+        "pending": "Open registrations"
+    },
+    "levels": {
+        "default": "All levels"
+    },
+    "labels": {
+        "max": "max.",
+        "persons": "persons",
+        "moreInfo": "More info"
+    },
+    "breadcrumbs": {
+        "home": "Home",
+        "courses": "Courses"
+    }
+}

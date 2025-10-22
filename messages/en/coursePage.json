@@ -1,0 +1,36 @@
+{
+    "notFoundTitle": "Course not available",
+    "notFoundDescription": "This course could not be found.",
+    "goHome": "Go to Home",
+    "preRegister": "Pre-register for the course",
+    "status": {
+        "inProgress": "In progress",
+        "soon": "Coming soon",
+        "pending": "Open registrations"
+    },
+    "details": {
+        "title": "Course details",
+        "hoursPerWeek": "Hours per week",
+        "duration": "Duration of course",
+        "limit": "Limit of places per group",
+        "students": "students",
+        "level": "Course level goal",
+        "modality": "Course modality"
+    },
+    "modules": {
+        "badge": "Modules",
+        "title": "What You’ll Learn",
+        "description": "Explore the lessons and topics covered in this course to see exactly what you’ll learn step by step.",
+        "show": "Show course modules",
+        "hide": "Hide course modules"
+    },
+    "faq": {
+        "badge": "FAQ",
+        "title": "Everything You Need to Know",
+        "description": "Find answers to the most common questions about our courses. If you need more help, feel free to contact us directly.",
+        "show": "Show FAQs",
+        "hide": "Hide FAQs",
+        "contactText": "Can’t find what you’re looking for? Reach out to our team and we’ll be happy to assist you.",
+        "contactBtn": "Contact us"
+    }
+}

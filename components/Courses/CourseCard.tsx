@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { JSX } from "react";
+import { useParams } from "next/navigation";
 
 interface CourseCardProps {
   titleCard: string;
@@ -33,6 +34,9 @@ export const CourseCard = ({
   status,
 }: CourseCardProps) => {
   const t = useTranslations("CourseCard");
+
+  const params = useParams();
+  const locale = params?.locale as string;
 
   const statusStyles: Record<string, string> = {
     inProgress: "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
@@ -96,7 +100,7 @@ export const CourseCard = ({
 
       <div className="flex w-full justify-center">
         <Link
-          href={`/${slug}`}
+          href={`/${locale}/${slug}`}
           className="hover:scale-103 duration-150 ease-in group flex items-center gap-0.5 whitespace-nowrap text-sm font-medium bg-rose-400 text-white rounded-2xl py-2 px-3 transition"
         >
           {t("moreInfo")}

@@ -1,15 +1,20 @@
 "use client";
+
 import React, { useState } from "react";
 import { IFaqData } from "@/lib/mockcourses/CourseMock";
 import { ChevronDown, ChevronUp, CircleQuestionMark } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 
 type FaqAccordionProps = {
     faqs: IFaqData[];
 };
 
 export default function FaqAccordion({ faqs }: FaqAccordionProps) {
+    const t = useTranslations("coursePage");
+    const { locale } = useParams();
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -22,26 +27,22 @@ export default function FaqAccordion({ faqs }: FaqAccordionProps) {
             {/* --- Header --- */}
             <div className="w-full flex flex-col justify-start bg-white p-5 rounded-t-md">
                 <span className="py-1 px-2 rounded-md shadow-md w-fit flex items-center bg-rose-400 text-white text-xs mb-4">
-                    FAQ
+                    {t("faq.badge")}
                 </span>
-                <h3 className="text-xl font-semibold mb-2">Everything You Need to Know</h3>
-                <p className="text-md text-gray-700">
-                    Find answers to the most common questions about our courses. If you need
-                    more help, feel free to contact us directly.
-                </p>
+                <h3 className="text-xl font-semibold mb-2">{t("faq.title")}</h3>
+                <p className="text-md text-gray-700">{t("faq.description")}</p>
 
-                {/* Toggle button for expanding/collapsing entire section */}
                 <button
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="mt-4 flex items-center gap-2 text-rose-500 hover:text-rose-600 transition-colors text-sm font-medium cursor-pointer"
                 >
                     {isExpanded ? (
                         <>
-                            <ChevronUp size={16} /> Hide FAQs
+                            <ChevronUp size={16} /> {t("faq.hide")}
                         </>
                     ) : (
                         <>
-                            <ChevronDown size={16} /> Show FAQs
+                            <ChevronDown size={16} /> {t("faq.show")}
                         </>
                     )}
                 </button>
@@ -84,40 +85,44 @@ export default function FaqAccordion({ faqs }: FaqAccordionProps) {
                                         </motion.div>
                                     </motion.button>
 
-                                    <motion.div
-                                        layout
-                                        initial={{ opacity: 0, marginTop: 0, marginBottom: 0 }}
-                                        animate={{
-                                            opacity: isOpen ? 1 : 0,
-                                            marginTop: isOpen ? 10 : 0,
-                                            marginBottom: isOpen ? 10 : 0,
-                                        }}
-                                        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                                        className="px-5 text-gray-700 text-md"
-                                    >
-                                        {isOpen && <p>{faq.answer}</p>}
-                                    </motion.div>
+                                    <AnimatePresence>
+                                        {isOpen && (
+                                            <motion.div
+                                                initial={{ opacity: 0, marginTop: 0, marginBottom: 0 }}
+                                                animate={{
+                                                    opacity: 1,
+                                                    marginTop: 10,
+                                                    marginBottom: 10,
+                                                }}
+                                                exit={{
+                                                    opacity: 0,
+                                                    marginTop: 0,
+                                                    marginBottom: 0,
+                                                }}
+                                                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                                                className="px-5 text-gray-700 text-md"
+                                            >
+                                                <p>{faq.answer}</p>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </motion.div>
                             );
                         })}
 
                         {/* --- Contact CTA --- */}
                         <div className="col-span-1 md:col-span-2 flex flex-col items-center mt-4 px-5">
-                            <p className="text-center">
-                                Can’t find what you’re looking for? Reach out to our team and we’ll be
-                                happy to assist you.
-                            </p>
+                            <p className="text-center">{t("faq.contactText")}</p>
                             <Link
                                 className="py-2 px-3 rounded-md bg-rose-400 text-white shadow-md mt-2 hover:scale-101 hover:cursor-pointer"
-                                href="/contactUs"
+                                href={`/${locale}/contactUs`}
                             >
-                                Contact us
+                                {t("faq.contactBtn")}
                             </Link>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-
         </div>
     );
 }

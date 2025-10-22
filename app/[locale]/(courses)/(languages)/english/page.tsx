@@ -1,30 +1,31 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import EnglishCoursesClient from "./EnglishCoursesClient";
 
-import React, { useState } from "react";
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: "courses" });
 
-import { CoursesCatalog } from "@/components/CoursesCatalog/CoursesCatalog";
-import { FilterBarCourses } from "@/components/filterBarCourses/FilterBarCourses";
-import { CourseFilters } from "@/types";
-import Link from "next/link";
+  return {
+    title: t("english.metadata.title"),
+    description: t("english.metadata.description"),
+    alternates: {
+      canonical: `https://www.costaspanishclass.com/${params.locale}/english`,
+      languages: {
+        en: "https://www.costaspanishclass.com/en/english",
+        es: "https://www.costaspanishclass.com/es/english"
+      }
+    },
+    openGraph: {
+      title: t("english.metadata.title"),
+      description: t("english.metadata.description"),
+      url: `https://www.costaspanishclass.com/${params.locale}/english`,
+      siteName: "Costa Spanish Academy",
+      locale: params.locale,
+      type: "website"
+    }
+  };
+}
 
-export default function EnglishCourses() {
-  const [filters, setFilters] = useState<CourseFilters>({
-    language: "English",
-  });
-
-  return (
-    <>
-      <FilterBarCourses filters={filters} setFilters={setFilters} />
-      <div className="flex items-center text-sm text-gray-500 mb-3 space-x-2 px-5">
-        <Link href="/" className="hover:text-rose-400 transition-colors">
-          Home
-        </Link>
-        <span className="select-none">{">"}</span>
-        <Link href="#" className="hover:text-rose-400 transition-colors">
-          Courses
-        </Link>
-      </div>
-      <CoursesCatalog filters={filters} />
-    </>
-  );
+export default function Page() {
+  return <EnglishCoursesClient />;
 }

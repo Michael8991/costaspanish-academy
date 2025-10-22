@@ -1,0 +1,35 @@
+{
+    "filters": {
+        "labels": {
+            "language": "Language",
+            "status": "Status",
+            "modality": "Modality",
+            "level": "Level",
+            "apply": "Apply Filters",
+            "reset": "Reset Filters"
+        },
+        "languageOptions": [
+            "Spanish",
+            "English"
+        ],
+        "statusOptions": {
+            "inProgress": "In progress",
+            "soon": "Coming soon",
+            "pending": "Open registrations"
+        },
+        "modalityOptions": {
+            "Intensive": "Intensive course",
+            "SemiIntensive": "Semi-Intensive course",
+            "Standar": "Standard course",
+            "Private": "Private lesson"
+        },
+        "levelOptions": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ]
+    }
+}

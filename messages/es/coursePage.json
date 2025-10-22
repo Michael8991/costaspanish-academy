@@ -1,0 +1,36 @@
+{
+    "notFoundTitle": "Curso no disponible",
+    "notFoundDescription": "No se pudo encontrar este curso.",
+    "goHome": "Ir al inicio",
+    "preRegister": "Preinscribirme en el curso",
+    "status": {
+        "inProgress": "En curso",
+        "soon": "Próximamente",
+        "pending": "Inscripciones abiertas"
+    },
+    "details": {
+        "title": "Detalles del curso",
+        "hoursPerWeek": "Horas por semana",
+        "duration": "Duración del curso",
+        "limit": "Límite de plazas por grupo",
+        "students": "alumnos",
+        "level": "Nivel objetivo",
+        "modality": "Modalidad del curso"
+    },
+    "modules": {
+        "badge": "Módulos",
+        "title": "Lo que aprenderás",
+        "description": "Explora las lecciones y temas de este curso para ver paso a paso lo que aprenderás.",
+        "show": "Mostrar módulos del curso",
+        "hide": "Ocultar módulos del curso"
+    },
+    "faq": {
+        "badge": "Preguntas frecuentes",
+        "title": "Todo lo que necesitas saber",
+        "description": "Encuentra respuestas a las preguntas más comunes sobre nuestros cursos. Si necesitas más ayuda, contáctanos directamente.",
+        "show": "Mostrar preguntas frecuentes",
+        "hide": "Ocultar preguntas frecuentes",
+        "contactText": "¿No encuentras lo que buscas? Ponte en contacto con nuestro equipo y estaremos encantados de ayudarte.",
+        "contactBtn": "Contáctanos"
+    }
+}

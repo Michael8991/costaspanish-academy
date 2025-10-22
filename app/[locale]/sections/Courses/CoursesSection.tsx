@@ -5,9 +5,13 @@ import { mockCourses } from '@/lib/mockcourses/mockCourses';
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 
 export const CoursesSection = () => {
   const t = useTranslations("CoursesSection");
+
+  const params = useParams();
+  const locale = params?.locale as string;
 
   const spanishCourses = mockCourses.filter(
     (course) => course.topCourses && course.languageToLearn === "Spanish"
@@ -49,7 +53,7 @@ export const CoursesSection = () => {
 
         <div className="max-w-7xl flex align-middle justify-center mb-5">
           <Link
-            href="/spanish"
+            href={`/${locale}/spanish`}
             className="flex rounded-lg hover:bg-rose-400 py-2 px-3 hover:scale-105 transition-all duration-100 hover:shadow-xl focus:outline-none hover:text-white"
           >
             <ChevronDown size={24} className="mr-1" />
@@ -83,7 +87,7 @@ export const CoursesSection = () => {
 
         <div className="max-w-7xl flex align-middle justify-center mb-2">
           <Link
-            href="/english"
+            href={`/${locale}/english`}
             className="flex rounded-lg hover:bg-rose-400 py-2 px-3 hover:scale-105 transition-all duration-100 hover:shadow-xl focus:outline-none hover:text-white"
           >
             <ChevronDown size={24} className="mr-1" />

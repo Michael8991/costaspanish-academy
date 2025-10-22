@@ -46,8 +46,13 @@ export default async function LocaleLayout({ children, params }: Props) {
   const common = (await import(`../../messages/${locale}/common.json`)).default;
   const home = (await import(`../../messages/${locale}/home.json`)).default;
   const contact = (await import(`../../messages/${locale}/contact.json`)).default;
+  const courses = (await import(`../../messages/${locale}/courses.json`)).default;
+  const filters = (await import(`../../messages/${locale}/filters.json`)).default;
+  const coursesCatalog = (await import(`../../messages/${locale}/coursesCatalog.json`)).default;
+  const coursePage = (await import(`../../messages/${locale}/coursePage.json`)).default;
+  const preinscription = (await import(`../../messages/${locale}/preinscription.json`)).default;
 
-  const messages = { ...common, ...home, contact };
+  const messages = { ...common, ...home, contact, courses, ...filters, coursesCatalog, coursePage, preinscription };
 
   return (
     <html lang={locale}>

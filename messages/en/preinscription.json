@@ -1,0 +1,108 @@
+{
+    "metadata": {
+        "titleSuffix": "Pre-registration | Costa Spanish Academy",
+        "description": "Complete your pre-registration for the {course} course and secure your spot. We'll contact you within 24 hours.",
+        "notFoundTitle": "Course not available | Costa Spanish Academy",
+        "notFoundDescription": "The course you’re looking for is not available at this time."
+    },
+    "breadcrumbs": {
+        "home": "Home",
+        "courses": "Courses",
+        "preinscription": "Pre-registration"
+    },
+    "notFound": {
+        "title": "Course not available",
+        "homeBtn": "Go back home"
+    },
+    "info": {
+        "status": {
+            "inProgress": "In progress",
+            "soon": "Coming soon",
+            "pending": "Open registrations",
+            "private": "Private course"
+        },
+        "pending": {
+            "p1": "This course is currently in the pre-enrolment phase. We’re organizing new groups and confirming the final schedule based on student interest and availability.",
+            "p2": "The information you provide is used solely to manage your pre-registration, help us schedule your start date, and place you in the group that best matches your level and goals.",
+            "p3": "By completing this form, you’ll secure priority access once the group is confirmed and receive all details (start date, timetable, and format) directly from our academic team within 24 working hours.",
+            "p4": "There’s no payment or commitment at this stage. This pre-registration simply helps us match your profile with other learners and open the group that best fits your level and preferences.",
+            "p5": "At Costa Spanish Academy, we value your trust and are committed to providing a serious, transparent, and personalized learning environment.",
+            "p6": "Start your Spanish journey today — your place is waiting!"
+        },
+        "soon": {
+            "p1": "This course will be available very soon. You can pre-register now to get priority access.",
+            "p2": "The information you provide is used solely to manage your pre-registration, help us schedule your start date, and place you in the group that best matches your level and goals.",
+            "p3": "Submitting this form does not involve any payment or financial commitment. Our team will personally reach out to you within 24 hours to explain the next steps.",
+            "p4": "At Costa Spanish Academy, we value your trust and are committed to providing a serious, transparent, and personalized learning environment.",
+            "p5": "Get ahead and join our priority list of future students!"
+        },
+        "inProgress": {
+            "p1": "This course is already in progress, but you can still check availability or pre-book your spot for the next session.",
+            "p2": "The information you provide is used solely to manage your pre-registration, help us schedule your start date, and place you in the group that best matches your level and goals.",
+            "p3": "Submitting this form does not involve any payment or financial commitment. Our team will personally reach out to you within 24 hours to explain the next steps.",
+            "p4": "At Costa Spanish Academy, we value your trust and are committed to providing a serious, transparent, and personalized learning environment.",
+            "p5": "Start learning Spanish your way — we’ll make it easy for you."
+        },
+        "private": {
+            "p1": "You can start anytime — no need to join an ongoing group. We’ll tailor the schedule to your availability.",
+            "p2": "The information you provide is used solely to manage your pre-registration, help us schedule your start date, and plan your personalized lessons.",
+            "p3": "Submitting this form does not involve any payment or financial commitment. Our team will personally reach out to you within 24 hours to explain the next steps.",
+            "p4": "At Costa Spanish Academy, we value your trust and are committed to providing a serious, transparent, and personalized learning environment.",
+            "p5": "Start learning Spanish your way — we’ll make it easy for you."
+        },
+        "contact": {
+            "title": "For more information contact us via:",
+            "whatsapp": "WhatsApp: +34 604 80 92 08",
+            "email": "Email: info@costaspanishclass.com",
+            "privacy": "We will never share your data with third parties or use it for marketing purposes. It will only be used to contact you and ensure you have the best possible learning experience."
+        }
+    },
+    "form": {
+        "sections": {
+            "personal": "Personal information",
+            "course": "Course preferences",
+            "background": "Learning background",
+            "additional": "Additional information"
+        },
+        "labels": {
+            "name": "Full name *",
+            "email": "Email *",
+            "phone": "Phone (with country code)",
+            "country": "Country of residence",
+            "course": "Selected course",
+            "level": "Spanish level *",
+            "nativeLanguage": "Native language",
+            "availability": "Availability *",
+            "experience": "How long have you studied Spanish? *",
+            "previousCourses": "Have you studied Spanish in a classroom before? *",
+            "goals": "What are your main goals for learning Spanish? *",
+            "notes": "Additional information",
+            "privacy": "I agree to the processing of my data in accordance with the academy’s privacy policy and understand that this form does not imply any payment or financial commitment."
+        },
+        "placeholders": {
+            "goals": "E.g. travel, work, study abroad, conversation, DELE exam...",
+            "notes": "Tell us anything that could help us adapt the course to you (learning style, specific needs, schedule restrictions...)"
+        },
+        "errors": {
+            "name": "Please enter your name",
+            "email": "Please enter a valid email address",
+            "level": "Please select your Spanish level",
+            "availability": "Please select your availability",
+            "experience": "Please select your experience level",
+            "previousCourses": "Please select an option",
+            "goals": "Please enter your learning goals",
+            "privacy": "You must accept the privacy policy to proceed.",
+            "nativeLanguage": "Please enter your native language"
+        },
+        "messages": {
+            "successTitle": "Pre-registration sent successfully!",
+            "successText": "Your pre-registration has been sent successfully! You will receive an email confirming your pre-registration.",
+            "errorTitle": "Something went wrong",
+            "errorText": "There was an error sending your pre-registration. Please try again later."
+        },
+        "buttons": {
+            "submit": "Send pre-registration",
+            "back": "Back to homepage"
+        }
+    }
+}
