@@ -6,10 +6,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import styles from "@/app/sections/Hero/heroSection.module.css";
+import styles from "@/app/[locale]/sections/Hero/heroSection.module.css";
 import FaqAccordion from "@/components/Faq/FaqAccordion";
 import { generalFaq } from "@/lib/mockcourses/mockFaq";
-import CourseModule from "../../../components/CourseModules/CourseModule";
+import CourseModule from "../../../../components/CourseModules/CourseModule";
 import CourseMainSection from "@/components/CourseMainSection/CourseMainSection";
 
 export default function Course() {
@@ -30,17 +30,15 @@ export default function Course() {
   if (!course) {
     return (
       <div
-        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${
-          scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-        }`}
+        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+          }`}
         style={{
           minHeight: "calc( 100vh - 120px )",
         }}
       >
         <div
-          className={`divespaciador ${
-            scrolled ? `${styles.headerspacerfixed}` : ``
-          } header-spacer`}
+          className={`divespaciador ${scrolled ? `${styles.headerspacerfixed}` : ``
+            } header-spacer`}
         ></div>
         <h1 className="text-2xl mb-6">Course not available</h1>
         <Link
@@ -59,17 +57,15 @@ export default function Course() {
 
   return (
     <div
-      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${
-        scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-      }`}
+      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
+        }`}
       style={{
         minHeight: "calc( 100vh - 120px )",
       }}
     >
       <div
-        className={`divespaciador ${
-          scrolled ? `${styles.headerspacerfixed}` : ``
-        } header-spacer`}
+        className={`divespaciador ${scrolled ? `${styles.headerspacerfixed}` : ``
+          } header-spacer`}
       ></div>
 
       <div className="flex items-center text-sm text-gray-500 mb-3 space-x-2">

@@ -1,6 +1,7 @@
 "use client"
 
 import EmblaCarousel from "@/components/TestimonialsCarousel/EmblaCarousel";
+import { useTranslations } from "next-intl";
 
 const testimonials = [
   { id: 1, name: "Maria", text: "Excellent experience!" },
@@ -15,20 +16,16 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
-
+  const t = useTranslations("TestimonialsSection");
 
   return (
-    <section
-      id="testimonials"
-      style={{ backgroundColor: "#FFCCDD" }}
-      className=""
-    >
+    <section id="testimonials" style={{ backgroundColor: "#FFCCDD" }} className="pb-10">
       <div className="@container w-full max-w-7xl mx-auto py-5">
         <div className="flex flex-col w-full items-center lg:items-start">
-          <h3 className="text-4xl font-extrabold mt-5 mb-2">Testimonials</h3>
-          <p className="text-md font-normal mb-5">What our students say</p>
+          <h2 className="text-4xl font-extrabold mt-5 mb-2">{t("title")}</h2>
+          <p className="text-md font-normal mb-5">{t("subtitle")}</p>
         </div>
-        <EmblaCarousel slides={testimonials} options={{ loop: true, }} />
+        <EmblaCarousel slides={testimonials} options={{ loop: true }} />
       </div>
     </section>
   );

@@ -1,0 +1,113 @@
+{
+    "HeroSection": {
+        "title": {
+            "base": "Learn Spanish through its",
+            "words": [
+                "culture",
+                "people",
+                "language"
+            ]
+        },
+        "subtitle": "Expert language training for adults, teens, and kids",
+        "cta": "Check Out Our Best-Selling Courses",
+        "flags": {
+            "spanishAlt": "Spanish courses - Spain flag",
+            "englishAlt": "English courses - UK flag"
+        }
+    },
+    "AcademyHighlights": {
+        "title": "Why choose us?",
+        "subtitle": "The difference is in the details, and how much we care.",
+        "cards": [
+            {
+                "title": "Native & Qualified",
+                "text": "Learn with experienced native speakers who make learning fun and real.",
+                "alt": "qualified teacher icon"
+            },
+            {
+                "title": "Proven Methodology",
+                "text": "A mix of immersion, repetition, and real conversation.",
+                "alt": "books icon"
+            },
+            {
+                "title": "We Care",
+                "text": "You are not just another student. We guide and support you personally.",
+                "alt": "we care icon"
+            }
+        ]
+    },
+    "AboutUsSection": {
+        "title": "Learn <span1>Spanish</span1> with <span2>Native Teachers</span2>",
+        "subtitle": "Personalized classes tailored to your pace, level, and goals.",
+        "paragraphs": [
+            "At <strong>Costa Spanish Academy</strong>, we help you learn and improve your Spanish or English through a practical and personalized approach. Our lessons are designed for all ages and profiles, offering a flexible and comfortable learning experience.",
+            "We believe language learning should be more than grammar — it's about connection, culture, and confidence. That's why our classes focus on real-world situations, natural conversation, and cultural immersion, helping you speak Spanish from day one."
+        ],
+        "list": [
+            {
+                "title": "Intensive Spanish Courses Online",
+                "text": "Fast-paced programs for quick progress."
+            },
+            {
+                "title": "Semi-Intensive Spanish Courses",
+                "text": "Balanced schedule for consistent learning."
+            },
+            {
+                "title": "Private Spanish Classes for Beginners",
+                "text": "One-to-one lessons tailored to your goals."
+            },
+            {
+                "title": "Spanish Conversation Lessons with Native Teachers",
+                "text": "Improve fluency and pronunciation through real interaction."
+            },
+            {
+                "title": "Spanish for Specific Purposes",
+                "text": "Specialized courses for business, tourism, or healthcare."
+            },
+            {
+                "title": "English Classes for Spanish Speakers",
+                "text": "Standard 2-hour-per-week lessons (semi-intensive options coming soon)."
+            }
+        ],
+        "button": "Discover our courses",
+        "experienceYears": "+3",
+        "experienceLabel": "years\nof experience",
+        "images": {
+            "teacherAlt": "Spanish native teacher"
+        }
+    },
+    "CoursesSection": {
+        "title": "Classes",
+        "spanish": {
+            "subtitle": "Spanish for foreigners (ELE)",
+            "cta": "See all courses of Spanish"
+        },
+        "english": {
+            "subtitle": "English for Spanish speakers",
+            "cta": "See all courses of English"
+        }
+    },
+    "CourseCard": {
+        "status": {
+            "inProgress": "In progress",
+            "soon": "Coming soon",
+            "pending": "Open registrations"
+        },
+        "level": {
+            "default": "All levels"
+        },
+        "modality": {
+            "Intensive": "Intensive",
+            "SemiIntensive": "Semi-intensive",
+            "Standar": "Standard",
+            "Private": "Private"
+        },
+        "persons": "persons",
+        "moreInfo": "More info",
+        "alt": "Course image: {title}"
+    },
+    "TestimonialsSection": {
+        "title": "Testimonials",
+        "subtitle": "What our students say"
+    }
+}

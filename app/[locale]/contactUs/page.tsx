@@ -1,49 +1,30 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import ContactClient from "./ContactClient";
 
-import { useEffect, useRef, useState } from "react";
-import { useInView, motion } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  const t = await getTranslations({ locale: params.locale, namespace: "contact" });
 
-import { ContactForm } from "./ContactForm";
-import styles from "./contactPage.module.css";
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+    alternates: {
+      canonical: `https://www.costaspanishclass.com/${params.locale}/contactUs`,
+      languages: {
+        en: "https://www.costaspanishclass.com/en/contactUs",
+        es: "https://www.costaspanishclass.com/es/contactUs",
+      },
+    },
+    openGraph: {
+      title: t("metadata.title"),
+      description: t("metadata.description"),
+      url: `https://www.costaspanishclass.com/${params.locale}/contactUs`,
+      siteName: "Costa Spanish Academy",
+      locale: params.locale,
+      type: "website",
+    },
+  };
+}
 
-export default function ContactPage() {
-  //Scroll navbar:
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-300px 0px -300px 0px",
-  });
-
-  const isRegularScreen = useMediaQuery({ maxWidth: 1150 });
-
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      setScrolled(offset > 1);
-    };
-    window.addEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-      className={`@container max-w-6xl mx-auto  ${
-        scrolled ? `${styles.headerspacerfixedbigscreen}` : ``
-      }`}
-      style={{
-        minHeight: "calc( 100vh - 120px )",
-      }}
-    >
-      <div
-        className={`${
-          scrolled ? `${styles.headerspacerfixed}` : ``
-        } header-spacer`}
-      ></div>
-      <ContactForm />
-    </motion.div>
-  );
+export default function Page() {
+  return <ContactClient />;
 }

@@ -1,0 +1,55 @@
+{
+    "metadata": {
+        "title": "Contacto | Costa Spanish Academy",
+        "description": "Contacta con Costa Spanish Academy. Pregunta por nuestros cursos, horarios, clases de prueba o formación para empresas. Atención personalizada."
+    },
+    "title": "¿Tienes alguna pregunta?",
+    "intro": {
+        "p1": "Estamos aquí para ayudarte. Rellena el formulario o contáctanos por email, WhatsApp o teléfono. Nuestro equipo te guiará y se asegurará de que tengas la mejor experiencia.",
+        "p2": "Puedes preguntar sobre precios, disponibilidad, horarios, clases de prueba, clases grupales o privadas, formación para empresas o cualquier otra duda.",
+        "p3": "Tiempo de respuesta: todas las consultas reciben una respuesta personalizada en un plazo máximo de 24 horas laborales (lunes a viernes, 9:00–20:00).",
+        "privacy": "Privacidad: tus datos se usan solo para responder a tu solicitud. No compartimos tu información."
+    },
+    "form": {
+        "firstName": "Nombre",
+        "lastName": "Apellidos",
+        "email": "Correo electrónico",
+        "topic": "Asunto",
+        "message": "Mensaje",
+        "messagePlaceholder": "Cuéntanos tu solicitud o duda en detalle.",
+        "send": "Enviar",
+        "sending": "Enviando",
+        "topics": {
+            "select": "-- Elige un tema --",
+            "prices": "Precios de los cursos",
+            "availability": "Disponibilidad",
+            "schedule": "Horarios y calendario",
+            "level": "Niveles y prueba de nivel",
+            "trial": "Clases de prueba",
+            "private-group": "Clases privadas o en grupo",
+            "intensive": "Cursos intensivos",
+            "exams": "Preparación de exámenes oficiales (DELE, SIELE, etc.)",
+            "companies": "Formación para empresas",
+            "modality": "Online o presencial",
+            "materials": "Materiales incluidos",
+            "payment": "Métodos de pago y facturas",
+            "refunds": "Cancelaciones y reembolsos",
+            "activities": "Actividades culturales",
+            "general": "Información general"
+        }
+    },
+    "errors": {
+        "firstName": "Por favor, introduce tu nombre.",
+        "lastName": "Por favor, introduce tus apellidos.",
+        "emailRequired": "Por favor, introduce tu correo electrónico.",
+        "emailInvalid": "Por favor, introduce un correo válido.",
+        "topic": "Selecciona un tema.",
+        "message": "Introduce tu mensaje."
+    },
+    "success": "¡Tu mensaje ha sido enviado!",
+    "fail": "Error al enviar el mensaje. Intenta de nuevo.",
+    "contact": {
+        "phone": "+34 604 80 92 08",
+        "email": "info@costaSpanishClass.com"
+    }
+}

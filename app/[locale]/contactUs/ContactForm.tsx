@@ -5,13 +5,13 @@ import {
   CircleAlert,
   CircleCheck,
   Mail,
-  Phone,
+  Phone
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-
-import { SubmitHandler, useForm } from "react-hook-form";
 
 type FormFields = {
   firstName: string;
@@ -22,45 +22,33 @@ type FormFields = {
 };
 
 export const ContactForm = () => {
-  const [submitMessage, setSubmitMessage] = useState<{
-    type: "success" | "error";
-    text: string;
-  } | null>(null);
+  const { locale } = useParams() as { locale: string };
+  const t = useTranslations("contact");
+  const topics = t.raw("form.topics") as Record<string, string>;
+
+  const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormFields>({
-    mode: "onChange",
-  });
+  } = useForm<FormFields>({ mode: "onChange" });
 
-  const onSubmit: SubmitHandler<FormFields> = async (data: FormFields) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`/api/contact`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       const result = await res.json();
-      if (!res.ok || !result.success) {
-        throw new Error(result.error || "Error sending form.");
-      }
+      if (!res.ok || !result.success) throw new Error();
 
-      if (result.success) {
-        setSubmitMessage({
-          type: "success",
-          text: "Your message has been sent!",
-        });
-        reset();
-      }
-    } catch (error) {
-      setSubmitMessage({
-        type: "error",
-        text: "Failed to send message. Please try again.",
-      });
+      setSubmitMessage({ type: "success", text: t("success") });
+      reset();
+    } catch {
+      setSubmitMessage({ type: "error", text: t("fail") });
     } finally {
       setTimeout(() => setSubmitMessage(null), 5000);
     }
@@ -69,334 +57,142 @@ export const ContactForm = () => {
   return (
     <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
       <div className="bg-white p-6 rounded-2xl shadow-sm relative">
-        <div
-          className="absolute right-3 top-0 opacity-50"
-          style={{ color: "#FF2E00", fontSize: 32, fontWeight: 800 }}
-        >
-          ¿?
-        </div>
-        <h2 className="font-bold text-6xl mb-8">
-          have a <br /> question?
-        </h2>
-        <p className="mb-2">
-          We’re here to help. Fill out the form or contact us by email, WhatsApp
-          or phone. Our Customer Care Team will guide you and make sure you get
-          the best experience.
-        </p>
-        <p className="mb-2">
-          What you can ask: course prices, availability, schedules, trial
-          lessons, group or private classes, corporate training, or any other
-          question.
-        </p>
-        <p className="mb-2">
-          Response time: everyone gets a personalized reply. Please allow up to
-          24 hours during business hours. Our business hours are Monday–Friday,
-          9:00–20:00.
-        </p>
+        <div className="absolute right-3 top-0 opacity-50" style={{ color: "#FF2E00", fontSize: 32, fontWeight: 800 }}>¿?</div>
+        <h2 className="font-bold text-6xl mb-8">{t("title")}</h2>
+        <p className="mb-2">{t("intro.p1")}</p>
+        <p className="mb-2">{t("intro.p2")}</p>
+        <p className="mb-2">{t("intro.p3")}</p>
+
         <div className="w-full flex flex-col justify-center mt-4 mb-4">
           <p className="flex mb-2">
             <Phone strokeWidth={1} size={22} className="me-2" />
-            +34 604 80 92 08
+            {t("contact.phone")}
           </p>
           <p className="flex">
             <Mail strokeWidth={1} size={22} className="me-2" />
-            info@costaSpanishClass.com
+            {t("contact.email")}
           </p>
         </div>
+
         <p className="mb-2 text-sm font-extralight flex">
           <CircleAlert className="me-2" />
-          Privacy: your details are used only to reply to your request. We do
-          not share your information.
+          {t("intro.privacy")}
         </p>
       </div>
+
       <div className="col-span-2 px-8">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          {/* First and Last Name */}
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mb-3">
             <div className="sm:col-span-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                First name
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-900">
+                {t("form.firstName")}
               </label>
-              <div className="mt-2">
-                <input
-                  {...register("firstName", {
-                    required: "Please enter your name.",
-                  })}
-                  id="firstName"
-                  type="text"
-                  autoComplete="off"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
-                />
-              </div>
-              <AnimatePresence>
-                {errors.firstName && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                    className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
-                    style={{ color: "#cc0000" }}
-                  >
-                    <CircleAlert
-                      style={{ color: "#ff0000" }}
-                      strokeWidth={1.5}
-                      size={16}
-                      className="me-2"
-                    />
-                    {errors.firstName.message}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <input
+                {...register("firstName", { required: t("errors.firstName") })}
+                id="firstName"
+                type="text"
+                autoComplete="off"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+              />
+              {errors.firstName && <p className="text-sm text-red-600 mt-1">{errors.firstName.message}</p>}
             </div>
 
             <div className="sm:col-span-3">
-              <label
-                htmlFor="last-name"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                Last name
+              <label htmlFor="lastName" className="block text-sm font-medium text-gray-900">
+                {t("form.lastName")}
               </label>
-              <div className="mt-2">
-                <input
-                  {...register("lastName", {
-                    required: "Please enter your last name.",
-                  })}
-                  id="lastName"
-                  type="text"
-                  autoComplete="off"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
-                />
-              </div>
-              <AnimatePresence>
-                {errors.lastName && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                    className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
-                    style={{ color: "#cc0000" }}
-                  >
-                    <CircleAlert
-                      style={{ color: "#ff0000" }}
-                      strokeWidth={1.5}
-                      size={16}
-                      className="me-2"
-                    />
-                    {errors.lastName.message}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-
-          <div className="sm:col-span-4 mb-3">
-            <label
-              htmlFor="email"
-              className="block text-sm/6 font-medium text-gray-900"
-            >
-              Email address
-            </label>
-            <div className="mt-2">
               <input
-                {...register("email", {
-                  required: "Please enter your email.",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
-                    message: "Please enter a valid email address.",
-                  },
-                })}
-                id="email"
-                type="email"
+                {...register("lastName", { required: t("errors.lastName") })}
+                id="lastName"
+                type="text"
                 autoComplete="off"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
               />
+              {errors.lastName && <p className="text-sm text-red-600 mt-1">{errors.lastName.message}</p>}
             </div>
-            <AnimatePresence>
-              {errors.email && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
-                  style={{ color: "#cc0000" }}
-                >
-                  <CircleAlert
-                    style={{ color: "#ff0000" }}
-                    strokeWidth={1.5}
-                    size={16}
-                    className="me-2"
-                  />
-                  {errors.email.message}
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
 
+          {/* Email */}
+          <div className="sm:col-span-4 mb-3">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+              {t("form.email")}
+            </label>
+            <input
+              {...register("email", {
+                required: t("errors.emailRequired"),
+                pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/, message: t("errors.emailInvalid") },
+              })}
+              id="email"
+              type="email"
+              autoComplete="off"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+            />
+            {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
+          </div>
+
+          {/* Topic */}
           <div className="sm:col-span-3 mb-3">
-            <label
-              htmlFor="topic"
-              className="block text-sm/6 font-medium text-gray-900"
-            >
-              Topic
+            <label htmlFor="topic" className="block text-sm font-medium text-gray-900">
+              {t("form.topic")}
             </label>
-            <div className="mt-2 grid grid-cols-1">
+            <div className="relative">
               <select
-                {...register("topic", {
-                  required: "Please enter your topic.",
-                })}
+                {...register("topic", { required: t("errors.topic") })}
                 id="topic"
-                autoComplete="topic"
-                className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
+                className="w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
               >
-                <option value="">-- Please choose a topic --</option>
-                <option value="prices">Course prices</option>
-                <option value="availability">Availability</option>
-                <option value="schedule">Schedules and calendar</option>
-                <option value="level">Levels and placement test</option>
-                <option value="trial">Trial lessons</option>
-                <option value="private-group">Private or group classes</option>
-                <option value="intensive">Intensive courses</option>
-                <option value="exams">
-                  Official exam preparation (DELE, SIELE, etc.)
-                </option>
-                <option value="companies">Corporate training</option>
-                <option value="modality">Online or in-person</option>
-                <option value="materials">Study materials included</option>
-                <option value="payment">Payment methods and invoices</option>
-                <option value="refunds">Cancellation and refunds</option>
-                <option value="activities">Cultural activities</option>
-                <option value="general">General information</option>
+                {Object.entries(topics).map(([key, label]) => (
+                  <option key={key} value={key}>
+                    {label}
+                  </option>
+                ))}
               </select>
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
-              />
+              <ChevronDownIcon className="pointer-events-none absolute right-2 top-2.5 size-4 text-gray-500" />
             </div>
-            <AnimatePresence>
-              {errors.topic && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
-                  style={{ color: "#cc0000" }}
-                >
-                  <CircleAlert
-                    style={{ color: "#ff0000" }}
-                    strokeWidth={1.5}
-                    size={16}
-                    className="me-2"
-                  />
-                  {errors.topic.message}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {errors.topic && <p className="text-sm text-red-600 mt-1">{errors.topic.message}</p>}
           </div>
 
+          {/* Message */}
           <div className="col-span-full mb-3">
-            <label
-              htmlFor="textMessage"
-              className="block text-sm/6 font-medium text-gray-900"
-            >
-              Message
+            <label htmlFor="textMessage" className="block text-sm font-medium text-gray-900">
+              {t("form.message")}
             </label>
-            <div className="mt-2">
-              <textarea
-                {...register("textMessage", {
-                  required: "Please enter your message.",
-                })}
-                id="textMessage"
-                rows={3}
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-200 sm:text-sm/6"
-                defaultValue={""}
-              />
-            </div>
-            <p className="mt-3 text-sm/6 text-gray-600">
-              Let us know your request or suggestion in detail.
-            </p>
+            <textarea
+              {...register("textMessage", { required: t("errors.message") })}
+              id="textMessage"
+              rows={4}
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 outline-gray-300 focus:outline-rose-200 sm:text-sm"
+              placeholder={t("form.messagePlaceholder")}
+            />
+            {errors.textMessage && <p className="text-sm text-red-600 mt-1">{errors.textMessage.message}</p>}
           </div>
-          <AnimatePresence>
-            {errors.textMessage && (
+
+          {/* Submit */}
+          <div className="mt-6 flex items-center justify-end gap-x-4">
+            {submitMessage && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className=" text-sm bg-red-300 rounded-md border border-red-400 color px-2 py-4 mt-2 flex items-center"
-                style={{ color: "#cc0000" }}
+                role="status"
+                aria-live="polite"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className={`p-2 rounded-md text-sm flex items-center ${submitMessage.type === "success" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                  }`}
               >
-                <CircleAlert
-                  style={{ color: "#ff0000" }}
-                  strokeWidth={1.5}
-                  size={16}
-                  className="me-2"
-                />
-                {errors.textMessage.message}
+                {submitMessage.type === "success" ? <CircleCheck size={16} /> : <CircleAlert size={16} />}
+                <span className="ml-2">{submitMessage.text}</span>
               </motion.div>
             )}
-          </AnimatePresence>
-          <div className="mt-6 flex items-center justify-end gap-x-6">
-            <AnimatePresence>
-              {isSubmitting && (
-                <motion.div
-                  role="status"
-                  aria-live="polite"
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className="flex items-center p-2  bg-white rounded-xl shadow-xs"
-                >
-                  <p
-                    className="me-1"
-                    style={{ fontSize: 16, color: "#cc0000" }}
-                  >
-                    Sending
-                  </p>
-                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-red-400"></div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-            <AnimatePresence>
-              {submitMessage && (
-                <motion.div
-                  key={submitMessage.text}
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={
-                    submitMessage.type === "error"
-                      ? { opacity: 1, x: [100, -10, 10, -5, 0] }
-                      : { opacity: 1, x: 0 }
-                  }
-                  exit={{ opacity: 0, x: 100 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className={`p-2 rounded-xl shadow-xs flex items-center ${submitMessage.type === "success"
-                      ? "bg-green-200 text-green-800"
-                      : "bg-red-200 text-red-800"
-                    }`}
-                >
-                  {submitMessage.type === "success" ? (
-                    <CircleCheck size={16} className="w-5 h-5" />
-                  ) : (
-                    <CircleAlert className="w-5 h-5" />
-                  )}
-                  <span className="me-1" style={{ fontSize: 16 }}>
-                    {submitMessage.text}
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-md bg-red-400 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className={`rounded-md px-4 py-2 text-sm font-semibold text-white shadow-sm transition ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-red-400 hover:bg-red-500"
+                }`}
             >
-              Send
+              {isSubmitting ? t("form.sending") : t("form.send")}
             </button>
           </div>
         </form>

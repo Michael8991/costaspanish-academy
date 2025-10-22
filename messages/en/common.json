@@ -1,5 +1,37 @@
 {
-    "HomePage": {
-        "title": "Hello world!"
+    "TopBar": {
+        "phone": "+34 604 80 92 08",
+        "email": "info@costaspanishclass.com",
+        "schedule": "MON - FRI: 9:00 - 20:00",
+        "followUs": "Follow us:",
+        "social": {
+            "facebookAlt": "Costa Spanish Class Facebook",
+            "instagramAlt": "Costa Spanish Class Instagram",
+            "linkedinAlt": "Costa Spanish Class LinkedIn"
+        }
+    },
+    "Header": {
+        "nav": {
+            "home": "Home",
+            "about": "About us",
+            "courses": "Our courses",
+            "testimonials": "Testimonials",
+            "contact": "Contact us",
+            "blog": "Blog"
+        },
+        "login": "Log in"
+    },
+    "Footer": {
+        "rights": "© 2025 Costa Spanish Class. All rights reserved.",
+        "nav": {
+            "about": "About us",
+            "courses": "Our courses",
+            "home": "Home",
+            "testimonials": "Testimonials",
+            "contact": "Contact us",
+            "blog": "Blog"
+        },
+        "design": "Design by Michael Rodriguez",
+        "alt": "Spanish Academy Logo"
     }
 }

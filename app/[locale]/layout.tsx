@@ -44,8 +44,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   // Cargar mensajes directamente (server-side)
   const common = (await import(`../../messages/${locale}/common.json`)).default;
+  const home = (await import(`../../messages/${locale}/home.json`)).default;
+  const contact = (await import(`../../messages/${locale}/contact.json`)).default;
 
-  const messages = { common };
+  const messages = { ...common, ...home, contact };
 
   return (
     <html lang={locale}>

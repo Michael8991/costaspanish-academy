@@ -2,14 +2,13 @@
 
 import styles from "./header.module.css";
 import { StyledWrapped } from "../UI/StyledWrapped";
-
-import { Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useParams } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
@@ -18,8 +17,8 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollTarget, setScrollTarget] = useState<string | null>(null);
   const router = useRouter();
+  const t = useTranslations("Header");
 
-  // --- Cerrar menú al hacer click fuera
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       const target = e.target as HTMLElement;
@@ -27,12 +26,14 @@ export const Header = () => {
       const clickedHamburger = target.closest("[data-menu-button]");
       if (!clickedInside && !clickedHamburger) setMenuOpen(false);
     }
-
     if (menuOpen) document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, [menuOpen]);
 
-  // --- Scroll a secciones
+
+  const params = useParams();
+  const locale = params?.locale as string;
+
   const scrollToSection = (id: string) => {
     const scrollWithOffset = (targetId: string) => {
       const el = document.getElementById(targetId);
@@ -42,17 +43,18 @@ export const Header = () => {
       window.scrollTo({ top: y, behavior: "smooth" });
     };
 
-    if (pathname !== "/") {
+    if (pathname !== `/${locale}`) {
+      router.push(`/${locale}`);
       setScrollTarget(id);
-      router.push("/");
     } else {
       scrollWithOffset(id);
     }
   };
 
-  // --- Si cambia de ruta, ejecutar scroll guardado
   useEffect(() => {
-    if (pathname === "/" && scrollTarget) {
+    if (!locale) return; // no ejecutar hasta que el idioma esté definido
+
+    if (pathname === `/${locale}` && scrollTarget) {
       const el = document.getElementById(scrollTarget);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
@@ -60,9 +62,9 @@ export const Header = () => {
       }
       setScrollTarget(null);
     }
-  }, [pathname, scrollTarget]);
+    // dependencia fija: las tres siempre definidas
+  }, [pathname, scrollTarget, locale || ""]);
 
-  // --- Actualizar activeSection en scroll
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
@@ -77,7 +79,6 @@ export const Header = () => {
     return () => sections.forEach((sec) => observer.unobserve(sec));
   }, []);
 
-  // --- Cambiar fondo en scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 1);
     window.addEventListener("scroll", handleScroll);
@@ -92,22 +93,15 @@ export const Header = () => {
       className="@container"
     >
       <div
-        className={`${styles.headerWrapper
-          } w-full grid grid-cols-2 lg:grid-cols-3 
-            sm:mt-0 
-            ${scrolled
-            ? `fixed ${styles.headerWrapperFixed} shadow-md z-3`
-            : "bg-transparent"
-          } `}
+        className={`${styles.headerWrapper} w-full grid grid-cols-2 lg:grid-cols-3 
+          ${scrolled ? `fixed ${styles.headerWrapperFixed} shadow-md z-3` : "bg-transparent"}`}
       >
         {/* LOGO */}
-        <div
-          className={`${styles.logoContainer} w-full hidden lg:flex align-middle justify-center`}
-        >
+        <div className={`${styles.logoContainer} w-full hidden lg:flex align-middle justify-center`}>
           <div style={{ width: 150, height: 150, position: "relative" }}>
             <Image
               src={"/assets/LogoCostaSpanishRojoCoralFuerte.png"}
-              alt="Logo costaSpanish academia de idiomas"
+              alt="Logo Costa Spanish Class"
               fill
               style={{ objectFit: "contain" }}
               priority
@@ -118,84 +112,58 @@ export const Header = () => {
         {/* HAMBURGUESA */}
         <div className="w-full flex justify-end pe-3 lg:hidden">
           <div data-menu-button onClick={() => setMenuOpen((prev) => !prev)}>
-            <StyledWrapped
-              onToggle={() => setMenuOpen((prev) => !prev)}
-              isOpen={menuOpen}
-            />
+            <StyledWrapped onToggle={() => setMenuOpen((prev) => !prev)} isOpen={menuOpen} />
           </div>
         </div>
 
         {/* NAV Escritorio */}
-        <div className="w-full hidden lg:flex align-middle items-center justify-center">
-          <ul
-            className={`${styles.navContainer} flex align-middle items-center`}
-          >
+        <nav className="w-full hidden lg:flex align-middle items-center justify-center" aria-label="Main navigation">
+          <ul className={`${styles.navContainer} flex align-middle items-center`}>
             <li className="mx-2 whitespace-nowrap">
-              <button
-                onClick={() => scrollToSection("aboutUs")}
-                className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""
-                  } cursor-pointer`}
-              >
-                About us
+              <button onClick={() => scrollToSection("aboutUs")} className={`${styles.navLinks} cursor-pointer ${activeSection === "aboutUs" ? styles.activeNav : ""}`}>
+                {t("nav.about")}
               </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <button
-                onClick={() => scrollToSection("courses")}
-                className={`${styles.navLinks} ${activeSection === "courses" ? styles.activeNav : ""
-                  } cursor-pointer`}
-              >
-                Our courses
+              <button onClick={() => scrollToSection("courses")} className={`${styles.navLinks} cursor-pointer ${activeSection === "courses" ? styles.activeNav : ""}`}>
+                {t("nav.courses")}
               </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <button
-                onClick={() => scrollToSection("home")}
-                className={`${styles.navLinks} ${activeSection === "home" ? styles.activeNav : ""
-                  } cursor-pointer`}
-              >
-                Home
+              <button onClick={() => scrollToSection("home")} className={`${styles.navLinks} cursor-pointer ${activeSection === "home" ? styles.activeNav : ""}`}>
+                {t("nav.home")}
               </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
-              <button
-                onClick={() => scrollToSection("testimonials")}
-                className={`${styles.navLinks} ${activeSection === "testimonials" ? styles.activeNav : ""
-                  } cursor-pointer`}
-              >
-                Testimonials
+              <button onClick={() => scrollToSection("testimonials")} className={`${styles.navLinks} cursor-pointer ${activeSection === "testimonials" ? styles.activeNav : ""}`}>
+                {t("nav.testimonials")}
               </button>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${pathname === "/contactUs" ? styles.activeNav : ""
-                  }`}
-                href="/contactUs"
+                className={`${styles.navLinks} ${pathname === `/${locale}/contactUs` ? styles.activeNav : ""}`}
+                href={`/${locale}/contactUs`}
               >
-                Contact us
+                {t("nav.contact")}
               </Link>
             </li>
             <li className="mx-2 whitespace-nowrap">
               <Link
-                className={`${styles.navLinks} ${pathname === "/blog" ? styles.activeNav : ""
-                  }`}
-                href="/blog"
+                className={`${styles.navLinks} ${pathname === `/${locale}/blog` ? styles.activeNav : ""}`}
+                href={`/${locale}/blog`}
               >
-                Blog
+                {t("nav.blog")}
               </Link>
             </li>
           </ul>
-        </div>
+        </nav>
 
         {/* LOGIN e idioma */}
-        <div
-          className={`${styles.rightHeader} w-full hidden lg:flex align-middle items-center`}
-        >
-          {/* //Todo Implementar selector de idioma   */}
+        <div className={`${styles.rightHeader} w-full hidden lg:flex align-middle items-center`}>
           <LanguageSwitcher />
           <button className={`${styles.loginBtn}`}>
             <Link className={`${styles.noneDecoration}`} href="/auth">
-              Log in
+              {t("login")}
             </Link>
           </button>
         </div>
@@ -212,83 +180,58 @@ export const Header = () => {
             className={`${styles.slideBoxMenu} fixed top-[130px] left-1/2 -translate-x-1/2 w-80 h-fit bg-white shadow-lg z-50`}
           >
             <ul className="flex flex-col gap-6 p-6">
-              <li>
-                <button
-                  onClick={() => {
-                    scrollToSection("aboutUs");
-                    setMenuOpen(false);
-                  }}
-                  className={`${styles.navLinks} ${activeSection === "aboutUs" ? styles.activeNav : ""
-                    } cursor-pointer`}
-                >
-                  About us
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    scrollToSection("courses");
-                    setMenuOpen(false);
-                  }}
-                  className={`${styles.navLinks} ${activeSection === "courses" ? styles.activeNav : ""
-                    } cursor-pointer`}
-                >
-                  Our courses
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    scrollToSection("home");
-                    setMenuOpen(false);
-                  }}
-                  className={`${styles.navLinks} ${activeSection === "home" ? styles.activeNav : ""
-                    } cursor-pointer`}
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    scrollToSection("testimonials");
-                    setMenuOpen(false);
-                  }}
-                  className={`${styles.navLinks} ${activeSection === "testimonials" ? styles.activeNav : ""
-                    } cursor-pointer`}
-                >
-                  Testimonials
-                </button>
-              </li>
+              {["about", "courses", "home", "testimonials"].map((key) => (
+                <li key={key}>
+                  <button
+                    onClick={() => {
+                      scrollToSection(key === "about" ? "aboutUs" : key);
+                      setMenuOpen(false);
+                    }}
+                    className={`${styles.navLinks} ${activeSection === (key === "about" ? "aboutUs" : key)
+                      ? styles.activeNav
+                      : ""
+                      }`}
+                  >
+                    {t(`nav.${key}`)}
+                  </button>
+                </li>
+              ))}
+
               <li>
                 <Link
                   onClick={() => setMenuOpen(false)}
-                  className={`${styles.navLinks} ${pathname === "/contactUs" ? styles.activeNav : ""
+                  className={`${styles.navLinks} ${pathname === `/${locale}/contactUs` ? styles.activeNav : ""
                     }`}
-                  href="/contactUs"
+                  href={`/${locale}/contactUs`}
                 >
-                  Contact us
+                  {t("nav.contact")}
                 </Link>
               </li>
+
               <li>
                 <Link
                   onClick={() => setMenuOpen(false)}
-                  className={`${styles.navLinks} ${pathname === "/blog" ? styles.activeNav : ""
+                  className={`${styles.navLinks} ${pathname === `/${locale}/blog` ? styles.activeNav : ""
                     }`}
-                  href="/blog"
+                  href={`/${locale}/blog`}
                 >
-                  Blog
+                  {t("nav.blog")}
                 </Link>
               </li>
+
+
               <li className="flex w-full justify-center">
-                <button className={`${styles.loginBtn}`}>
-                  <a className={`${styles.noneDecoration}`} href="">
-                    Log in
-                  </a>
-                </button>
-                {/* <LanguageSwitcher /> */}
+                <LanguageSwitcher />
+                <Link
+                  href={`/${locale}/auth`}
+                  className={`${styles.loginBtn} ${styles.noneDecoration}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {t("login")}
+                </Link>
               </li>
             </ul>
+
           </motion.div>
         )}
       </AnimatePresence>

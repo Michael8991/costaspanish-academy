@@ -1,21 +1,24 @@
-import styles from './ui.module.css'
-
-import { motion } from 'framer-motion'
-
+import styles from './ui.module.css';
+import { motion } from 'framer-motion';
 
 export const Circle = () => {
     return (
-        <div className={`${styles.circleWrapper} flex justify-center w-full max-h-full h-fit items-end`} style={{}}>
+        <div className={`${styles.circleWrapper} flex justify-center w-full max-h-full h-fit items-end`}>
             <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-                className={`${styles.pinkCircle} rounded-t-full absolute z-1`} style={{}}></motion.div>
+                className={`${styles.pinkCircle} rounded-t-full absolute z-1`}
+            />
             <motion.img
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut", delay: 1.6 }}
-                src={'/assets/MariaThinking.png'} alt="" className={`${styles.imgMaria} relative z-2 w-80`} />
+                src="/assets/MariaThinking.png"
+                alt="Illustration of a woman thinking"
+                className={`${styles.imgMaria} relative z-2 w-80`}
+                loading="lazy"
+            />
         </div>
-    )
-}
+    );
+};
