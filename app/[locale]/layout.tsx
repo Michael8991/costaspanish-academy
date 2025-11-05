@@ -62,6 +62,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       lang={locale}
       className={`${geistSans.className} ${geistMono.className} ${montserrat.className}`}
     >
+      <head>
+        <link
+          rel="canonical"
+          href={`https://www.costaspanishclass.com/${locale}`}
+        />
+      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <TopBar />
