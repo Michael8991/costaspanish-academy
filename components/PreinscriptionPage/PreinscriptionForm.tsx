@@ -366,9 +366,9 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
                 className="w-full border p-2 rounded-md"
               >
                 <option value="">{t("errors.experience")}</option>
-                <option value="none">I'm a complete beginner</option>
+                <option value="none">I&apos;m a complete beginner</option>
                 <option value="lessThan1">Less than 1 year</option>
-                <option value="1to3">1–3 years</option>
+                <option value="1to3">1-3 years</option>
                 <option value="moreThan3">More than 3 years</option>
               </select>
               <AnimatePresence>
