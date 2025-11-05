@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://costaspanishclass.com
+Host: https://www.costaspanishclass.com
 
 # Sitemaps
-Sitemap: https://costaspanishclass.com/sitemap.xml
+Sitemap: https://www.costaspanishclass.com/sitemap.xml
