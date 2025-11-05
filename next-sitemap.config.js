@@ -3,9 +3,16 @@ module.exports = {
     siteUrl: 'https://www.costaspanishclass.com',
     generateRobotsTxt: true,
     sitemapSize: 7000,
-    exclude: ['/server-sitemap.xml'],
-    alternateRefs: [
-        { href: 'https://www.costaspanishclass.com/es', hreflang: 'es' },
-        { href: 'https://www.costaspanishclass.com/en', hreflang: 'en' },
-    ],
+    changefreq: 'daily',
+    priority: 0.7,
+    additionalPaths: async (config) => {
+        return [
+            { loc: '/en', changefreq: 'daily', priority: 0.7 },
+            { loc: '/es', changefreq: 'daily', priority: 0.7 },
+            { loc: '/en/contactUs', changefreq: 'monthly', priority: 0.5 },
+            { loc: '/es/contactUs', changefreq: 'monthly', priority: 0.5 },
+            { loc: '/en/courses', changefreq: 'daily', priority: 0.7 },
+            { loc: '/es/courses', changefreq: 'daily', priority: 0.7 },
+        ];
+    },
 };
