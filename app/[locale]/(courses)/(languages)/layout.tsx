@@ -1,21 +1,20 @@
-
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import CoursesLayoutClient from "./CoursesLayoutClient";
 
 export const dynamic = "force-static";
 
-type Props = {
-    children: React.ReactNode;
-    params: { locale: string };
-};
+type LayoutParams = Promise<{ locale: string }>;
+type LayoutProps = { children: React.ReactNode; params: LayoutParams };
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale: params.locale, namespace: "courses" });
+export async function generateMetadata(
+    { params }: { params: LayoutParams }
+): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "courses" });
 
     const title = t("metadata.title");
     const description = t("metadata.description");
-    const locale = params.locale;
 
     return {
         title,
@@ -38,7 +37,6 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     };
 }
 
-// Render principal
-export default function Layout({ children }: Props) {
+export default async function Layout({ children }: LayoutProps) {
     return <CoursesLayoutClient>{children}</CoursesLayoutClient>;
 }

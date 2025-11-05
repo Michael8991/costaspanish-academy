@@ -1,15 +1,17 @@
 import { getTranslations } from "next-intl/server";
 import { mockCourses } from "@/lib/mockcourses/mockCourses";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PreinscriptionClient from "./PreinscriptionClient";
 
-type Props = {
-    params: { locale: string; slug: string };
-};
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+    const { locale, slug } = await params;
+    const t = await getTranslations({ locale, namespace: "preinscription" });
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const t = await getTranslations({ locale: params.locale, namespace: "preinscription" });
-    const course = mockCourses.find((c) => c.slug === params.slug);
+    const course = mockCourses.find((c) => c.slug === slug);
 
     if (!course) {
         return {
@@ -18,29 +20,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const title = `${course.title} | ${t("metadata.titleSuffix")}`;
+    const description = t("metadata.description", { course: course.title });
+
     return {
-        title: `${course.title} | ${t("metadata.titleSuffix")}`,
-        description: t("metadata.description", { course: course.title }),
+        title,
+        description,
         alternates: {
-            canonical: `https://www.costaspanishclass.com/${params.locale}/${params.slug}/preinscription`,
+            canonical: `https://www.costaspanishclass.com/${locale}/${slug}/preinscription`,
             languages: {
-                en: `https://www.costaspanishclass.com/en/${params.slug}/preinscription`,
-                es: `https://www.costaspanishclass.com/es/${params.slug}/preinscription`,
+                en: `https://www.costaspanishclass.com/en/${slug}/preinscription`,
+                es: `https://www.costaspanishclass.com/es/${slug}/preinscription`,
             },
         },
         openGraph: {
-            title: `${course.title} | ${t("metadata.titleSuffix")}`,
-            description: t("metadata.description", { course: course.title }),
-            url: `https://www.costaspanishclass.com/${params.locale}/${params.slug}/preinscription`,
+            title,
+            description,
+            url: `https://www.costaspanishclass.com/${locale}/${slug}/preinscription`,
             siteName: "Costa Spanish Academy",
-            locale: params.locale,
+            locale,
             type: "website",
             images: [course.imageUrl],
         },
     };
 }
 
-export default async function PreinscriptionPage({ params }: Props) {
-    const { locale, slug } = params;
+export default async function PreinscriptionPage({
+    params,
+}: {
+    params: Promise<{ locale: string; slug: string }>;
+}) {
+    const { locale, slug } = await params;
     return <PreinscriptionClient locale={locale} slug={slug} />;
 }

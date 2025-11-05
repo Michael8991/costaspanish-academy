@@ -7,7 +7,7 @@ import {
   Mail,
   Phone
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -22,7 +22,6 @@ type FormFields = {
 };
 
 export const ContactForm = () => {
-  const { locale } = useParams() as { locale: string };
   const t = useTranslations("contact");
   const topics = t.raw("form.topics") as Record<string, string>;
 

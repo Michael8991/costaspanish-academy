@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://costaspanishclass.com
+
+# Sitemaps
+Sitemap: https://costaspanishclass.com/sitemap.xml

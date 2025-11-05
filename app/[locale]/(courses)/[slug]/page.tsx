@@ -6,10 +6,12 @@ import type { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale: params.locale, namespace: "coursesCatalog" });
-  const course = mockCourses.find((c) => c.slug === params.slug);
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "coursesCatalog" });
+
+  const course = mockCourses.find((c) => c.slug === slug);
 
   if (!course) {
     return {
@@ -25,14 +27,14 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `https://www.costaspanishclass.com/${params.locale}/${course.slug}`,
+      canonical: `https://www.costaspanishclass.com/${locale}/${course.slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://www.costaspanishclass.com/${params.locale}/${course.slug}`,
+      url: `https://www.costaspanishclass.com/${locale}/${course.slug}`,
       siteName: "Costa Spanish Academy",
-      locale: params.locale,
+      locale,
       type: "website",
     },
   };

@@ -30,11 +30,7 @@
         inset -3px -3px 8px #ffffff;
 }
 
-:global(input[type="checkbox"]) {
-    -webkit-appearance: none;
-    display: none;
-    visibility: hidden;
-}
+
 
 .menuButton span {
     width: 21px;
@@ -47,24 +43,9 @@
     transform-origin: center;
 }
 
-:global(input[type]:checked~span.top) {
-    transform: translateY(260%) rotate(45deg);
-    /* ajustado a tamaño */
-    width: 28px;
-    /* era 40px */
-}
 
-:global(input[type]:checked~span.bot) {
-    transform: translateY(-200%) rotate(-45deg);
-    width: 28px;
-    box-shadow: 0 0 8px #f2f2f2;
-}
 
-:global(input[type]:checked~span.mid) {
-    transform: translateX(-15px);
-    /* más suave */
-    opacity: 0;
-}
+
 
 @media screen and (min-width:1024px) {
     .menuButton {

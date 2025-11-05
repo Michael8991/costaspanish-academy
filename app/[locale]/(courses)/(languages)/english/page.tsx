@@ -2,27 +2,35 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import EnglishCoursesClient from "./EnglishCoursesClient";
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const t = await getTranslations({ locale: params.locale, namespace: "courses" });
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "courses" });
+
+  const title = t("english.metadata.title");
+  const description = t("english.metadata.description");
 
   return {
-    title: t("english.metadata.title"),
-    description: t("english.metadata.description"),
+    title,
+    description,
     alternates: {
-      canonical: `https://www.costaspanishclass.com/${params.locale}/english`,
+      canonical: `https://www.costaspanishclass.com/${locale}/english`,
       languages: {
         en: "https://www.costaspanishclass.com/en/english",
-        es: "https://www.costaspanishclass.com/es/english"
-      }
+        es: "https://www.costaspanishclass.com/es/english",
+      },
     },
     openGraph: {
-      title: t("english.metadata.title"),
-      description: t("english.metadata.description"),
-      url: `https://www.costaspanishclass.com/${params.locale}/english`,
+      title,
+      description,
+      url: `https://www.costaspanishclass.com/${locale}/english`,
       siteName: "Costa Spanish Academy",
-      locale: params.locale,
-      type: "website"
-    }
+      locale,
+      type: "website",
+    },
   };
 }
 
