@@ -162,9 +162,9 @@ export const Header = () => {
         <div className={`${styles.rightHeader} w-full hidden lg:flex align-middle items-center`}>
           <LanguageSwitcher />
           <button className={`${styles.loginBtn}`}>
-            <Link className={`${styles.noneDecoration}`} href="/auth">
+            <a className={`${styles.noneDecoration}`} href="https://app.costaspanishclass.com">
               {t("login")}
-            </Link>
+            </a>
           </button>
         </div>
       </div>
@@ -222,13 +222,13 @@ export const Header = () => {
 
               <li className="flex w-full justify-center">
                 <LanguageSwitcher />
-                <Link
-                  href={`/${locale}/auth`}
+                <a
+                  href="https://app.costaspanishclass.com"
                   className={`${styles.loginBtn} ${styles.noneDecoration}`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {t("login")}
-                </Link>
+                </a>
               </li>
             </ul>
 
