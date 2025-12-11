@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "lib/types/global.d.ts"
-  ],
+, "scripts/seedCourses.cts", "scripts/seedCourses.cts"  ],
   "exclude": ["node_modules"]
 }
