@@ -12,8 +12,6 @@ if (!MONGO_URI) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const cached = (global as any).mongooseCache ?? { conn: null, promise: null };
 
-
-
 async function dbConnect() {
   if (cached.conn) {
     return cached.conn;
@@ -26,7 +24,7 @@ async function dbConnect() {
   }
   cached.conn = await cached.promise;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (global as any).mongooseCache = cached; // guardamos en global para HMR
+  (global as any).mongooseCache = cached; // guardamos en global para HMR
   return cached.conn;
 }
 

@@ -1,8 +1,7 @@
 "use client";
 
-import { mockCourses } from "@/lib/mockcourses/mockCourses";
-import React, { JSX } from "react";
-import { CourseFilters } from "@/types";
+import React, { JSX, useMemo } from "react";
+import { CourseFilters, ICourseData } from "@/types";
 import {
   ArrowRight,
   CheckCircle,
@@ -15,36 +14,47 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 
 type CoursesCatalogProps = {
   filters: CourseFilters;
+  courses: ICourseData[];
+  locale: string;
 };
 
-export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
+export const CoursesCatalog = ({
+  filters,
+  courses,
+  locale,
+}: CoursesCatalogProps) => {
   const t = useTranslations("coursesCatalog");
 
-  const params = useParams();
-  const locale = params?.locale as string;
-
-  const filteredCourses = mockCourses.filter((course) => {
-    if (filters.language && course.languageToLearn !== filters.language) return false;
-    if (filters.modality && course.modality !== filters.modality) return false;
-    if (filters.level && course.level !== filters.level) return false;
-    if (filters.status && course.status !== filters.status) return false;
-    return true;
-  });
+  const filteredCourses = useMemo(() => {
+    return courses.filter((course) => {
+      if (filters.language && course.languageToLearn !== filters.language)
+        return false;
+      if (filters.modality && course.modality !== filters.modality)
+        return false;
+      if (filters.level && course.level !== filters.level) return false;
+      if (filters.status && course.status !== filters.status) return false;
+      return true;
+    });
+  }, [courses, filters]);
 
   const statusStyles: Record<string, string> = {
-    inProgress: "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
+    inProgress:
+      "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
+    private:
+      "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
     soon: "bg-yellow-100 shadow-lg shadow-yellow-500/25 text-yellow-800 rounded-lg px-2 py-1",
-    pending: "bg-blue-100 shadow-lg shadow-blue-500/25 text-blue-800 rounded-tr-lg rounded-bl-lg px-2 py-1"
+    pending:
+      "bg-blue-100 shadow-lg shadow-blue-500/25 text-blue-800 rounded-tr-lg rounded-bl-lg px-2 py-1",
   };
 
   const statusIcons: Record<string, JSX.Element> = {
     inProgress: <Circle size={12} className="text-green-500 mr-1" />,
+    private: <Circle size={12} className="text-green-500 mr-1" />,
     soon: <Clock size={12} className="text-yellow-500 mr-1" />,
-    pending: <CheckCircle size={12} className="text-blue-500 mr-1" />
+    pending: <CheckCircle size={12} className="text-blue-500 mr-1" />,
   };
 
   return (
@@ -56,14 +66,16 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
     >
       {filteredCourses.map((course) => (
         <motion.article
-          key={course._id}
+          key={course.slug}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="border-none rounded-lg p-4 shadow-md bg-white hover:scale-102 transition duration-150 ease-in-out"
         >
           <header className="flex flex-col sm:flex-row justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold text-center sm:text-left">{course.title}</h2>
+            <h2 className="text-lg font-semibold text-center sm:text-left">
+              {course.title}
+            </h2>
             {course.status && (
               <span
                 className={`flex items-center text-xs font-semibold mt-1 sm:mt-0 ${statusStyles[course.status]}`}
@@ -75,7 +87,9 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
           </header>
 
           <p className="font-light text-base my-4 text-center sm:text-left">
-            {course.longDesc.length > 240 ? `${course.longDesc.substring(0, 240)}…` : course.longDesc}
+            {course.longDesc?.length > 240
+              ? `${course.longDesc.substring(0, 240)}…`
+              : course.longDesc}
           </p>
 
           <footer className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
@@ -95,6 +109,7 @@ export const CoursesCatalog = ({ filters }: CoursesCatalogProps) => {
                 <p className="ml-1">{t("labels.persons")}</p>
               </span>
             </div>
+
             <div className="flex justify-center sm:justify-end items-center w-full sm:w-auto">
               <Link
                 href={`/${locale}/${course.slug}`}

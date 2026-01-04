@@ -1,113 +1,110 @@
 {
-    "HeroSection": {
-        "title": {
-            "base": "Aprende español a través de su",
-            "words": [
-                "cultura",
-                "gente",
-                "idioma"
-            ]
-        },
-        "subtitle": "Formación lingüística experta para adultos, adolescentes y niños",
-        "cta": "Descubre nuestros cursos más populares",
-        "flags": {
-            "spanishAlt": "Cursos de español - bandera de España",
-            "englishAlt": "Cursos de inglés - bandera del Reino Unido"
-        }
+  "HeroSection": {
+    "title": {
+      "base": "Aprende español a través de su",
+      "words": ["cultura", "gente", "idioma"]
     },
-    "AcademyHighlights": {
-        "title": "¿Por qué elegirnos?",
-        "subtitle": "La diferencia está en los detalles y en cuánto nos importa.",
-        "cards": [
-            {
-                "title": "Nativos y Cualificados",
-                "text": "Aprende con hablantes nativos experimentados que hacen el aprendizaje divertido y real.",
-                "alt": "icono de profesor cualificado"
-            },
-            {
-                "title": "Metodología Probada",
-                "text": "Una mezcla de inmersión, repetición y conversación real.",
-                "alt": "icono de libros"
-            },
-            {
-                "title": "Nos Importas",
-                "text": "No eres solo otro estudiante. Te guiamos y apoyamos de manera personal.",
-                "alt": "icono de apoyo al estudiante"
-            }
-        ]
-    },
-    "AboutUsSection": {
-        "title": "Aprende <span1>Español</span1> con <span2>Profesores Nativos</span2>",
-        "subtitle": "Clases personalizadas adaptadas a tu ritmo, nivel y objetivos.",
-        "paragraphs": [
-            "En <strong>Costa Spanish Academy</strong>, te ayudamos a aprender y mejorar tu español o inglés con un enfoque práctico y personalizado. Nuestras clases están diseñadas para todas las edades y niveles, ofreciendo una experiencia flexible y cómoda.",
-            "Creemos que aprender un idioma es más que gramática: se trata de conexión, cultura y confianza. Por eso nuestras clases se centran en situaciones reales, conversación natural e inmersión cultural, ayudándote a hablar español desde el primer día."
-        ],
-        "list": [
-            {
-                "title": "Cursos Intensivos de Español Online",
-                "text": "Programas intensivos para avanzar rápidamente."
-            },
-            {
-                "title": "Cursos Semi-Intensivos de Español",
-                "text": "Un horario equilibrado para un aprendizaje constante."
-            },
-            {
-                "title": "Clases Privadas de Español para Principiantes",
-                "text": "Lecciones personalizadas para tus objetivos."
-            },
-            {
-                "title": "Clases de Conversación con Profesores Nativos",
-                "text": "Mejora tu fluidez y pronunciación con práctica real."
-            },
-            {
-                "title": "Español con Fines Específicos",
-                "text": "Cursos especializados para negocios, turismo o salud."
-            },
-            {
-                "title": "Clases de Inglés para Hispanohablantes",
-                "text": "Dos horas por semana, con opciones semi-intensivas próximamente."
-            }
-        ],
-        "button": "Descubre nuestros cursos",
-        "experienceYears": "+3",
-        "experienceLabel": "años\nde experiencia",
-        "images": {
-            "teacherAlt": "Profesora nativa de español"
-        }
-    },
-    "CoursesSection": {
-        "title": "Clases",
-        "spanish": {
-            "subtitle": "Español para extranjeros (ELE)",
-            "cta": "Ver todos los cursos de Español"
-        },
-        "english": {
-            "subtitle": "Inglés para hispanohablantes",
-            "cta": "Ver todos los cursos de Inglés"
-        }
-    },
-    "CourseCard": {
-        "status": {
-            "inProgress": "En curso",
-            "soon": "Próximamente",
-            "pending": "Inscripciones abiertas"
-        },
-        "level": {
-            "default": "Todos los niveles"
-        },
-        "modality": {
-            "Intensive": "Intensivo",
-            "SemiIntensive": "Semi-intensivo",
-            "Standar": "Estándar",
-            "Private": "Privado"
-        },
-        "persons": "personas",
-        "moreInfo": "Más información",
-        "alt": "Imagen del curso: {title}"
-    },
-    "TestimonialsSection": {
-        "title": "Testimonios",
-        "subtitle": "Lo que dicen nuestros estudiantes"
+    "subtitle": "Formación lingüística experta para adultos, adolescentes y niños",
+    "cta": "Descubre nuestros cursos más populares",
+    "flags": {
+      "spanishAlt": "Cursos de español - bandera de España",
+      "englishAlt": "Cursos de inglés - bandera del Reino Unido"
     }
+  },
+  "AcademyHighlights": {
+    "title": "¿Por qué elegirnos?",
+    "subtitle": "La diferencia está en los detalles y en cuánto nos importa.",
+    "cards": [
+      {
+        "title": "Nativos y Cualificados",
+        "text": "Aprende con hablantes nativos experimentados que hacen el aprendizaje divertido y real.",
+        "alt": "icono de profesor cualificado"
+      },
+      {
+        "title": "Metodología Probada",
+        "text": "Una mezcla de inmersión, repetición y conversación real.",
+        "alt": "icono de libros"
+      },
+      {
+        "title": "Nos Importas",
+        "text": "No eres solo otro estudiante. Te guiamos y apoyamos de manera personal.",
+        "alt": "icono de apoyo al estudiante"
+      }
+    ]
+  },
+  "AboutUsSection": {
+    "title": "Aprende <span1>Español</span1> con <span2>Profesores Nativos</span2>",
+    "subtitle": "Clases personalizadas adaptadas a tu ritmo, nivel y objetivos.",
+    "paragraphs": [
+      "En <strong>Costa Spanish Academy</strong>, te ayudamos a aprender y mejorar tu español o inglés con un enfoque práctico y personalizado. Nuestras clases están diseñadas para todas las edades y niveles, ofreciendo una experiencia flexible y cómoda.",
+      "Creemos que aprender un idioma es más que gramática: se trata de conexión, cultura y confianza. Por eso nuestras clases se centran en situaciones reales, conversación natural e inmersión cultural, ayudándote a hablar español desde el primer día."
+    ],
+    "list": [
+      {
+        "title": "Cursos Intensivos de Español Online",
+        "text": "Programas intensivos para avanzar rápidamente."
+      },
+      {
+        "title": "Cursos Semi-Intensivos de Español",
+        "text": "Un horario equilibrado para un aprendizaje constante."
+      },
+      {
+        "title": "Clases Privadas de Español para Principiantes",
+        "text": "Lecciones personalizadas para tus objetivos."
+      },
+      {
+        "title": "Clases de Conversación con Profesores Nativos",
+        "text": "Mejora tu fluidez y pronunciación con práctica real."
+      },
+      {
+        "title": "Español con Fines Específicos",
+        "text": "Cursos especializados para negocios, turismo o salud."
+      },
+      {
+        "title": "Clases de Inglés para Hispanohablantes",
+        "text": "Dos horas por semana, con opciones semi-intensivas próximamente."
+      }
+    ],
+    "button": "Descubre nuestros cursos",
+    "experienceYears": "+3",
+    "experienceLabel": "años\nde experiencia",
+    "images": {
+      "teacherAlt": "Profesora nativa de español"
+    }
+  },
+  "CoursesSection": {
+    "title": "Clases",
+    "spanish": {
+      "subtitle": "Español para extranjeros (ELE)",
+      "cta": "Ver todos los cursos de Español"
+    },
+    "english": {
+      "subtitle": "Inglés para hispanohablantes",
+      "cta": "Ver todos los cursos de Inglés"
+    }
+  },
+  "CourseCard": {
+    "status": {
+      "inProgress": "En curso",
+      "soon": "Próximamente",
+      "pending": "Inscripciones abiertas",
+      "private": "Clases privadas"
+    },
+    "level": {
+      "default": "Todos los niveles"
+    },
+    "modality": {
+      "Intensive": "Intensivo",
+      "SemiIntensive": "Semi-intensivo",
+      "Standar": "Estándar",
+      "Private": "Privado"
+    },
+    "persons": "personas",
+    "moreInfo": "Más información",
+    "alt": "Imagen del curso: {title}"
+  },
+  "TestimonialsSection": {
+    "title": "Testimonios",
+    "subtitle": "Lo que dicen nuestros estudiantes"
+  }
 }

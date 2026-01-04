@@ -1,19 +1,20 @@
 {
-    "status": {
-        "inProgress": "En curso",
-        "soon": "Próximamente",
-        "pending": "Inscripciones abiertas"
-    },
-    "levels": {
-        "default": "Todos los niveles"
-    },
-    "labels": {
-        "max": "máx.",
-        "persons": "personas",
-        "moreInfo": "Más información"
-    },
-    "breadcrumbs": {
-        "home": "Inicio",
-        "courses": "Cursos"
-    }
+  "status": {
+    "inProgress": "En curso",
+    "soon": "Próximamente",
+    "pending": "Inscripciones abiertas",
+    "private": "Privada"
+  },
+  "levels": {
+    "default": "Todos los niveles"
+  },
+  "labels": {
+    "max": "máx.",
+    "persons": "personas",
+    "moreInfo": "Más información"
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "courses": "Cursos"
+  }
 }

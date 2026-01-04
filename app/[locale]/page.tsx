@@ -6,7 +6,7 @@ import {
 } from "./sections";
 // import styles from "./LandingPage.module.css";
 
-export default function Home() {
+export default function Home({ params }: { params: { locale: string } }) {
   return (
     <section>
       <HeroSection />
@@ -14,7 +14,7 @@ export default function Home() {
       {/* <div className={`${styles.gradientBordeSection}`}></div> */}
       <CoursesSection />
       {/* <div className={`${styles.gradientBordeSectionPink}`}></div> */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
     </section>
   );
 }

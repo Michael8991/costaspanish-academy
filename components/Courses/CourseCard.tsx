@@ -1,6 +1,14 @@
-'use client';
+"use client";
 
-import { ArrowRight, CheckCircle, Circle, Clock, Hourglass, Tag, UsersRound } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle,
+  Circle,
+  Clock,
+  Hourglass,
+  Tag,
+  UsersRound,
+} from "lucide-react";
 import styles from "./courseCard.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,21 +47,28 @@ export const CourseCard = ({
   const locale = params?.locale as string;
 
   const statusStyles: Record<string, string> = {
-    inProgress: "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
+    inProgress:
+      "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
+    private:
+      "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
     soon: "bg-yellow-100 shadow-lg shadow-yellow-500/25 text-yellow-800 rounded-lg px-2 py-1",
-    pending: "bg-blue-100 shadow-lg shadow-blue-500/25 text-blue-800 rounded-tr-lg rounded-bl-lg px-2 py-1"
+    pending:
+      "bg-blue-100 shadow-lg shadow-blue-500/25 text-blue-800 rounded-tr-lg rounded-bl-lg px-2 py-1",
   };
 
   const statusIcons: Record<string, JSX.Element> = {
     inProgress: <Circle size={12} className="text-green-500 mr-1" />,
+    private: <Circle size={12} className="text-green-500 mr-1" />,
     soon: <Clock size={12} className="text-yellow-500 mr-1" />,
-    pending: <CheckCircle size={12} className="text-blue-500 mr-1" />
+    pending: <CheckCircle size={12} className="text-blue-500 mr-1" />,
   };
 
   return (
-    <div className={`${styles.courseCard} my-2 bg-white flex flex-col items-center`}>
+    <div
+      className={`${styles.courseCard} my-2 bg-white flex flex-col items-center`}
+    >
       <div className="relative">
-        <div className="relative w-full max-w-[350px] h-[250px] aspect-[4/3] mx-auto">
+        <div className="relative w-full max-w-[350px] h-[250px] aspect-4/3 mx-auto">
           <Image
             fill
             src={img}
@@ -67,7 +82,9 @@ export const CourseCard = ({
         </div>
         <div className="absolute top-0 right-0">
           {status && (
-            <span className={`flex items-center text-xs font-semibold w-fit ${statusStyles[status]}`}>
+            <span
+              className={`flex items-center text-xs font-semibold w-fit ${statusStyles[status]}`}
+            >
               {statusIcons[status]}
               {t(`status.${status}`)}
             </span>

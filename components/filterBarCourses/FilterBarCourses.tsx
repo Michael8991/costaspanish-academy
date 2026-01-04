@@ -10,9 +10,14 @@ import { useTranslations } from "next-intl";
 type FilterBarCoursesProps = {
   filters: CourseFilters;
   setFilters: Dispatch<SetStateAction<CourseFilters>>;
+  hideLanguage?: boolean;
 };
 
-export const FilterBarCourses = ({ filters, setFilters }: FilterBarCoursesProps) => {
+export const FilterBarCourses = ({
+  filters,
+  setFilters,
+  hideLanguage,
+}: FilterBarCoursesProps) => {
   const t = useTranslations("filters");
   const languageOptions = t.raw("languageOptions") as string[];
   const statusOptions = Object.keys(t.raw("statusOptions")) as string[];
@@ -54,7 +59,9 @@ export const FilterBarCourses = ({ filters, setFilters }: FilterBarCoursesProps)
         | "C1"
         | "C2"
         | undefined,
-      language: selectedLanguage as "Spanish" | "English" | undefined,
+      language: hideLanguage
+        ? "Spanish"
+        : (selectedLanguage as "Spanish" | "English" | undefined),
     });
     setShowMobileFilters(false);
   };
@@ -64,7 +71,12 @@ export const FilterBarCourses = ({ filters, setFilters }: FilterBarCoursesProps)
     setSelectedModality(null);
     setSelectedLevel(null);
     setSelectedLanguage(null);
-    setFilters({ status: undefined, modality: undefined, level: undefined, language: undefined });
+    setFilters({
+      status: undefined,
+      modality: undefined,
+      level: undefined,
+      language: hideLanguage ? "Spanish" : undefined,
+    });
     setShowMobileFilters(false);
   };
 
@@ -73,7 +85,7 @@ export const FilterBarCourses = ({ filters, setFilters }: FilterBarCoursesProps)
       {/* Botón móvil */}
       <div className="flex justify-center md:hidden mb-4">
         <button
-          onClick={() => setShowMobileFilters(prev => !prev)}
+          onClick={() => setShowMobileFilters((prev) => !prev)}
           className="flex items-center gap-2 px-4 py-2 bg-rose-400 text-white rounded-xl shadow-md hover:bg-rose-500 transition"
         >
           <SlidersHorizontal size={20} />
@@ -91,15 +103,17 @@ export const FilterBarCourses = ({ filters, setFilters }: FilterBarCoursesProps)
             transition={{ duration: 0.3 }}
             className="flex flex-col md:flex-row items-center justify-center mb-10 gap-4 md:gap-6 bg-white w-full sm:w-fit m-auto py-4 px-4 sm:px-6 md:px-10 rounded-2xl shadow-md"
           >
-            <Dropdown
-              id="language"
-              options={languageOptions}
-              selected={selectedLanguage}
-              onChange={setSelectedLanguage}
-              placeholder={t("labels.language")}
-              openDropdown={openDropdown}
-              setOpenDropdown={setOpenDropdown}
-            />
+            {!hideLanguage && (
+              <Dropdown
+                id="language"
+                options={languageOptions}
+                selected={selectedLanguage}
+                onChange={setSelectedLanguage}
+                placeholder={t("labels.language")}
+                openDropdown={openDropdown}
+                setOpenDropdown={setOpenDropdown}
+              />
+            )}
             <Dropdown
               id="status"
               options={statusOptions}

@@ -2,6 +2,10 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import SpanishCoursesClient from "./SpanishCoursesClient";
 
+import dbConnect from "@/lib/mongo";
+import { Course } from "@/models/Course";
+import type { ICourseData } from "@/types";
+
 export async function generateMetadata({
   params,
 }: {
@@ -13,8 +17,7 @@ export async function generateMetadata({
   const title = t("spanish.metadata.title");
   const description = t("spanish.metadata.description");
 
-
-  const metadata: Metadata = {
+  return {
     title,
     description,
     alternates: {
@@ -33,10 +36,22 @@ export async function generateMetadata({
       type: "website",
     },
   };
-
-  return metadata;
 }
 
-export default function Page() {
-  return <SpanishCoursesClient />;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  await dbConnect();
+
+  const courses = await Course.find({ languageToLearn: "Spanish" })
+    .select("-__v")
+    .lean<ICourseData[]>();
+
+  const plainCourses: ICourseData[] = JSON.parse(JSON.stringify(courses));
+
+  return <SpanishCoursesClient locale={locale} courses={plainCourses} />;
 }
