@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "title": "Legal notice | CostaSpanish Academy",
+    "description": "Legal information about this website and terms of use."
+  },
+  "title": "Legal notice",
+  "intro": "In accordance with applicable regulations, the website owner details and terms of use are provided below.",
+
+  "sections": {
+    "owner": {
+      "title": "Website owner",
+      "items": {
+        "name": { "label": "Owner", "value": "María Godoy Narváez" },
+        "id": { "label": "ID number", "value": "53925272R" },
+        "address": { "label": "Address", "value": "Málaga, SPAIN" },
+        "email": { "label": "Email", "value": "info@costaspanishclass.com" },
+        "activity": { "label": "Activity", "value": "Online education / Spanish courses for foreigners" }
+      }
+    },
+
+    "terms": {
+      "title": "Terms of use",
+      "p1": "Accessing and using this website grants user status and implies acceptance of these terms.",
+      "p2": "Users agree to make appropriate use of the content and services and not to use them for unlawful activities or activities contrary to good faith and public order."
+    },
+
+    "ip": {
+      "title": "Intellectual and industrial property",
+      "p1": "The content of this website (texts, images, design, code, etc.) is protected by intellectual and industrial property regulations.",
+      "p2": "Reproduction, distribution or public communication, in whole or in part, is prohibited without the owner’s express authorization."
+    },
+
+    "liability": {
+      "title": "Liability",
+      "p1": "The owner is not responsible for misuse of the website content; responsibility lies solely with the user who accesses or uses it.",
+      "p2": "The owner is not responsible for information on third-party websites accessible through links."
+    },
+
+    "law": {
+      "title": "Applicable law",
+      "p1": "The relationship between the owner and the user shall be governed by applicable Spanish and EU regulations."
+    },
+
+    "contact": {
+      "title": "Contact",
+      "p1": "For any questions related to this legal notice, please contact us via the email listed in the owner section."
+    }
+  }
+}

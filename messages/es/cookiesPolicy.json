@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Política de cookies | CostaSpanish Academy",
+    "description": "Información sobre el uso de cookies en este sitio web."
+  },
+  "title": "Política de cookies",
+  "intro": "Este sitio web utiliza cookies propias y de terceros para garantizar su correcto funcionamiento y, en su caso, analizar la navegación de los usuarios.",
+
+  "sections": {
+    "what": {
+      "title": "¿Qué son las cookies?",
+      "p1": "Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del usuario cuando visita un sitio web."
+    },
+    "types": {
+      "title": "Tipos de cookies",
+      "p1": "Cookies técnicas: necesarias para el funcionamiento básico del sitio web.",
+      "p2": "Cookies analíticas: permiten analizar el comportamiento de los usuarios de forma agregada."
+    },
+    "used": {
+      "title": "Cookies utilizadas en este sitio web",
+      "items": {
+        "technical": {
+          "label": "Cookies técnicas",
+          "value": "Necesarias para la navegación, seguridad y funcionamiento del sitio web."
+        },
+        "analytics": {
+          "label": "Cookies analíticas",
+          "value": "Cookies de Vercel Analytics utilizadas únicamente si el usuario lo consiente."
+        }
+      }
+    },
+    "manage": {
+      "title": "Gestión de cookies",
+      "p1": "El usuario puede aceptar, rechazar o configurar el uso de cookies analíticas a través del banner de cookies.",
+      "p2": "En cualquier momento puede modificar su consentimiento desde el enlace de configuración de cookies disponible en el pie de página."
+    },
+    "update": {
+      "title": "Actualización de la política de cookies",
+      "p1": "Esta política puede actualizarse para adaptarse a cambios normativos o técnicos."
+    }
+  }
+}

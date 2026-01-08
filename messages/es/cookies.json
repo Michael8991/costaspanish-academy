@@ -1,0 +1,13 @@
+{
+  "banner": {
+    "title": "Cookies",
+    "text": "Usamos cookies técnicas necesarias y, si lo aceptas, cookies analíticas para medir el tráfico y mejorar el sitio. Puedes aceptar o rechazar las analíticas.",
+    "accept": "Aceptar analíticas",
+    "reject": "Rechazar",
+    "customize": "Configurar",
+    "save": "Guardar",
+    "necessary": "Necesarias (siempre activas)",
+    "analytics": "Analíticas (opcionales)",
+    "policy": "Política de cookies"
+  }
+}

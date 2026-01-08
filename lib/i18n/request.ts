@@ -11,6 +11,11 @@ export default getRequestConfig(async ({ locale }) => {
     const coursesCatalog = (await import(`../../messages/${currentLocale}/coursesCatalog.json`)).default;
     const coursePage = (await import(`../../messages/${currentLocale}/coursePage.json`)).default;
     const preinscription = (await import(`../../messages/${currentLocale}/preinscription.json`)).default;
+    const legalNotice = (await import(`../../messages/${currentLocale}/legalNotice.json`)).default;
+    const privacyPolicy = (await import(`../../messages/${currentLocale}/privacyPolicy.json`)).default;
+    const cookies = (await import(`../../messages/${currentLocale}/cookies.json`)).default;
+    const cookiesPolicy = (await import(`../../messages/${currentLocale}/cookiesPolicy.json`)).default;
+
 
     return {
         locale: currentLocale,
@@ -23,6 +28,10 @@ export default getRequestConfig(async ({ locale }) => {
             coursesCatalog,
             coursePage,
             preinscription,
+            legalNotice,
+            privacyPolicy,
+            cookies,
+            cookiesPolicy,
         },
     };
 });

@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "Política de privacidad | CostaSpanish Academy",
+    "description": "Información sobre el tratamiento de datos personales."
+  },
+  "title": "Política de privacidad",
+  "intro": "De acuerdo con el Reglamento (UE) 2016/679 (RGPD), se informa a los usuarios sobre el tratamiento de sus datos personales.",
+
+  "sections": {
+    "owner": {
+      "title": "Responsable del tratamiento",
+      "items": {
+        "owner": { "label": "Titular", "value": "María Godoy Narvaez" },
+        "email": { "label": "Email de contacto", "value": "info@costaspanishclass.com" },
+        "activity": { "label": "Actividad", "value": "Academia online de español" }
+      }
+    },
+
+    "data": {
+      "title": "Datos tratados",
+      "p1": "Se recopilan los datos personales que el usuario facilita a través de los formularios de contacto o preinscripción.",
+      "p2": "Los datos pueden incluir nombre, correo electrónico, nivel de idioma y cualquier información proporcionada voluntariamente."
+    },
+
+    "purpose": {
+      "title": "Finalidad del tratamiento",
+      "p1": "Los datos se utilizan para gestionar solicitudes de información, preinscripciones, creación de grupos y comunicaciones académicas."
+    },
+
+    "legalBasis": {
+      "title": "Base legal",
+      "p1": "La base legal para el tratamiento de los datos es el consentimiento expreso del usuario."
+    },
+
+    "retention": {
+      "title": "Conservación de los datos",
+      "p1": "Los datos se conservarán durante el tiempo necesario para cumplir la finalidad para la que fueron recabados o hasta que el usuario solicite su supresión."
+    },
+
+    "rights": {
+      "title": "Derechos del usuario",
+      "p1": "El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad.",
+      "p2": "Para ello, puede enviar una solicitud al correo electrónico indicado anteriormente."
+    },
+
+    "security": {
+      "title": "Medidas de seguridad",
+      "p1": "Se aplican medidas técnicas y organizativas adecuadas para garantizar la seguridad de los datos personales."
+    }
+  }
+}

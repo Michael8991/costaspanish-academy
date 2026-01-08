@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Cookie policy | CostaSpanish Academy",
+    "description": "Information about the use of cookies on this website."
+  },
+  "title": "Cookie policy",
+  "intro": "This website uses its own and third-party cookies to ensure proper operation and, where applicable, analyze user navigation.",
+
+  "sections": {
+    "what": {
+      "title": "What are cookies?",
+      "p1": "Cookies are small text files stored on the user's device when visiting a website."
+    },
+    "types": {
+      "title": "Types of cookies",
+      "p1": "Technical cookies: necessary for the basic operation of the website.",
+      "p2": "Analytics cookies: allow aggregated analysis of user behavior."
+    },
+    "used": {
+      "title": "Cookies used on this website",
+      "items": {
+        "technical": {
+          "label": "Technical cookies",
+          "value": "Necessary for navigation, security and proper website functioning."
+        },
+        "analytics": {
+          "label": "Analytics cookies",
+          "value": "Vercel Analytics cookies used only if the user provides consent."
+        }
+      }
+    },
+    "manage": {
+      "title": "Cookie management",
+      "p1": "Users can accept, reject or configure analytics cookies through the cookie banner.",
+      "p2": "Consent can be modified at any time using the cookie settings link in the footer."
+    },
+    "update": {
+      "title": "Cookie policy updates",
+      "p1": "This policy may be updated to reflect legal or technical changes."
+    }
+  }
+}

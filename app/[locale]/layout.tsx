@@ -4,6 +4,8 @@ import "./globals.css";
 import { Footer, Header, TopBar } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import CookieBanner from "@/components/cookies/CookieBanner";
+import AnalyticsLoader from "@/components/cookies/AnalyticsLoader";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -45,6 +47,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   const coursesCatalog = (await import(`../../messages/${locale}/coursesCatalog.json`)).default;
   const coursePage = (await import(`../../messages/${locale}/coursePage.json`)).default;
   const preinscription = (await import(`../../messages/${locale}/preinscription.json`)).default;
+  const cookies = (await import(`../../messages/${locale}/cookies.json`)).default;
+
 
   const messages = {
     ...common,
@@ -55,6 +59,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     coursesCatalog,
     coursePage,
     preinscription,
+    cookies,
   };
 
   return (
@@ -70,6 +75,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <AnalyticsLoader />
+          <CookieBanner policyHref={`/${locale}/cookies`} />
           <TopBar />
           <Header />
           <main>{children}</main>

@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import {useLocale, useTranslations } from "next-intl";
 
 type CourseProp = {
   course: ICourseData;
@@ -31,6 +31,7 @@ type FormFields = {
 
 export const PreinscriptionForm = ({ course }: CourseProp) => {
   const t = useTranslations("preinscription.form");
+  const locale = useLocale();
 
   const [submitMessage, setSubmitMessage] = useState<{
     type: "success" | "error";
@@ -470,7 +471,9 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
             type="checkbox"
             className=""
           />
+          <Link href={`/${locale}/privacyPolicy`} className="hover:cursor-pointer hover:underline">
           <label>{t("labels.privacy")}</label>
+          </Link>
         </div>
         <AnimatePresence>
           {errors.privacy && (

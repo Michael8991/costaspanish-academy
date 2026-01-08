@@ -108,6 +108,33 @@ export const Footer = () => {
               </li>
             </ul>
 
+            <ul className="flex flex-wrap gap-4 font-light text-md" >
+              <li>
+                <Link href={`/${locale}/cookiesPolicy`} className={styles.legalLinks}>
+                  {t("legal.cookiesPolicy")}
+                </Link>
+              </li>
+              <li>
+                 <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new Event("cookies:open"))}
+                    className="hover:cursor-pointer"
+                  >
+                    Configurar cookies
+                  </button>
+              </li>
+              <li>
+                <Link href={`/${locale}/legalNotice`} className={styles.legalLinks}>
+                  {t("legal.notice")}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/privacyPolicy`} className={styles.legalLinks}>
+                  {t("legal.privacyPolicy")}
+                </Link>
+              </li>
+            </ul>
+
             <a href="#" className={`${styles.designLink} font-light text-center md:text-right`}>
               {t("design")}
             </a>

@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "Privacy policy | CostaSpanish Academy",
+    "description": "Information about the processing of personal data."
+  },
+  "title": "Privacy policy",
+  "intro": "In accordance with Regulation (EU) 2016/679 (GDPR), users are informed about the processing of their personal data.",
+
+  "sections": {
+    "owner": {
+      "title": "Data controller",
+      "items": {
+        "owner": { "label": "Owner", "value": "María Godoy Narvaez" },
+        "email": { "label": "Contact email", "value": "info@costaspanishclass.com" },
+        "activity": { "label": "Activity", "value": "Online Spanish academy" }
+      }
+    },
+
+    "data": {
+      "title": "Processed data",
+      "p1": "Personal data provided by users through contact or pre-enrollment forms are collected.",
+      "p2": "Data may include name, email address, language level and any information voluntarily provided."
+    },
+
+    "purpose": {
+      "title": "Purpose of processing",
+      "p1": "Data are used to manage information requests, pre-enrollments, group creation and academic communications."
+    },
+
+    "legalBasis": {
+      "title": "Legal basis",
+      "p1": "The legal basis for data processing is the user’s explicit consent."
+    },
+
+    "retention": {
+      "title": "Data retention",
+      "p1": "Data will be kept for as long as necessary to fulfill the purpose for which they were collected or until deletion is requested."
+    },
+
+    "rights": {
+      "title": "User rights",
+      "p1": "Users may exercise their rights of access, rectification, erasure, objection, restriction and data portability.",
+      "p2": "Requests can be sent to the email address provided above."
+    },
+
+    "security": {
+      "title": "Security measures",
+      "p1": "Appropriate technical and organizational measures are applied to ensure the security of personal data."
+    }
+  }
+}

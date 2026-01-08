@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "title": "Aviso legal | CostaSpanish Academy",
+    "description": "Información legal del sitio web y condiciones de uso."
+  },
+  "title": "Aviso legal",
+  "intro": "En cumplimiento con la normativa aplicable, se informa a continuación sobre el titular del sitio web y las condiciones de uso.",
+
+  "sections": {
+    "owner": {
+      "title": "Titular del sitio web",
+      "items": {
+        "name": { "label": "Titular", "value": "María Godoy Narváez" },
+        "id": { "label": "DNI/NIE", "value": "53925272R" },
+        "address": { "label": "Domicilio", "value": "Málaga, ESPAÑA" },
+        "email": { "label": "Email", "value": "info@costaspanishclass.com" },
+        "activity": { "label": "Actividad", "value": "Formación online / Academia de español para extranjeros" }
+      }
+    },
+
+    "terms": {
+      "title": "Condiciones de uso",
+      "p1": "El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación de las presentes condiciones.",
+      "p2": "El usuario se compromete a hacer un uso adecuado de los contenidos y servicios y a no emplearlos para actividades ilícitas o contrarias a la buena fe y al orden público."
+    },
+
+    "ip": {
+      "title": "Propiedad intelectual e industrial",
+      "p1": "Los contenidos de este sitio web (textos, imágenes, diseño, código, etc.) están protegidos por la normativa de propiedad intelectual e industrial.",
+      "p2": "Queda prohibida la reproducción, distribución o comunicación pública, total o parcial, sin autorización expresa del titular."
+    },
+
+    "liability": {
+      "title": "Responsabilidad",
+      "p1": "El titular no se hace responsable del mal uso que se realice de los contenidos del sitio web, siendo exclusiva responsabilidad del usuario que accede o utiliza dichos contenidos.",
+      "p2": "El titular tampoco se responsabiliza de la información contenida en páginas web de terceros a las que se pueda acceder mediante enlaces."
+    },
+
+    "law": {
+      "title": "Legislación aplicable",
+      "p1": "La relación entre el titular y el usuario se regirá por la normativa española y europea aplicable."
+    },
+
+    "contact": {
+      "title": "Contacto",
+      "p1": "Para cualquier consulta relacionada con este aviso legal, puedes contactar a través del email indicado en el apartado de titularidad."
+    }
+  }
+}

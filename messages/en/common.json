@@ -31,6 +31,11 @@
             "contact": "Contact us",
             "blog": "Blog"
         },
+        "legal": {
+            "notice": "Legal Notice",
+            "privacyPolicy": "Privacy Policy",
+            "cookiesPolicy": "Cookies Policy"
+        },
         "design": "Design by Michael Rodriguez",
         "alt": "Spanish Academy Logo"
     }
