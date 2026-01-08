@@ -1,0 +1,23 @@
+{
+  "badge": "Especial Año Nuevo",
+  "title": "Descuento de Año Nuevo: -50%",
+  "subtitle": "Empieza el año hablando español. Reserva tu plaza y formamos tu grupo.",
+  "available": "Disponible durante enero",
+  "endsIn": "Termina en",
+  "cta": "Ver cursos",
+  "dismiss": "Ahora no",
+  "close": "Cerrar",
+  "note": "Puedes cerrar este aviso. Si lanzamos otra promoción, volverá a aparecer.",
+  "chips": {
+    "champagne": "Brindis",
+    "grapes": "12 uvas",
+    "clock": "Cuenta atrás"
+  },
+  "goals": {
+    "title": "Metas para este año",
+    "g1": "Hablar con confianza en 4 semanas",
+    "g2": "Mejorar gramática + conversación",
+    "g3": "Prepararte para viajes, entrevistas o exámenes"
+  },
+  "openPromo": "Abrir promoción"
+}

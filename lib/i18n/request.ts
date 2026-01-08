@@ -15,6 +15,7 @@ export default getRequestConfig(async ({ locale }) => {
     const privacyPolicy = (await import(`../../messages/${currentLocale}/privacyPolicy.json`)).default;
     const cookies = (await import(`../../messages/${currentLocale}/cookies.json`)).default;
     const cookiesPolicy = (await import(`../../messages/${currentLocale}/cookiesPolicy.json`)).default;
+    const promoPopup = (await import(`../../messages/${currentLocale}/promoPopup.json`)).default;
 
 
     return {
@@ -32,6 +33,7 @@ export default getRequestConfig(async ({ locale }) => {
             privacyPolicy,
             cookies,
             cookiesPolicy,
+            promoPopup,
         },
     };
 });

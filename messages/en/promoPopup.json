@@ -1,0 +1,23 @@
+{
+  "badge": "New Year Special",
+  "title": "New Year Discount: 50% off",
+  "subtitle": "Start the year speaking Spanish. Reserve your spot and we’ll form your group.",
+  "available": "Available during January",
+  "endsIn": "Ends in",
+  "cta": "View courses",
+  "dismiss": "Not now",
+  "close": "Close",
+  "note": "You can close this notice. It will show again when a new promotion is launched.",
+  "chips": {
+    "champagne": "Toast",
+    "grapes": "12 grapes",
+    "clock": "Countdown"
+  },
+  "goals": {
+    "title": "Your goals this year",
+    "g1": "Speak confidently in 4 weeks",
+    "g2": "Improve grammar + conversation",
+    "g3": "Get ready for travel, interviews, or exams"
+  },
+  "openPromo": "Open promotion"
+}
