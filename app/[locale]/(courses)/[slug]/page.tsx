@@ -5,6 +5,32 @@ import { notFound } from "next/navigation";
 import dbConnect from "@/lib/mongo";
 import { Course } from "@/models/Course";
 import CourseClient from "./CourseClient";
+function serializeMongo(value: any): any {
+  if (value === null || value === undefined) return value;
+
+  // Date -> string ISO
+  if (value instanceof Date) return value.toISOString();
+
+  // Buffer -> base64 (por si aparece)
+  if (typeof Buffer !== "undefined" && Buffer.isBuffer(value)) {
+    return value.toString("base64");
+  }
+
+  // ObjectId (BSON) -> string
+  if (typeof value === "object" && value?._bsontype === "ObjectId") {
+    return value.toString();
+  }
+
+  if (Array.isArray(value)) return value.map(serializeMongo);
+
+  if (typeof value === "object") {
+    const out: any = {};
+    for (const [k, v] of Object.entries(value)) out[k] = serializeMongo(v);
+    return out;
+  }
+
+  return value;
+}
 
 export async function generateMetadata({
   params,
@@ -14,7 +40,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: "coursesCatalog" });
 
-  // CAMBIO 1: en vez de mockCourses, consultamos Mongo Atlas por slug
+
   await dbConnect();
   const course = await Course.findOne({ slug }).select("-__v").lean<any>();
 
@@ -25,12 +51,12 @@ export async function generateMetadata({
     };
   }
 
-  // CAMBIO 2: metadata basada en el curso real
+  
   const title = `${course.title} | Costa Spanish Academy`;
   const description =
     typeof course.longDesc === "string" && course.longDesc.length > 0
       ? course.longDesc.substring(0, 155)
-      : t("defaultDescription"); // si no tienes esta key, cambia por un string fijo
+      : t("defaultDescription"); 
 
   return {
     title,
@@ -56,13 +82,12 @@ export default async function Page({
 }) {
   const { locale, slug } = await params;
 
-  // CAMBIO 3: el Page (Server) carga el curso desde DB
   await dbConnect();
-  const course = await Course.findOne({ slug }).select("-__v").lean<any>();
+  const courseRaw = await Course.findOne({ slug }).select("-__v").lean<any>();
 
-  // CAMBIO 4: si no existe, 404 real
-  if (!course) notFound();
+  if (!courseRaw) notFound();
 
-  // CAMBIO 5: pasamos course y locale al Client Component
+  const course = serializeMongo(courseRaw);
+
   return <CourseClient course={course} locale={locale} />;
 }
