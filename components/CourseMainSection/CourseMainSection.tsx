@@ -12,20 +12,70 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { JSX } from "react";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 type CourseProps = {
   course: ICourseData;
 };
 
+function pad(n: number) {
+  return String(n).padStart(2, "0");
+}
+
+function JanuaryCountdown({
+  endDate,
+  label,
+  endsInLabel,
+  expiredLabel,
+}: {
+  endDate: Date;
+  label: string;
+  endsInLabel: string;
+  expiredLabel: string;
+}) {
+  const [msLeft, setMsLeft] = useState<number>(() => endDate.getTime() - Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setMsLeft(endDate.getTime() - Date.now());
+    }, 1000);
+
+    return () => clearInterval(id);
+  }, [endDate]);
+
+  if (msLeft <= 0) {
+    return (
+      <p className="text-xs text-gray-500">
+        {label} — {expiredLabel}
+      </p>
+    );
+  }
+
+  const totalSeconds = Math.floor(msLeft / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return (
+    <div className="text-center">
+      <p className="text-xs text-gray-500">{label}</p>
+      <p className="mt-1 text-sm font-semibold text-gray-800">
+        {endsInLabel}: {days}d {pad(hours)}h {pad(minutes)}m {pad(seconds)}
+      </p>
+    </div>
+  );
+}
+
 export default function CourseMainSection({ course }: CourseProps) {
   const t = useTranslations("coursePage");
-  const { locale } = useParams();
+  const locale = useLocale();
 
   const statusStyles: Record<string, string> = {
     inProgress:
+      "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
+    private:
       "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
     soon: "bg-yellow-100 shadow-lg shadow-yellow-500/25 text-yellow-800 rounded-lg px-2 py-1",
     pending:
@@ -34,15 +84,45 @@ export default function CourseMainSection({ course }: CourseProps) {
 
   const statusIcons: Record<string, JSX.Element> = {
     inProgress: <Circle size={12} className="text-green-500 mr-1" />,
+    private: <Circle size={12} className="text-green-500 mr-1" />,
     soon: <Clock size={12} className="text-yellow-500 mr-1" />,
     pending: <CheckCircle size={12} className="text-blue-500 mr-1" />,
   };
 
   const statusLabel: Record<string, string> = {
     inProgress: t("status.inProgress"),
+    private: t("status.private"),
     soon: t("status.soon"),
     pending: t("status.pending"),
   };
+
+  // --- PROMO ENERO (-50%) ---
+  const now = new Date();
+  const endOfJanuary = new Date(now.getFullYear(), 1, 1, 0, 0, 0); // Feb 1, 00:00 (fin de enero)
+
+  // course.price = precio FINAL (con descuento) -> original = *2
+  const original = Number(course.price);
+  const discounted = original / 2;
+
+  const formatEUR = (value: number) =>
+    new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0,
+    }).format(value);
+
+  const formattedDiscounted = formatEUR(discounted);
+  const formattedOriginal = formatEUR(original);
+
+  const isPrivate = course.status === "private";
+
+  const discountedText = isPrivate
+    ? t("details.price.private", { price: formattedDiscounted })
+    : t("details.price.monthly", { price: formattedDiscounted });
+
+  const originalText = isPrivate
+    ? t("details.price.private", { price: formattedOriginal })
+    : t("details.price.monthly", { price: formattedOriginal });
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mx-3 xl:mx-0">
@@ -72,7 +152,7 @@ export default function CourseMainSection({ course }: CourseProps) {
 
       {/* Derecha */}
       <div className="flex flex-col items-center bg-white rounded-2xl shadow-md p-5 sm:p-6 mx-4 sm:mx-6 lg:mx-0">
-        <div className="relative w-full max-w-[450px] aspect-[4/3] mx-auto">
+        <div className="relative w-full max-w-[450px] aspect-4/3 mx-auto">
           <Image
             fill
             src={course.imageUrl}
@@ -84,9 +164,29 @@ export default function CourseMainSection({ course }: CourseProps) {
           />
         </div>
 
-        <span className="text-2xl font-bold text-gray-900 mt-4">
-          {course.price}
-        </span>
+        {/* ✅ Bloque precio (NO dentro de un span) */}
+        <div className="mt-4 flex flex-col items-center gap-2">
+          <span className="inline-flex items-center rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">
+            {t("details.promo.badge")}
+          </span>
+
+          <div className="flex flex-col items-center">
+            <span className="text-sm text-gray-500 line-through">
+              {originalText}
+            </span>
+
+            <span className="text-2xl font-bold text-gray-900">
+              {discountedText}
+            </span>
+          </div>
+
+          <JanuaryCountdown
+            endDate={endOfJanuary}
+            label={t("details.promo.available")}
+            endsInLabel={t("details.promo.endsIn")}
+            expiredLabel={t("details.promo.expired")}
+          />
+        </div>
 
         <Link
           href={`/${locale}/${course.slug}/preinscription`}

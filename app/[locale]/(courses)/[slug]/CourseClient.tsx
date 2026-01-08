@@ -11,24 +11,24 @@ import CourseModule from "@/components/CourseModules/CourseModule";
 import CourseMainSection from "@/components/CourseMainSection/CourseMainSection";
 import { useTranslations } from "next-intl";
 
-// CAMBIO 1: CourseClient ahora recibe props desde el Server page.tsx
+
 type CourseClientProps = {
   locale: string;
-  course: any; // recomendado: sustituir por ICourseData
+  course: any; 
 };
 
 export default function CourseClient({ locale, course }: CourseClientProps) {
   const t = useTranslations("coursesCatalog");
   const [scrolled, setScrolled] = useState(false);
 
-  // CAMBIO 2: eliminamos useParams() y mockCourses (ya no se busca aquí)
+ 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 1);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // CAMBIO 3: params.locale -> locale (viene por props)
+ 
   if (!course) {
     return (
       <div

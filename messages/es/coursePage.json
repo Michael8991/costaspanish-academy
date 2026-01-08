@@ -5,10 +5,21 @@
     "preRegister": "Preinscribirme en el curso",
     "status": {
         "inProgress": "En curso",
+        "private": "Privado",
         "soon": "Próximamente",
         "pending": "Inscripciones abiertas"
     },
     "details": {
+         "promo": {
+            "badge": "-50% Enero",
+            "available": "Disponible durante enero",
+            "endsIn": "Termina en",
+            "expired": "Promoción finalizada"
+        },
+        "price": {
+            "private": "Desde {price}/h",
+            "monthly": "Desde {price} al mes"
+        },
         "title": "Detalles del curso",
         "hoursPerWeek": "Horas por semana",
         "duration": "Duración del curso",

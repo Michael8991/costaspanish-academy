@@ -5,10 +5,21 @@
     "preRegister": "Pre-register for the course",
     "status": {
         "inProgress": "In progress",
+        "private": "Private",
         "soon": "Coming soon",
         "pending": "Open registrations"
     },
     "details": {
+        "promo": {
+            "badge": "50% off January",
+            "available": "Available during January",
+            "endsIn": "Ends in",
+            "expired": "Promotion ended"
+        },
+        "price": {
+            "private": "From {price}/h",
+            "monthly": "From {price} per month"
+        },
         "title": "Course details",
         "hoursPerWeek": "Hours per week",
         "duration": "Duration of course",
