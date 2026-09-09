@@ -4,7 +4,16 @@ import SpanishCoursesClient from "./SpanishCoursesClient";
 
 import dbConnect from "@/lib/mongo";
 import { Course } from "@/models/Course";
-import type { ICourseData } from "@/types";
+import { PUBLIC_SPANISH_OFFERINGS } from "@/lib/courses/publicOfferings";
+import type { PublicCourseRecord } from "@/components/CoursesCatalog/CoursesCatalog";
+
+type LocalizedValue = string | Record<string, string>;
+
+function localized(value: LocalizedValue | undefined, locale: string) {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  return value[locale] ?? value.es ?? value.en ?? "";
+}
 
 export async function generateMetadata({
   params,
@@ -47,11 +56,31 @@ export default async function Page({
 
   await dbConnect();
 
-  const courses = await Course.find({ languageToLearn: "Spanish" })
-    .select("-__v")
-    .lean<ICourseData[]>();
+  const slugs = PUBLIC_SPANISH_OFFERINGS.map(({ slug }) => slug);
+  const records = await Course.find({
+    languageToLearn: "Spanish",
+    slug: { $in: slugs },
+  })
+    .select("_id slug title longDesc imageUrl level format modality status")
+    .lean();
 
-  const plainCourses: ICourseData[] = JSON.parse(JSON.stringify(courses));
+  const bySlug = new Map(records.map((course) => [course.slug, course]));
+  const courses = PUBLIC_SPANISH_OFFERINGS.flatMap((offering) => {
+    const course = bySlug.get(offering.slug);
+    if (!course) return [];
 
-  return <SpanishCoursesClient locale={locale} courses={plainCourses} />;
+    return [{
+      id: String(course._id),
+      slug: course.slug,
+      title: localized(course.title as unknown as LocalizedValue, locale),
+      description: localized(course.longDesc as unknown as LocalizedValue, locale),
+      imageUrl: course.imageUrl,
+      level: course.level,
+      format: course.format,
+      modality: course.modality,
+      status: course.status,
+    } satisfies PublicCourseRecord];
+  });
+
+  return <SpanishCoursesClient locale={locale} courses={courses} />;
 }

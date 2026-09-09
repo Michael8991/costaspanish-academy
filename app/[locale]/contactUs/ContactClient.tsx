@@ -1,32 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import styles from "./contactPage.module.css";
+import { useTranslations } from "next-intl";
+import landingTheme from "@/styles/landing/landingTheme.module.css";
 import { ContactForm } from "./ContactForm";
+import styles from "./contactPage.module.css";
 
 export default function ContactClient() {
-    const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations("contact");
 
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 1);
-        window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+  return (
+    <div className={`${landingTheme.theme} ${styles.page}`}>
+      <motion.div
+        className={styles.inner}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <header className={styles.intro}>
+          <p className={styles.eyebrow}>{t("eyebrow")}</p>
+          <h1 className={styles.title}>
+            {t("heading.line1")}
+            <span>{t("heading.line2")}</span>
+          </h1>
+          <p className={styles.supporting}>{t("supporting")}</p>
+        </header>
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-            className={`@container max-w-6xl mx-auto ${scrolled ? styles.headerspacerfixedbigscreen : ""
-                }`}
-            style={{ minHeight: "calc(100vh - 120px)" }}
-        >
-            <div
-                className={`${scrolled ? styles.headerspacerfixed : ""} header-spacer`}
-            ></div>
-            <ContactForm />
-        </motion.div>
-    );
+        <ContactForm />
+      </motion.div>
+    </div>
+  );
 }

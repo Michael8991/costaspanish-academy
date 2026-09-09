@@ -1,70 +1,43 @@
-import { CourseCard } from "@/components";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { ICourseData } from "@/types";
+import { getLocale, getTranslations } from "next-intl/server";
 import dbConnect from "@/lib/mongo";
 import { Course } from "@/models/Course";
-import { getLocale, getTranslations } from "next-intl/server";
+import type { ICourseData } from "@/types";
+import landingTheme from "@/styles/landing/landingTheme.module.css";
+import { LandingCourseCard } from "./LandingCourseCard";
+import styles from "./coursesSection.module.css";
+import { PUBLIC_SPANISH_OFFERINGS } from "@/lib/courses/publicOfferings";
 
-// CAMBIO 1: quitamos el prop { locale } porque a veces no se lo pasan y queda undefined
 export const CoursesSection = async () => {
-  // CAMBIO 2: obtenemos el locale real desde next-intl (server)
   const locale = await getLocale();
-
-  // CAMBIO 3: getTranslations sigue igual, pero usando el locale obtenido aquí
-  const t = await getTranslations({ locale, namespace: "home" });
-
+  const t = await getTranslations({ locale, namespace: "home.CoursesSection" });
   await dbConnect();
-  const courses = await Course.find({ topCourses: true })
-    .select("-__v")
-    .lean<ICourseData[]>();
-
-  const spanishCourses = courses.filter((c) => c.languageToLearn === "Spanish");
-  const englishCourses = courses.filter((c) => c.languageToLearn === "English");
+  const slugs = PUBLIC_SPANISH_OFFERINGS.map(({ slug }) => slug);
+  const records = await Course.find({ slug: { $in: slugs }, languageToLearn: "Spanish" }).select("_id slug imageUrl level format modality status").lean<ICourseData[]>();
+  const bySlug = new Map(records.map((course) => [course.slug, course]));
 
   return (
-    <section id="courses" style={{ background: "#ffe5ec" }} className="my-10">
-      <div className="@container py-5 max-w-7xl mx-auto">
-        <h2 className="text-5xl w-full text-center lg:text-start font-extrabold mb-4">
-          {t("CoursesSection.title")}
-        </h2>
-
-        {/* --- Spanish Courses --- */}
-        <h3 className="text-lg font-light text-center lg:text-start mb-2">
-          {t("CoursesSection.spanish.subtitle")}
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mb-5 justify-center mx-3">
-          {spanishCourses.map((course) => (
-            <div key={course.slug} className="flex justify-center">
-              <CourseCard
-                slug={course.slug}
-                titleCard={course.title}
-                subTitle={course.subTitle}
-                maxPers={`${course.maxPeople} max.`}
-                time={course.hoursPerWeek}
-                level={course.level}
-                modality={course.modality}
-                img={course.imageUrl}
-                status={course.status}
-                moreInfo={`/${locale}/${course.slug}`}
-              />
-            </div>
-          ))}
+    <section id="courses" className={`${styles.courses} ${landingTheme.theme}`}>
+      <div className={styles.inner}>
+        <header className={styles.sectionHeader}>
+          <div><p className={styles.eyebrow}>{t("eyebrow")}</p><h2>{t("title")}</h2></div>
+          <p>{t("supporting")}</p>
+        </header>
+        <div className={styles.grid}>
+          {PUBLIC_SPANISH_OFFERINGS.map((selection) => {
+            const { key, slug } = selection;
+            const course = bySlug.get(slug);
+            if (!course) return null;
+            const tags = t.raw(`cards.${key}.tags`) as string[];
+            const image = "image" in selection ? selection.image : course.imageUrl;
+            const level = "level" in selection ? selection.level : undefined;
+            const status = selection.statusKey
+              ? t(`statuses.${selection.statusKey}`)
+              : undefined;
+            return <LandingCourseCard key={slug} href={`/${locale}/${slug}`} image={image} imageAlt={t("imageAlt", { title: t(`cards.${key}.title`) })} eyebrow={t(`cards.${key}.eyebrow`)} title={t(`cards.${key}.title`)} description={t(`cards.${key}.description`)} tags={tags} status={status} cta={t("viewCourse")} level={level} variant={key} />;
+          })}
         </div>
-
-        <div className="max-w-7xl flex align-middle justify-center mb-5">
-          <Link
-            href={`/${locale}/spanish`}
-            className="flex rounded-lg hover:bg-rose-400 py-2 px-3 hover:scale-105 transition-all duration-100 hover:shadow-xl focus:outline-none hover:text-white"
-          >
-            <ChevronDown size={24} className="mr-1" />
-            {t("CoursesSection.spanish.cta")}
-          </Link>
-        </div>
-
-        {/* --- English Courses --- */}
-        {/* ... */}
+        <div className={styles.footer}><Link href={`/${locale}/spanish`}>{t("viewAll")}<span aria-hidden="true">→</span></Link></div>
       </div>
     </section>
   );

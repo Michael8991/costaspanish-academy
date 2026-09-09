@@ -1,17 +1,11 @@
 "use client";
 
-import {
-  ChevronDownIcon,
-  CircleAlert,
-  CircleCheck,
-  Mail,
-  Phone
-} from "lucide-react";
 import { motion } from "framer-motion";
+import { Check, ChevronDown, Mail, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import styles from "./contactForm.module.css";
 
 type FormFields = {
   firstName: string;
@@ -21,11 +15,17 @@ type FormFields = {
   textMessage: string;
 };
 
+const CONTACT_PHONE = "+34 665 33 49 19";
+const CONTACT_EMAIL = "info@costaSpanishClass.com";
+
 export const ContactForm = () => {
   const t = useTranslations("contact");
   const topics = t.raw("form.topics") as Record<string, string>;
-
-  const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const askAbout = t.raw("info.askAbout") as string[];
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   const {
     register,
@@ -36,7 +36,7 @@ export const ContactForm = () => {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const res = await fetch(`/api/contact`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -53,149 +53,202 @@ export const ContactForm = () => {
     }
   };
 
-  return (
-    <div className="@container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 min-h-[calc(100vh-150px)] items-center">
-      <div className="bg-white p-6 rounded-2xl shadow-sm relative">
-        <div className="absolute right-3 top-0 opacity-50" style={{ color: "#FF2E00", fontSize: 32, fontWeight: 800 }}>¿?</div>
-        <h2 className="font-bold text-6xl mb-8">{t("title")}</h2>
-        <p className="mb-2">{t("intro.p1")}</p>
-        <p className="mb-2">{t("intro.p2")}</p>
-        <p className="mb-2">{t("intro.p3")}</p>
+  const fieldClass = (invalid: boolean) =>
+    `${styles.control} ${invalid ? styles.controlInvalid : ""}`;
 
-        <div className="w-full flex flex-col justify-center mt-4 mb-4">
-          <p className="flex mb-2">
-            <Phone strokeWidth={1} size={22} className="me-2" />
-            {t("contact.phone")}
-          </p>
-          <p className="flex">
-            <Mail strokeWidth={1} size={22} className="me-2" />
-            {t("contact.email")}
-          </p>
+  return (
+    <section className={styles.shell} aria-label={t("form.title")}>
+      <aside className={styles.infoPanel}>
+        <div className={styles.decorativeMark} aria-hidden="true">
+          ¿?
+        </div>
+        <p className={styles.panelEyebrow}>{t("info.eyebrow")}</p>
+        <h2 className={styles.infoTitle}>{t("info.title")}</h2>
+        <p className={styles.infoIntro}>{t("info.intro")}</p>
+
+        <div className={styles.askBlock}>
+          <p className={styles.miniLabel}>{t("info.askLabel")}</p>
+          <ul className={styles.askList}>
+            {askAbout.map((item) => (
+              <li key={item}>
+                <Check aria-hidden="true" size={15} strokeWidth={2.5} />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <p className="mb-2 text-sm font-extralight flex">
-          <CircleAlert className="me-2" />
-          {t("intro.privacy")}
-        </p>
-      </div>
+        <div className={styles.contactMethods}>
+          <a href="tel:+34665334919" className={styles.contactLink}>
+            <span className={styles.iconBox} aria-hidden="true">
+              <Phone size={18} strokeWidth={1.8} />
+            </span>
+            <span>
+              <small>{t("contact.phoneLabel")}</small>
+              {CONTACT_PHONE}
+            </span>
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className={styles.contactLink}>
+            <span className={styles.iconBox} aria-hidden="true">
+              <Mail size={18} strokeWidth={1.8} />
+            </span>
+            <span>
+              <small>{t("contact.emailLabel")}</small>
+              {CONTACT_EMAIL}
+            </span>
+          </a>
+        </div>
 
-      <div className="col-span-2 px-8">
+        <div className={styles.infoFooter}>
+          <p>
+            <strong>{t("info.hoursLabel")}</strong>
+            <span>{t("info.hours")}</span>
+          </p>
+          <p>{t("info.response")}</p>
+        </div>
+      </aside>
+
+      <div className={styles.formPanel}>
+        <div className={styles.formHeading}>
+          <p className={styles.panelEyebrow}>{t("form.eyebrow")}</p>
+          <h2>{t("form.title")}</h2>
+          <p>{t("form.supporting")}</p>
+        </div>
+
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          {/* First and Last Name */}
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mb-3">
-            <div className="sm:col-span-3">
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-900">
-                {t("form.firstName")}
-              </label>
+          <div className={styles.twoColumns}>
+            <div className={styles.field}>
+              <label htmlFor="firstName">{t("form.firstName")}</label>
               <input
                 {...register("firstName", { required: t("errors.firstName") })}
                 id="firstName"
                 type="text"
-                autoComplete="off"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
+                autoComplete="given-name"
+                aria-invalid={Boolean(errors.firstName)}
+                aria-describedby={errors.firstName ? "firstName-error" : undefined}
+                className={fieldClass(Boolean(errors.firstName))}
               />
-              {errors.firstName && <p className="text-sm text-red-600 mt-1">{errors.firstName.message}</p>}
+              {errors.firstName && (
+                <p id="firstName-error" className={styles.error} role="alert">
+                  {errors.firstName.message}
+                </p>
+              )}
             </div>
 
-            <div className="sm:col-span-3">
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-900">
-                {t("form.lastName")}
-              </label>
+            <div className={styles.field}>
+              <label htmlFor="lastName">{t("form.lastName")}</label>
               <input
                 {...register("lastName", { required: t("errors.lastName") })}
                 id="lastName"
                 type="text"
-                autoComplete="off"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
+                autoComplete="family-name"
+                aria-invalid={Boolean(errors.lastName)}
+                aria-describedby={errors.lastName ? "lastName-error" : undefined}
+                className={fieldClass(Boolean(errors.lastName))}
               />
-              {errors.lastName && <p className="text-sm text-red-600 mt-1">{errors.lastName.message}</p>}
+              {errors.lastName && (
+                <p id="lastName-error" className={styles.error} role="alert">
+                  {errors.lastName.message}
+                </p>
+              )}
             </div>
           </div>
 
-          {/* Email */}
-          <div className="sm:col-span-4 mb-3">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-900">
-              {t("form.email")}
-            </label>
+          <div className={styles.field}>
+            <label htmlFor="email">{t("form.email")}</label>
             <input
               {...register("email", {
                 required: t("errors.emailRequired"),
-                pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/, message: t("errors.emailInvalid") },
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
+                  message: t("errors.emailInvalid"),
+                },
               })}
               id="email"
               type="email"
-              autoComplete="off"
-              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
+              autoComplete="email"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              className={fieldClass(Boolean(errors.email))}
             />
-            {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
+            {errors.email && (
+              <p id="email-error" className={styles.error} role="alert">
+                {errors.email.message}
+              </p>
+            )}
           </div>
 
-          {/* Topic */}
-          <div className="sm:col-span-3 mb-3">
-            <label htmlFor="topic" className="block text-sm font-medium text-gray-900">
-              {t("form.topic")}
-            </label>
-            <div className="relative">
+          <div className={styles.field}>
+            <label htmlFor="topic">{t("form.topic")}</label>
+            <div className={styles.selectWrap}>
               <select
-                {...register("topic", { required: t("errors.topic") })}
+                {...register("topic", {
+                  validate: (value) => value !== "select" || t("errors.topic"),
+                })}
                 id="topic"
-                className="w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
+                defaultValue="select"
+                aria-invalid={Boolean(errors.topic)}
+                aria-describedby={errors.topic ? "topic-error" : undefined}
+                className={fieldClass(Boolean(errors.topic))}
               >
                 {Object.entries(topics).map(([key, label]) => (
-                  <option key={key} value={key}>
+                  <option key={key} value={key} disabled={key === "select"}>
                     {label}
                   </option>
                 ))}
               </select>
-              <ChevronDownIcon className="pointer-events-none absolute right-2 top-2.5 size-4 text-gray-500" />
+              <ChevronDown aria-hidden="true" size={17} />
             </div>
-            {errors.topic && <p className="text-sm text-red-600 mt-1">{errors.topic.message}</p>}
+            {errors.topic && (
+              <p id="topic-error" className={styles.error} role="alert">
+                {errors.topic.message}
+              </p>
+            )}
           </div>
 
-          {/* Message */}
-          <div className="col-span-full mb-3">
-            <label htmlFor="textMessage" className="block text-sm font-medium text-gray-900">
-              {t("form.message")}
-            </label>
+          <div className={styles.field}>
+            <label htmlFor="textMessage">{t("form.message")}</label>
             <textarea
               {...register("textMessage", { required: t("errors.message") })}
               id="textMessage"
-              rows={4}
-              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 focus:outline-rose-200 sm:text-sm"
+              rows={5}
               placeholder={t("form.messagePlaceholder")}
+              aria-invalid={Boolean(errors.textMessage)}
+              aria-describedby={errors.textMessage ? "textMessage-error" : undefined}
+              className={fieldClass(Boolean(errors.textMessage))}
             />
-            {errors.textMessage && <p className="text-sm text-red-600 mt-1">{errors.textMessage.message}</p>}
+            {errors.textMessage && (
+              <p id="textMessage-error" className={styles.error} role="alert">
+                {errors.textMessage.message}
+              </p>
+            )}
           </div>
 
-          {/* Submit */}
-          <div className="mt-6 flex items-center justify-end gap-x-4">
-            {submitMessage && (
-              <motion.div
-                role="status"
-                aria-live="polite"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className={`p-2 rounded-md text-sm flex items-center ${submitMessage.type === "success" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
-                  }`}
-              >
-                {submitMessage.type === "success" ? <CircleCheck size={16} /> : <CircleAlert size={16} />}
-                <span className="ml-2">{submitMessage.text}</span>
-              </motion.div>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`rounded-md px-4 py-2 text-sm font-semibold text-white shadow-sm transition ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-red-400 hover:bg-red-500"
-                }`}
-            >
+          <div className={styles.submitRow}>
+            <div className={styles.submitCopy}>
+              <p>{t("form.submitNote")}</p>
+              {submitMessage && (
+                <motion.p
+                  role={submitMessage.type === "error" ? "alert" : "status"}
+                  aria-live="polite"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={
+                    submitMessage.type === "success"
+                      ? styles.successMessage
+                      : styles.errorMessage
+                  }
+                >
+                  {submitMessage.text}
+                </motion.p>
+              )}
+            </div>
+            <button type="submit" disabled={isSubmitting} className={styles.submitButton}>
               {isSubmitting ? t("form.sending") : t("form.send")}
             </button>
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };

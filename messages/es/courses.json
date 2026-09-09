@@ -1,7 +1,7 @@
 {
     "metadata": {
         "title": "Cursos de idiomas | Costa Spanish Academy",
-        "description": "Explora nuestros cursos de español e inglés. Clases intensivas, privadas o grupales, presenciales y online con profesores nativos."
+        "description": "Explora nuestros cursos de español: clases privadas, grupos regulares reducidos y formación intensiva online o presencial."
     },
     "spanish": {
         "metadata": {
@@ -11,8 +11,8 @@
     },
     "english": {
         "metadata": {
-            "title": "English Courses | Costa Spanish Academy",
-            "description": "Learn English with native teachers. Private and group lessons online or in person for all levels."
+            "title": "Cursos de español | Costa Spanish Academy",
+            "description": "CostaSpanish se centra actualmente en la enseñanza de español mediante cursos privados, grupales e intensivos."
         }
     },
     "breadcrumbs": {

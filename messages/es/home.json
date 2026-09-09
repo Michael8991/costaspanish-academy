@@ -8,79 +8,89 @@
     "cta": "Descubre nuestros cursos más populares",
     "flags": {
       "spanishAlt": "Cursos de español - bandera de España",
-      "englishAlt": "Cursos de inglés - bandera del Reino Unido"
+      "englishAlt": "Bandera del Reino Unido"
+    },
+    "floating": {
+      "private": "Privadas",
+      "group": "Grupos",
+      "intensive": "Intensivos"
     }
   },
   "AcademyHighlights": {
-    "title": "¿Por qué elegirnos?",
-    "subtitle": "La diferencia está en los detalles y en cuánto nos importa.",
-    "cards": [
+    "kicker": "¿Por qué CostaSpanish?",
+    "statement": "El español está hecho para vivirlo.",
+    "manifesto": "El idioma cobra sentido cuando la conversación, la cultura y tu propia vida se encuentran.",
+    "facts": ["4+ años enseñando español", "Online & presencial", "Grupos reducidos · Privadas"],
+    "benefits": [
       {
-        "title": "Nativos y Cualificados",
-        "text": "Aprende con hablantes nativos experimentados que hacen el aprendizaje divertido y real.",
-        "alt": "icono de profesor cualificado"
+        "title": "Habla de verdad",
+        "text": "Gana confianza con conversaciones útiles y naturales."
       },
       {
-        "title": "Metodología Probada",
-        "text": "Una mezcla de inmersión, repetición y conversación real.",
-        "alt": "icono de libros"
+        "title": "Aprende a través de la cultura",
+        "text": "Comprende a las personas y el contexto detrás del idioma."
       },
       {
-        "title": "Nos Importas",
-        "text": "No eres solo otro estudiante. Te guiamos y apoyamos de manera personal.",
-        "alt": "icono de apoyo al estudiante"
+        "title": "Clases pensadas para ti",
+        "text": "Aprende a tu ritmo, según tu nivel y tus objetivos."
       }
     ]
   },
   "AboutUsSection": {
-    "title": "Aprende <span1>Español</span1> con <span2>Profesores Nativos</span2>",
-    "subtitle": "Clases personalizadas adaptadas a tu ritmo, nivel y objetivos.",
+    "eyebrow": "Sobre CostaSpanish",
+    "title": "Aprende español con una<br></br><accent>profesora nativa.</accent>",
+    "subtitle": "Una academia personal construida desde aulas reales, experiencia internacional y conversación con sentido.",
     "paragraphs": [
-      "En <strong>Costa Spanish Academy</strong>, te ayudamos a aprender y mejorar tu español o inglés con un enfoque práctico y personalizado. Nuestras clases están diseñadas para todas las edades y niveles, ofreciendo una experiencia flexible y cómoda.",
-      "Creemos que aprender un idioma es más que gramática: se trata de conexión, cultura y confianza. Por eso nuestras clases se centran en situaciones reales, conversación natural e inmersión cultural, ayudándote a hablar español desde el primer día."
+      "Después de enseñar en dos colegios de Francia y trabajar con academias internacionales, María lleva más de cuatro años ayudando a alumnos de distintas edades, países y objetivos a ganar confianza con el español.",
+      "Toda esa experiencia da forma hoy a CostaSpanish: clases prácticas basadas en conversación real, cultura y atención personalizada, tanto online como en nuestra academia de Torrox."
     ],
-    "list": [
-      {
-        "title": "Cursos Intensivos de Español Online",
-        "text": "Programas intensivos para avanzar rápidamente."
-      },
-      {
-        "title": "Cursos Semi-Intensivos de Español",
-        "text": "Un horario equilibrado para un aprendizaje constante."
-      },
-      {
-        "title": "Clases Privadas de Español para Principiantes",
-        "text": "Lecciones personalizadas para tus objetivos."
-      },
-      {
-        "title": "Clases de Conversación con Profesores Nativos",
-        "text": "Mejora tu fluidez y pronunciación con práctica real."
-      },
-      {
-        "title": "Español con Fines Específicos",
-        "text": "Cursos especializados para negocios, turismo o salud."
-      },
-      {
-        "title": "Clases de Inglés para Hispanohablantes",
-        "text": "Dos horas por semana, con opciones semi-intensivas próximamente."
-      }
-    ],
+    "proofPoints": ["4+ años enseñando español", "Online & presencial", "Grupos reducidos · Privadas"],
     "button": "Descubre nuestros cursos",
-    "experienceYears": "+3",
-    "experienceLabel": "años\nde experiencia",
+    "experienceLabel": "Años\nenseñando",
+    "experienceAccessible": "Más de cuatro años enseñando español",
+    "academyLabel": "Nuestra academia",
+    "location": "Torrox · Málaga",
     "images": {
-      "teacherAlt": "Profesora nativa de español"
+      "teacherAlt": "María, profesora de español de CostaSpanish",
+      "classroomAlt": "Aula de CostaSpanish en Torrox para clases de español en grupos reducidos"
     }
   },
   "CoursesSection": {
-    "title": "Clases",
-    "spanish": {
-      "subtitle": "Español para extranjeros (ELE)",
-      "cta": "Ver todos los cursos de Español"
+    "eyebrow": "Nuestros cursos",
+    "title": "Encuentra tu forma de aprender español.",
+    "supporting": "Clases privadas, grupos reducidos e intensivos online.",
+    "viewCourse": "Ver curso",
+    "viewAll": "Ver todos los cursos de español",
+    "imageAlt": "Curso: {title}",
+    "statuses": {
+      "activeGroups": "2 grupos activos · plazas disponibles",
+      "enrollmentOpen": "Inscripciones abiertas"
     },
-    "english": {
-      "subtitle": "Inglés para hispanohablantes",
-      "cta": "Ver todos los cursos de Inglés"
+    "cards": {
+      "private": {
+        "eyebrow": "Privadas",
+        "title": "Clases privadas de español",
+        "description": "Aprendizaje personalizado con atención completamente individual.",
+        "tags": ["Privadas", "1:1"]
+      },
+      "a1": {
+        "eyebrow": "Grupo regular",
+        "title": "Grupo regular presencial A1",
+        "description": "Aprende español desde cero y construye una base sólida para comunicarte en situaciones cotidianas.",
+        "tags": ["A1", "Presencial"]
+      },
+      "a2": {
+        "eyebrow": "Grupo regular",
+        "title": "Grupo regular presencial A2",
+        "description": "Aprende español en grupo con un ritmo equilibrado.",
+        "tags": ["A2", "Presencial"]
+      },
+      "intensive": {
+        "eyebrow": "Intensivo",
+        "title": "Curso intensivo de español online B1",
+        "description": "Refuerza tu español con un aprendizaje online enfocado y de ritmo intensivo.",
+        "tags": ["B1", "Online", "Intensivo"]
+      }
     }
   },
   "CourseCard": {
@@ -104,7 +114,46 @@
     "alt": "Imagen del curso: {title}"
   },
   "TestimonialsSection": {
-    "title": "Testimonios",
-    "subtitle": "Lo que dicen nuestros estudiantes"
+    "eyebrow": "Opiniones de alumnos",
+    "title": "Alumnos reales. Opiniones reales.",
+    "supporting": "Experiencias de personas que han aprendido español con María, online y presencialmente.",
+    "rating": "{rating} de 5",
+    "stats": {
+      "classRating": "Valoración de clase",
+      "confidence": "Confianza",
+      "clarity": "Claridad",
+      "progress": "Progreso",
+      "preparation": "Preparación",
+      "lessonsTaught": "clases impartidas",
+      "typicalLessons": "clases que suelen tomar",
+      "publicReviews": "reseñas públicas",
+      "basis": "Basado en {count} evaluaciones anónimas de clase"
+    },
+    "links": {
+      "profile": "Ver perfil en Preply",
+      "preply": "Ver en Preply",
+      "facebook": "Ver publicación original"
+    },
+    "reviews": {
+      "ali": {
+        "text": "¡Maria es una profesora maravillosa! Explica todo con claridad, corrige mis errores de una manera muy útil y hace que cada lección sea agradable. ¡Altamente recomendada!"
+      },
+      "claire": {
+        "text": "¡Maria es la mejor profesora! Es súper amigable y motivadora, y es muy buena corrigiendo/explicando errores. He probado muchos profesores de español en el pasado y Maria es mi favorita, ya que realmente se toma el tiempo para personalizar las clases según tus intereses, tu nivel y tus objetivos. También envía todas las notas de la lección, además de materiales realmente útiles para practicar entre clases. ¡La recomiendo mucho!"
+      },
+      "caus": {
+        "text": "¡Maria es una verdadera joya! ¡Es tan paciente, comprensiva, organizada y conocedora!"
+      },
+      "jeff": {
+        "text": "A++ María SIEMPRE está lista, organizada y sus clases pasan rápido y son divertidas. Ella hace un seguimiento del progreso y los ejercicios de clase a clase sin olvidar dónde nos quedamos. Recomendación fácil y de todo corazón."
+      },
+      "liz": {
+        "text": "Recomiendo totalmente a Maria. Sus clases están bien planificadas y se imparten de forma profesional."
+      },
+      "pierre": {
+        "text": "Una profesora muy pedagógica que se toma el tiempo de comprender a sus alumnos y adapta continuamente sus contenidos.",
+        "context": "Después de 5 horas de clase"
+      }
+    }
   }
 }

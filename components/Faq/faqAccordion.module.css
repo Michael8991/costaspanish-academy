@@ -1,0 +1,110 @@
+.section {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  margin-top: clamp(4.5rem, 9vw, 8rem);
+  border-radius: 1.7rem;
+  background: var(--cs-color-bg-subtle);
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.header {
+  align-self: start;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  color: var(--cs-color-brand);
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2rem, 3.7vw, 3rem);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.header > p:last-child {
+  margin: 1rem 0 0;
+  color: var(--cs-color-text-secondary);
+  line-height: 1.65;
+}
+
+.questions {
+  border-top: 1px solid var(--cs-color-border-default);
+}
+
+.item {
+  border-bottom: 1px solid var(--cs-color-border-default);
+}
+
+.item button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2rem;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--cs-color-text-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.98rem;
+  font-weight: 680;
+  line-height: 1.45;
+  padding: 1.2rem 0.2rem;
+  text-align: left;
+  transition: color 160ms ease;
+}
+
+.item button:hover {
+  color: var(--cs-color-brand-hover);
+}
+
+.item button:focus-visible {
+  border-radius: 0.35rem;
+  outline: 3px solid color-mix(in srgb, var(--cs-color-brand) 30%, transparent);
+  outline-offset: 3px;
+}
+
+.item button b {
+  color: var(--cs-color-brand);
+  font-size: 1.45rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.answer {
+  padding: 0 2.8rem 1.2rem 0.2rem;
+}
+
+.answer p {
+  margin: 0;
+  color: var(--cs-color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 48rem) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header h2 {
+    max-width: 16ch;
+  }
+}
+
+@media (max-width: 30rem) {
+  .section {
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+  }
+}

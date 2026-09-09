@@ -1,63 +1,22 @@
-'use client';
+"use client";
+import { useState } from "react";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import styles from "./languageSwitcher.module.css";
 
-import { useState } from 'react';
-import { Globe } from 'lucide-react';
-import { useParams, usePathname, useRouter } from 'next/navigation';
-import Link from 'next/link';
+const languages = [{ code: "es", label: "ES" }, { code: "en", label: "EN" }];
 
 const LanguageSwitcher = () => {
   const [open, setOpen] = useState(false);
-  const { locale } = useParams(); // idioma actual
+  const { locale } = useParams();
   const pathname = usePathname();
   const router = useRouter();
-
-  const languages = [
-    { code: 'es', label: 'ES' },
-    { code: 'en', label: 'EN' },
-    // { code: 'fr', label: 'FR' },
-    // { code: 'de', label: 'DE' },
-  ];
-
-  // Cambia el idioma manteniendo la ruta actual
   const changeLanguage = (code: string) => {
-    if (code === locale) {
-      setOpen(false);
-      return;
-    }
-    const segments = pathname.split('/');
-    segments[1] = code; // reemplaza el primer segmento del locale
-    const newPath = segments.join('/') || '/';
-    router.push(newPath);
+    if (code !== locale) { const segments = pathname.split("/"); segments[1] = code; router.push(segments.join("/") || "/"); }
     setOpen(false);
   };
-
-  return (
-    <div className="relative me-10" >
-      <button onClick={() => setOpen(!open)} className="flex items-center cursor-pointer">
-        <span className="font-medium" style={{ color: '#FB6F92' }}>
-          {String(locale).toUpperCase()}
-        </span>
-        <Globe className="ms-1" color="#FB6F92" />
-      </button>
-
-      {open && (
-        <div className="absolute right-0 mt-2 w-24 rounded-xl bg-white shadow-md border border-gray-200 z-10">
-          {languages.map((lng) => (
-            <button
-              key={lng.code}
-              onClick={() => changeLanguage(lng.code)}
-              className="cursor-pointer w-full text-left px-3 py-2 text-sm font-medium hover:bg-pink-50 transition rounded-xl"
-              style={{
-                color: locale === lng.code ? '#FB6F92' : '#444',
-              }}
-            >
-              {lng.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+  return <div className={styles.switcher}>
+    <button type="button" onClick={() => setOpen(!open)} className={styles.trigger} aria-haspopup="menu" aria-expanded={open} aria-label="Change language"><span>{String(locale).toUpperCase()}</span><span className={styles.chevron} aria-hidden="true" /></button>
+    {open && <div className={styles.menu} role="menu">{languages.map((language) => <button type="button" role="menuitem" key={language.code} onClick={() => changeLanguage(language.code)} className={locale === language.code ? styles.current : ""}>{language.label}</button>)}</div>}
+  </div>;
 };
-
 export default LanguageSwitcher;

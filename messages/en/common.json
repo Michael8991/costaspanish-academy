@@ -1,5 +1,8 @@
 {
     "TopBar": {
+        "utilityLabel": "Academy information",
+        "onlineLessons": "Online Spanish lessons",
+        "socialLabel": "CostaSpanish social profiles",
         "phone": "+34 604 80 92 08",
         "email": "info@costaspanishclass.com",
         "schedule": "MON - FRI: 9:00 - 20:00",
@@ -12,31 +15,44 @@
     },
     "Header": {
         "nav": {
-            "home": "Home",
             "about": "About us",
             "courses": "Our courses",
             "testimonials": "Testimonials",
-            "contact": "Contact us",
-            "blog": "Blog"
+            "contact": "Contact us"
         },
         "login": "Log in"
     },
-    "Footer": {
-        "rights": "© 2025 Costa Spanish Class. All rights reserved.",
-        "nav": {
-            "about": "About us",
-            "courses": "Our courses",
-            "home": "Home",
-            "testimonials": "Testimonials",
-            "contact": "Contact us",
-            "blog": "Blog"
-        },
-        "legal": {
-            "notice": "Legal Notice",
-            "privacyPolicy": "Privacy Policy",
-            "cookiesPolicy": "Cookies Policy"
-        },
-        "design": "Design by Michael Rodriguez",
-        "alt": "Spanish Academy Logo"
-    }
+  "Footer": {
+    "rights": "© {year} CostaSpanish. All rights reserved.",
+    "statement": "Spanish is meant to be lived.",
+    "location": "Online & in-person · Torrox, Málaga",
+    "courseCta": "Explore courses",
+    "explore": "Explore",
+    "connect": "Connect",
+    "homeAria": "CostaSpanish home",
+    "exploreAria": "Explore CostaSpanish",
+    "connectAria": "CostaSpanish social profiles",
+    "socialAria": "Visit CostaSpanish on {platform}",
+    "nav": {
+      "about": "About us",
+      "courses": "Courses",
+      "testimonials": "Testimonials",
+      "contact": "Contact us"
+    },
+    "socials": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "preply": "Preply"
+    },
+    "legal": {
+      "notice": "Legal Notice",
+      "privacyPolicy": "Privacy Policy",
+      "cookiesPolicy": "Cookies Policy",
+      "configureCookies": "Configure cookies"
+    },
+    "credit": "Designed & developed by",
+    "creditAria": "Michael Rodríguez, designer and developer — opens LinkedIn in a new tab",
+    "alt": "Spanish Academy Logo"
+  }
 }

@@ -1,108 +1,18 @@
-.headerWrapper {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    /* justify-content: center; */
-    padding: 0 10px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-.headerWrapperFixed {
-    /* margin-top: 24px; */
-    background-color: #FFCCD5;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-.logoContainer {
-    height: 120px;
-    display: flex;
-    align-items: center;
-}
-
-.navContainer {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    padding: 0;
-    margin: 0 20px;
-}
-
-.activeNav {
-    font-weight: 600 !important;
-    color: #FB6F92 !important;
-}
-
-.navLinks:hover {
-    color: #FB6F92 !important;
-}
-
-.navLinks {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.switchBtnLng {
-    /* border: 1px solid #014325; */
-    padding: 5px 20px;
-    font-weight: 500;
-    /* border-radius: 20px; */
-}
-
-.loginBtn {
-    border: 1px solid #FB6F92;
-    padding: 5px 20px;
-    font-weight: 500;
-    border-radius: 20px;
-}
-
-.rightHeader {
-    align-items: center;
-    justify-content: center;
-}
-
-.noneDecoration {
-    text-decoration: none;
-    color: #FB6F92;
-}
-
-@media(max-width:1023px) {
-    .headerWrapper {
-        margin-top: 0;
-    }
-
-    .rightHeader {
-        display: none;
-    }
-
-    .navContainer {
-        display: none;
-    }
-}
-
-/* 
-sm 40rem (640px) 
-md 48rem (768px) 
-lg 64rem (1024px) 
-xl 80rem (1280px) 
-2xl 96rem (1536px)
-*/
-
-@media(width<768px) {
-    .headerWrapper {
-        margin-top: 0 !important;
-    }
-}
-
-.slideBoxMenu {
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.1);
-}
-
-.slideBoxMenu li a {
-    text-decoration: none;
-    color: #d7263d;
-}
+.headerShell { min-height:120px; background:var(--cs-color-bg-hero) }
+.headerWrapper { width:100%; height:120px; display:grid; grid-template-columns:minmax(180px,1fr) auto minmax(300px,1fr); align-items:center; padding:0 clamp(20px,4vw,64px); color:var(--cs-color-text-primary); border-bottom:1px solid transparent; transition:height 300ms cubic-bezier(.4,0,.2,1),background-color 300ms cubic-bezier(.4,0,.2,1),border-color 300ms cubic-bezier(.4,0,.2,1),box-shadow 300ms cubic-bezier(.4,0,.2,1),backdrop-filter 300ms cubic-bezier(.4,0,.2,1) }
+.headerWrapperInitial { position:relative; background:transparent }
+.headerWrapperFixed { position:fixed; top:0; left:0; height:72px; z-index:40; background:var(--cs-color-header-scrolled); border-bottom-color:var(--cs-color-border-default); box-shadow:0 6px 24px var(--cs-color-shadow-subtle); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px) }
+.logoLink { width:180px; height:104px; display:flex; align-items:center; justify-content:center }
+.logoSlot { position:relative; display:block; width:180px; height:104px; flex:0 0 180px }
+.headerWrapperFixed .logoLink,.headerWrapperFixed .logoSlot { height:66px }
+.brandLogo { object-fit:contain; transition:opacity 300ms cubic-bezier(.4,0,.2,1),transform 300ms cubic-bezier(.4,0,.2,1) }
+.verticalLogo { padding:3px 40px }.horizontalLogo { padding:0 }.logoVisible { opacity:1; transform:translateY(0) scale(1) }.verticalLogo.logoHidden { opacity:0; transform:translateY(-3px) scale(.94) }.horizontalLogo.logoHidden { opacity:0; transform:translateY(3px) scale(.96) }
+.desktopNav { display:flex; justify-content:center }.navContainer { display:flex; align-items:center; gap:clamp(20px,2.2vw,36px); padding:0; margin:0; list-style:none }
+.navLinks { padding:8px 0; border:0; background:transparent; color:var(--cs-color-text-primary); text-decoration:none; font-size:15px; font-weight:500; cursor:pointer; transition:color 180ms ease }.navLinks:hover,.activeNav { color:var(--cs-color-brand) }.activeNav { font-weight:600 }
+.rightHeader { display:flex; align-items:center; justify-content:flex-end; gap:10px }.contactCta,.loginBtn { min-height:40px; display:inline-flex; align-items:center; justify-content:center; padding:0 20px; border-radius:999px; text-decoration:none; font-size:14px; font-weight:600; transition:background-color 180ms ease,border-color 180ms ease,transform 180ms ease }.contactCta { background:var(--cs-color-brand); color:var(--cs-color-on-brand); border:1px solid var(--cs-color-brand) }.contactCta:hover { background:var(--cs-color-brand-hover); border-color:var(--cs-color-brand-hover); transform:translateY(-1px) }.loginBtn { background:transparent; color:var(--cs-color-text-primary); border:1px solid var(--cs-color-border-default) }.loginBtn:hover { background:var(--cs-color-bg-subtle) }
+.mobileMenuButton { display:none; justify-self:end }.slideBoxMenu { position:fixed; top:120px; right:16px; width:min(320px,calc(100vw - 32px)); z-index:50; padding:24px; background:var(--cs-color-surface); border:1px solid var(--cs-color-border-default); border-radius:14px; box-shadow:0 16px 40px rgb(41 35 35/.1) }.slideBoxMenuScrolled { top:80px }.slideBoxMenu ul { display:flex; flex-direction:column; gap:18px; padding:0; margin:0; list-style:none }.slideBoxMenu .contactCta { width:100% }.mobileUtilities { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:4px }
+.navLinks:focus-visible,.contactCta:focus-visible,.loginBtn:focus-visible,.logoLink:focus-visible { outline:2px solid var(--cs-color-brand); outline-offset:3px }
+@media(max-width:1100px){.headerWrapper{grid-template-columns:180px auto minmax(280px,1fr);padding-inline:24px}.navContainer{gap:16px}}
+@media(max-width:1023px){.headerWrapper{grid-template-columns:1fr auto}.headerWrapperFixed{top:0}.desktopNav,.rightHeader{display:none}.mobileMenuButton{display:block}.logoLink{justify-content:flex-start}}
+@media(max-width:480px){.headerWrapper{padding-inline:14px}.logoLink,.logoSlot{width:148px}.verticalLogo{padding-inline:30px}}
+@media(prefers-reduced-motion:reduce){.headerWrapper,.brandLogo,.contactCta,.loginBtn{transition-duration:1ms}.logoVisible,.verticalLogo.logoHidden,.horizontalLogo.logoHidden{transform:none}}

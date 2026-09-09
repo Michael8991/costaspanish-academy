@@ -18,13 +18,13 @@
 
     "data": {
       "title": "Processed data",
-      "p1": "Personal data provided by users through contact or pre-enrollment forms are collected.",
+      "p1": "Personal data provided by users through contact or pre-enrolment forms are collected.",
       "p2": "Data may include name, email address, language level and any information voluntarily provided."
     },
 
     "purpose": {
       "title": "Purpose of processing",
-      "p1": "Data are used to manage information requests, pre-enrollments, group creation and academic communications."
+      "p1": "Data are used to manage information requests, pre-enrolments, group creation and academic communications."
     },
 
     "legalBasis": {
@@ -34,7 +34,7 @@
 
     "retention": {
       "title": "Data retention",
-      "p1": "Data will be kept for as long as necessary to fulfill the purpose for which they were collected or until deletion is requested."
+      "p1": "Data will be kept for as long as necessary to fulfil the purpose for which they were collected or until deletion is requested."
     },
 
     "rights": {
@@ -45,7 +45,7 @@
 
     "security": {
       "title": "Security measures",
-      "p1": "Appropriate technical and organizational measures are applied to ensure the security of personal data."
+      "p1": "Appropriate technical and organisational measures are applied to ensure the security of personal data."
     }
   }
 }

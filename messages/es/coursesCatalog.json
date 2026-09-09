@@ -1,20 +1,52 @@
 {
-  "status": {
-    "inProgress": "En curso",
-    "soon": "Próximamente",
-    "pending": "Inscripciones abiertas",
-    "private": "Privada"
-  },
-  "levels": {
-    "default": "Todos los niveles"
-  },
-  "labels": {
-    "max": "máx.",
-    "persons": "personas",
-    "moreInfo": "Más información"
-  },
   "breadcrumbs": {
+    "label": "Migas de pan",
     "home": "Inicio",
     "courses": "Cursos"
+  },
+  "header": {
+    "eyebrow": "Cursos de español",
+    "line1": "Encuentra tu forma",
+    "line2": "de aprender español.",
+    "supporting": "Elige entre clases privadas, grupos presenciales reducidos y formación intensiva online."
+  },
+  "statuses": {
+    "activeGroups": "2 grupos activos · plazas disponibles",
+    "enrollmentOpen": "Inscripciones abiertas"
+  },
+  "detailsLabel": "Detalles del curso",
+  "viewCourse": "Ver curso",
+  "imageAlt": "Curso: {title}",
+  "cards": {
+    "private": {
+      "eyebrow": "Privadas · 1:1",
+      "title": "Clases privadas de español",
+      "fallbackDescription": "Clases de español personalizadas con atención individual.",
+      "facts": ["Privadas", "1:1"]
+    },
+    "a1": {
+      "eyebrow": "Grupo regular",
+      "title": "Grupo regular presencial A1",
+      "fallbackDescription": "Aprende español desde cero en un grupo presencial reducido.",
+      "facts": ["A1", "Presencial", "Grupo regular"]
+    },
+    "a2": {
+      "eyebrow": "Grupo regular",
+      "title": "Grupo regular presencial A2",
+      "fallbackDescription": "Continúa aprendiendo español presencialmente a un ritmo equilibrado.",
+      "facts": ["A2", "Presencial", "Grupo regular"]
+    },
+    "intensive": {
+      "eyebrow": "Intensivo",
+      "title": "Curso intensivo de español online B1",
+      "fallbackDescription": "Aprendizaje online enfocado para estudiantes que avanzan en B1.",
+      "facts": ["B1", "Online", "Intensivo"]
+    }
+  },
+  "support": {
+    "eyebrow": "Orientación personal",
+    "title": "¿No sabes qué curso encaja contigo?",
+    "text": "Cuéntanos qué buscas y te ayudaremos a elegir.",
+    "cta": "Contacta con nosotros"
   }
 }

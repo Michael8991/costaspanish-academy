@@ -4,7 +4,7 @@
     "description": "Information about the use of cookies on this website."
   },
   "title": "Cookie policy",
-  "intro": "This website uses its own and third-party cookies to ensure proper operation and, where applicable, analyze user navigation.",
+  "intro": "This website uses its own and third-party cookies to ensure proper operation and, where applicable, analyse user navigation.",
 
   "sections": {
     "what": {
@@ -14,7 +14,7 @@
     "types": {
       "title": "Types of cookies",
       "p1": "Technical cookies: necessary for the basic operation of the website.",
-      "p2": "Analytics cookies: allow aggregated analysis of user behavior."
+      "p2": "Analytics cookies: allow aggregated analysis of user behaviour."
     },
     "used": {
       "title": "Cookies used on this website",

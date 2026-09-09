@@ -1,66 +1,63 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
-import { CoursesCatalog } from "@/components/CoursesCatalog/CoursesCatalog";
-import { FilterBarCourses } from "@/components/filterBarCourses/FilterBarCourses";
-import { CourseFilters, ICourseData } from "@/types";
-import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import {
+  CoursesCatalog,
+  type PublicCourseRecord,
+} from "@/components/CoursesCatalog/CoursesCatalog";
+import landingTheme from "@/styles/landing/landingTheme.module.css";
+import styles from "./spanishCourses.module.css";
 
 type SpanishCoursesClientProps = {
   locale: string;
-  courses: ICourseData[];
+  courses: PublicCourseRecord[];
 };
 
 export default function SpanishCoursesClient({
   locale,
   courses,
 }: SpanishCoursesClientProps) {
-  const [filters, setFilters] = useState<CourseFilters>({
-    language: "Spanish",
-  });
-  const t = useTranslations("courses");
-
-  const filteredCourses = useMemo(() => {
-    return courses.filter((c) => {
-      if (filters.language && c.languageToLearn !== filters.language)
-        return false;
-      if (filters.level && c.level !== filters.level) return false;
-      if (filters.modality && c.modality !== filters.modality) return false;
-
-      return true;
-    });
-  }, [courses, filters]);
+  const t = useTranslations("coursesCatalog");
 
   return (
-    <>
-      <FilterBarCourses
-        filters={filters}
-        setFilters={setFilters}
-        hideLanguage
-      />
+    <div className={`${landingTheme.theme} ${styles.page}`}>
+      <motion.div
+        className={styles.inner}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <nav className={styles.breadcrumb} aria-label={t("breadcrumbs.label")}>
+          <Link href={`/${locale}`}>{t("breadcrumbs.home")}</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{t("breadcrumbs.courses")}</span>
+        </nav>
 
-      <div className="flex items-center text-sm text-gray-500 mb-3 space-x-2 px-5">
-        <Link
-          href={`/${locale}`}
-          className="hover:text-rose-400 transition-colors"
-        >
-          {t("breadcrumbs.home")}
-        </Link>
-        <span className="select-none">{">"}</span>
-        <Link
-          href={`/${locale}/spanish`}
-          className="hover:text-rose-400 transition-colors"
-        >
-          {t("breadcrumbs.courses")}
-        </Link>
-      </div>
+        <header className={styles.pageHeader}>
+          <p className={styles.eyebrow}>{t("header.eyebrow")}</p>
+          <h1>
+            {t("header.line1")}
+            <span>{t("header.line2")}</span>
+          </h1>
+          <p className={styles.supporting}>{t("header.supporting")}</p>
+        </header>
 
-      <CoursesCatalog
-        filters={filters}
-        courses={filteredCourses}
-        locale={locale}
-      />
-    </>
+        <CoursesCatalog courses={courses} locale={locale} />
+
+        <aside className={styles.support}>
+          <span className={styles.supportDoodle} aria-hidden="true" />
+          <div>
+            <p className={styles.supportEyebrow}>{t("support.eyebrow")}</p>
+            <h2>{t("support.title")}</h2>
+            <p>{t("support.text")}</p>
+          </div>
+          <Link href={`/${locale}/contactUs`}>
+            {t("support.cta")} <span aria-hidden="true">→</span>
+          </Link>
+        </aside>
+      </motion.div>
+    </div>
   );
 }

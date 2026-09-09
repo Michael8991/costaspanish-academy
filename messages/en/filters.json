@@ -8,10 +8,10 @@
             "apply": "Apply Filters",
             "reset": "Reset Filters"
         },
-        "languageOptions": [
-            "Spanish",
-            "English"
-        ],
+        "languageOptions": {
+            "Spanish": "Spanish",
+            "English": "English"
+        },
         "statusOptions": {
             "inProgress": "In progress",
             "soon": "Coming soon",

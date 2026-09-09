@@ -1,5 +1,8 @@
 {
     "TopBar": {
+        "utilityLabel": "Información de la academia",
+        "onlineLessons": "Clases de español online",
+        "socialLabel": "Redes sociales de CostaSpanish",
         "phone": "+34 604 80 92 08",
         "email": "info@costaspanishclass.com",
         "schedule": "LUN - VIE: 9:00 - 20:00",
@@ -12,31 +15,44 @@
     },
     "Header": {
         "nav": {
-            "home": "Inicio",
             "about": "Sobre nosotros",
             "courses": "Cursos",
             "testimonials": "Testimonios",
-            "contact": "Contáctanos",
-            "blog": "Blog"
+            "contact": "Contáctanos"
         },
         "login": "Iniciar sesión"
     },
-    "Footer": {
-        "rights": "© 2025 Costa Spanish Class. Todos los derechos reservados.",
-        "nav": {
-            "about": "Sobre nosotros",
-            "courses": "Nuestros cursos",
-            "home": "Inicio",
-            "testimonials": "Testimonios",
-            "contact": "Contáctanos",
-            "blog": "Blog"
-        },
-        "legal": {
-            "notice": "Aviso Legal",
-            "privacyPolicy": "Política de Privacidad",
-            "cookiesPolicy": "Políticas de Cookies"
-        },
-        "design": "Diseño por Michael Rodríguez",
-        "alt": "Logo de la academia de español"
-    }
+  "Footer": {
+    "rights": "© {year} CostaSpanish. Todos los derechos reservados.",
+    "statement": "El español está hecho para vivirlo.",
+    "location": "Online & presencial · Torrox, Málaga",
+    "courseCta": "Ver cursos",
+    "explore": "Explora",
+    "connect": "Síguenos",
+    "homeAria": "Inicio de CostaSpanish",
+    "exploreAria": "Explora CostaSpanish",
+    "connectAria": "Perfiles sociales de CostaSpanish",
+    "socialAria": "Visita CostaSpanish en {platform}",
+    "nav": {
+      "about": "Sobre nosotros",
+      "courses": "Cursos",
+      "testimonials": "Testimonios",
+      "contact": "Contacto"
+    },
+    "socials": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "preply": "Preply"
+    },
+    "legal": {
+      "notice": "Aviso Legal",
+      "privacyPolicy": "Política de Privacidad",
+      "cookiesPolicy": "Política de Cookies",
+      "configureCookies": "Configurar cookies"
+    },
+    "credit": "Diseño y desarrollo por",
+    "creditAria": "Michael Rodríguez, diseño y desarrollo — abre LinkedIn en una pestaña nueva",
+    "alt": "Logo de la academia de español"
+  }
 }

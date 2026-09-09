@@ -1,66 +1,65 @@
 "use client";
 
-import { ICourseData } from "@/lib/mockcourses/CourseMock";
-import { CheckCircle, Circle, Clock, Info } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
+import type { ICourseData } from "@/types/courses";
+import styles from "./informationPanel.module.css";
 
-type Props = {
-    course: ICourseData;
-};
+type Props = { course: ICourseData };
 
 export const InformationPanel = ({ course }: Props) => {
-    const t = useTranslations("preinscription.info");
+  const t = useTranslations("preinscription.info");
+  const steps = t.raw("process.steps") as Array<{ title: string; text: string }>;
+  const metadata = [course.level, course.modality].filter(Boolean) as string[];
 
-    const statusStyles: Record<string, string> = {
-        inProgress:
-            "bg-green-100 shadow-lg shadow-green-500/25 text-green-800 rounded-full px-2 py-1",
-        soon: "bg-yellow-100 shadow-lg shadow-yellow-500/25 text-yellow-800 rounded-lg px-2 py-1",
-        pending:
-            "bg-blue-100 shadow-lg shadow-blue-500/25 text-blue-800 rounded-tr-lg rounded-bl-lg px-2 py-1",
-    };
+  return (
+    <aside className={styles.panel}>
+      <span className={styles.doodle} aria-hidden="true" />
 
-    const statusIcons = {
-        inProgress: <Circle size={12} className="text-green-500 mr-1" />,
-        private: <Circle size={12} className="text-green-500 mr-1" />,
-        soon: <Clock size={12} className="text-yellow-500 mr-1" />,
-        pending: <CheckCircle size={12} className="text-blue-500 mr-1" />
-    };
+      <div className={styles.courseSummary}>
+        <p className={styles.eyebrow}>{t("selectedCourse")}</p>
+        <h2>{course.title}</h2>
+        {metadata.length > 0 && <p className={styles.metadata}>{metadata.join(" · ")}</p>}
+        {course.status && (
+          <span className={styles.status}>
+            <i aria-hidden="true" />
+            {t(`status.${course.status}`)}
+          </span>
+        )}
+      </div>
 
-    const statusLabel = {
-        inProgress: t("status.inProgress"),
-        soon: t("status.soon"),
-        pending: t("status.pending"),
-        private: t("status.private")
-    };
+      <div className={styles.noPayment}>
+        <strong>{t("noPayment.title")}</strong>
+        <p>{t("noPayment.text")}</p>
+      </div>
 
-    const paragraphs = t.raw(course.status ?? "pending") as Record<string, string>;
+      <div className={styles.process}>
+        <p className={styles.eyebrow}>{t("process.title")}</p>
+        <ol>
+          {steps.map((step, index) => (
+            <li key={step.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <strong>{step.title}</strong>
+                <p>{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
 
-    return (
-        <div className="bg-white rounded-md shadow-md p-4 flex flex-col m-3 xl:m-1">
-            <h1 className="text-xl font-semibold capitalize w-full text-center mb-2">{course.title}</h1>
-            <div className="w-full flex justify-center mb-2">
-                {course.status && (
-                    <span
-                        className={`h-fit flex items-center text-xs font-semibold ${statusStyles[course.status]}`}
-                    >
-                        {statusIcons[course.status]}
-                        {statusLabel[course.status]}
-                    </span>
-                )}
-            </div>
+      <div className={styles.reassurances}>
+        <p><strong>{t("response.title")}</strong>{t("response.text")}</p>
+        <p><strong>{t("privacy.title")}</strong>{t("privacy.text")}</p>
+      </div>
 
-            <div className="my-4 text-md text-justify">
-                {Object.values(paragraphs).map((p, i) => (
-                    <p key={i} className="mb-3">{p}</p>
-                ))}
-            </div>
-
-            <div className="mt-auto mb-5 text-center text-sm font-light">
-                <p>{t("contact.title")}</p>
-                <p>{t("contact.whatsapp")}</p>
-                <p>{t("contact.email")}</p>
-                <p className="mt-3">{t("contact.privacy")}</p>
-            </div>
-        </div>
-    );
+      <div className={styles.contact}>
+        <p>{t("contact.title")}</p>
+        <span>{t("contact.whatsapp")}</span>
+        <a href={`mailto:${t("contact.emailAddress")}`}>
+          <Mail aria-hidden="true" size={15} /> {t("contact.email")}
+        </a>
+      </div>
+    </aside>
+  );
 };

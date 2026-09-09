@@ -1,90 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
-
-import styles from "@/app/[locale]/sections/Hero/heroSection.module.css";
-import FaqAccordion from "@/components/Faq/FaqAccordion";
-import { generalFaq } from "@/lib/mockcourses/mockFaq";
-import CourseModule from "@/components/CourseModules/CourseModule";
-import CourseMainSection from "@/components/CourseMainSection/CourseMainSection";
 import { useTranslations } from "next-intl";
-
+import CourseMainSection from "@/components/CourseMainSection/CourseMainSection";
+import CourseModule from "@/components/CourseModules/CourseModule";
+import FaqAccordion from "@/components/Faq/FaqAccordion";
+import type { ICourseData, IFaqData } from "@/types/courses";
+import landingTheme from "@/styles/landing/landingTheme.module.css";
+import styles from "./coursePage.module.css";
 
 type CourseClientProps = {
   locale: string;
-  course: any; 
+  course: ICourseData;
 };
 
 export default function CourseClient({ locale, course }: CourseClientProps) {
-  const t = useTranslations("coursesCatalog");
-  const [scrolled, setScrolled] = useState(false);
-
- 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 1);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
- 
-  if (!course) {
-    return (
-      <div
-        className={`m-auto flex flex-col justify-center items-center max-w-7xl h-[calc(100vh-419px)] ${
-          scrolled ? styles.headerspacerfixedbigscreen : ""
-        }`}
-      >
-        <div
-          className={`${scrolled ? styles.headerspacerfixed : ""} header-spacer`}
-        />
-        <h1 className="text-2xl mb-6">{t("notFoundTitle")}</h1>
-        <Link
-          href={`/${locale}`}
-          className="shadow-md hover:scale-101 transition duration-150 ease-in text-md group py-2 px-3 bg-rose-400 text-white rounded-2xl flex items-center"
-        >
-          {t("goHome")}
-          <ArrowRight
-            size={16}
-            className="ml-2 mr-1 group-hover:translate-x-1 transition duration-150 ease-in-out"
-          />
-        </Link>
-      </div>
-    );
-  }
+  const t = useTranslations("coursePage");
+  const faqs = t.raw("faq.items") as IFaqData[];
+  const catalogPath = course.languageToLearn === "Spanish" ? "spanish" : "english";
 
   return (
-    <div
-      className={`max-w-7xl m-auto min-h-[calc(100vh-419px)] @container my-6 ${
-        scrolled ? styles.headerspacerfixedbigscreen : ""
-      }`}
-    >
-      <div
-        className={`${scrolled ? styles.headerspacerfixed : ""} header-spacer`}
-      />
+    <div className={`${landingTheme.theme} ${styles.page}`}>
+      <div className={styles.inner}>
+        <nav className={styles.breadcrumb} aria-label={t("breadcrumbs.label")}>
+          <Link href={`/${locale}`}>{t("breadcrumbs.home")}</Link>
+          <span aria-hidden="true">/</span>
+          <Link href={`/${locale}/${catalogPath}`}>{t("breadcrumbs.courses")}</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{course.title}</span>
+        </nav>
 
-      <div className="flex items-center text-sm text-gray-500 mb-3 space-x-2">
-        <Link
-          href={`/${locale}`}
-          className="hover:text-rose-400 transition-colors"
-        >
-          {t("breadcrumbs.home")}
-        </Link>
-        <span className="select-none">{">"}</span>
-        <Link
-          href={`/${locale}/${course.languageToLearn === "Spanish" ? "spanish" : "english"}`}
-          className="hover:text-rose-400 transition-colors"
-        >
-          {t("breadcrumbs.courses")}
-        </Link>
-        <span className="select-none">{">"}</span>
-        <span className="text-gray-700 font-medium">{course.title}</span>
+        <CourseMainSection course={course} locale={locale} />
+        <CourseModule course={course} />
+        <FaqAccordion faqs={faqs} />
+
+        <aside className={styles.finalCta}>
+          <span className={styles.doodle} aria-hidden="true" />
+          <div>
+            <p className={styles.eyebrow}>{t("support.eyebrow")}</p>
+            <h2>{t("support.title")}</h2>
+            <p>{t("support.text")}</p>
+          </div>
+          <Link href={`/${locale}/contactUs`}>
+            {t("support.cta")} <span aria-hidden="true">→</span>
+          </Link>
+        </aside>
       </div>
-
-      <CourseMainSection course={course} />
-      <CourseModule course={course} />
-      <FaqAccordion faqs={generalFaq} />
     </div>
   );
 }

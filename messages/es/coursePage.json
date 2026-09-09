@@ -1,47 +1,119 @@
 {
-    "notFoundTitle": "Curso no disponible",
-    "notFoundDescription": "No se pudo encontrar este curso.",
-    "goHome": "Ir al inicio",
-    "preRegister": "Preinscribirme en el curso",
-    "status": {
-        "inProgress": "En curso",
-        "private": "Privado",
-        "soon": "Próximamente",
-        "pending": "Inscripciones abiertas"
-    },
-    "details": {
-         "promo": {
-            "badge": "-50% Enero",
-            "available": "Disponible durante enero",
-            "endsIn": "Termina en",
-            "expired": "Promoción finalizada"
-        },
-        "price": {
-            "private": "Desde {price}/h",
-            "monthly": "Desde {price} al mes"
-        },
-        "title": "Detalles del curso",
-        "hoursPerWeek": "Horas por semana",
-        "duration": "Duración del curso",
-        "limit": "Límite de plazas por grupo",
-        "students": "alumnos",
-        "level": "Nivel objetivo",
-        "modality": "Modalidad del curso"
-    },
-    "modules": {
-        "badge": "Módulos",
-        "title": "Lo que aprenderás",
-        "description": "Explora las lecciones y temas de este curso para ver paso a paso lo que aprenderás.",
-        "show": "Mostrar módulos del curso",
-        "hide": "Ocultar módulos del curso"
-    },
-    "faq": {
-        "badge": "Preguntas frecuentes",
-        "title": "Todo lo que necesitas saber",
-        "description": "Encuentra respuestas a las preguntas más comunes sobre nuestros cursos. Si necesitas más ayuda, contáctanos directamente.",
-        "show": "Mostrar preguntas frecuentes",
-        "hide": "Ocultar preguntas frecuentes",
-        "contactText": "¿No encuentras lo que buscas? Ponte en contacto con nuestro equipo y estaremos encantados de ayudarte.",
-        "contactBtn": "Contáctanos"
-    }
+  "notFoundTitle": "Curso no disponible",
+  "notFoundDescription": "No se pudo encontrar este curso.",
+  "defaultDescription": "Aprende español con CostaSpanish mediante una enseñanza práctica y personalizada.",
+  "goHome": "Ir al inicio",
+  "breadcrumbs": {
+    "label": "Migas de pan",
+    "home": "Inicio",
+    "courses": "Cursos"
+  },
+  "preRegister": "Preinscribirme",
+  "status": {
+    "inProgress": "Curso en marcha",
+    "private": "Clases privadas de español",
+    "soon": "Próximo curso",
+    "pending": "Inscripciones abiertas"
+  },
+  "hero": {
+    "imageAlt": "{title} en Costa Spanish Academy"
+  },
+  "modality": {
+    "Intensive": "Intensivo",
+    "SemiIntensive": "Semi-intensivo",
+    "Standar": "Regular",
+    "Private": "Privado"
+  },
+  "details": {
+    "title": "El curso de un vistazo",
+    "pace": "Ritmo",
+    "duration": "Duración",
+    "groupSize": "Tamaño del grupo",
+    "privateGroupSize": "1 · 2 · 3 personas",
+    "level": "Nivel",
+    "allLevels": "Todos los niveles",
+    "format": "Formato",
+    "courseType": "Tipo de curso"
+  },
+  "offer": {
+    "eyebrow": "Oferta del curso",
+    "title": "¿Preparado para dar el siguiente paso?",
+    "text": "Preinscribe tu interés y nos pondremos en contacto contigo con los detalles del curso.",
+    "privateTitle": "Clases privadas diseñadas para ti.",
+    "privateText": "Elige el tamaño de clase que mejor encaja contigo y con tus objetivos de aprendizaje.",
+    "currentPrice": "Precio actual",
+    "perHour": "por hora",
+    "perMonth": "al mes",
+    "priceOnRequest": "Contacta con nosotros para conocer el precio actual."
+  },
+  "formats": {
+    "label": "Formatos de clases privadas",
+    "options": [
+      { "people": "1:1", "label": "Individual" },
+      { "people": "2 personas", "label": "Pareja" },
+      { "people": "3 personas", "label": "Trío" }
+    ]
+  },
+  "about": {
+    "eyebrow": "Sobre el curso",
+    "title": "Aprendizaje diseñado para avanzar de verdad."
+  },
+  "modules": {
+    "eyebrow": "Contenido del curso",
+    "title": "Todo lo que trabajarás.",
+    "description": "Explora las lecciones y los temas reales incluidos en este curso."
+  },
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Todo lo que quizá quieras saber antes de empezar.",
+    "description": "Respuestas prácticas sobre las clases, los horarios, los materiales y el aprendizaje en CostaSpanish.",
+    "items": [
+      {
+        "question": "¿Cómo funcionan las clases en directo?",
+        "answer": "Nuestras clases en directo se realizan mediante videollamadas con profesores nativos cualificados. Solo necesitas un ordenador o teléfono y una conexión estable a internet."
+      },
+      {
+        "question": "¿Puedo hacer una clase de prueba gratuita?",
+        "answer": "¡Sí! Puedes reservar una clase de prueba gratuita para conocer a nuestros profesores, probar nuestro método y comprobar si encaja con tus objetivos."
+      },
+      {
+        "question": "¿Qué niveles ofrecéis?",
+        "answer": "Ofrecemos todos los niveles, desde principiante (A1) hasta avanzado (C2). Cada curso sigue el Marco Común Europeo de Referencia."
+      },
+      {
+        "question": "¿Cuántos estudiantes hay por clase?",
+        "answer": "Nuestros grupos son reducidos, con un máximo de 6 estudiantes, para garantizar atención personalizada y participación activa."
+      },
+      {
+        "question": "¿Puedo elegir mi propio horario?",
+        "answer": "Sí, en las clases privadas puedes elegir tus franjas horarias preferidas. Para las clases en grupo ofrecemos varios horarios según el nivel."
+      },
+      {
+        "question": "¿Qué plataforma utilizáis para las clases?",
+        "answer": "Utilizamos Zoom o Google Meet para las sesiones en directo. Recibirás un enlace directo para cada clase en tu área de estudiante."
+      },
+      {
+        "question": "¿Necesito comprar materiales?",
+        "answer": "Todos los materiales de estudio están incluidos y disponibles en tu área de estudiante. No necesitarás comprar libros."
+      },
+      {
+        "question": "¿Puedo cancelar o cambiar una clase?",
+        "answer": "Sí, las clases privadas pueden cancelarse o cambiarse con hasta 24 horas de antelación. Las clases en grupo siguen un horario fijo."
+      },
+      {
+        "question": "¿Recibiré un certificado?",
+        "answer": "Sí, al completar el curso recibirás un certificado digital de asistencia y aprovechamiento."
+      },
+      {
+        "question": "¿Cómo puedo contactar con soporte?",
+        "answer": "Puedes escribirnos en cualquier momento a support@costaspanishacademy.com o mediante el chat de tu panel de estudiante."
+      }
+    ]
+  },
+  "support": {
+    "eyebrow": "Orientación personal",
+    "title": "¿Todavía tienes alguna duda?",
+    "text": "Cuéntanos qué necesitas y te ayudaremos.",
+    "cta": "Contacto"
+  }
 }

@@ -14,7 +14,7 @@ export default function Home({ params }: { params: { locale: string } }) {
       {/* <div className={`${styles.gradientBordeSection}`}></div> */}
       <CoursesSection />
       {/* <div className={`${styles.gradientBordeSectionPink}`}></div> */}
-      {/* <TestimonialsSection /> */}
+      <TestimonialsSection />
     </section>
   );
 }

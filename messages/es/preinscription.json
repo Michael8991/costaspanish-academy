@@ -1,108 +1,150 @@
 {
-    "metadata": {
-        "titleSuffix": "Preinscripción | Costa Spanish Academy",
-        "description": "Completa tu preinscripción para el curso {course} y asegura tu plaza. Te contactaremos en menos de 24 horas.",
-        "notFoundTitle": "Curso no disponible | Costa Spanish Academy",
-        "notFoundDescription": "El curso que buscas no está disponible en este momento."
+  "metadata": {
+    "titleSuffix": "Preinscripción | Costa Spanish Academy",
+    "description": "Envía tu solicitud de preinscripción para {course}. No requiere pago ni compromiso financiero.",
+    "notFoundTitle": "Curso no disponible | Costa Spanish Academy",
+    "notFoundDescription": "El curso que buscas no está disponible en este momento."
+  },
+  "breadcrumbs": {
+    "label": "Migas de pan",
+    "home": "Inicio",
+    "courses": "Cursos",
+    "preinscription": "Preinscripción"
+  },
+  "notFound": {
+    "title": "Curso no disponible",
+    "homeBtn": "Volver al inicio"
+  },
+  "page": {
+    "eyebrow": "Preinscripción",
+    "heading": {
+      "line1": "Cuéntanos cómo",
+      "line2": "quieres aprender."
     },
-    "breadcrumbs": {
-        "home": "Inicio",
-        "courses": "Cursos",
-        "preinscription": "Preinscripción"
+    "supporting": "Cuéntanos tus objetivos y disponibilidad. Revisaremos tu solicitud y nos pondremos en contacto contigo para confirmar el siguiente paso.",
+    "reassurance": {
+      "title": "No requiere pago.",
+      "text": "Enviar este formulario no implica ningún compromiso de compra."
     },
-    "notFound": {
-        "title": "Curso no disponible",
-        "homeBtn": "Volver al inicio"
+    "shellLabel": "Preinscripción al curso"
+  },
+  "info": {
+    "selectedCourse": "Curso seleccionado",
+    "status": {
+      "inProgress": "En curso",
+      "soon": "Próximamente",
+      "pending": "Preinscripción abierta",
+      "private": "Curso privado"
     },
-    "info": {
-        "status": {
-            "inProgress": "En curso",
-            "soon": "Próximamente",
-            "pending": "Preinscripción abierta",
-            "private": "Curso privado"
-        },
-        "pending": {
-            "p1": "Este curso está actualmente en fase de preinscripción. Estamos organizando nuevos grupos y confirmando el horario final según el interés y disponibilidad de los estudiantes.",
-            "p2": "La información que proporciones se utilizará únicamente para gestionar tu preinscripción, ayudarte a programar tu fecha de inicio y asignarte al grupo que mejor se adapte a tu nivel y objetivos.",
-            "p3": "Al completar este formulario, asegurarás acceso prioritario una vez que el grupo sea confirmado y recibirás todos los detalles (fecha de inicio, horario y formato) directamente de nuestro equipo académico en un plazo máximo de 24 horas.",
-            "p4": "No hay ningún pago ni compromiso en esta etapa. Esta preinscripción simplemente nos ayuda a organizar grupos y ofrecerte el curso más adecuado según tu perfil y preferencias.",
-            "p5": "En Costa Spanish Academy valoramos tu confianza y nos comprometemos a ofrecerte un entorno de aprendizaje serio, transparente y personalizado.",
-            "p6": "¡Comienza tu aventura en español hoy! ¡Tu plaza te espera!"
-        },
-        "soon": {
-            "p1": "Este curso estará disponible muy pronto. Puedes preinscribirte ahora para obtener acceso prioritario.",
-            "p2": "La información que proporciones se usará únicamente para gestionar tu preinscripción y organizar tu incorporación al grupo que mejor encaje con tu nivel y objetivos.",
-            "p3": "Enviar este formulario no implica ningún pago ni compromiso. Nuestro equipo se pondrá en contacto contigo en un plazo máximo de 24 horas para explicarte los siguientes pasos.",
-            "p4": "En Costa Spanish Academy valoramos tu confianza y nos comprometemos a ofrecerte un entorno de aprendizaje serio, transparente y personalizado.",
-            "p5": "¡Apúntate hoy y forma parte de nuestros próximos grupos!"
-        },
-        "inProgress": {
-            "p1": "Este curso ya está en progreso, pero aún puedes consultar disponibilidad o reservar tu plaza para la próxima edición.",
-            "p2": "La información que proporciones se usará únicamente para gestionar tu preinscripción, ayudarte a programar tu fecha de inicio y asignarte al grupo adecuado.",
-            "p3": "Enviar este formulario no implica ningún pago ni compromiso. Nuestro equipo te contactará en un plazo máximo de 24 horas para explicarte los siguientes pasos.",
-            "p4": "En Costa Spanish Academy valoramos tu confianza y nos comprometemos a ofrecerte un entorno de aprendizaje serio, transparente y personalizado.",
-            "p5": "¡Empieza a aprender español a tu ritmo y con profesores nativos!"
-        },
-        "private": {
-            "p1": "Puedes comenzar en cualquier momento, sin necesidad de unirte a un grupo existente. Adaptaremos el horario a tu disponibilidad.",
-            "p2": "La información que proporciones se usará únicamente para gestionar tu preinscripción, ayudarte a programar tu fecha de inicio y planificar tus clases personalizadas.",
-            "p3": "Enviar este formulario no implica ningún pago ni compromiso. Nuestro equipo te contactará en un plazo máximo de 24 horas para explicarte los siguientes pasos.",
-            "p4": "En Costa Spanish Academy valoramos tu confianza y nos comprometemos a ofrecerte un entorno de aprendizaje serio, transparente y personalizado.",
-            "p5": "¡Empieza tu aprendizaje personalizado hoy mismo!"
-        },
-        "contact": {
-            "title": "Para más información contáctanos:",
-            "whatsapp": "WhatsApp: +34 604 80 92 08",
-            "email": "Correo: info@costaspanishclass.com",
-            "privacy": "Nunca compartiremos tus datos con terceros ni los usaremos con fines comerciales. Solo se utilizarán para contactar contigo y ofrecerte la mejor experiencia posible."
-        }
+    "noPayment": {
+      "title": "Sin pago ni compromiso",
+      "text": "Esta solicitud nos ayuda a entender tus necesidades. No reserva una plaza de pago ni genera un compromiso financiero."
     },
-    "form": {
-        "sections": {
-            "personal": "Datos personales",
-            "course": "Preferencias de curso",
-            "background": "Experiencia de aprendizaje",
-            "additional": "Información adicional"
-        },
-        "labels": {
-            "name": "Nombre completo *",
-            "email": "Correo electrónico *",
-            "phone": "Teléfono (con prefijo internacional)",
-            "country": "País de residencia",
-            "course": "Curso seleccionado",
-            "level": "Nivel de español *",
-            "nativeLanguage": "Idioma nativo",
-            "availability": "Disponibilidad *",
-            "experience": "¿Cuánto tiempo has estudiado español? *",
-            "previousCourses": "¿Has estudiado español en clase antes? *",
-            "goals": "¿Cuáles son tus objetivos principales al aprender español? *",
-            "notes": "Información adicional",
-            "privacy": "Acepto el tratamiento de mis datos conforme a la política de privacidad y entiendo que este formulario no implica ningún pago o compromiso financiero."
-        },
-        "placeholders": {
-            "goals": "Ej: viajar, trabajar, estudiar en el extranjero, conversación, examen DELE...",
-            "notes": "Cuéntanos lo que pueda ayudarnos a adaptar el curso a ti (estilo de aprendizaje, horarios, necesidades específicas...)"
-        },
-        "errors": {
-            "name": "Por favor, introduce tu nombre",
-            "email": "Por favor, introduce un correo electrónico válido",
-            "level": "Selecciona tu nivel de español",
-            "availability": "Selecciona tu disponibilidad",
-            "experience": "Selecciona tu experiencia previa",
-            "previousCourses": "Selecciona una opción",
-            "goals": "Indica tus objetivos",
-            "privacy": "Debes aceptar la política de privacidad",
-            "nativeLanguage": "Por favor, introduce tu idioma nativo"
-        },
-        "messages": {
-            "successTitle": "¡Preinscripción enviada correctamente!",
-            "successText": "Tu preinscripción se ha enviado con éxito. Recibirás un correo de confirmación en breve.",
-            "errorTitle": "Algo salió mal",
-            "errorText": "Hubo un error al enviar tu preinscripción. Inténtalo de nuevo más tarde."
-        },
-        "buttons": {
-            "submit": "Enviar preinscripción",
-            "back": "Volver al inicio"
-        }
+    "process": {
+      "title": "Qué ocurre después",
+      "steps": [
+        { "title": "Envías tu solicitud", "text": "Nos cuentas tu nivel, objetivos y disponibilidad." },
+        { "title": "Revisamos tus necesidades", "text": "Nuestro equipo comprueba qué opción encaja mejor contigo." },
+        { "title": "Contactamos contigo", "text": "Confirmamos la disponibilidad y te explicamos los siguientes pasos." }
+      ]
+    },
+    "response": {
+      "title": "Tiempo de respuesta",
+      "text": "Normalmente respondemos en un plazo de 24 horas dentro de nuestro horario de atención."
+    },
+    "privacy": {
+      "title": "Tu privacidad",
+      "text": "Tus datos se utilizarán únicamente para gestionar tu solicitud y contactar contigo sobre el curso."
+    },
+    "contact": {
+      "title": "¿Necesitas ayuda antes de enviar?",
+      "whatsapp": "WhatsApp: +34 604 80 92 08",
+      "email": "Correo: info@costaspanishclass.com",
+      "emailAddress": "info@costaspanishclass.com"
     }
+  },
+  "form": {
+    "eyebrow": "Tu solicitud",
+    "title": "Tus datos",
+    "supporting": "Esta información nos ayuda a conocer tu nivel, tus objetivos y tu disponibilidad antes de contactar contigo.",
+    "requiredNote": "* Campos obligatorios",
+    "additionalSupporting": "Cuéntanos tus preferencias de aprendizaje, limitaciones de horario o cualquier dato que pueda ayudarnos a prepararnos.",
+    "submitReassurance": "No requiere pago. Revisaremos tu solicitud antes de confirmar nada.",
+    "sections": {
+      "personal": "Datos personales",
+      "course": "Preferencias de curso",
+      "background": "Experiencia de aprendizaje",
+      "additional": "¿Algo más que debamos saber?"
+    },
+    "labels": {
+      "name": "Nombre completo *",
+      "email": "Correo electrónico *",
+      "phone": "Teléfono (con prefijo internacional)",
+      "country": "País de residencia",
+      "course": "Curso seleccionado",
+      "level": "Nivel de español *",
+      "nativeLanguage": "Idioma nativo *",
+      "availability": "Disponibilidad *",
+      "experience": "¿Cuánto tiempo has estudiado español? *",
+      "previousCourses": "¿Has estudiado español en clase antes? *",
+      "goals": "¿Cuáles son tus objetivos principales al aprender español? *",
+      "notes": "Información adicional",
+      "privacyBefore": "Acepto el tratamiento de mis datos conforme a la",
+      "privacyLink": "política de privacidad",
+      "privacyAfter": " de la academia y entiendo que este formulario no implica ningún pago ni compromiso financiero."
+    },
+    "options": {
+      "selectLevel": "Selecciona tu nivel de español",
+      "selectAvailability": "Selecciona tu disponibilidad",
+      "selectExperience": "Selecciona tu experiencia",
+      "levels": {
+        "A1": "A1 — Principiante",
+        "A2": "A2 — Elemental",
+        "B1": "B1 — Intermedio",
+        "B2": "B2 — Intermedio alto",
+        "C1": "C1 — Avanzado",
+        "C2": "C2 — Competente"
+      },
+      "availability": {
+        "morning": "Mañana (9:00–12:00)",
+        "afternoon": "Tarde (12:00–17:00)",
+        "evening": "Tarde-noche (17:00–21:00)",
+        "flexible": "Horario flexible"
+      },
+      "experience": {
+        "none": "Soy principiante absoluto",
+        "lessThan1": "Menos de 1 año",
+        "1to3": "1–3 años",
+        "moreThan3": "Más de 3 años"
+      },
+      "no": "No",
+      "yes": "Sí"
+    },
+    "placeholders": {
+      "goals": "Ej.: viajar, trabajar, estudiar en el extranjero, conversación, examen DELE...",
+      "notes": "Cuéntanos lo que pueda ayudarnos a adaptar el curso a ti (estilo de aprendizaje, horarios, necesidades específicas...)"
+    },
+    "errors": {
+      "name": "Por favor, introduce tu nombre",
+      "email": "Por favor, introduce un correo electrónico válido",
+      "level": "Selecciona tu nivel de español",
+      "availability": "Selecciona tu disponibilidad",
+      "experience": "Selecciona tu experiencia previa",
+      "previousCourses": "Selecciona una opción",
+      "goals": "Indica tus objetivos",
+      "privacy": "Debes aceptar la política de privacidad",
+      "nativeLanguage": "Por favor, introduce tu idioma nativo"
+    },
+    "messages": {
+      "successTitle": "Solicitud recibida",
+      "successText": "Tu preinscripción se ha enviado correctamente. Contactaremos contigo pronto y también recibirás un correo de confirmación.",
+      "errorTitle": "Algo salió mal",
+      "errorText": "Hubo un error al enviar tu preinscripción. Inténtalo de nuevo más tarde."
+    },
+    "buttons": {
+      "submit": "Enviar preinscripción",
+      "sending": "Enviando...",
+      "back": "Volver al inicio"
+    }
+  }
 }

@@ -19,13 +19,14 @@ export const FilterBarCourses = ({
   hideLanguage,
 }: FilterBarCoursesProps) => {
   const t = useTranslations("filters");
-  const languageOptions = t.raw("languageOptions") as string[];
+  const languageOptions = Object.keys(t.raw("languageOptions")) as string[];
   const statusOptions = Object.keys(t.raw("statusOptions")) as string[];
   const modalityOptions = Object.keys(t.raw("modalityOptions")) as string[];
   const levelOptions = t.raw("levelOptions") as string[];
 
   const statusLabel = t.raw("statusOptions") as Record<string, string>;
   const modalityLabel = t.raw("modalityOptions") as Record<string, string>;
+  const languageLabel = t.raw("languageOptions") as Record<string, string>;
 
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [selectedModality, setSelectedModality] = useState<string | null>(null);
@@ -110,6 +111,7 @@ export const FilterBarCourses = ({
                 selected={selectedLanguage}
                 onChange={setSelectedLanguage}
                 placeholder={t("labels.language")}
+                renderOption={(option) => languageLabel[option]}
                 openDropdown={openDropdown}
                 setOpenDropdown={setOpenDropdown}
               />

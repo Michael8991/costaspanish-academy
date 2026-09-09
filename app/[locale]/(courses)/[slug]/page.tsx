@@ -38,7 +38,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const t = await getTranslations({ locale, namespace: "coursesCatalog" });
+  const t = await getTranslations({ locale, namespace: "coursePage" });
 
 
   await dbConnect();

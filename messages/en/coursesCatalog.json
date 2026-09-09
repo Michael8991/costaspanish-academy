@@ -1,20 +1,52 @@
 {
-  "status": {
-    "inProgress": "In progress",
-    "soon": "Coming soon",
-    "pending": "Open registrations",
-    "private": "Private"
-  },
-  "levels": {
-    "default": "All levels"
-  },
-  "labels": {
-    "max": "max.",
-    "persons": "persons",
-    "moreInfo": "More info"
-  },
   "breadcrumbs": {
+    "label": "Breadcrumb",
     "home": "Home",
     "courses": "Courses"
+  },
+  "header": {
+    "eyebrow": "Spanish courses",
+    "line1": "Find the right way",
+    "line2": "to learn Spanish.",
+    "supporting": "Choose between private lessons, small in-person groups and intensive online learning."
+  },
+  "statuses": {
+    "activeGroups": "2 active groups · places available",
+    "enrollmentOpen": "Enrolment open"
+  },
+  "detailsLabel": "Course details",
+  "viewCourse": "View course",
+  "imageAlt": "Course: {title}",
+  "cards": {
+    "private": {
+      "eyebrow": "Private · 1:1",
+      "title": "Private Spanish lessons",
+      "fallbackDescription": "Personalised Spanish lessons with individual attention.",
+      "facts": ["Private", "1:1"]
+    },
+    "a1": {
+      "eyebrow": "Regular group",
+      "title": "Regular in-person A1 group",
+      "fallbackDescription": "Learn Spanish from scratch in a small in-person group.",
+      "facts": ["A1", "In person", "Regular group"]
+    },
+    "a2": {
+      "eyebrow": "Regular group",
+      "title": "Regular in-person A2 group",
+      "fallbackDescription": "Continue learning Spanish at a balanced pace in person.",
+      "facts": ["A2", "In person", "Regular group"]
+    },
+    "intensive": {
+      "eyebrow": "Intensive",
+      "title": "B1 Online Intensive Spanish Course",
+      "fallbackDescription": "Focused online learning for students progressing through B1.",
+      "facts": ["B1", "Online", "Intensive"]
+    }
+  },
+  "support": {
+    "eyebrow": "Personal guidance",
+    "title": "Not sure which course fits you?",
+    "text": "Tell us what you are looking for and we will help you choose.",
+    "cta": "Contact us"
   }
 }

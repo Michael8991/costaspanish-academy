@@ -1,27 +1,27 @@
 {
     "filters": {
         "labels": {
-            "language": "Language",
-            "status": "Status",
-            "modality": "Modality",
-            "level": "Level",
-            "apply": "Apply Filters",
-            "reset": "Reset Filters"
+            "language": "Idioma",
+            "status": "Estado",
+            "modality": "Modalidad",
+            "level": "Nivel",
+            "apply": "Aplicar filtros",
+            "reset": "Restablecer filtros"
         },
-        "languageOptions": [
-            "Spanish",
-            "English"
-        ],
+        "languageOptions": {
+            "Spanish": "Español",
+            "English": "Inglés"
+        },
         "statusOptions": {
-            "inProgress": "In progress",
-            "soon": "Coming soon",
-            "pending": "Open registrations"
+            "inProgress": "En curso",
+            "soon": "Próximamente",
+            "pending": "Inscripciones abiertas"
         },
         "modalityOptions": {
-            "Intensive": "Intensive course",
-            "SemiIntensive": "Semi-Intensive course",
-            "Standar": "Standard course",
-            "Private": "Private lesson"
+            "Intensive": "Curso intensivo",
+            "SemiIntensive": "Curso semi-intensivo",
+            "Standar": "Curso regular",
+            "Private": "Clase privada"
         },
         "levelOptions": [
             "A1",

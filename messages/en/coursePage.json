@@ -1,47 +1,119 @@
 {
-    "notFoundTitle": "Course not available",
-    "notFoundDescription": "This course could not be found.",
-    "goHome": "Go to Home",
-    "preRegister": "Pre-register for the course",
-    "status": {
-        "inProgress": "In progress",
-        "private": "Private",
-        "soon": "Coming soon",
-        "pending": "Open registrations"
-    },
-    "details": {
-        "promo": {
-            "badge": "50% off January",
-            "available": "Available during January",
-            "endsIn": "Ends in",
-            "expired": "Promotion ended"
-        },
-        "price": {
-            "private": "From {price}/h",
-            "monthly": "From {price} per month"
-        },
-        "title": "Course details",
-        "hoursPerWeek": "Hours per week",
-        "duration": "Duration of course",
-        "limit": "Limit of places per group",
-        "students": "students",
-        "level": "Course level goal",
-        "modality": "Course modality"
-    },
-    "modules": {
-        "badge": "Modules",
-        "title": "What You’ll Learn",
-        "description": "Explore the lessons and topics covered in this course to see exactly what you’ll learn step by step.",
-        "show": "Show course modules",
-        "hide": "Hide course modules"
-    },
-    "faq": {
-        "badge": "FAQ",
-        "title": "Everything You Need to Know",
-        "description": "Find answers to the most common questions about our courses. If you need more help, feel free to contact us directly.",
-        "show": "Show FAQs",
-        "hide": "Hide FAQs",
-        "contactText": "Can’t find what you’re looking for? Reach out to our team and we’ll be happy to assist you.",
-        "contactBtn": "Contact us"
-    }
+  "notFoundTitle": "Course not available",
+  "notFoundDescription": "This course could not be found.",
+  "defaultDescription": "Learn Spanish with CostaSpanish through practical, personalised teaching.",
+  "goHome": "Go to Home",
+  "breadcrumbs": {
+    "label": "Breadcrumb",
+    "home": "Home",
+    "courses": "Courses"
+  },
+  "preRegister": "Pre-register",
+  "status": {
+    "inProgress": "Course in progress",
+    "private": "Private Spanish lessons",
+    "soon": "Upcoming course",
+    "pending": "Enrolment open"
+  },
+  "hero": {
+    "imageAlt": "{title} at Costa Spanish Academy"
+  },
+  "modality": {
+    "Intensive": "Intensive",
+    "SemiIntensive": "Semi-intensive",
+    "Standar": "Regular",
+    "Private": "Private"
+  },
+  "details": {
+    "title": "Course at a glance",
+    "pace": "Pace",
+    "duration": "Duration",
+    "groupSize": "Group size",
+    "privateGroupSize": "1 · 2 · 3 people",
+    "level": "Level",
+    "allLevels": "All levels",
+    "format": "Format",
+    "courseType": "Course type"
+  },
+  "offer": {
+    "eyebrow": "Course offer",
+    "title": "Ready to take the next step?",
+    "text": "Pre-register your interest and we will contact you with the course details.",
+    "privateTitle": "Private lessons, shaped around you.",
+    "privateText": "Choose the class size that fits you and your learning goals.",
+    "currentPrice": "Current price",
+    "perHour": "per hour",
+    "perMonth": "per month",
+    "priceOnRequest": "Contact us for the current price."
+  },
+  "formats": {
+    "label": "Private lesson formats",
+    "options": [
+      { "people": "1:1", "label": "Individual" },
+      { "people": "2 people", "label": "Pair" },
+      { "people": "3 people", "label": "Trio" }
+    ]
+  },
+  "about": {
+    "eyebrow": "About the course",
+    "title": "Learning designed for real progress."
+  },
+  "modules": {
+    "eyebrow": "Course content",
+    "title": "What you'll work on.",
+    "description": "Explore the real lessons and topics included in this course."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Everything you may want to know before starting.",
+    "description": "Practical answers about lessons, scheduling, materials and learning with CostaSpanish.",
+    "items": [
+      {
+        "question": "How do the live classes work?",
+        "answer": "Our live classes are held through video calls with qualified native teachers. You only need a computer or smartphone and a stable internet connection."
+      },
+      {
+        "question": "Can I take a free trial lesson?",
+        "answer": "Yes! You can book a free trial lesson to get to know our teachers, experience our method, and see if it fits your goals."
+      },
+      {
+        "question": "What levels do you offer?",
+        "answer": "We offer all levels, from complete beginners (A1) to advanced (C2). Each course follows the CEFR standards for language learning."
+      },
+      {
+        "question": "How many students are there per class?",
+        "answer": "Our group classes are small, with a maximum of 6 students, to ensure personalised attention and active participation."
+      },
+      {
+        "question": "Can I choose my own schedule?",
+        "answer": "Yes, for private lessons you can select your preferred time slots. For group lessons, we have several schedules available depending on your level."
+      },
+      {
+        "question": "What platform do you use for classes?",
+        "answer": "We use Zoom or Google Meet for live sessions. You’ll receive a direct link to each class in your student area."
+      },
+      {
+        "question": "Do I need to buy any materials?",
+        "answer": "All study materials are included and accessible in your student area. You won’t need to purchase any books."
+      },
+      {
+        "question": "Can I cancel or reschedule a lesson?",
+        "answer": "Yes, private lessons can be cancelled or rescheduled up to 24 hours in advance. Group lessons follow a fixed schedule."
+      },
+      {
+        "question": "Will I get a certificate?",
+        "answer": "Yes, after completing the course you’ll receive a digital certificate of attendance and achievement."
+      },
+      {
+        "question": "How can I contact support?",
+        "answer": "You can contact us anytime via email at support@costaspanishacademy.com or through the chat in your student dashboard."
+      }
+    ]
+  },
+  "support": {
+    "eyebrow": "Personal guidance",
+    "title": "Still have a question?",
+    "text": "Tell us what you are looking for and we will help you.",
+    "cta": "Contact us"
+  }
 }

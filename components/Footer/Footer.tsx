@@ -1,144 +1,86 @@
 "use client";
 
-import { Facebook, Instagram, Linkedin } from "lucide-react";
-import styles from "./Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { COSTASPANISH_SOCIAL_LINKS, SITE_CREDITS } from "@/lib/constants/socialLinks";
+import styles from "./Footer.module.css";
+
+const navigation = [
+  { key: "about", hash: "aboutUs" },
+  { key: "courses", hash: "courses" },
+  { key: "testimonials", hash: "testimonials" },
+] as const;
+
+const socials = [
+  { key: "instagram", href: COSTASPANISH_SOCIAL_LINKS.instagram, icon: "/assets/instagram.svg", wide: false },
+  { key: "facebook", href: COSTASPANISH_SOCIAL_LINKS.facebook, icon: "/assets/facebook.svg", wide: false },
+  { key: "linkedin", href: COSTASPANISH_SOCIAL_LINKS.linkedin, icon: "/assets/linkedin (1).svg", wide: false },
+  { key: "preply", href: COSTASPANISH_SOCIAL_LINKS.preply, icon: "/assets/Preply_idxfA4aZwE_0.svg", wide: true },
+] as const;
 
 export const Footer = () => {
   const t = useTranslations("Footer");
-  const pathname = usePathname();
-  const router = useRouter();
-  const params = useParams();
-  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
-
-  const locale = params?.locale as string;
-
-  const scrollToSection = (id: string) => {
-    const scrollWithOffset = (targetId: string) => {
-      const el = document.getElementById(targetId);
-      if (!el) return;
-      const yOffset = -120;
-      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    };
-
-    if (!pathname.startsWith(`/${locale}`)) {
-      router.push(`/${locale}`);
-      setScrollTarget(id);
-    } else {
-      scrollWithOffset(id);
-    }
-  };
+  const { locale } = useParams<{ locale: string }>();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-5 bg-[#FFCCDD]">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-1">
-          {/* Logo + redes */}
-          <div className="flex flex-col items-center md:items-start space-y-3">
-            <div className="relative w-36 h-36">
-              <Image
-                src="/assets/LogoCostaSpanishRojoCoralFuerte.png"
-                alt={t("alt")}
-                fill
-                style={{ objectFit: "cover" }}
-                priority
-              />
-            </div>
+    <footer className={styles.footer}>
+      <span className={styles.decoration} aria-hidden="true" />
+      <div className={styles.inner}>
+        <div className={styles.mainGrid}>
+          <section className={styles.brand} aria-label="CostaSpanish">
+            <Link href={"/" + locale} className={styles.logoLink} aria-label={t("homeAria")}>
+              <Image src="/assets/LogoCostaSpanishRojoCoralFuerte.png" alt="" fill sizes="150px" className={styles.logo} />
+            </Link>
+            <p className={styles.statement}>{t("statement")}</p>
+            <p className={styles.location}>{t("location")}</p>
+            <Link href={"/" + locale + "#courses"} className={styles.courseLink}>
+              {t("courseCta")}<span aria-hidden="true">→</span>
+            </Link>
+          </section>
 
-            <p className="text-sm font-light text-center md:text-left">
-              {t("rights")}
-            </p>
-
-            <div className="flex space-x-2">
-              <Instagram
-                aria-label="Instagram costaSpanish"
-                className={`${styles.socialMediaIcon} w-8 h-8`}
-                strokeWidth={1}
-              />
-              <Linkedin
-                aria-label="Linkedin costaSpanish"
-                className={`${styles.socialMediaIcon} w-8 h-8`}
-                strokeWidth={1}
-              />
-              <Facebook
-                aria-label="Facebook costaSpanish"
-                className={`${styles.socialMediaIcon} w-8 h-8`}
-                strokeWidth={1}
-              />
-            </div>
-          </div>
-
-          {/* Navegación + crédito diseño */}
-          <div className="flex flex-col justify-between items-center md:items-end space-y-4 md:space-y-2">
-            <ul className="flex flex-wrap justify-center md:justify-end gap-3">
-              <li>
-                <button onClick={() => scrollToSection("aboutUs")} className={`${styles.navLinks} cursor-pointer`}>
-                  {t("nav.about")}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection("courses")} className={`${styles.navLinks} cursor-pointer`}>
-                  {t("nav.courses")}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection("home")} className={`${styles.navLinks} cursor-pointer`}>
-                  {t("nav.home")}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection("testimonials")} className={`${styles.navLinks} cursor-pointer`}>
-                  {t("nav.testimonials")}
-                </button>
-              </li>
-              <li>
-                <Link href={`/${locale}/contactUs`} className={styles.navLinks}>
-                  {t("nav.contact")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/blog`} className={styles.navLinks}>
-                  {t("nav.blog")}
-                </Link>
-              </li>
+          <nav className={styles.column} aria-label={t("exploreAria")}>
+            <p className={styles.columnLabel}>{t("explore")}</p>
+            <ul>
+              {navigation.map(({ key, hash }) => (
+                <li key={key}><Link href={"/" + locale + "#" + hash}>{t("nav." + key)}</Link></li>
+              ))}
+              <li><Link href={"/" + locale + "/contactUs"}>{t("nav.contact")}</Link></li>
             </ul>
+          </nav>
 
-            <ul className="flex flex-wrap gap-4 font-light text-md" >
-              <li>
-                <Link href={`/${locale}/cookiesPolicy`} className={styles.legalLinks}>
-                  {t("legal.cookiesPolicy")}
-                </Link>
-              </li>
-              <li>
-                 <button
-                    type="button"
-                    onClick={() => window.dispatchEvent(new Event("cookies:open"))}
-                    className="hover:cursor-pointer"
-                  >
-                    Configurar cookies
-                  </button>
-              </li>
-              <li>
-                <Link href={`/${locale}/legalNotice`} className={styles.legalLinks}>
-                  {t("legal.notice")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/privacyPolicy`} className={styles.legalLinks}>
-                  {t("legal.privacyPolicy")}
-                </Link>
-              </li>
+          <nav className={styles.column} aria-label={t("connectAria")}>
+            <p className={styles.columnLabel}>{t("connect")}</p>
+            <ul className={styles.socialList}>
+              {socials.map(({ key, href, icon, wide }) => (
+                <li key={key}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={t("socialAria", { platform: t("socials." + key) })}>
+                    <span className={[styles.socialIcon, wide ? styles.preplyIcon : ""].join(" ")}>
+                      <Image src={icon} alt="" fill sizes="56px" />
+                    </span>
+                    <span>{t("socials." + key)}</span>
+                    <span className={styles.externalArrow} aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))}
             </ul>
+          </nav>
+        </div>
 
-            <a href="#" className={`${styles.designLink} font-light text-center md:text-right`}>
-              {t("design")}
-            </a>
+        <div className={styles.bottomBar}>
+          <p>{t("rights", { year: currentYear })}</p>
+          <div className={styles.legal}>
+            <Link href={"/" + locale + "/cookiesPolicy"}>{t("legal.cookiesPolicy")}</Link>
+            <button type="button" onClick={() => window.dispatchEvent(new Event("cookies:open"))}>{t("legal.configureCookies")}</button>
+            <Link href={"/" + locale + "/legalNotice"}>{t("legal.notice")}</Link>
+            <Link href={"/" + locale + "/privacyPolicy"}>{t("legal.privacyPolicy")}</Link>
           </div>
+          <a className={styles.credit} href={SITE_CREDITS.michaelLinkedIn} target="_blank" rel="noopener noreferrer" aria-label={t("creditAria")}>
+            <span>{t("credit")}</span>
+            <strong>Michael Rodríguez <i aria-hidden="true">↗</i></strong>
+          </a>
         </div>
       </div>
     </footer>

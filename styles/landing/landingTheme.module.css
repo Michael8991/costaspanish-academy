@@ -1,0 +1,17 @@
+.theme {
+    --cs-color-bg-canvas: #fffdfc;
+    --cs-color-bg-hero: #fff9f8;
+    --cs-color-bg-subtle: #f8f4f0;
+    --cs-color-bg-brand-subtle: #fcebed;
+    --cs-color-surface: #ffffff;
+    --cs-color-text-primary: #292323;
+    --cs-color-text-secondary: #706567;
+    --cs-color-text-muted: #96898a;
+    --cs-color-border-default: #e9dfdc;
+    --cs-color-brand: #e95673;
+    --cs-color-brand-hover: #cf3f5e;
+    --cs-color-brand-shadow: rgb(233 86 115 / 0.25);
+    --cs-color-on-brand: #ffffff;
+    --cs-color-header-scrolled: rgb(255 253 252 / 0.94);
+    --cs-color-shadow-subtle: rgb(41 35 35 / 0.05);
+}

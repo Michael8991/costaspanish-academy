@@ -1,7 +1,7 @@
 {
     "metadata": {
         "title": "Language Courses | Costa Spanish Academy",
-        "description": "Explore our Spanish and English courses. Intensive, private, or group classes available online or in person with native teachers."
+        "description": "Explore our Spanish courses: private lessons, regular small groups and intensive learning online or in person."
     },
     "spanish": {
         "metadata": {
@@ -11,8 +11,8 @@
     },
     "english": {
         "metadata": {
-            "title": "English Courses | Costa Spanish Academy",
-            "description": "Learn English with native teachers. Private and group lessons online or in person for all levels."
+            "title": "Spanish Courses | Costa Spanish Academy",
+            "description": "CostaSpanish currently focuses on teaching Spanish through private, group and intensive courses."
         }
     },
     "breadcrumbs": {

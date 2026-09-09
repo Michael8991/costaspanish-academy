@@ -1,12 +1,12 @@
 .pinkCircle {
-    height: 400px;
-    width: 370px;
-    background: #FB6F92;
-    box-shadow: 0px 0px 15px 5px #FB6F92;
+    height: 360px;
+    width: 333px;
+    background: var(--cs-color-brand);
+    box-shadow: 0 0 15px 5px var(--cs-color-brand-shadow);
 }
 
 .imgMaria {
-    width: calc(var(--spacing) * 80);
+    width: 306px;
     /* 20rem = 320px */
 }
 
@@ -21,70 +21,62 @@ xl 80rem (1280px)
 
 @media (width < 375px) {
     .pinkCircle {
-        height: 270px;
-        width: 240px;
-        background: #FB6F92;
-        box-shadow: 0px 0px 15px 5px #FB6F92;
+        height: 292px;
+        width: 263px;
     }
 
     .circleWrapper {
-        height: 270px;
+        height: 292px;
     }
 
     .imgMaria {
-        width: calc(var(--spacing)*55);
+        width: 224px;
     }
 
 }
 
 @media (width >=375px) {
     .pinkCircle {
-        height: 300px;
-        width: 270px;
-        background: #FB6F92;
-        box-shadow: 0px 0px 15px 5px #FB6F92;
+        height: 310px;
+        width: 279px;
     }
 
     .circleWrapper {
-        height: 300px;
+        height: 310px;
     }
 
     .imgMaria {
-        width: calc(var(--spacing)*60);
+        width: 236px;
     }
 }
 
 @media (width >=640px) {
     .pinkCircle {
-        height: 350px;
-        width: 320px;
-        background: #FB6F92;
-        box-shadow: 0px 0px 15px 5px #FB6F92;
+        height: 330px;
+        width: 297px;
     }
 
     .circleWrapper {
-        height: 350px;
+        height: 330px;
     }
 
     .imgMaria {
-        width: calc(var(--spacing)*70);
+        width: 272px;
     }
 }
 
 @media (width >=768px) {
     .pinkCircle {
-        height: 400px;
-        width: 370px;
-        background: #FB6F92;
-        box-shadow: 0px 0px 15px 5px #FB6F92;
+        height: 360px;
+        width: 333px;
     }
 
     .circleWrapper {
-        height: 400px;
+        height: 360px;
     }
 
     .imgMaria {
-        width: calc(var(--spacing) * 80);
+        width: 306px;
         /* 20rem = 320px */
     }
 }

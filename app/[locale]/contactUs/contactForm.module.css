@@ -1,0 +1,366 @@
+.shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.39fr) minmax(0, 0.61fr);
+  overflow: hidden;
+  border: 1px solid var(--landing-border);
+  border-radius: 1.75rem;
+  background: var(--landing-surface);
+  box-shadow: 0 24px 70px rgb(76 45 49 / 9%);
+}
+
+.infoPanel,
+.formPanel {
+  padding: clamp(2rem, 4vw, 3.75rem);
+}
+
+.infoPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--landing-brand-subtle);
+}
+
+.decorativeMark {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.8rem;
+  color: color-mix(in srgb, var(--landing-brand) 25%, transparent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  letter-spacing: -0.2em;
+  line-height: 1;
+  transform: rotate(7deg);
+  user-select: none;
+}
+
+.panelEyebrow,
+.miniLabel {
+  margin: 0;
+  color: var(--landing-brand-hover);
+  font-size: 0.71rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.infoTitle,
+.formHeading h2 {
+  margin: 0.65rem 0 0;
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
+  font-weight: 720;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.infoIntro,
+.formHeading > p:last-child {
+  margin: 1rem 0 0;
+  color: var(--landing-text-secondary);
+  line-height: 1.65;
+}
+
+.askBlock {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--landing-brand) 20%, transparent);
+}
+
+.askList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.askList li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  color: var(--landing-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.askList svg {
+  flex: 0 0 auto;
+  margin-top: 0.17rem;
+  color: var(--landing-brand);
+}
+
+.contactMethods {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.contactLink {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--landing-text);
+  font-size: 0.9rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.contactLink small {
+  display: block;
+  margin-bottom: 0.12rem;
+  color: var(--landing-text-muted);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.iconBox {
+  display: grid;
+  flex: 0 0 2.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--landing-brand) 24%, transparent);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 62%);
+  color: var(--landing-brand);
+}
+
+.contactLink:hover,
+.contactLink:focus-visible {
+  color: var(--landing-brand-hover);
+}
+
+.contactLink:focus-visible,
+.submitButton:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--landing-brand) 35%, transparent);
+  outline-offset: 3px;
+}
+
+.infoFooter {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: auto;
+  padding-top: 2.5rem;
+  color: var(--landing-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.infoFooter p {
+  margin: 0;
+}
+
+.infoFooter strong,
+.infoFooter span {
+  display: block;
+}
+
+.infoFooter strong {
+  color: var(--landing-text-secondary);
+  font-weight: 700;
+}
+
+.formPanel {
+  background: var(--landing-surface);
+}
+
+.formHeading {
+  max-width: 34rem;
+  margin-bottom: 2rem;
+}
+
+.formPanel form,
+.field {
+  display: grid;
+}
+
+.formPanel form {
+  gap: 1.15rem;
+}
+
+.twoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  gap: 0.45rem;
+}
+
+.field label {
+  color: var(--landing-text);
+  font-size: 0.82rem;
+  font-weight: 680;
+}
+
+.control {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid var(--landing-border);
+  border-radius: 0.75rem;
+  outline: none;
+  background: var(--landing-canvas);
+  color: var(--landing-text);
+  font: inherit;
+  font-size: 0.94rem;
+  padding: 0.75rem 0.9rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+textarea.control {
+  min-height: 8rem;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.control::placeholder {
+  color: var(--landing-text-muted);
+}
+
+.control:hover {
+  border-color: color-mix(in srgb, var(--landing-brand) 35%, var(--landing-border));
+}
+
+.control:focus {
+  border-color: var(--landing-brand);
+  background: var(--landing-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--landing-brand) 14%, transparent);
+}
+
+.controlInvalid {
+  border-color: #b93c4d;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectWrap select {
+  appearance: none;
+  padding-right: 2.75rem;
+}
+
+.selectWrap > svg {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  color: var(--landing-text-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.error,
+.successMessage,
+.errorMessage {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.error,
+.errorMessage {
+  color: #a92f41;
+}
+
+.successMessage {
+  color: #39745a;
+  font-weight: 650;
+}
+
+.submitRow {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.55rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--landing-border);
+}
+
+.submitCopy > p:first-child {
+  max-width: 29rem;
+  margin: 0;
+  color: var(--landing-text-muted);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.submitCopy > p + p {
+  margin-top: 0.45rem;
+}
+
+.submitButton {
+  min-width: 9.5rem;
+  min-height: 3rem;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  background: var(--landing-brand);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 750;
+  padding: 0.8rem 1.4rem;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--landing-brand-hover);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--landing-brand) 24%, transparent);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
+@media (max-width: 56rem) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .infoPanel {
+    min-height: auto;
+  }
+
+  .infoFooter {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 36rem) {
+  .infoPanel,
+  .formPanel {
+    padding: 1.5rem;
+  }
+
+  .shell {
+    border-radius: 1.25rem;
+  }
+
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .submitRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control,
+  .submitButton {
+    transition: none;
+  }
+}

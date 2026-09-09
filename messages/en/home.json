@@ -8,79 +8,89 @@
     "cta": "Check Out Our Best-Selling Courses",
     "flags": {
       "spanishAlt": "Spanish courses - Spain flag",
-      "englishAlt": "English courses - UK flag"
+      "englishAlt": "United Kingdom flag"
+    },
+    "floating": {
+      "private": "Private",
+      "group": "Group",
+      "intensive": "Intensive"
     }
   },
   "AcademyHighlights": {
-    "title": "Why choose us?",
-    "subtitle": "The difference is in the details, and how much we care.",
-    "cards": [
+    "kicker": "Why CostaSpanish?",
+    "statement": "Spanish is meant to be lived.",
+    "manifesto": "Language starts making sense when conversation, culture and your own life meet.",
+    "facts": ["4+ years teaching Spanish", "Online & in-person", "Small groups · Private"],
+    "benefits": [
       {
-        "title": "Native & Qualified",
-        "text": "Learn with experienced native speakers who make learning fun and real.",
-        "alt": "qualified teacher icon"
+        "title": "Speak for real",
+        "text": "Build confidence through useful, natural conversation."
       },
       {
-        "title": "Proven Methodology",
-        "text": "A mix of immersion, repetition, and real conversation.",
-        "alt": "books icon"
+        "title": "Learn through culture",
+        "text": "Understand the people and context behind the language."
       },
       {
-        "title": "We Care",
-        "text": "You are not just another student. We guide and support you personally.",
-        "alt": "we care icon"
+        "title": "Lessons made around you",
+        "text": "Learn at your pace, with your level and goals in mind."
       }
     ]
   },
   "AboutUsSection": {
-    "title": "Learn <span1>Spanish</span1> with <span2>Native Teachers</span2>",
-    "subtitle": "Personalized classes tailored to your pace, level, and goals.",
+    "eyebrow": "About CostaSpanish",
+    "title": "Learn Spanish with a<br></br><accent>native teacher.</accent>",
+    "subtitle": "A personal Spanish academy shaped by real classrooms, international experience and meaningful conversation.",
     "paragraphs": [
-      "At <strong>Costa Spanish Academy</strong>, we help you learn and improve your Spanish or English through a practical and personalized approach. Our lessons are designed for all ages and profiles, offering a flexible and comfortable learning experience.",
-      "We believe language learning should be more than grammar — it's about connection, culture, and confidence. That's why our classes focus on real-world situations, natural conversation, and cultural immersion, helping you speak Spanish from day one."
+      "After teaching in two schools in France and working with international academies, María has spent more than four years helping students of different ages, backgrounds and goals build confidence in Spanish.",
+      "That experience now shapes CostaSpanish: practical lessons built around real conversation, culture and the person learning — online or in our academy in Torrox."
     ],
-    "list": [
-      {
-        "title": "Intensive Spanish Courses Online",
-        "text": "Fast-paced programs for quick progress."
-      },
-      {
-        "title": "Semi-Intensive Spanish Courses",
-        "text": "Balanced schedule for consistent learning."
-      },
-      {
-        "title": "Private Spanish Classes for Beginners",
-        "text": "One-to-one lessons tailored to your goals."
-      },
-      {
-        "title": "Spanish Conversation Lessons with Native Teachers",
-        "text": "Improve fluency and pronunciation through real interaction."
-      },
-      {
-        "title": "Spanish for Specific Purposes",
-        "text": "Specialized courses for business, tourism, or healthcare."
-      },
-      {
-        "title": "English Classes for Spanish Speakers",
-        "text": "Standard 2-hour-per-week lessons (semi-intensive options coming soon)."
-      }
-    ],
+    "proofPoints": ["4+ years teaching Spanish", "Online & in-person", "Small groups · Private"],
     "button": "Discover our courses",
-    "experienceYears": "+3",
-    "experienceLabel": "years\nof experience",
+    "experienceLabel": "Years\nteaching",
+    "experienceAccessible": "More than four years teaching Spanish",
+    "academyLabel": "Our academy",
+    "location": "Torrox · Málaga",
     "images": {
-      "teacherAlt": "Spanish native teacher"
+      "teacherAlt": "María, CostaSpanish Spanish teacher",
+      "classroomAlt": "CostaSpanish classroom in Torrox for small-group Spanish lessons"
     }
   },
   "CoursesSection": {
-    "title": "Classes",
-    "spanish": {
-      "subtitle": "Spanish for foreigners (ELE)",
-      "cta": "See all courses of Spanish"
+    "eyebrow": "Our courses",
+    "title": "Find your way to learn Spanish.",
+    "supporting": "Private lessons, small groups and intensive online courses.",
+    "viewCourse": "View course",
+    "viewAll": "View all Spanish courses",
+    "imageAlt": "Course: {title}",
+    "statuses": {
+      "activeGroups": "2 active groups · places available",
+      "enrollmentOpen": "Enrolment open"
     },
-    "english": {
-      "subtitle": "English for Spanish speakers",
-      "cta": "See all courses of English"
+    "cards": {
+      "private": {
+        "eyebrow": "Private",
+        "title": "Private Spanish lessons",
+        "description": "Personalised learning with fully individual attention.",
+        "tags": ["Private", "1:1"]
+      },
+      "a1": {
+        "eyebrow": "Regular group",
+        "title": "Regular in-person A1 group",
+        "description": "Learn Spanish from scratch and build a solid foundation for everyday communication.",
+        "tags": ["A1", "In person"]
+      },
+      "a2": {
+        "eyebrow": "Regular group",
+        "title": "Regular in-person A2 group",
+        "description": "Learn Spanish in a group at a balanced pace.",
+        "tags": ["A2", "In person"]
+      },
+      "intensive": {
+        "eyebrow": "Intensive",
+        "title": "B1 Online Intensive Spanish Course",
+        "description": "Strengthen your Spanish with focused, fast-paced online learning.",
+        "tags": ["B1", "Online", "Intensive"]
+      }
     }
   },
   "CourseCard": {
@@ -104,7 +114,46 @@
     "alt": "Course image: {title}"
   },
   "TestimonialsSection": {
-    "title": "Testimonials",
-    "subtitle": "What our students say"
+    "eyebrow": "Student stories",
+    "title": "Real students. Real feedback.",
+    "supporting": "Experiences from people who have learned Spanish with María online and in person.",
+    "rating": "{rating} out of 5",
+    "stats": {
+      "classRating": "Class rating",
+      "confidence": "Confidence",
+      "clarity": "Clarity",
+      "progress": "Progress",
+      "preparation": "Preparation",
+      "lessonsTaught": "lessons taught",
+      "typicalLessons": "classes students usually take",
+      "publicReviews": "public reviews",
+      "basis": "Based on {count} anonymous class evaluations"
+    },
+    "links": {
+      "profile": "View Preply profile",
+      "preply": "View on Preply",
+      "facebook": "View original post"
+    },
+    "reviews": {
+      "ali": {
+        "text": "Maria is a wonderful teacher! She explains everything clearly, corrects my mistakes in a very helpful way, and makes every lesson enjoyable. Highly recommended!"
+      },
+      "claire": {
+        "text": "Maria is the best teacher! She is super friendly and motivating, and she is very good at correcting and explaining mistakes. I have tried many Spanish teachers in the past and Maria is my favourite because she really takes the time to personalise the lessons around your interests, level and goals. She also sends all the lesson notes, along with really useful materials to practise between classes. I highly recommend her!"
+      },
+      "caus": {
+        "text": "Maria is an absolute gem! She is so patient, understanding, organised and knowledgeable!"
+      },
+      "jeff": {
+        "text": "A++ Maria is ALWAYS prepared and organised, and her classes go by quickly and are fun. She keeps track of progress and exercises from lesson to lesson without forgetting where we left off. An easy and wholehearted recommendation."
+      },
+      "liz": {
+        "text": "I can thoroughly recommend Maria. Her lessons are well planned and professionally taught."
+      },
+      "pierre": {
+        "text": "A very thoughtful teacher who takes the time to understand her students and continually adapts her lessons to their needs.",
+        "context": "After 5 hours of lessons"
+      }
+    }
   }
 }
