@@ -19,28 +19,28 @@
   "imageAlt": "Curso: {title}",
   "cards": {
     "private": {
-      "eyebrow": "Privadas · 1:1",
+      "eyebrow": "Privadas · 1:1 y 1:2",
       "title": "Clases privadas de español",
-      "fallbackDescription": "Clases de español personalizadas con atención individual.",
-      "facts": ["Privadas", "1:1"]
+      "fallbackDescription": "Clases privadas a tu medida. 1:1 desde 25 € o dúo 1:2 desde 35 € por clase completa. Primera clase gratis.",
+      "facts": ["1:1 · 25 €", "1:2 · 35 €", "Primera clase gratis"]
     },
     "a1": {
       "eyebrow": "Grupo regular",
       "title": "Grupo regular presencial A1",
-      "fallbackDescription": "Aprende español desde cero en un grupo presencial reducido.",
-      "facts": ["A1", "Presencial", "Grupo regular"]
+      "fallbackDescription": "Presencial en Torrox durante 12 meses: 2 horas y un tema nuevo por semana. Primera clase gratis.",
+      "facts": ["A1", "80 €/mes", "Máx. 6", "Primera clase gratis"]
     },
     "a2": {
       "eyebrow": "Grupo regular",
       "title": "Grupo regular presencial A2",
-      "fallbackDescription": "Continúa aprendiendo español presencialmente a un ritmo equilibrado.",
-      "facts": ["A2", "Presencial", "Grupo regular"]
+      "fallbackDescription": "Presencial en Torrox durante 12 meses: 2 horas y un tema nuevo por semana. Primera clase gratis.",
+      "facts": ["A2", "80 €/mes", "Máx. 6", "Primera clase gratis"]
     },
     "intensive": {
       "eyebrow": "Intensivo",
       "title": "Curso intensivo de español online B1",
       "fallbackDescription": "Aprendizaje online enfocado para estudiantes que avanzan en B1.",
-      "facts": ["B1", "Online", "Intensivo"]
+      "facts": ["B1", "175 €/semana", "630 €/4 semanas", "Máx. 6"]
     }
   },
   "support": {

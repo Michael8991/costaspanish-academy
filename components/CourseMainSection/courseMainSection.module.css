@@ -143,136 +143,6 @@
   line-height: 1.4;
 }
 
-.offer {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
-  gap: 2rem 3rem;
-  align-items: center;
-  margin-top: clamp(4rem, 8vw, 7rem);
-  border: 1px solid color-mix(in srgb, var(--cs-color-brand) 18%, var(--cs-color-border-default));
-  border-radius: 1.6rem;
-  background: var(--cs-color-bg-brand-subtle);
-  padding: clamp(2rem, 5vw, 3.6rem);
-}
-
-.offerIntro h2,
-.aboutCourse h2 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  letter-spacing: -0.05em;
-  line-height: 1.05;
-}
-
-.offerIntro > p:last-child,
-.aboutCourse > p:last-child {
-  max-width: 42rem;
-  margin: 1rem 0 0;
-  color: var(--cs-color-text-secondary);
-  line-height: 1.7;
-}
-
-.privateFormats {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--cs-color-brand) 18%, var(--cs-color-border-default));
-  border-radius: 1rem;
-  background: rgb(255 255 255 / 48%);
-}
-
-.privateFormats > div {
-  display: flex;
-  gap: 0.45rem;
-  align-items: baseline;
-  padding: 1rem 1.2rem;
-}
-
-.privateFormats > div + div {
-  border-left: 1px solid color-mix(in srgb, var(--cs-color-brand) 16%, var(--cs-color-border-default));
-}
-
-.privateFormats strong {
-  color: var(--cs-color-brand-hover);
-  font-size: 1.2rem;
-  letter-spacing: -0.04em;
-}
-
-.privateFormats span {
-  color: var(--cs-color-text-secondary);
-  font-size: 0.82rem;
-}
-
-.offerAction {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-left: 1px solid color-mix(in srgb, var(--cs-color-brand) 18%, var(--cs-color-border-default));
-  padding-left: 2rem;
-}
-
-.price small {
-  display: block;
-  color: var(--cs-color-text-muted);
-  font-size: 0.68rem;
-  font-weight: 720;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.price strong {
-  display: inline-block;
-  margin-top: 0.3rem;
-  color: var(--cs-color-text-primary);
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: -0.055em;
-  line-height: 1;
-}
-
-.price span {
-  margin-left: 0.35rem;
-  color: var(--cs-color-text-secondary);
-  font-size: 0.82rem;
-}
-
-.priceReview {
-  margin: 0;
-  color: var(--cs-color-text-secondary);
-}
-
-.offerAction > a {
-  display: inline-flex;
-  gap: 0.55rem;
-  align-items: center;
-  margin-top: 1.1rem;
-  border-radius: 999px;
-  background: var(--cs-color-brand);
-  color: var(--cs-color-on-brand);
-  font-size: 0.88rem;
-  font-weight: 750;
-  padding: 0.85rem 1.25rem;
-  text-decoration: none;
-  transition: background 180ms ease, transform 180ms ease;
-}
-
-.offerAction > a:hover {
-  background: var(--cs-color-brand-hover);
-  transform: translateY(-2px);
-}
-
-.offerAction > a:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--cs-color-brand) 34%, transparent);
-  outline-offset: 3px;
-}
-
-.offerAction > a span {
-  transition: transform 180ms ease;
-}
-
-.offerAction > a:hover span {
-  transform: translateX(3px);
-}
-
 .aboutCourse {
   max-width: 52rem;
   margin-top: clamp(4rem, 8vw, 7rem);
@@ -287,16 +157,6 @@
     min-height: clamp(21rem, 70vw, 30rem);
   }
 
-  .offer {
-    grid-template-columns: 1fr;
-  }
-
-  .offerAction {
-    border-top: 1px solid color-mix(in srgb, var(--cs-color-brand) 18%, var(--cs-color-border-default));
-    border-left: 0;
-    padding-top: 1.5rem;
-    padding-left: 0;
-  }
 }
 
 @media (max-width: 32rem) {
@@ -308,23 +168,4 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .privateFormats {
-    grid-template-columns: 1fr;
-  }
-
-  .privateFormats > div + div {
-    border-top: 1px solid color-mix(in srgb, var(--cs-color-brand) 16%, var(--cs-color-border-default));
-    border-left: 0;
-  }
-
-  .offer {
-    padding: 1.5rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .offerAction > a,
-  .offerAction > a span {
-    transition: none;
-  }
 }

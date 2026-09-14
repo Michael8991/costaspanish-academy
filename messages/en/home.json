@@ -70,20 +70,20 @@
       "private": {
         "eyebrow": "Private",
         "title": "Private Spanish lessons",
-        "description": "Personalised learning with fully individual attention.",
-        "tags": ["Private", "1:1"]
+        "description": "Personalised 1:1 and duo 1:2 lessons. First lesson free.",
+        "tags": ["Private", "1:1 / 1:2", "First lesson free"]
       },
       "a1": {
         "eyebrow": "Regular group",
         "title": "Regular in-person A1 group",
-        "description": "Learn Spanish from scratch and build a solid foundation for everyday communication.",
-        "tags": ["A1", "In person"]
+        "description": "In-person in Torrox: 2 hours and one new topic per week for 12 months. First lesson free.",
+        "tags": ["A1", "Torrox", "First lesson free"]
       },
       "a2": {
         "eyebrow": "Regular group",
         "title": "Regular in-person A2 group",
-        "description": "Learn Spanish in a group at a balanced pace.",
-        "tags": ["A2", "In person"]
+        "description": "In-person in Torrox: 2 hours and one new topic per week for 12 months. First lesson free.",
+        "tags": ["A2", "Torrox", "First lesson free"]
       },
       "intensive": {
         "eyebrow": "Intensive",
@@ -106,7 +106,7 @@
     "modality": {
       "Intensive": "Intensive",
       "SemiIntensive": "Semi-intensive",
-      "Standar": "Standard",
+      "Standar": "Regular",
       "Private": "Private"
     },
     "persons": "persons",

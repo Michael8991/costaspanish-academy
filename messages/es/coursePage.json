@@ -27,9 +27,12 @@
   "details": {
     "title": "El curso de un vistazo",
     "pace": "Ritmo",
+    "hoursPerWeek": "{hours} horas por semana",
+    "twelveMonths": "12 meses",
+    "inPersonTorrox": "Presencial en Torrox",
     "duration": "Duración",
     "groupSize": "Tamaño del grupo",
-    "privateGroupSize": "1 · 2 · 3 personas",
+    "privateGroupSize": "1:1 o dúo 1:2",
     "level": "Nivel",
     "allLevels": "Todos los niveles",
     "format": "Formato",
@@ -46,13 +49,38 @@
     "perMonth": "al mes",
     "priceOnRequest": "Contacta con nosotros para conocer el precio actual."
   },
-  "formats": {
-    "label": "Formatos de clases privadas",
-    "options": [
-      { "people": "1:1", "label": "Individual" },
-      { "people": "2 personas", "label": "Pareja" },
-      { "people": "3 personas", "label": "Trío" }
-    ]
+  "commercialTitles": {
+    "clases-privadas-espanol": "Clases privadas de español",
+    "curso-semiintensivo-espanol-a1": "Grupo regular A1",
+    "curso-semiintensivo-espanol-a2": "Grupo regular A2",
+    "curso-intensivo-espanol-b1": "Intensivo B1"
+  },
+  "regularSubtitle": "Presencial en Torrox · 1 tema por semana · 2 horas semanales",
+  "regularAbout": {
+    "curso-semiintensivo-espanol-a1": "Aprende español desde cero en nuestra academia de Torrox. En el grupo regular A1 trabajarás un tema nuevo cada semana durante 12 meses, con 2 horas de clase semanales y un máximo de 6 estudiantes. Practicarás conversación, vocabulario y situaciones cotidianas a tu ritmo.",
+    "curso-semiintensivo-espanol-a2": "Sigue avanzando en español en nuestra academia de Torrox. En el grupo regular A2 trabajarás un tema nuevo cada semana durante 12 meses, con 2 horas de clase semanales y un máximo de 6 estudiantes. Reforzarás gramática, vocabulario, comprensión y conversación en un entorno cercano."
+  },
+  "commercialDescriptions": {
+    "clases-privadas-espanol": "Clases privadas de español adaptadas a tus objetivos y ritmo. Elige 1:1 o comparte la experiencia en modalidad dúo 1:2.",
+    "curso-semiintensivo-espanol-a1": "Grupo regular A1 presencial en Torrox, hasta 6 estudiantes, durante 12 meses. Un tema nuevo y 2 horas de clase cada semana. Mensualidad de 80 €.",
+    "curso-semiintensivo-espanol-a2": "Grupo regular A2 presencial en Torrox, hasta 6 estudiantes, durante 12 meses. Un tema nuevo y 2 horas de clase cada semana. Mensualidad de 80 €.",
+    "curso-intensivo-espanol-b1": "15 horas semanales, 3 horas diarias con descanso y máximo 6 estudiantes. Una semana 175 € o bono de cuatro semanas 630 €."
+  },
+  "offerDesign": {
+    "eyebrow": "Oferta del curso",
+    "priceOnRequest": "Contacta con nosotros para conocer el precio actual.",
+    "savePercent": "Ahorra {amount}%",
+    "saveMoney": "Ahorra {amount}",
+    "firstClassFree": "Primera clase gratis",
+    "common": {"title": "¿Preparado para dar el siguiente paso?", "subtitle": "Preinscríbete y nos pondremos en contacto contigo con los detalles del curso."},
+    "private": {
+      "title": "Clases privadas a tu medida.", "subtitle": "Elige el formato que mejor encaja contigo y tus objetivos.", "modeLabel": "Formato de clase privada",
+      "individual": "Individual", "duo": "Dúo · precio por la clase completa", "single": "Clase suelta", "package4": "Bono mensual de 4 clases", "package8": "Bono mensual de 8 clases", "package12": "Bono mensual de 12 clases", "perLesson": "/ clase",
+      "individualNote": "Clases individuales adaptadas a tu ritmo y objetivos.", "duoNote": "Las clases dúo son para 2 estudiantes que aprenden juntos: una clase compartida, un único precio total.", "duoSecondary": "Perfectas para amigos, parejas o compañeros que quieran aprender español juntos."
+    },
+    "regular": {"group": "Grupo regular", "groupText": "Aprende en un grupo pequeño y cercano.", "capacity": "Máx. {count} estudiantes", "capacityText": "Atención personalizada y progreso real.", "inPerson": "Presencial · Torrox", "inPersonText": "En nuestra academia de Torrox.", "onlineText": "Participa desde cualquier lugar.", "formatText": "Aprende en la modalidad indicada para el curso.", "monthlyFee": "Mensualidad", "perMonth": "/ mes", "description": "Aprendizaje en grupo reducido con atención personalizada.", "level": "Nivel {level}", "duration": "12 meses", "weeklyPace": "1 tema por semana", "hoursWeek": "{hours} horas por semana"},
+    "modality": {"Intensive": "Intensivo", "SemiIntensive": "Semi-intensivo", "Standar": "Regular", "Private": "Privado"},
+    "intensive": {"eyebrow": "Curso intensivo", "hoursWeek": "{hours} horas / semana", "hoursDay": "3 horas / día", "break": "con descanso", "course": "Curso intensivo", "tagline": "Aprendizaje enfocado. Progreso real.", "oneWeek": "1 semana", "fourWeeks": "Bono de 4 semanas", "weekText": "Una buena opción para empezar.", "packageText": "La mejor opción para avanzar con continuidad."}
   },
   "about": {
     "eyebrow": "Sobre el curso",

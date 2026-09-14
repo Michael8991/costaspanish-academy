@@ -70,20 +70,20 @@
       "private": {
         "eyebrow": "Privadas",
         "title": "Clases privadas de español",
-        "description": "Aprendizaje personalizado con atención completamente individual.",
-        "tags": ["Privadas", "1:1"]
+        "description": "Clases 1:1 y dúo 1:2 a tu medida. Primera clase gratis.",
+        "tags": ["Privadas", "1:1 / 1:2", "Primera clase gratis"]
       },
       "a1": {
         "eyebrow": "Grupo regular",
         "title": "Grupo regular presencial A1",
-        "description": "Aprende español desde cero y construye una base sólida para comunicarte en situaciones cotidianas.",
-        "tags": ["A1", "Presencial"]
+        "description": "Presencial en Torrox: 2 horas y un tema nuevo por semana durante 12 meses. Primera clase gratis.",
+        "tags": ["A1", "Torrox", "Primera clase gratis"]
       },
       "a2": {
         "eyebrow": "Grupo regular",
         "title": "Grupo regular presencial A2",
-        "description": "Aprende español en grupo con un ritmo equilibrado.",
-        "tags": ["A2", "Presencial"]
+        "description": "Presencial en Torrox: 2 horas y un tema nuevo por semana durante 12 meses. Primera clase gratis.",
+        "tags": ["A2", "Torrox", "Primera clase gratis"]
       },
       "intensive": {
         "eyebrow": "Intensivo",
@@ -106,7 +106,7 @@
     "modality": {
       "Intensive": "Intensivo",
       "SemiIntensive": "Semi-intensivo",
-      "Standar": "Estándar",
+      "Standar": "Regular",
       "Private": "Privado"
     },
     "persons": "personas",

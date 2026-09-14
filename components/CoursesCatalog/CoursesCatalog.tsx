@@ -80,7 +80,7 @@ export const CoursesCatalog = ({ courses, locale }: CoursesCatalogProps) => {
                 quality={82}
               />
               <span className={styles.level} aria-hidden="true">
-                {level ?? "1:1"}
+                {level ?? "1:1 · 1:2"}
               </span>
               <span className={styles.doodle} aria-hidden="true" />
             </div>
@@ -88,7 +88,7 @@ export const CoursesCatalog = ({ courses, locale }: CoursesCatalogProps) => {
             <div className={styles.content}>
               <h2>{t(`cards.${key}.title`)}</h2>
               <p className={styles.description}>
-                {course.description || t(`cards.${key}.fallbackDescription`)}
+                {t(`cards.${key}.fallbackDescription`)}
               </p>
               <div className={styles.facts} aria-label={t("detailsLabel")}>
                 {facts.map((fact) => (

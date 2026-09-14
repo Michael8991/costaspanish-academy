@@ -27,9 +27,12 @@
   "details": {
     "title": "Course at a glance",
     "pace": "Pace",
+    "hoursPerWeek": "{hours} hours per week",
+    "twelveMonths": "12 months",
+    "inPersonTorrox": "In person in Torrox",
     "duration": "Duration",
     "groupSize": "Group size",
-    "privateGroupSize": "1 · 2 · 3 people",
+    "privateGroupSize": "1:1 or duo 1:2",
     "level": "Level",
     "allLevels": "All levels",
     "format": "Format",
@@ -46,13 +49,38 @@
     "perMonth": "per month",
     "priceOnRequest": "Contact us for the current price."
   },
-  "formats": {
-    "label": "Private lesson formats",
-    "options": [
-      { "people": "1:1", "label": "Individual" },
-      { "people": "2 people", "label": "Pair" },
-      { "people": "3 people", "label": "Trio" }
-    ]
+  "commercialTitles": {
+    "clases-privadas-espanol": "Private Spanish lessons",
+    "curso-semiintensivo-espanol-a1": "Regular A1 group",
+    "curso-semiintensivo-espanol-a2": "Regular A2 group",
+    "curso-intensivo-espanol-b1": "B1 Intensive"
+  },
+  "regularSubtitle": "In person in Torrox · 1 topic per week · 2 hours per week",
+  "regularAbout": {
+    "curso-semiintensivo-espanol-a1": "Learn Spanish from the beginning at our academy in Torrox. In the regular A1 group you will explore one new topic each week for 12 months, with 2 classroom hours per week and a maximum of 6 students. Practise conversation, vocabulary and everyday situations at a steady pace.",
+    "curso-semiintensivo-espanol-a2": "Keep progressing in Spanish at our academy in Torrox. In the regular A2 group you will explore one new topic each week for 12 months, with 2 classroom hours per week and a maximum of 6 students. Strengthen grammar, vocabulary, comprehension and conversation in a friendly setting."
+  },
+  "commercialDescriptions": {
+    "clases-privadas-espanol": "Private Spanish lessons adapted to your goals and pace. Choose 1:1 or share the experience in our 1:2 duo format.",
+    "curso-semiintensivo-espanol-a1": "In-person regular A1 group in Torrox for up to 6 students over 12 months. One new topic and 2 classroom hours each week. Monthly fee €80.",
+    "curso-semiintensivo-espanol-a2": "In-person regular A2 group in Torrox for up to 6 students over 12 months. One new topic and 2 classroom hours each week. Monthly fee €80.",
+    "curso-intensivo-espanol-b1": "15 hours per week, 3 hours per day with a break, and a maximum of 6 students. One week €175 or a four-week package for €630."
+  },
+  "offerDesign": {
+    "eyebrow": "Course offer",
+    "priceOnRequest": "Contact us for the current price.",
+    "savePercent": "Save {amount}%",
+    "saveMoney": "Save {amount}",
+    "firstClassFree": "First lesson free",
+    "common": {"title": "Ready to take the next step?", "subtitle": "Pre-register your interest and we will contact you with the course details."},
+    "private": {
+      "title": "Private lessons, shaped around you.", "subtitle": "Choose the class size that fits you and your learning goals.", "modeLabel": "Private lesson format",
+      "individual": "Individual", "duo": "Duo · price for the whole lesson", "single": "Single lesson", "package4": "4-lesson monthly package", "package8": "8-lesson monthly package", "package12": "12-lesson monthly package", "perLesson": "/ lesson",
+      "individualNote": "Personalised one-to-one lessons tailored to your pace and goals.", "duoNote": "Duo lessons are designed for 2 students learning together — one shared lesson, one total price.", "duoSecondary": "Perfect for friends, partners or classmates who want to learn Spanish together."
+    },
+    "regular": {"group": "Regular group", "groupText": "Learn with a small, friendly group.", "capacity": "Max. {count} students", "capacityText": "Personalised attention and real progress.", "inPerson": "In person · Torrox", "inPersonText": "At our academy in Torrox.", "onlineText": "Join from anywhere in the world.", "formatText": "Study in the course's listed format.", "monthlyFee": "Monthly fee", "perMonth": "/ month", "description": "Small-group learning with personalised guidance.", "level": "{level} level", "duration": "12 months", "weeklyPace": "1 topic per week", "hoursWeek": "{hours} hours per week"},
+    "modality": {"Intensive": "Intensive", "SemiIntensive": "Semi-intensive", "Standar": "Standard", "Private": "Private"},
+    "intensive": {"eyebrow": "Intensive course", "hoursWeek": "{hours} hours / week", "hoursDay": "3 hours / day", "break": "with a break", "course": "Intensive Course", "tagline": "Focused learning. Real progress.", "oneWeek": "1 week", "fourWeeks": "4-week package", "weekText": "A great option to get started.", "packageText": "The best value for continuous progress."}
   },
   "about": {
     "eyebrow": "About the course",

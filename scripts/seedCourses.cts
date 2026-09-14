@@ -16,12 +16,12 @@ async function seed(){
 
   title: "Clases privadas de español",
   subTitle: "Aprendizaje personalizado con atención 100% individual",
-  price: "Desde 25 €/h (precio estándar por hora)",
+  price: "25",
   hoursPerWeek: "Tú eliges el ritmo",
   longDesc:
     "Las clases privadas de español están diseñadas para ofrecer una experiencia completamente personalizada, adaptada a tus objetivos, tu ritmo y tu estilo de aprendizaje. Cada sesión se ajusta a tus necesidades reales: conversación, gramática, pronunciación, preparación de entrevistas, apoyo académico o práctica para situaciones específicas. Al trabajar cara a cara con tu profesor, recibirás retroalimentación inmediata, correcciones detalladas y un plan de estudio exclusivo para ti, garantizando un progreso rápido y efectivo.",
 
-  maxPeople: "1 (posibilidad de 2 alumnos)",
+  maxPeople: "2",
   duration: undefined, // no aplica en este formato
   format: "Online (con opción presencial en casos específicos)",
   level: undefined, // válido para todos los niveles
@@ -139,16 +139,16 @@ async function seed(){
   languageToLearn: "Spanish",
   topCourses: true,
 
-  title: "Curso Semi-intensivo de español A2",
-  subTitle: "Aprende español en grupo con un ritmo equilibrado",
-  price: "Desde 150€ al mes",
-  hoursPerWeek: "4.5",
+  title: "Curso regular de español A2",
+  subTitle: "Presencial en Torrox · 1 tema por semana · 2 horas semanales",
+  price: "80",
+  hoursPerWeek: "2",
   longDesc:
-    "Este curso A2 semi-intensivo está diseñado para estudiantes que desean seguir avanzando en su aprendizaje del español con un ritmo equilibrado, permitiendo una progresión constante sin la presión de un programa intensivo. A lo largo del curso ampliarás tu vocabulario, reforzarás la gramática del nivel y desarrollarás mayor soltura para comunicarte en situaciones cotidianas más variadas. Trabajarás comprensión oral, lectura, conversación y escritura a través de actividades prácticas y dinámicas que te ayudarán a ganar confianza y precisión. El enfoque progresivo del formato semi-intensivo te permitirá asimilar los contenidos con mayor profundidad mientras mejoras tu capacidad para describir experiencias, expresar opiniones simples y desenvolverte de manera más natural en español.",
+    "Grupo regular A2 presencial en Torrox durante 12 meses, con 2 horas de clase por semana y un tema nuevo cada semana. Ampliarás vocabulario, reforzarás la gramática del nivel y desarrollarás mayor soltura para comunicarte en situaciones cotidianas. Trabajarás comprensión oral, lectura, conversación y escritura mediante actividades prácticas en un grupo de máximo 6 estudiantes.",
 
   maxPeople: "6",
-  duration: "Aprox. 5 meses (20 semanas)",
-  format: "Online",
+  duration: "12 meses",
+  format: "Presencial en Torrox",
   level: "A2",
   requirements: "Conocimientos previos de nivel A1",
 
@@ -159,7 +159,6 @@ async function seed(){
     {
       title: "Unidad 1 – Hábitos, duración, dificultades y sentimientos",
       type: "communication",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Hablar de hábitos", type: "speaking" },
         { title: "Expresar dificultades", type: "functional language" },
@@ -169,7 +168,6 @@ async function seed(){
     {
       title: "Unidad 2 – Relatar y conectar acciones en el pasado",
       type: "past tenses",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Relatar acciones pasadas", type: "speaking" },
         { title: "Duración e inicio de acciones", type: "grammar" }
@@ -178,7 +176,6 @@ async function seed(){
     {
       title: "Unidad 3 – Descripción física y relaciones personales",
       type: "description",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Describir personas", type: "vocabulary" },
         { title: "Relaciones y parecidos", type: "speaking" }
@@ -187,7 +184,6 @@ async function seed(){
     {
       title: "Unidad 4 – Gustos, preferencias y descripción de espacios",
       type: "functional communication",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Expresar gustos", type: "conversation" },
         { title: "Describir una casa", type: "vocabulary" },
@@ -197,7 +193,6 @@ async function seed(){
     {
       title: "Unidad 5 – Interacciones sociales básicas",
       type: "practical communication",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Saludos y presentaciones", type: "roleplay" },
         { title: "Pedir cosas y favores", type: "functional language" },
@@ -207,7 +202,6 @@ async function seed(){
     {
       title: "Unidad 6 – Experiencias pasadas e intenciones",
       type: "past + future plans",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Hablar de experiencias", type: "speaking" },
         { title: "Expresar intenciones y deseos", type: "grammar" }
@@ -216,7 +210,6 @@ async function seed(){
     {
       title: "Unidad 7 – Alimentación y recetas",
       type: "vocabulary + speaking",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Gustos alimentarios", type: "conversation" },
         { title: "Cómo se prepara un plato", type: "procedural language" }
@@ -225,7 +218,6 @@ async function seed(){
     {
       title: "Unidad 8 – Salud y estados de ánimo",
       type: "functional communication",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Describir síntomas", type: "vocabulary" },
         { title: "Consejos y recomendaciones", type: "speaking" }
@@ -234,7 +226,6 @@ async function seed(){
     {
       title: "Unidad 9 – Pasado narrativo y argumentación básica",
       type: "past tenses",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Hábitos y costumbres en el pasado", type: "speaking" },
         { title: "Situar acciones en el tiempo", type: "grammar" }
@@ -243,7 +234,6 @@ async function seed(){
     {
       title: "Unidad 10 – Secuencias narrativas y emociones",
       type: "storytelling",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Relatar en pasado", type: "speaking" },
         { title: "Expresar emociones al narrar", type: "functional language" }
@@ -252,7 +242,7 @@ async function seed(){
   ],
 
   technicalRequirements: "",
-  modality: "SemiIntensive",
+  modality: "Standar",
   startDate: "Por confirmar",
   access: "",
   support:
@@ -261,7 +251,7 @@ async function seed(){
     "Mayor soltura para comunicarte, vocabulario más amplio, seguridad con las estructuras del pasado, mejor comprensión oral y mayor naturalidad en conversaciones de la vida real.",
   certificate: "",
 
-  imageUrl: "/courses/curso-semiintensivo-espanol-a2.jpg",
+  imageUrl: "/assets/AulaPrincipalGruposReducidos.png",
   status: "soon",
   slug: "curso-semiintensivo-espanol-a2",
         },
@@ -701,16 +691,16 @@ async function seed(){
   languageToLearn: "Spanish",
   topCourses: true,
 
-  title: "Curso Semi-intensivo de español A1",
-  subTitle: "Aprende español desde cero y construye una base sólida para comunicarte en situaciones cotidianas",
-  price: "Desde 150€ al mes",
-  hoursPerWeek: "4.5",
+  title: "Curso regular de español A1",
+  subTitle: "Presencial en Torrox · 1 tema por semana · 2 horas semanales",
+  price: "80",
+  hoursPerWeek: "2",
   longDesc:
-    "Inicia tu camino en el español con un curso claro, práctico y dinámico. Aprenderás a presentarte, describir tu entorno, hablar de tu rutina, pedir información básica y desenvolverte en las situaciones más comunes del día a día. Gracias al formato semi-intensivo progresarás de forma constante, consolidando las estructuras fundamentales del idioma para comunicarte con seguridad desde el primer mes.",
+    "Inicia tu camino en el español en el grupo regular A1 presencial de Torrox. Durante 12 meses tendrás 2 horas de clase por semana y trabajarás un tema nuevo cada semana. Aprenderás a presentarte, describir tu entorno, hablar de tu rutina y desenvolverte en situaciones cotidianas, en un grupo de máximo 6 estudiantes.",
 
   maxPeople: "6",
-  duration: "5 meses (20 semanas)",
-  format: "Online",
+  duration: "12 meses",
+  format: "Presencial en Torrox",
   level: "A1",
   requirements:
     "No se requieren conocimientos previos. Ideal para personas que empiezan desde cero.",
@@ -722,7 +712,6 @@ async function seed(){
     {
       title: "Unidad 0 – Primeros pasos en español",
       type: "basics",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Saludos y despedidas", type: "speaking" },
         { title: "Objetos de la clase", type: "vocabulary" },
@@ -734,7 +723,6 @@ async function seed(){
     {
       title: "Unidad 1 – Presentaciones y datos personales",
       type: "communication",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Dar y pedir datos personales", type: "speaking" },
         { title: "Saludar y despedirse", type: "interaction" }
@@ -743,7 +731,6 @@ async function seed(){
     {
       title: "Unidad 2 – Intenciones y habilidades",
       type: "functional language",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Expresar intenciones", type: "grammar" },
         { title: "Explicar motivos", type: "speaking" },
@@ -753,7 +740,6 @@ async function seed(){
     {
       title: "Unidad 3 – Lugares y clima",
       type: "description",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Describir lugares", type: "vocabulary" },
         { title: "Expresar existencia y ubicación", type: "grammar" },
@@ -763,7 +749,6 @@ async function seed(){
     {
       title: "Unidad 4 – Objetos, compras y preferencias",
       type: "daily life",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Identificar objetos", type: "vocabulary" },
         { title: "Expresar necesidad", type: "grammar" },
@@ -774,7 +759,6 @@ async function seed(){
     {
       title: "Unidad 5 – Personas, gustos y relaciones",
       type: "description + interaction",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Describir aspecto y carácter", type: "vocabulary" },
         { title: "Contrastar gustos e intereses", type: "speaking" },
@@ -784,7 +768,6 @@ async function seed(){
     {
       title: "Unidad 6 – Rutinas y hábitos",
       type: "daily life",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Hablar de hábitos y frecuencia", type: "grammar" },
         { title: "Decir la hora", type: "basics" }
@@ -793,7 +776,6 @@ async function seed(){
     {
       title: "Unidad 7 – Bares, restaurantes y comida",
       type: "practical situations",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Desenvolverse en restaurantes", type: "roleplay" },
         { title: "Hablar de comida y hábitos gastronómicos", type: "vocabulary" }
@@ -802,7 +784,6 @@ async function seed(){
     {
       title: "Unidad 8 – Ciudades y orientación",
       type: "description + navigation",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Describir pueblos y ciudades", type: "vocabulary" },
         { title: "Pedir y dar direcciones", type: "interaction" },
@@ -812,7 +793,6 @@ async function seed(){
     {
       title: "Unidad 9 – Experiencias y habilidades",
       type: "storytelling",
-      duration: "6 clases de 1.5h",
       submodules: [
         { title: "Hablar de experiencias pasadas", type: "past tense basics" },
         { title: "Hablar de cualidades y defectos", type: "vocabulary" }
@@ -821,7 +801,7 @@ async function seed(){
   ],
 
   technicalRequirements: "",
-  modality: "SemiIntensive",
+  modality: "Standar",
   startDate: "Por confirmar",
   access: "",
   support:
@@ -830,7 +810,7 @@ async function seed(){
     "Seguridad para comunicarte en situaciones básicas, vocabulario esencial del día a día, comprensión clara de estructuras fundamentales, inicio en el uso del pasado y capacidad para desenvolverte en tiendas, bares, restaurantes y conversaciones simples.",
   certificate: "",
 
-  imageUrl: "/courses/curso-semiintensivo-espanol-a1.jpg",
+  imageUrl: "/assets/AulaPrincipalGruposReducidos.png",
   status: "soon",
   slug: "curso-semiintensivo-espanol-a1",
         },
@@ -1112,8 +1092,8 @@ async function seed(){
 
   title: "Curso Intensivo de español B1",
   subTitle: "Avanza hacia un español más autónomo y natural con un ritmo acelerado",
-  price: "Desde 380€ al mes",
-  hoursPerWeek: "10",
+  price: "175",
+  hoursPerWeek: "15",
   longDesc:
     "Este curso B1 intensivo está diseñado para estudiantes que ya dominan los contenidos de nivel A2 y quieren avanzar rápidamente hacia un uso más independiente del español. A lo largo de 12 semanas ampliarás notablemente tu vocabulario, mejorarás la precisión gramatical y ganarás fluidez para desenvolverte en situaciones cotidianas y semi-formales. El programa se centra en reforzar la comunicación real: comprender textos y audios más complejos, expresar opiniones, relatar experiencias con claridad, afrontar imprevistos y participar en conversaciones más espontáneas. Gracias al ritmo intensivo, progresarás rápidamente mientras asimilas las estructuras necesarias para comunicarte con mayor naturalidad y seguridad en español.",
 

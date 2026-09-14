@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { ICourseData } from "@/types/courses";
+import { COMMERCIAL_OFFER } from "@/lib/courses/commercialOffer";
+import { PUBLIC_SPANISH_OFFERINGS } from "@/lib/courses/publicOfferings";
+import CourseOffer from "@/components/CourseOffer/CourseOffer";
 import styles from "./courseMainSection.module.css";
 
 type CourseProps = {
@@ -20,6 +22,8 @@ export default function CourseMainSection({ course, locale }: CourseProps) {
   const t = useTranslations("coursePage");
   const activeLocale = useLocale();
   const isPrivate = course.status === "private" || course.modality === "Private";
+  const isOfficial = course.slug in COMMERCIAL_OFFER;
+  const isRegular = PUBLIC_SPANISH_OFFERINGS.some((offering) => offering.slug === course.slug && offering.presentationRole === "regularGroup");
   const numericPrice = Number(course.price);
   const hasCanonicalPrice = Number.isFinite(numericPrice) && numericPrice > 0;
   const formattedPrice = hasCanonicalPrice
@@ -32,7 +36,7 @@ export default function CourseMainSection({ course, locale }: CourseProps) {
 
   const details: Detail[] = [
     hasValue(course.hoursPerWeek)
-      ? { label: t("details.pace"), value: course.hoursPerWeek }
+      ? { label: t("details.pace"), value: /^\d+(\.\d+)?$/.test(course.hoursPerWeek) ? t("details.hoursPerWeek", { hours: course.hoursPerWeek }) : course.hoursPerWeek }
       : null,
     hasValue(course.level)
       ? { label: t("details.level"), value: course.level }
@@ -40,7 +44,7 @@ export default function CourseMainSection({ course, locale }: CourseProps) {
         ? { label: t("details.level"), value: t("details.allLevels") }
         : null,
     hasValue(course.format)
-      ? { label: t("details.format"), value: course.format }
+      ? { label: t("details.format"), value: isRegular && course.format === "Presencial en Torrox" ? t("details.inPersonTorrox") : course.format }
       : null,
     isPrivate
       ? { label: t("details.groupSize"), value: t("details.privateGroupSize") }
@@ -48,23 +52,26 @@ export default function CourseMainSection({ course, locale }: CourseProps) {
         ? { label: t("details.groupSize"), value: course.maxPeople }
         : null,
     hasValue(course.duration)
-      ? { label: t("details.duration"), value: course.duration }
+      ? { label: t("details.duration"), value: isRegular && course.duration === "12 meses" ? t("details.twelveMonths") : course.duration }
       : null,
     hasValue(course.modality)
       ? { label: t("details.courseType"), value: t(`modality.${course.modality}`) }
       : null,
   ].filter((detail): detail is Detail => detail !== null);
 
-  const visualLabel = isPrivate ? "1:1" : course.level ?? course.modality ?? "";
-  const shortDescription = course.longDesc?.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
+  const visualLabel = isPrivate ? "1:1 · 1:2" : course.level ?? course.modality ?? "";
+  const shortDescription = isOfficial
+    ? t(`commercialDescriptions.${course.slug}`)
+    : course.longDesc?.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
+  const aboutDescription = isRegular ? t(`regularAbout.${course.slug}`) : course.longDesc;
 
   return (
     <>
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{t(`status.${course.status ?? "pending"}`)}</p>
-          <h1>{course.title}</h1>
-          {hasValue(course.subTitle) && <p className={styles.subtitle}>{course.subTitle}</p>}
+          <h1>{isOfficial ? t(`commercialTitles.${course.slug}`) : course.title}</h1>
+          {hasValue(course.subTitle) && <p className={styles.subtitle}>{isRegular ? t("regularSubtitle") : course.subTitle}</p>}
           {hasValue(shortDescription) && <p className={styles.description}>{shortDescription}</p>}
         </div>
 
@@ -97,45 +104,13 @@ export default function CourseMainSection({ course, locale }: CourseProps) {
         </section>
       )}
 
-      <section className={styles.offer} aria-labelledby="course-offer-title">
-        <div className={styles.offerIntro}>
-          <p className={styles.eyebrow}>{t("offer.eyebrow")}</p>
-          <h2 id="course-offer-title">{isPrivate ? t("offer.privateTitle") : t("offer.title")}</h2>
-          <p>{isPrivate ? t("offer.privateText") : t("offer.text")}</p>
-        </div>
+      <CourseOffer course={course} locale={locale} fallbackPrice={formattedPrice} />
 
-        {isPrivate && (
-          <div className={styles.privateFormats} aria-label={t("formats.label")}>
-            {(t.raw("formats.options") as Array<{ people: string; label: string }>).map((format) => (
-              <div key={format.people}>
-                <strong>{format.people}</strong>
-                <span>{format.label}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        <div className={styles.offerAction}>
-          {formattedPrice ? (
-            <div className={styles.price}>
-              <small>{t("offer.currentPrice")}</small>
-              <strong>{formattedPrice}</strong>
-              <span>{isPrivate ? t("offer.perHour") : t("offer.perMonth")}</span>
-            </div>
-          ) : (
-            <p className={styles.priceReview}>{t("offer.priceOnRequest")}</p>
-          )}
-          <Link href={`/${locale}/${course.slug}/preinscription`}>
-            {t("preRegister")} <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </section>
-
-      {hasValue(course.longDesc) && shortDescription !== course.longDesc && (
+      {hasValue(aboutDescription) && shortDescription !== aboutDescription && (
         <section className={styles.aboutCourse}>
           <p className={styles.eyebrow}>{t("about.eyebrow")}</p>
           <h2>{t("about.title")}</h2>
-          <p>{course.longDesc}</p>
+          <p>{aboutDescription}</p>
         </section>
       )}
     </>
