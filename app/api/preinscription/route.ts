@@ -53,20 +53,20 @@ export async function POST(req: Request) {
         <p>Our academic team will contact you within 24 hours to confirm availability, start dates, and next steps.</p>
         <p style="margin-top:16px;">If you have any questions, you can reply directly to this email.</p>
         <p style="font-size:13px;color:#6b7280;margin-top:24px;">
-          Costa Spanish Academy · info@costaspanishclass.com
+          Costa Spanish Academy · info@costaSpanishClass.com
         </p>
       </div>
     `;
         await Promise.all([
             await resend.emails.send({
                 from: "CostaSpanish Academy Preinscription <onboarding@costaspanishclass.com>",
-                to: "info@costaspanishclass.com",
+                to: "info@costaSpanishClass.com",
                 subject: `New preinscription from ${name} to ${course}`,
                 html: adminHtml,
             }),
 
             await resend.emails.send({
-                from: "Costa Spanish Academy <info@costaspanishclass.com>",
+                from: "Costa Spanish Academy <info@costaSpanishClass.com>",
                 to: email,
                 subject: "We've received your preinscription!",
                 html: studentHtml,

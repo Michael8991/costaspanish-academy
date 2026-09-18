@@ -11,7 +11,7 @@
       "title": "Responsable del tratamiento",
       "items": {
         "owner": { "label": "Titular", "value": "María Godoy Narvaez" },
-        "email": { "label": "Email de contacto", "value": "info@costaspanishclass.com" },
+        "email": { "label": "Email de contacto", "value": "info@costaSpanishClass.com" },
         "activity": { "label": "Actividad", "value": "Academia online de español" }
       }
     },

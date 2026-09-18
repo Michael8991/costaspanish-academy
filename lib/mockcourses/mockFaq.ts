@@ -42,13 +42,8 @@ export const generalFaq: IFaqData[] = [
             "Yes, private lessons can be canceled or rescheduled up to 24 hours in advance. Group lessons follow a fixed schedule."
     },
     {
-        question: "Will I get a certificate?",
-        answer:
-            "Yes, after completing the course you’ll receive a digital certificate of attendance and achievement."
-    },
-    {
         question: "How can I contact support?",
         answer:
-            "You can contact us anytime via email at support@costaspanishacademy.com or through the chat in your student dashboard."
+            "You can contact us anytime via email at info@costaSpanishClass.com or through the chat in your student dashboard."
     }
 ]

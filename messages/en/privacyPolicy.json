@@ -11,7 +11,7 @@
       "title": "Data controller",
       "items": {
         "owner": { "label": "Owner", "value": "María Godoy Narvaez" },
-        "email": { "label": "Contact email", "value": "info@costaspanishclass.com" },
+        "email": { "label": "Contact email", "value": "info@costaSpanishClass.com" },
         "activity": { "label": "Activity", "value": "Online Spanish academy" }
       }
     },
