@@ -118,6 +118,7 @@
     "title": "Real students. Real feedback.",
     "supporting": "Experiences from people who have learned Spanish with María online and in person.",
     "rating": "{rating} out of 5",
+    "controls": { "previous": "Previous review", "next": "Next review", "readMore": "Read full review", "showLess": "Show less" },
     "stats": {
       "classRating": "Class rating",
       "confidence": "Confidence",
@@ -132,7 +133,8 @@
     "links": {
       "profile": "View Preply profile",
       "preply": "View on Preply",
-      "facebook": "View original post"
+      "facebook": "View original post",
+      "allReviews": "View all reviews"
     },
     "reviews": {
       "ali": {
@@ -155,5 +157,18 @@
         "context": "After 5 hours of lessons"
       }
     }
+  },
+  "ReviewsPage": {
+    "metadata": { "title": "Student Reviews | Costa Spanish Academy", "description": "Read real student reviews about learning Spanish with María at Costa Spanish Academy." },
+    "eyebrow": "Student stories",
+    "titleLineOne": "Real students.",
+    "titleLineTwo": "Real progress.",
+    "intro": "Every learner has a story. Read what students say about their lessons with María, online and in Torrox.",
+    "count": "{count} student reviews",
+    "listLabel": "All student reviews",
+    "ctaEyebrow": "Your next chapter",
+    "ctaLineOne": "Learning Spanish is personal.",
+    "ctaLineTwo": "Your lessons should be too.",
+    "ctaLink": "Explore our courses"
   }
 }

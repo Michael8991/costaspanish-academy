@@ -118,6 +118,7 @@
     "title": "Alumnos reales. Opiniones reales.",
     "supporting": "Experiencias de personas que han aprendido español con María, online y presencialmente.",
     "rating": "{rating} de 5",
+    "controls": { "previous": "Opinión anterior", "next": "Siguiente opinión", "readMore": "Leer opinión completa", "showLess": "Mostrar menos" },
     "stats": {
       "classRating": "Valoración de clase",
       "confidence": "Confianza",
@@ -132,7 +133,8 @@
     "links": {
       "profile": "Ver perfil en Preply",
       "preply": "Ver en Preply",
-      "facebook": "Ver publicación original"
+      "facebook": "Ver publicación original",
+      "allReviews": "Ver todas las opiniones"
     },
     "reviews": {
       "ali": {
@@ -155,5 +157,18 @@
         "context": "Después de 5 horas de clase"
       }
     }
+  },
+  "ReviewsPage": {
+    "metadata": { "title": "Opiniones de alumnos | Costa Spanish Academy", "description": "Lee las opiniones reales de alumnos que aprenden español con María en Costa Spanish Academy." },
+    "eyebrow": "Historias de alumnos",
+    "titleLineOne": "Alumnos reales.",
+    "titleLineTwo": "Progreso real.",
+    "intro": "Cada alumno tiene una historia. Descubre qué cuentan sobre sus clases con María, online y en Torrox.",
+    "count": "{count} opiniones de alumnos",
+    "listLabel": "Todas las opiniones de alumnos",
+    "ctaEyebrow": "Tu siguiente capítulo",
+    "ctaLineOne": "Aprender español es personal.",
+    "ctaLineTwo": "Tus clases también deberían serlo.",
+    "ctaLink": "Explora nuestros cursos"
   }
 }
