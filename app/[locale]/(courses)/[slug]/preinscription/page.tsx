@@ -4,37 +4,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import dbConnect from "@/lib/mongo";
-import { Course } from "@/models/Course";
+import {
+  getPublicCourseBySlug,
+  PUBLIC_COURSE_DETAIL_PROJECTION,
+} from "@/lib/courses/publicCourses";
+import type { ICourseData } from "@/types/courses";
 import PreinscriptionClient from "./PreinscriptionClient";
-
-function serializeMongo(value: any): any {
-  if (value === null || value === undefined) return value;
-
-  if (value instanceof Date) return value.toISOString();
-
-  if (typeof Buffer !== "undefined" && Buffer.isBuffer(value)) {
-    return value.toString("base64");
-  }
-
-  // ObjectId -> string (robusto)
-  if (
-    typeof value === "object" &&
-    value &&
-    (value?._bsontype === "ObjectId" || typeof value.toHexString === "function")
-  ) {
-    return value.toString();
-  }
-
-  if (Array.isArray(value)) return value.map(serializeMongo);
-
-  if (typeof value === "object") {
-    const out: any = {};
-    for (const [k, v] of Object.entries(value)) out[k] = serializeMongo(v);
-    return out;
-  }
-
-  return value;
-}
 
 export async function generateMetadata({
   params,
@@ -45,16 +20,17 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "preinscription" });
 
   await dbConnect();
-  const courseRaw = await Course.findOne({ slug }).select("-__v").lean<any>();
+  const course = await getPublicCourseBySlug<ICourseData>(
+    slug,
+    PUBLIC_COURSE_DETAIL_PROJECTION,
+  );
 
-  if (!courseRaw) {
+  if (!course) {
     return {
       title: t("metadata.notFoundTitle"),
       description: t("metadata.notFoundDescription"),
     };
   }
-
-  const course = serializeMongo(courseRaw);
 
   const title = `${course.title} | ${t("metadata.titleSuffix")}`;
   const description = t("metadata.description", { course: course.title });
@@ -89,11 +65,12 @@ export default async function PreinscriptionPage({
   const { locale, slug } = await params;
 
   await dbConnect();
-  const courseRaw = await Course.findOne({ slug }).select("-__v").lean<any>();
+  const course = await getPublicCourseBySlug<ICourseData>(
+    slug,
+    PUBLIC_COURSE_DETAIL_PROJECTION,
+  );
 
-  if (!courseRaw) notFound();
-
-  const course = serializeMongo(courseRaw);
+  if (!course) notFound();
 
   return <PreinscriptionClient locale={locale} slug={slug} course={course} />;
 }

@@ -3,34 +3,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import dbConnect from "@/lib/mongo";
-import { Course } from "@/models/Course";
+import {
+  getPublicCourseBySlug,
+  PUBLIC_COURSE_DETAIL_PROJECTION,
+} from "@/lib/courses/publicCourses";
+import type { ICourseData } from "@/types/courses";
 import CourseClient from "./CourseClient";
-function serializeMongo(value: any): any {
-  if (value === null || value === undefined) return value;
-
-  // Date -> string ISO
-  if (value instanceof Date) return value.toISOString();
-
-  // Buffer -> base64 (por si aparece)
-  if (typeof Buffer !== "undefined" && Buffer.isBuffer(value)) {
-    return value.toString("base64");
-  }
-
-  // ObjectId (BSON) -> string
-  if (typeof value === "object" && value?._bsontype === "ObjectId") {
-    return value.toString();
-  }
-
-  if (Array.isArray(value)) return value.map(serializeMongo);
-
-  if (typeof value === "object") {
-    const out: any = {};
-    for (const [k, v] of Object.entries(value)) out[k] = serializeMongo(v);
-    return out;
-  }
-
-  return value;
-}
 
 export async function generateMetadata({
   params,
@@ -42,7 +20,10 @@ export async function generateMetadata({
 
 
   await dbConnect();
-  const course = await Course.findOne({ slug }).select("-__v").lean<any>();
+  const course = await getPublicCourseBySlug<ICourseData>(
+    slug,
+    PUBLIC_COURSE_DETAIL_PROJECTION,
+  );
 
   if (!course) {
     return {
@@ -83,11 +64,12 @@ export default async function Page({
   const { locale, slug } = await params;
 
   await dbConnect();
-  const courseRaw = await Course.findOne({ slug }).select("-__v").lean<any>();
+  const course = await getPublicCourseBySlug<ICourseData>(
+    slug,
+    PUBLIC_COURSE_DETAIL_PROJECTION,
+  );
 
-  if (!courseRaw) notFound();
-
-  const course = serializeMongo(courseRaw);
+  if (!course) notFound();
 
   return <CourseClient course={course} locale={locale} />;
 }

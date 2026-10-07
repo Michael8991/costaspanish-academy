@@ -3,9 +3,13 @@ import type { Metadata } from "next";
 import SpanishCoursesClient from "./SpanishCoursesClient";
 
 import dbConnect from "@/lib/mongo";
-import { Course } from "@/models/Course";
+import {
+  getPublicCourses,
+  PUBLIC_COURSE_CARD_PROJECTION,
+} from "@/lib/courses/publicCourses";
 import { PUBLIC_SPANISH_OFFERINGS } from "@/lib/courses/publicOfferings";
 import type { PublicCourseRecord } from "@/components/CoursesCatalog/CoursesCatalog";
+import type { ICourseData } from "@/types/courses";
 
 type LocalizedValue = string | Record<string, string>;
 
@@ -57,12 +61,10 @@ export default async function Page({
   await dbConnect();
 
   const slugs = PUBLIC_SPANISH_OFFERINGS.map(({ slug }) => slug);
-  const records = await Course.find({
+  const records = await getPublicCourses<ICourseData>({
     languageToLearn: "Spanish",
     slug: { $in: slugs },
-  })
-    .select("_id slug title longDesc imageUrl level format modality status")
-    .lean();
+  }, { projection: PUBLIC_COURSE_CARD_PROJECTION });
 
   const bySlug = new Map(records.map((course) => [course.slug, course]));
   const courses = PUBLIC_SPANISH_OFFERINGS.flatMap((offering) => {
@@ -70,7 +72,7 @@ export default async function Page({
     if (!course) return [];
 
     return [{
-      id: String(course._id),
+      id: course.slug,
       slug: course.slug,
       title: localized(course.title as unknown as LocalizedValue, locale),
       description: localized(course.longDesc as unknown as LocalizedValue, locale),

@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { Check, ChevronDown, Mail, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import TurnstileWidget from "@/components/security/TurnstileWidget";
 import styles from "./contactForm.module.css";
 
 type FormFields = {
@@ -26,6 +27,11 @@ export const ContactForm = () => {
     type: "success" | "error";
     text: string;
   } | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string>();
+  const [turnstileResetSignal, setTurnstileResetSignal] = useState(0);
+  const handleTurnstileToken = useCallback((token: string | undefined) => {
+    setTurnstileToken(token);
+  }, []);
 
   const {
     register,
@@ -39,7 +45,7 @@ export const ContactForm = () => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, turnstileToken }),
       });
       const result = await res.json();
       if (!res.ok || !result.success) throw new Error();
@@ -49,6 +55,8 @@ export const ContactForm = () => {
     } catch {
       setSubmitMessage({ type: "error", text: t("fail") });
     } finally {
+      setTurnstileToken(undefined);
+      setTurnstileResetSignal((value) => value + 1);
       setTimeout(() => setSubmitMessage(null), 5000);
     }
   };
@@ -223,6 +231,11 @@ export const ContactForm = () => {
               </p>
             )}
           </div>
+
+          <TurnstileWidget
+            onTokenChange={handleTurnstileToken}
+            resetSignal={turnstileResetSignal}
+          />
 
           <div className={styles.submitRow}>
             <div className={styles.submitCopy}>

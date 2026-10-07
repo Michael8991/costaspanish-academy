@@ -1,20 +1,22 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongo";
-import { Course } from "@/models/Course";
+import {
+  getPublicCourses,
+  PUBLIC_TOP_COURSE_PROJECTION,
+  toPublicCourseDto,
+} from "@/lib/courses/publicCourses";
 
 export async function GET() {
   try {
     await dbConnect();
-    const courses = await Course.find({
+    const courses = await getPublicCourses<Record<string, unknown>>({
       topCourses: true,
-      status: { $ne: "private" },
-    })
-      .sort({ updatedAt: -1 })
-      .select(
-        "title subTitle slug imageUrl maxPeople hoursPerWeek level modality status languageToLearn topCourses"
-      )
-      .lean();
-    return NextResponse.json(courses);
+    }, {
+      projection: PUBLIC_TOP_COURSE_PROJECTION,
+      sort: { updatedAt: -1 },
+      limit: 12,
+    });
+    return NextResponse.json(courses.map(toPublicCourseDto));
   } catch {
     return NextResponse.json([], { status: 500 });
   }

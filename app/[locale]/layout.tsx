@@ -74,7 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider locale={locale} messages={messages}>
           <JanuaryPromoPopup />
           <AnalyticsLoader />
-          <CookieBanner policyHref={`/${locale}/cookies`} />
+          <CookieBanner policyHref={`/${locale}/cookiesPolicy`} />
           <TopBar />
           <Header />
           <main>{children}</main>

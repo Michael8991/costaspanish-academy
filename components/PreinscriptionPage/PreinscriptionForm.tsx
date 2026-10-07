@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import type { ICourseData } from "@/types/courses";
+import TurnstileWidget from "@/components/security/TurnstileWidget";
 import styles from "./preinscriptionForm.module.css";
 
 type CourseProp = { course: ICourseData };
@@ -22,7 +23,7 @@ type FormFields = {
   goals: string;
   notes: string;
   privacy: boolean;
-  course: string;
+  courseSlug: string;
 };
 
 const sectionKeys = ["personal", "course", "background", "additional"] as const;
@@ -34,6 +35,11 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
     type: "success" | "error";
     text: string;
   } | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string>();
+  const [turnstileResetSignal, setTurnstileResetSignal] = useState(0);
+  const handleTurnstileToken = useCallback((token: string | undefined) => {
+    setTurnstileToken(token);
+  }, []);
 
   const {
     register,
@@ -54,7 +60,7 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
       const res = await fetch("/api/preinscription", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(sanitizedData),
+        body: JSON.stringify({ ...sanitizedData, turnstileToken }),
       });
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const result = await res.json();
@@ -65,6 +71,8 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
     } catch {
       setSubmitMessage({ type: "error", text: t("messages.errorText") });
     } finally {
+      setTurnstileToken(undefined);
+      setTurnstileResetSignal((value) => value + 1);
       setTimeout(() => setSubmitMessage(null), 10000);
     }
   };
@@ -85,7 +93,7 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
       </header>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <input type="hidden" {...register("course")} value={course.title} />
+        <input type="hidden" {...register("courseSlug")} value={course.slug} />
 
         <fieldset className={styles.formSection}>
           <legend><span>01</span>{t(`sections.${sectionKeys[0]}`)}</legend>
@@ -185,6 +193,11 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
           </label>
         </div>
         {error("prereg-privacy-error", errors.privacy?.message)}
+
+        <TurnstileWidget
+          onTokenChange={handleTurnstileToken}
+          resetSignal={turnstileResetSignal}
+        />
 
         {submitMessage && (
           <div className={submitMessage.type === "success" ? styles.success : styles.generalError} role={submitMessage.type === "error" ? "alert" : "status"} aria-live="polite">

@@ -6,7 +6,7 @@ import {
 } from "./sections";
 // import styles from "./LandingPage.module.css";
 
-export default function Home({ params }: { params: { locale: string } }) {
+export default function Home() {
   return (
     <section>
       <HeroSection />

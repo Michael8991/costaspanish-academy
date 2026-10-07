@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
   readConsentClient,
@@ -21,30 +21,34 @@ export default function CookieBanner({ policyHref }: Props) {
 
   
   useEffect(() => {
-    const existing = readConsentClient();
-    if (!existing) {
-      setVisible(true);
-      setAnalytics(false);
-      return;
-    }
-    
-    setVisible(false);
+    const timer = window.setTimeout(() => {
+      const existing = readConsentClient();
+      if (!existing) {
+        setVisible(true);
+        setAnalytics(false);
+        return;
+      }
+
+      setVisible(false);
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   function acceptAnalytics() {
-    const consent: CookieConsent = { necessary: true, analytics: true };
+    const consent: CookieConsent = { version: 1, necessary: true, analytics: true };
     writeConsentClient(consent);
     setVisible(false);
   }
 
   function rejectAnalytics() {
-    const consent: CookieConsent = { necessary: true, analytics: false };
+    const consent: CookieConsent = { version: 1, necessary: true, analytics: false };
     writeConsentClient(consent);
     setVisible(false);
   }
 
   function saveCustom() {
-    const consent: CookieConsent = { necessary: true, analytics };
+    const consent: CookieConsent = { version: 1, necessary: true, analytics };
     writeConsentClient(consent);
     setVisible(false);
   }

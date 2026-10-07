@@ -14,7 +14,7 @@ export async function generateMetadata({
     title: t("metadata.title"),
     description: t("metadata.description"),
     alternates: {
-      canonical: `https://www.costaspanishclass.com/${locale}/cookies`,
+      canonical: `https://www.costaspanishclass.com/${locale}/cookiesPolicy`,
     },
   };
 }

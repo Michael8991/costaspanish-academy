@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import dbConnect from "@/lib/mongo";
-import { Course } from "@/models/Course";
+import {
+  getPublicCourses,
+  PUBLIC_COURSE_CARD_PROJECTION,
+} from "@/lib/courses/publicCourses";
 import type { ICourseData } from "@/types";
 import landingTheme from "@/styles/landing/landingTheme.module.css";
 import { LandingCourseCard } from "./LandingCourseCard";
@@ -13,7 +16,10 @@ export const CoursesSection = async () => {
   const t = await getTranslations({ locale, namespace: "home.CoursesSection" });
   await dbConnect();
   const slugs = PUBLIC_SPANISH_OFFERINGS.map(({ slug }) => slug);
-  const records = await Course.find({ slug: { $in: slugs }, languageToLearn: "Spanish" }).select("_id slug imageUrl level format modality status").lean<ICourseData[]>();
+  const records = await getPublicCourses<ICourseData>(
+    { slug: { $in: slugs }, languageToLearn: "Spanish" },
+    { projection: PUBLIC_COURSE_CARD_PROJECTION },
+  );
   const bySlug = new Map(records.map((course) => [course.slug, course]));
 
   return (
