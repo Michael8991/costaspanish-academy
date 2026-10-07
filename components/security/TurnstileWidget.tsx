@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef } from "react";
 
 type TurnstileOptions = {
   sitekey: string;
+  appearance?: "always" | "execute" | "interaction-only";
   callback: (token: string) => void;
   "error-callback": () => void;
   "expired-callback": () => void;
@@ -44,6 +45,7 @@ export default function TurnstileWidget({ onTokenChange, resetSignal }: Props) {
 
     widgetIdRef.current = window.turnstile.render(containerRef.current, {
       sitekey: siteKey,
+      appearance: "interaction-only",
       callback: (token) => callbackRef.current(token),
       "error-callback": () => callbackRef.current(undefined),
       "expired-callback": () => callbackRef.current(undefined),
