@@ -5,8 +5,27 @@ import {
   isPublicCourseStatus,
   toPublicCourseDto,
 } from "@/lib/courses/publicCourses";
+import { PUBLIC_SPANISH_OFFERINGS } from "@/lib/courses/publicOfferings";
+import { revalidate as courseCatalogRevalidate } from "@/app/[locale]/(courses)/(languages)/layout";
 
 describe("public course policy", () => {
+  it("revalidates the database-backed catalog instead of caching it indefinitely", () => {
+    expect(courseCatalogRevalidate).toBe(300);
+  });
+
+  it("keeps the public private offering eligible without assigning a level", () => {
+    const privateOffering = PUBLIC_SPANISH_OFFERINGS.find(
+      ({ slug }) => slug === "clases-privadas-espanol",
+    );
+
+    expect(privateOffering).toMatchObject({
+      presentationRole: "private",
+      slug: "clases-privadas-espanol",
+    });
+    expect(privateOffering).not.toHaveProperty("level");
+    expect(isPublicCourseStatus("inProgress")).toBe(true);
+  });
+
   it("does not consider private courses public", () => {
     expect(isPublicCourseStatus("private")).toBe(false);
   });

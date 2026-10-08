@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import CoursesLayoutClient from "./CoursesLayoutClient";
 
-export const dynamic = "force-static";
+export const revalidate = 300;
 
 type LayoutParams = Promise<{ locale: string }>;
 type LayoutProps = { children: React.ReactNode; params: LayoutParams };
