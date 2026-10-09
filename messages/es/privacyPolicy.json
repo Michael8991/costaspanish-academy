@@ -32,6 +32,12 @@
       "p1": "La base legal para el tratamiento de los datos es el consentimiento expreso del usuario."
     },
 
+    "analytics": {
+      "title": "Medición analítica",
+      "p1": "Con el consentimiento analítico del usuario, Vercel Web Analytics realiza medición first-party sin cookies y Google Analytics puede utilizar cookies propias de medición. Google Tag Manager gestiona la carga y configuración de Google Analytics y no es un proveedor analítico independiente.",
+      "p2": "Los eventos personalizados no incluyen el contenido libre de los formularios. El consentimiento puede retirarse en cualquier momento desde la configuración de cookies del pie de página."
+    },
+
     "retention": {
       "title": "Conservación de los datos",
       "p1": "Los datos se conservarán durante el tiempo necesario para cumplir la finalidad para la que fueron recabados o hasta que el usuario solicite su supresión."

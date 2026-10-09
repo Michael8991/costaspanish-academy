@@ -4,7 +4,7 @@
     "description": "Information about the use of cookies on this website."
   },
   "title": "Cookie policy",
-  "intro": "This website uses its own and third-party cookies to ensure proper operation and, where applicable, analyse user navigation.",
+  "intro": "This website uses cookies and other technologies to ensure proper operation and, with consent, analyse user navigation.",
 
   "sections": {
     "what": {
@@ -14,24 +14,32 @@
     "types": {
       "title": "Types of cookies",
       "p1": "Technical cookies: necessary for the basic operation of the website.",
-      "p2": "Analytics cookies: allow aggregated analysis of user behaviour."
+      "p2": "Analytics technologies: allow aggregated analysis of user behaviour and may operate with or without cookies."
     },
     "used": {
-      "title": "Cookies used on this website",
+      "title": "Cookies and technologies used on this website",
       "items": {
         "technical": {
           "label": "Technical cookies",
           "value": "Necessary for navigation, security and proper website functioning."
         },
-        "analytics": {
-          "label": "Analytics cookies",
-          "value": "Vercel Analytics cookies used only if the user provides consent."
+        "vercelAnalytics": {
+          "label": "Vercel Web Analytics",
+          "value": "A first-party analytics technology that measures usage without cookies. CostaSpanish activates it only after analytics consent."
+        },
+        "googleAnalytics": {
+          "label": "Google Analytics",
+          "value": "An analytics provider that may use first-party measurement cookies after consent. Exact details depend on the published configuration and require legal and policy review."
+        },
+        "tagManager": {
+          "label": "Google Tag Manager",
+          "value": "A tag manager that loads and configures Google Analytics only after analytics consent; it is not used as a separate analytics provider."
         }
       }
     },
     "manage": {
       "title": "Cookie management",
-      "p1": "Users can accept, reject or configure analytics cookies through the cookie banner.",
+      "p1": "Users can accept, reject or configure the analytics category through the cookie banner.",
       "p2": "Consent can be modified at any time using the cookie settings link in the footer."
     },
     "update": {

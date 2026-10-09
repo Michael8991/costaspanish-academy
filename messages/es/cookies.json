@@ -11,7 +11,7 @@
     "necessaryDescription": "Son imprescindibles para el funcionamiento de la web y tus preferencias de privacidad.",
     "alwaysActive": "Siempre activas",
     "analyticsTitle": "Analíticas",
-    "analyticsDescription": "Permiten a Vercel Analytics medir el uso agregado del sitio.",
+    "analyticsDescription": "Permiten a Vercel Analytics y Google Analytics medir el uso y mejorar el sitio.",
     "marketingTitle": "Marketing",
     "marketingDescription": "Controlan futuras tecnologías publicitarias. Actualmente no hay ninguna activa.",
     "policy": "Política de cookies"

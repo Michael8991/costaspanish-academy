@@ -94,35 +94,18 @@ describe("consent format", () => {
     expect(parseConsent(serializeConsent(current))).toEqual(current);
   });
 
-  it("migrates version one explicitly", () => {
-    const legacy = encode({ version: 1, necessary: true, analytics: false });
-    expect(parseConsent(legacy, now)).toEqual({
-      version: CONSENT_VERSION,
-      necessary: true,
-      analytics: false,
-      marketing: false,
-      updatedAt: now,
-    });
-  });
-
-  it("migrates the legacy unversioned shape", () => {
-    const legacy = encode({ necessary: true, analytics: false });
-    expect(parseConsent(legacy, now)?.version).toBe(CONSENT_VERSION);
-  });
-
-  it("preserves legacy analytics consent", () => {
-    const legacy = encode({ version: 1, necessary: true, analytics: true });
-    expect(parseConsent(legacy, now)?.analytics).toBe(true);
-  });
-
-  it("never grants marketing while migrating legacy consent", () => {
-    const legacy = encode({
-      version: 1,
+  it.each([
+    { necessary: true, analytics: true },
+    { version: 1, necessary: true, analytics: true },
+    {
+      version: 2,
       necessary: true,
       analytics: true,
       marketing: true,
-    });
-    expect(parseConsent(legacy, now)?.marketing).toBe(false);
+      updatedAt: now,
+    },
+  ])("requires a new decision for pre-v3 consent", (legacy) => {
+    expect(parseConsent(encode(legacy))).toBeNull();
   });
 
   it("rejects malformed consent", () => {

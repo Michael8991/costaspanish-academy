@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Footer, Header, TopBar } from "@/components";
@@ -7,6 +8,9 @@ import { notFound } from "next/navigation";
 import CookieBanner from "@/components/cookies/CookieBanner";
 import AnalyticsLoader from "@/components/cookies/AnalyticsLoader";
 import { ConsentProvider } from "@/components/cookies/ConsentProvider";
+import { CampaignContextManager } from "@/components/analytics/CampaignContextManager";
+import { GoogleTagManagerLoader } from "@/components/analytics/GoogleTagManagerLoader";
+import { resolveGoogleTagManagerConfig } from "@/lib/analytics/googleTagManager";
 import JanuaryPromoPopup from "@/components/promo/JanuaryPromoPopup";
 
 const geistSans = Geist({
@@ -41,6 +45,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   const supportedLocales = ["en", "es"];
   if (!supportedLocales.includes(locale)) notFound();
 
+  const googleTagManagerConfig = resolveGoogleTagManagerConfig({
+    gtmId: process.env.NEXT_PUBLIC_GTM_ID,
+    nodeEnv: process.env.NODE_ENV,
+    vercelEnv: process.env.VERCEL_ENV,
+  });
+
   const common = (await import(`../../messages/${locale}/common.json`)).default;
   const home = (await import(`../../messages/${locale}/home.json`)).default;
   const contact = (await import(`../../messages/${locale}/contact.json`)).default;
@@ -74,6 +84,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ConsentProvider>
+            <Suspense fallback={null}>
+              <CampaignContextManager />
+            </Suspense>
+            <GoogleTagManagerLoader config={googleTagManagerConfig} />
             <JanuaryPromoPopup />
             <AnalyticsLoader />
             <CookieBanner policyHref={`/${locale}/cookiesPolicy`} />

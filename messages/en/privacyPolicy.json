@@ -32,6 +32,12 @@
       "p1": "The legal basis for data processing is the user’s explicit consent."
     },
 
+    "analytics": {
+      "title": "Analytics measurement",
+      "p1": "With the user's analytics consent, Vercel Web Analytics provides first-party measurement without cookies, while Google Analytics may use first-party measurement cookies. Google Tag Manager manages the loading and configuration of Google Analytics and is not a separate analytics provider.",
+      "p2": "Custom events do not include free-text form content. Consent can be withdrawn at any time from the cookie settings in the footer."
+    },
+
     "retention": {
       "title": "Data retention",
       "p1": "Data will be kept for as long as necessary to fulfil the purpose for which they were collected or until deletion is requested."

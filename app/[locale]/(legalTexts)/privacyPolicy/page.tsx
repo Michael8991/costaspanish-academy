@@ -61,6 +61,13 @@ export default async function Page({
         ],
       },
       {
+        title: t("sections.analytics.title"),
+        paragraphs: [
+          t("sections.analytics.p1"),
+          t("sections.analytics.p2"),
+        ],
+      },
+      {
         title: t("sections.retention.title"),
         paragraphs: [
           t("sections.retention.p1"),

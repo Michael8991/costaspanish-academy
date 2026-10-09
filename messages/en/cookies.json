@@ -11,7 +11,7 @@
     "necessaryDescription": "Required for the website and your privacy choices to work.",
     "alwaysActive": "Always active",
     "analyticsTitle": "Analytics",
-    "analyticsDescription": "Allows Vercel Analytics to measure aggregated site usage.",
+    "analyticsDescription": "Allows Vercel Analytics and Google Analytics to measure usage and improve the site.",
     "marketingTitle": "Marketing",
     "marketingDescription": "Controls future advertising technologies. None are active right now.",
     "policy": "Cookie policy"

@@ -1,4 +1,4 @@
-export const CONSENT_VERSION = 2 as const;
+export const CONSENT_VERSION = 3 as const;
 
 export type ConsentState = {
   version: typeof CONSENT_VERSION;
@@ -52,10 +52,7 @@ export function createConsentState(
   };
 }
 
-export function parseConsent(
-  raw: string,
-  migratedAt: Date | string = new Date(),
-): ConsentState | null {
+export function parseConsent(raw: string): ConsentState | null {
   if (!raw) return null;
 
   try {
@@ -78,13 +75,8 @@ export function parseConsent(
       };
     }
 
-    if (parsed.version === 1 || parsed.version === undefined) {
-      return createConsentState(
-        { analytics: parsed.analytics, marketing: false },
-        migratedAt,
-      );
-    }
-
+    // Consent collected before Google Analytics was disclosed is not current.
+    // Versions 1, 2, and the unversioned legacy format require a new decision.
     return null;
   } catch {
     return null;

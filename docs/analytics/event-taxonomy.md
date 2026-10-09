@@ -3,8 +3,9 @@
 ## Status and scope
 
 This document defines the provider-agnostic v1 event contract. The eight v1
-events are instrumented through the internal analytics runtime and Vercel
-Analytics adapter. GA4, GTM, Meta, and other providers are not integrated.
+events are instrumented through the internal analytics runtime and the Vercel
+Analytics and GTM adapters. GA4 receives the GTM events after its manual tags
+are configured and published. Meta and other advertising providers are not integrated.
 Vercel Analytics pageviews remain separate from this taxonomy; there is
 deliberately no generic `page_view` event.
 
@@ -17,8 +18,8 @@ Revocation must prevent subsequent events from being sent.
 - Controlled values come from the unions exported by `lib/analytics/events.ts`.
 - `course_slug` is the public course identifier, never a full URL.
 - `locale` is `en` or `es`.
-- Campaign attribution will be designed later as common context. UTM fields do
-  not belong in individual event payloads.
+- Campaign attribution is separate common context for the GTM adapter. UTM
+  fields do not belong in individual event payloads or `AnalyticsEventMap`.
 
 ## V1 events
 

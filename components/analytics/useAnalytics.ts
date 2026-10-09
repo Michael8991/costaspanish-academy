@@ -4,6 +4,7 @@ import { useMemo } from "react";
 
 import { useConsent } from "@/components/cookies/ConsentProvider";
 import { createAnalytics, type AnalyticsRuntime } from "@/lib/analytics/analytics";
+import { gtmAnalyticsAdapter } from "@/lib/analytics/providers/gtm";
 import { vercelAnalyticsAdapter } from "@/lib/analytics/providers/vercel";
 
 export type UseAnalyticsResult = AnalyticsRuntime & {
@@ -15,7 +16,7 @@ export function useAnalytics(): UseAnalyticsResult {
   const runtime = useMemo(
     () => createAnalytics({
       isAnalyticsAllowed,
-      adapters: [vercelAnalyticsAdapter],
+      adapters: [vercelAnalyticsAdapter, gtmAnalyticsAdapter],
     }),
     [isAnalyticsAllowed],
   );

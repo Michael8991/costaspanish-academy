@@ -4,7 +4,7 @@
     "description": "Información sobre el uso de cookies en este sitio web."
   },
   "title": "Política de cookies",
-  "intro": "Este sitio web utiliza cookies propias y de terceros para garantizar su correcto funcionamiento y, en su caso, analizar la navegación de los usuarios.",
+  "intro": "Este sitio web utiliza cookies y otras tecnologías para garantizar su correcto funcionamiento y, con consentimiento, analizar la navegación de los usuarios.",
 
   "sections": {
     "what": {
@@ -14,24 +14,32 @@
     "types": {
       "title": "Tipos de cookies",
       "p1": "Cookies técnicas: necesarias para el funcionamiento básico del sitio web.",
-      "p2": "Cookies analíticas: permiten analizar el comportamiento de los usuarios de forma agregada."
+      "p2": "Tecnologías analíticas: permiten analizar el comportamiento de los usuarios de forma agregada y pueden funcionar con o sin cookies."
     },
     "used": {
-      "title": "Cookies utilizadas en este sitio web",
+      "title": "Cookies y tecnologías utilizadas en este sitio web",
       "items": {
         "technical": {
           "label": "Cookies técnicas",
           "value": "Necesarias para la navegación, seguridad y funcionamiento del sitio web."
         },
-        "analytics": {
-          "label": "Cookies analíticas",
-          "value": "Cookies de Vercel Analytics utilizadas únicamente si el usuario lo consiente."
+        "vercelAnalytics": {
+          "label": "Vercel Web Analytics",
+          "value": "Tecnología analítica first-party que realiza medición sin utilizar cookies. CostaSpanish la activa únicamente tras el consentimiento analítico."
+        },
+        "googleAnalytics": {
+          "label": "Google Analytics",
+          "value": "Proveedor analítico que puede utilizar cookies propias de medición después del consentimiento. Los detalles exactos dependen de la configuración publicada y requieren revisión legal y de política."
+        },
+        "tagManager": {
+          "label": "Google Tag Manager",
+          "value": "Gestor de etiquetas que carga y configura Google Analytics únicamente después del consentimiento analítico; no se utiliza como proveedor de analítica independiente."
         }
       }
     },
     "manage": {
       "title": "Gestión de cookies",
-      "p1": "El usuario puede aceptar, rechazar o configurar el uso de cookies analíticas a través del banner de cookies.",
+      "p1": "El usuario puede aceptar, rechazar o configurar la categoría analítica a través del banner de cookies.",
       "p2": "En cualquier momento puede modificar su consentimiento desde el enlace de configuración de cookies disponible en el pie de página."
     },
     "update": {

@@ -48,7 +48,9 @@ export default async function Page({
         title: t("sections.used.title"),
         items: [
           { label: t("sections.used.items.technical.label"), value: t("sections.used.items.technical.value") },
-          { label: t("sections.used.items.analytics.label"), value: t("sections.used.items.analytics.value") }
+          { label: t("sections.used.items.vercelAnalytics.label"), value: t("sections.used.items.vercelAnalytics.value") },
+          { label: t("sections.used.items.googleAnalytics.label"), value: t("sections.used.items.googleAnalytics.value") },
+          { label: t("sections.used.items.tagManager.label"), value: t("sections.used.items.tagManager.value") },
         ],
       },
       {
