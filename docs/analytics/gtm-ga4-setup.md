@@ -80,9 +80,28 @@ The next push has this stable shape:
 }
 ```
 
-`campaign_context` is `null` when the session has no valid campaign. The reset
-prevents a property such as `course_type` from being inherited by a later
+`campaign_context` is omitted completely when the session has no valid
+campaign. It is never emitted as `null`, so the nested GTM variables resolve as
+undefined rather than boolean `false`. The reset prevents a property such as
+`course_type` or a previous campaign context from being inherited by a later
 `contact_submit`. Campaign teams must never put PII in UTM values.
+
+Virtual navigations use a separate provider-infrastructure event, which is not
+part of `AnalyticsEventMap`:
+
+```js
+{
+  event: "costa_virtual_page_view",
+  costa_page: {
+    page_location: "https://www.costaspanishclass.com/en/spanish",
+    page_title: "Spanish courses | Costa Spanish Academy"
+  }
+}
+```
+
+The location contains only origin and pathname; query strings and fragments are
+excluded. The application sends no initial virtual event because the initial
+Google tag owns the first pageview.
 
 ## Manual GTM/GA4 UI tasks
 
@@ -134,6 +153,8 @@ Create Version 2 Data Layer Variables with these exact names and paths:
 | `DLV - bootstrap campaign name` | `costa_campaign.campaign_name` |
 | `DLV - bootstrap campaign content` | `costa_campaign.campaign_content` |
 | `DLV - bootstrap campaign term` | `costa_campaign.campaign_term` |
+| `DLV - virtual page location` | `costa_page.page_location` |
+| `DLV - virtual page title` | `costa_page.page_title` |
 | `DLV - event name` | `costa_analytics.event_name` |
 | `DLV - course slug` | `costa_analytics.properties.course_slug` |
 | `DLV - course type` | `costa_analytics.properties.course_type` |
@@ -183,24 +204,28 @@ Use this single approach:
    advanced settings** and disable **Page changes based on browser history
    events**. Enhanced Measurement itself can remain enabled; keep ordinary
    page-load measurement enabled.
-3. In GTM, create a **History Change** trigger for all history changes.
+3. Create a **Custom Event** trigger named `CE - costa_virtual_page_view` with
+   event name `costa_virtual_page_view`. Do not use a History Change trigger:
+   Next.js can change history before streamed metadata updates `document.title`.
 4. Create a second **Google tag** named `Google Tag - SPA Update` using the same
    `G-XXXXXXXXXX` Tag ID. Under **Configuration settings**, set:
-   - `page_location` = `{{Page URL}}`
-   - `page_title` = `{{Page Title}}`
+   - `page_location` = `{{DLV - virtual page location}}`
+   - `page_title` = `{{DLV - virtual page title}}`
    - `update` = `true`
 5. Do not give `Google Tag - SPA Update` a trigger of its own.
 6. Create a **Google Analytics: GA4 Event** tag named
    `GA4 Event - Virtual Page View`, with the same Measurement ID and event name
-   `page_view`. Trigger it with **History Change**.
+   `page_view`. Trigger it with `CE - costa_virtual_page_view`.
 7. In that event tag, open **Advanced Settings > Tag Sequencing**, select
    **Fire a tag before GA4 Event - Virtual Page View fires**, and choose
    `Google Tag - SPA Update`.
 8. Do not add `page_view` to `AnalyticsEventMap` and do not add another router
    listener in application code.
 
-This gives one initial page view and one page view per App Router history
-navigation, without Enhanced Measurement duplicating the GTM history event.
+This gives one initial page view and one page view per committed App Router
+navigation. The application waits for the route pathname and the updated DOM
+title before emitting the technical event, while Enhanced Measurement does not
+duplicate history changes.
 
 ### 7. Configure GA4 Key Events
 
@@ -275,8 +300,9 @@ before changing CSP.
 6. Enable GA4 DebugView through Tag Assistant/Preview (not a permanent
    production `debug_mode` parameter) and verify all eight names.
 7. Navigate between App Router routes. Verify exactly one initial `page_view`
-   and one per History Change, never two. In DebugView, verify that each virtual
-   pageview has the expected `page_location` and `page_title`.
+   and one `costa_virtual_page_view`/GA4 `page_view` per committed navigation,
+   never two. In DebugView, verify that each virtual pageview has the expected
+   new `page_location` and `page_title`, never the previous route's title.
 8. Visit a URL containing allowed UTMs and an ignored `gclid`/`fbclid`. After
    consent, verify only the five allowed UTM keys in session storage and GTM.
    Confirm `costa_campaign` appears after the granted consent update and before
@@ -299,4 +325,5 @@ Official references: [Google consent setup](https://developers.google.com/tag-pl
 [GA4 configuration fields](https://developers.google.com/analytics/devguides/collection/ga4/reference/config),
 [Google tag CSP guidance](https://developers.google.com/tag-platform/security/guides/csp),
 [Google Analytics cookie usage](https://support.google.com/analytics/answer/11397207),
-and [Vercel Web Analytics](https://vercel.com/docs/analytics).
+[Vercel Web Analytics](https://vercel.com/docs/analytics), and
+[Next.js streaming metadata](https://nextjs.org/docs/app/getting-started/metadata-and-og-images#streaming-metadata).

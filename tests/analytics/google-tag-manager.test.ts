@@ -6,6 +6,7 @@ import enPrivacyPolicy from "@/messages/en/privacyPolicy.json";
 import esCookies from "@/messages/es/cookies.json";
 import esCookiesPolicy from "@/messages/es/cookiesPolicy.json";
 import esPrivacyPolicy from "@/messages/es/privacyPolicy.json";
+import type { CampaignContext } from "@/lib/analytics/campaign";
 import { createGtmAnalyticsAdapter } from "@/lib/analytics/providers/gtm";
 import {
   buildGoogleConsentState,
@@ -206,18 +207,48 @@ describe("GTM analytics adapter", () => {
           course_type: "private",
           locale: "es",
         },
-        campaign_context: null,
       },
     });
+    expect(dataLayer[1]).not.toHaveProperty("costa_analytics.campaign_context");
     expect(JSON.stringify(dataLayer)).not.toContain("private@example.com");
+  });
+
+  it("includes campaign_context when a session campaign exists", () => {
+    const dataLayer: GoogleDataLayer = [];
+    const campaignContext = {
+      version: 1 as const,
+      first_touch: { utm_source: "newsletter", utm_campaign: "autumn" },
+      last_touch: { utm_source: "partner", utm_campaign: "follow-up" },
+    };
+    const adapter = createGtmAnalyticsAdapter({
+      isEnabled: () => true,
+      getDataLayer: () => dataLayer,
+      getCampaignContext: () => campaignContext,
+    });
+
+    adapter.track("contact_submit", {
+      source_section: "contact",
+      locale: "es",
+    });
+
+    expect(dataLayer[0]).toEqual({ costa_analytics: null });
+    expect(dataLayer[1]).toHaveProperty(
+      "costa_analytics.campaign_context",
+      campaignContext,
+    );
   });
 
   it("resets the namespaced envelope so stale properties cannot leak", () => {
     const dataLayer: GoogleDataLayer = [];
+    let campaignContext: CampaignContext | null = {
+      version: 1 as const,
+      first_touch: { utm_source: "newsletter" },
+      last_touch: { utm_source: "newsletter" },
+    };
     const adapter = createGtmAnalyticsAdapter({
       isEnabled: () => true,
       getDataLayer: () => dataLayer,
-      getCampaignContext: () => null,
+      getCampaignContext: () => campaignContext,
     });
 
     adapter.track("course_view", {
@@ -225,21 +256,23 @@ describe("GTM analytics adapter", () => {
       course_type: "private",
       locale: "en",
     });
+    campaignContext = null;
     adapter.track("contact_submit", {
       source_section: "contact",
       locale: "en",
     });
 
+    expect(dataLayer[1]).toHaveProperty("costa_analytics.campaign_context");
     expect(dataLayer[2]).toEqual({ costa_analytics: null });
     expect(dataLayer[3]).toEqual({
       event: "contact_submit",
       costa_analytics: {
         event_name: "contact_submit",
         properties: { source_section: "contact", locale: "en" },
-        campaign_context: null,
       },
     });
     expect(JSON.stringify(dataLayer[3])).not.toContain("course_type");
+    expect(dataLayer[3]).not.toHaveProperty("costa_analytics.campaign_context");
   });
 });
 

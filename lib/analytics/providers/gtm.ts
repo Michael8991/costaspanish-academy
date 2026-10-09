@@ -23,7 +23,7 @@ export type GtmAnalyticsEvent<EventName extends AnalyticsEventName = AnalyticsEv
   [GTM_ANALYTICS_ENVELOPE]: {
     event_name: EventName;
     properties: AnalyticsEventMap[EventName];
-    campaign_context: CampaignContext | null;
+    campaign_context?: CampaignContext;
   };
 };
 
@@ -46,6 +46,7 @@ export function createGtmAnalyticsAdapter({
       if (!dataLayer) return;
 
       const sanitizedProperties = sanitizeAnalyticsProperties(event, properties);
+      const campaignContext = getCampaignContext();
 
       // GTM merges data layer state. Reset the complete envelope first so fields
       // from one event can never leak into a later event.
@@ -55,7 +56,7 @@ export function createGtmAnalyticsAdapter({
         [GTM_ANALYTICS_ENVELOPE]: {
           event_name: event,
           properties: sanitizedProperties,
-          campaign_context: getCampaignContext(),
+          ...(campaignContext ? { campaign_context: campaignContext } : {}),
         },
       } satisfies GtmAnalyticsEvent<typeof event>);
     },

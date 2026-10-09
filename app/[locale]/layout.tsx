@@ -10,6 +10,7 @@ import AnalyticsLoader from "@/components/cookies/AnalyticsLoader";
 import { ConsentProvider } from "@/components/cookies/ConsentProvider";
 import { CampaignContextManager } from "@/components/analytics/CampaignContextManager";
 import { GoogleTagManagerLoader } from "@/components/analytics/GoogleTagManagerLoader";
+import { GoogleVirtualPageView } from "@/components/analytics/GoogleVirtualPageView";
 import { resolveGoogleTagManagerConfig } from "@/lib/analytics/googleTagManager";
 import JanuaryPromoPopup from "@/components/promo/JanuaryPromoPopup";
 
@@ -88,6 +89,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               <CampaignContextManager />
             </Suspense>
             <GoogleTagManagerLoader config={googleTagManagerConfig} />
+            <GoogleVirtualPageView />
             <JanuaryPromoPopup />
             <AnalyticsLoader />
             <CookieBanner policyHref={`/${locale}/cookiesPolicy`} />

@@ -32,6 +32,10 @@ gate for queued pageviews and custom events.
   first/last-touch context.
 - `components/analytics/useAnalytics.ts` injects the existing consent source and
   the configured adapters.
+- `components/analytics/GoogleVirtualPageView.tsx` is provider infrastructure,
+  not a business-event component. It waits for both the committed App Router
+  pathname and the updated document title before queuing the GTM-only technical
+  `costa_virtual_page_view` event.
 - Components call only the internal hook or a shared tracked link component.
 
 No component imports Vercel's custom-event function directly.
