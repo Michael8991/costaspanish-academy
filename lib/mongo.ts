@@ -1,11 +1,5 @@
 import mongoose from "mongoose";
 
-const MONGO_URI = process.env.MONGO_URI!;
-
-if (!MONGO_URI) {
-  throw new Error("Please define the MONGO_URI environment variable");
-}
-
 /**
  * Cached connection for MongoDB.
  */
@@ -18,7 +12,12 @@ async function dbConnect() {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGO_URI).then((mongoose) => {
+    const mongoUri = process.env.MONGO_URI;
+    if (!mongoUri) {
+      throw new Error("Please define the MONGO_URI environment variable");
+    }
+
+    cached.promise = mongoose.connect(mongoUri).then((mongoose) => {
       return mongoose;
     });
   }

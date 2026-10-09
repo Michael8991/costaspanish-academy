@@ -14,7 +14,6 @@ import {
 import { verifyTurnstile } from "@/lib/security/turnstile";
 import { preinscriptionSchema } from "@/lib/security/validation";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const INTERNAL_MAILBOX = "info@costaSpanishClass.com";
 
 type ResolvedCourse = {
@@ -82,6 +81,7 @@ export async function POST(req: Request) {
       </div>
     `;
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await Promise.all([
       resend.emails.send({
         from: "CostaSpanish Academy Preinscription <onboarding@costaspanishclass.com>",

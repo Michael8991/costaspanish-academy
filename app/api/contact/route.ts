@@ -12,7 +12,6 @@ import { sanitizeEmailHeader } from "@/lib/security/html";
 import { verifyTurnstile } from "@/lib/security/turnstile";
 import { contactSchema } from "@/lib/security/validation";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const INTERNAL_MAILBOX = "info@costaSpanishClass.com";
 
 export async function POST(req: Request) {
@@ -25,6 +24,7 @@ export async function POST(req: Request) {
     const captchaIsValid = await verifyTurnstile(turnstileToken, getClientIp(req));
     if (!captchaIsValid) return errorResponse(400, "INVALID_REQUEST");
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "CostaSpanish Academy WebForm <onboarding@costaspanishclass.com>",
       to: INTERNAL_MAILBOX,
