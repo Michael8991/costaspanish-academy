@@ -13,8 +13,10 @@ import {
   UsersRound,
 } from "lucide-react";
 import type { ICourseData } from "@/types/courses";
+import { useAnalytics } from "@/components/analytics/useAnalytics";
 import { COMMERCIAL_OFFER } from "@/lib/courses/commercialOffer";
 import { PUBLIC_SPANISH_OFFERINGS } from "@/lib/courses/publicOfferings";
+import { normalizeAnalyticsLocale } from "@/lib/analytics/normalization";
 import styles from "./courseOffer.module.css";
 
 type Props = {
@@ -37,10 +39,17 @@ function euro(value: number, locale: string) {
 
 function PreRegister({ course, locale }: Pick<Props, "course" | "locale">) {
   const t = useTranslations("coursePage");
+  const analytics = useAnalytics();
   return (
     <Link
       className={styles.cta}
       href={`/${locale}/${course.slug}/preinscription`}
+      onClick={() => analytics.track("course_cta_click", {
+        course_slug: course.slug,
+        cta_type: "preinscription",
+        source_section: "course_detail",
+        locale: normalizeAnalyticsLocale(locale),
+      })}
     >
       {t("preRegister")} <span aria-hidden="true">→</span>
     </Link>

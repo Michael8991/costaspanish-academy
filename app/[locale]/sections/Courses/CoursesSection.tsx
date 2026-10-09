@@ -40,7 +40,7 @@ export const CoursesSection = async () => {
             const status = selection.statusKey
               ? t(`statuses.${selection.statusKey}`)
               : undefined;
-            return <LandingCourseCard key={slug} href={`/${locale}/${slug}`} image={image} imageAlt={t("imageAlt", { title: t(`cards.${key}.title`) })} eyebrow={t(`cards.${key}.eyebrow`)} title={t(`cards.${key}.title`)} description={t(`cards.${key}.description`)} tags={tags} status={status} cta={t("viewCourse")} level={level} variant={key} />;
+            return <LandingCourseCard key={slug} href={`/${locale}/${slug}`} image={image} imageAlt={t("imageAlt", { title: t(`cards.${key}.title`) })} eyebrow={t(`cards.${key}.eyebrow`)} title={t(`cards.${key}.title`)} description={t(`cards.${key}.description`)} tags={tags} status={status} cta={t("viewCourse")} level={level} variant={key} slug={slug} locale={locale} />;
           })}
         </div>
         <div className={styles.footer}><Link href={`/${locale}/spanish`}>{t("viewAll")}<span aria-hidden="true">→</span></Link></div>

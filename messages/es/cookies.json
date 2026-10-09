@@ -1,13 +1,19 @@
 {
   "banner": {
-    "title": "Cookies",
-    "text": "Usamos cookies técnicas necesarias y, si lo aceptas, cookies analíticas para medir el tráfico y mejorar el sitio. Puedes aceptar o rechazar las analíticas.",
-    "accept": "Aceptar analíticas",
-    "reject": "Rechazar",
-    "customize": "Configurar",
-    "save": "Guardar",
-    "necessary": "Necesarias (siempre activas)",
-    "analytics": "Analíticas (opcionales)",
+    "title": "Preferencias de cookies",
+    "text": "Usamos cookies necesarias y, con tu permiso, categorías analíticas y de marketing. Actualmente no hay ningún proveedor de marketing activo.",
+    "accept": "Aceptar todo",
+    "reject": "Rechazar todo",
+    "customize": "Preferencias",
+    "save": "Guardar preferencias",
+    "cancel": "Cancelar",
+    "necessaryTitle": "Necesarias",
+    "necessaryDescription": "Son imprescindibles para el funcionamiento de la web y tus preferencias de privacidad.",
+    "alwaysActive": "Siempre activas",
+    "analyticsTitle": "Analíticas",
+    "analyticsDescription": "Permiten a Vercel Analytics medir el uso agregado del sitio.",
+    "marketingTitle": "Marketing",
+    "marketingDescription": "Controlan futuras tecnologías publicitarias. Actualmente no hay ninguna activa.",
     "policy": "Política de cookies"
   }
 }

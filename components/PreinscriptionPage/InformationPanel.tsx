@@ -1,14 +1,18 @@
 "use client";
 
 import { Mail } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useAnalytics } from "@/components/analytics/useAnalytics";
 import type { ICourseData } from "@/types/courses";
+import { normalizeAnalyticsLocale } from "@/lib/analytics/normalization";
 import styles from "./informationPanel.module.css";
 
 type Props = { course: ICourseData };
 
 export const InformationPanel = ({ course }: Props) => {
   const t = useTranslations("preinscription.info");
+  const analytics = useAnalytics();
+  const locale = normalizeAnalyticsLocale(useLocale());
   const steps = t.raw("process.steps") as Array<{ title: string; text: string }>;
   const metadata = [course.level, course.modality].filter(Boolean) as string[];
 
@@ -56,7 +60,15 @@ export const InformationPanel = ({ course }: Props) => {
       <div className={styles.contact}>
         <p>{t("contact.title")}</p>
         <span>{t("contact.whatsapp")}</span>
-        <a href={`mailto:${t("contact.emailAddress")}`}>
+        <a
+          href={`mailto:${t("contact.emailAddress")}`}
+          onClick={() => analytics.track("contact_method_click", {
+            contact_method: "email",
+            source_section: "preinscription",
+            course_slug: course.slug,
+            locale,
+          })}
+        >
           <Mail aria-hidden="true" size={15} /> {t("contact.email")}
         </a>
       </div>

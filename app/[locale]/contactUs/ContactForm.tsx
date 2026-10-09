@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Check, ChevronDown, Mail, Phone } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useCallback, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useAnalytics } from "@/components/analytics/useAnalytics";
 import TurnstileWidget from "@/components/security/TurnstileWidget";
+import { normalizeAnalyticsLocale } from "@/lib/analytics/normalization";
 import styles from "./contactForm.module.css";
 
 type FormFields = {
@@ -21,6 +23,9 @@ const CONTACT_EMAIL = "info@costaSpanishClass.com";
 
 export const ContactForm = () => {
   const t = useTranslations("contact");
+  const analytics = useAnalytics();
+  const locale = normalizeAnalyticsLocale(useLocale());
+  const hasTrackedStart = useRef(false);
   const topics = t.raw("form.topics") as Record<string, string>;
   const askAbout = t.raw("info.askAbout") as string[];
   const [submitMessage, setSubmitMessage] = useState<{
@@ -32,6 +37,15 @@ export const ContactForm = () => {
   const handleTurnstileToken = useCallback((token: string | undefined) => {
     setTurnstileToken(token);
   }, []);
+
+  const trackStart = () => {
+    if (!analytics.enabled || hasTrackedStart.current) return;
+    hasTrackedStart.current = true;
+    analytics.track("contact_start", {
+      source_section: "contact",
+      locale,
+    });
+  };
 
   const {
     register,
@@ -50,6 +64,10 @@ export const ContactForm = () => {
       const result = await res.json();
       if (!res.ok || !result.success) throw new Error();
 
+      analytics.track("contact_submit", {
+        source_section: "contact",
+        locale,
+      });
       setSubmitMessage({ type: "success", text: t("success") });
       reset();
     } catch {
@@ -87,7 +105,15 @@ export const ContactForm = () => {
         </div>
 
         <div className={styles.contactMethods}>
-          <a href="tel:+34665334919" className={styles.contactLink}>
+          <a
+            href="tel:+34665334919"
+            className={styles.contactLink}
+            onClick={() => analytics.track("contact_method_click", {
+              contact_method: "phone",
+              source_section: "contact",
+              locale,
+            })}
+          >
             <span className={styles.iconBox} aria-hidden="true">
               <Phone size={18} strokeWidth={1.8} />
             </span>
@@ -96,7 +122,15 @@ export const ContactForm = () => {
               {CONTACT_PHONE}
             </span>
           </a>
-          <a href={`mailto:${CONTACT_EMAIL}`} className={styles.contactLink}>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className={styles.contactLink}
+            onClick={() => analytics.track("contact_method_click", {
+              contact_method: "email",
+              source_section: "contact",
+              locale,
+            })}
+          >
             <span className={styles.iconBox} aria-hidden="true">
               <Mail size={18} strokeWidth={1.8} />
             </span>
@@ -123,7 +157,7 @@ export const ContactForm = () => {
           <p>{t("form.supporting")}</p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form onSubmit={handleSubmit(onSubmit)} onChangeCapture={trackStart} noValidate>
           <div className={styles.twoColumns}>
             <div className={styles.field}>
               <label htmlFor="firstName">{t("form.firstName")}</label>

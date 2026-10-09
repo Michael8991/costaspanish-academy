@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { TrackedExternalLink } from "@/components/analytics/TrackedExternalLink";
 import { PREPLY_URL } from "./testimonials.data";
 import styles from "./testimonialsTrustStrip.module.css";
 
@@ -36,9 +37,9 @@ export async function TestimonialsTrustBlock({ locale }: { locale: string }) {
         <span><strong>{stats.typicalLessonsTaken}</strong> {t("stats.typicalLessons")}</span>
         <span><strong>{stats.publicReviews}</strong> {t("stats.publicReviews")}</span>
       </div>
-      <a href={PREPLY_URL} target="_blank" rel="noopener noreferrer">
+      <TrackedExternalLink platform="preply" sourceSection="reviews" href={PREPLY_URL} target="_blank" rel="noopener noreferrer">
         {t("links.profile")} <span aria-hidden="true">↗</span>
-      </a>
+      </TrackedExternalLink>
     </div>
     <div className={styles.detailLine}>
       {secondaryMetrics.map((metric) => <span key={metric.label}>{metric.label} <strong>{metric.value}</strong></span>)}

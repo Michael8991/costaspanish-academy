@@ -1,13 +1,19 @@
 {
   "banner": {
-    "title": "Cookies",
-    "text": "We use necessary technical cookies and, if you accept, analytics cookies to measure traffic and improve the site. You can accept or reject analytics cookies.",
-    "accept": "Accept analytics",
-    "reject": "Reject",
-    "customize": "Customise",
-    "save": "Save",
-    "necessary": "Necessary (always on)",
-    "analytics": "Analytics (optional)",
+    "title": "Cookie preferences",
+    "text": "We use necessary cookies and, with your permission, analytics and marketing categories. No marketing provider is currently active.",
+    "accept": "Accept all",
+    "reject": "Reject all",
+    "customize": "Preferences",
+    "save": "Save preferences",
+    "cancel": "Cancel",
+    "necessaryTitle": "Necessary",
+    "necessaryDescription": "Required for the website and your privacy choices to work.",
+    "alwaysActive": "Always active",
+    "analyticsTitle": "Analytics",
+    "analyticsDescription": "Allows Vercel Analytics to measure aggregated site usage.",
+    "marketingTitle": "Marketing",
+    "marketingDescription": "Controls future advertising technologies. None are active right now.",
     "policy": "Cookie policy"
   }
 }

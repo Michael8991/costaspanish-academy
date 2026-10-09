@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useAnalytics } from "@/components/analytics/useAnalytics";
+import { normalizeAnalyticsLocale } from "@/lib/analytics/normalization";
 import type { CourseLevel, CourseModality, CourseStatus } from "@/types/courses";
 import {
   PUBLIC_SPANISH_OFFERINGS,
@@ -30,6 +32,8 @@ type CoursesCatalogProps = {
 
 export const CoursesCatalog = ({ courses, locale }: CoursesCatalogProps) => {
   const t = useTranslations("coursesCatalog");
+  const analytics = useAnalytics();
+  const analyticsLocale = normalizeAnalyticsLocale(locale);
   const bySlug = new Map(courses.map((course) => [course.slug, course]));
 
   return (
@@ -96,7 +100,16 @@ export const CoursesCatalog = ({ courses, locale }: CoursesCatalogProps) => {
                 ))}
               </div>
               {status && <p className={styles.availability}><i aria-hidden="true" />{status}</p>}
-              <Link href={`/${locale}/${course.slug}`} className={styles.link}>
+              <Link
+                href={`/${locale}/${course.slug}`}
+                className={styles.link}
+                onClick={() => analytics.track("course_cta_click", {
+                  course_slug: course.slug,
+                  cta_type: "details",
+                  source_section: "course_catalog",
+                  locale: analyticsLocale,
+                })}
+              >
                 <span className={styles.linkOverlay} aria-hidden="true" />
                 {t("viewCourse")} <b aria-hidden="true">→</b>
               </Link>

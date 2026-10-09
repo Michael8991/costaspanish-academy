@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import CookieBanner from "@/components/cookies/CookieBanner";
 import AnalyticsLoader from "@/components/cookies/AnalyticsLoader";
+import { ConsentProvider } from "@/components/cookies/ConsentProvider";
 import JanuaryPromoPopup from "@/components/promo/JanuaryPromoPopup";
 
 const geistSans = Geist({
@@ -72,13 +73,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <JanuaryPromoPopup />
-          <AnalyticsLoader />
-          <CookieBanner policyHref={`/${locale}/cookiesPolicy`} />
-          <TopBar />
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <ConsentProvider>
+            <JanuaryPromoPopup />
+            <AnalyticsLoader />
+            <CookieBanner policyHref={`/${locale}/cookiesPolicy`} />
+            <TopBar />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ConsentProvider>
         </NextIntlClientProvider>
       </body>
     </html>

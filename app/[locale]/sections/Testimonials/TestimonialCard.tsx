@@ -1,3 +1,4 @@
+import { TrackedExternalLink } from "@/components/analytics/TrackedExternalLink";
 import styles from "./testimonialCard.module.css";
 
 export type TestimonialSource = "preply" | "facebook" | "professeurparticulier";
@@ -50,7 +51,7 @@ export function TestimonialCard({ testimonial, variant, ratingLabel, expanded = 
           {testimonial.rating && <span className={styles.stars} aria-label={ratingLabel}><span aria-hidden="true">★★★★★</span></span>}
           {testimonial.rating && sourceName && <span aria-hidden="true" className={styles.separator}>·</span>}
           {sourceName && (testimonial.sourceUrl ?
-            <a href={testimonial.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={testimonial.sourceCta ?? sourceName}>{sourceName}<span aria-hidden="true">↗</span></a> :
+            <TrackedExternalLink platform={testimonial.source === "preply" ? "preply" : testimonial.source === "facebook" ? "facebook" : "other"} sourceSection="reviews" href={testimonial.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={testimonial.sourceCta ?? sourceName}>{sourceName}<span aria-hidden="true">↗</span></TrackedExternalLink> :
             <span className={styles.source}>{sourceName}</span>)}
         </div>}
       </footer>

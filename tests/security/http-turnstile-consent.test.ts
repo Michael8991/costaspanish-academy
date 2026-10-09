@@ -1,6 +1,14 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { parseConsent } from "@/lib/cookies/consent";
+import { filterAnalyticsEvent } from "@/components/cookies/AnalyticsLoader";
+import {
+  CONSENT_VERSION,
+  createConsentState,
+  DEFAULT_CONSENT_STATE,
+  parseConsent,
+  serializeConsent,
+  type ConsentState,
+} from "@/lib/cookies/consent";
 import { InvalidRequestError, MAX_JSON_BODY_BYTES, readJsonBody } from "@/lib/security/http";
 import { verifyTurnstile } from "@/lib/security/turnstile";
 
@@ -67,16 +75,121 @@ describe("Turnstile server verification", () => {
 });
 
 describe("consent format", () => {
-  it("migrates the legacy unversioned shape", () => {
-    const legacy = encodeURIComponent(JSON.stringify({ necessary: true, analytics: false }));
-    expect(parseConsent(legacy)).toEqual({ version: 1, necessary: true, analytics: false });
+  const now = "2026-10-08T12:00:00.000Z";
+  const encode = (value: unknown) => encodeURIComponent(JSON.stringify(value));
+
+  it("uses privacy-preserving defaults when no consent exists", () => {
+    expect(parseConsent("")).toBeNull();
+    expect(DEFAULT_CONSENT_STATE).toEqual({
+      version: CONSENT_VERSION,
+      necessary: true,
+      analytics: false,
+      marketing: false,
+      updatedAt: "1970-01-01T00:00:00.000Z",
+    });
   });
 
-  it("rejects unsupported or malformed consent", () => {
-    const unsupported = encodeURIComponent(
-      JSON.stringify({ version: 2, necessary: true, analytics: true }),
-    );
-    expect(parseConsent(unsupported)).toBeNull();
+  it("parses the current version", () => {
+    const current = createConsentState({ analytics: true, marketing: false }, now);
+    expect(parseConsent(serializeConsent(current))).toEqual(current);
+  });
+
+  it("migrates version one explicitly", () => {
+    const legacy = encode({ version: 1, necessary: true, analytics: false });
+    expect(parseConsent(legacy, now)).toEqual({
+      version: CONSENT_VERSION,
+      necessary: true,
+      analytics: false,
+      marketing: false,
+      updatedAt: now,
+    });
+  });
+
+  it("migrates the legacy unversioned shape", () => {
+    const legacy = encode({ necessary: true, analytics: false });
+    expect(parseConsent(legacy, now)?.version).toBe(CONSENT_VERSION);
+  });
+
+  it("preserves legacy analytics consent", () => {
+    const legacy = encode({ version: 1, necessary: true, analytics: true });
+    expect(parseConsent(legacy, now)?.analytics).toBe(true);
+  });
+
+  it("never grants marketing while migrating legacy consent", () => {
+    const legacy = encode({
+      version: 1,
+      necessary: true,
+      analytics: true,
+      marketing: true,
+    });
+    expect(parseConsent(legacy, now)?.marketing).toBe(false);
+  });
+
+  it("rejects malformed consent", () => {
     expect(parseConsent("not-json")).toBeNull();
+    expect(parseConsent(encode({ version: CONSENT_VERSION }))).toBeNull();
+  });
+
+  it("never permits necessary consent to become false", () => {
+    const invalid = encode({
+      ...createConsentState({ analytics: true, marketing: true }, now),
+      necessary: false,
+    });
+    expect(parseConsent(invalid)).toBeNull();
+
+    const unsafe = {
+      ...createConsentState({ analytics: false, marketing: false }, now),
+      necessary: false,
+    } as unknown as ConsentState;
+    expect(parseConsent(serializeConsent(unsafe))?.necessary).toBe(true);
+  });
+
+  it("creates Accept All consent", () => {
+    expect(createConsentState({ analytics: true, marketing: true }, now)).toMatchObject({
+      necessary: true,
+      analytics: true,
+      marketing: true,
+    });
+  });
+
+  it("creates Reject All consent", () => {
+    expect(createConsentState({ analytics: false, marketing: false }, now)).toMatchObject({
+      necessary: true,
+      analytics: false,
+      marketing: false,
+    });
+  });
+
+  it.each([
+    { analytics: true, marketing: false },
+    { analytics: false, marketing: true },
+  ])("creates custom consent for $analytics/$marketing", (preferences) => {
+    expect(createConsentState(preferences, now)).toMatchObject(preferences);
+  });
+
+  it("stores updatedAt as canonical ISO 8601", () => {
+    const consent = createConsentState({ analytics: false, marketing: false }, now);
+    expect(new Date(consent.updatedAt).toISOString()).toBe(consent.updatedAt);
+  });
+
+  it("round-trips serialization and deserialization", () => {
+    const consent = createConsentState({ analytics: true, marketing: false }, now);
+    expect(parseConsent(serializeConsent(consent))).toEqual(consent);
+  });
+
+  it("rejects future or unknown versions safely", () => {
+    expect(parseConsent(encode({
+      version: CONSENT_VERSION + 1,
+      necessary: true,
+      analytics: true,
+      marketing: true,
+      updatedAt: now,
+    }))).toBeNull();
+  });
+
+  it("blocks future Analytics events immediately after revocation", () => {
+    const event = { type: "pageview", url: "https://www.costaspanishclass.com/en" };
+    expect(filterAnalyticsEvent(true, event)).toBe(event);
+    expect(filterAnalyticsEvent(false, event)).toBeNull();
   });
 });

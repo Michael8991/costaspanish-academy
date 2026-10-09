@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useAnalytics } from "@/components/analytics/useAnalytics";
 import type { ICourseData } from "@/types/courses";
 import TurnstileWidget from "@/components/security/TurnstileWidget";
+import { normalizeAnalyticsLocale } from "@/lib/analytics/normalization";
 import styles from "./preinscriptionForm.module.css";
 
 type CourseProp = { course: ICourseData };
@@ -31,6 +33,9 @@ const sectionKeys = ["personal", "course", "background", "additional"] as const;
 export const PreinscriptionForm = ({ course }: CourseProp) => {
   const t = useTranslations("preinscription.form");
   const locale = useLocale();
+  const analyticsLocale = normalizeAnalyticsLocale(locale);
+  const analytics = useAnalytics();
+  const hasTrackedStart = useRef(false);
   const [submitMessage, setSubmitMessage] = useState<{
     type: "success" | "error";
     text: string;
@@ -40,6 +45,15 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
   const handleTurnstileToken = useCallback((token: string | undefined) => {
     setTurnstileToken(token);
   }, []);
+
+  const trackStart = () => {
+    if (!analytics.enabled || hasTrackedStart.current) return;
+    hasTrackedStart.current = true;
+    analytics.track("preinscription_start", {
+      course_slug: course.slug,
+      locale: analyticsLocale,
+    });
+  };
 
   const {
     register,
@@ -66,6 +80,10 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
       const result = await res.json();
       if (!result.success) throw new Error(result.error || "Error");
 
+      analytics.track("preinscription_submit", {
+        course_slug: course.slug,
+        locale: analyticsLocale,
+      });
       setSubmitMessage({ type: "success", text: t("messages.successText") });
       reset();
     } catch {
@@ -92,7 +110,7 @@ export const PreinscriptionForm = ({ course }: CourseProp) => {
         <small>{t("requiredNote")}</small>
       </header>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} onChangeCapture={trackStart} noValidate>
         <input type="hidden" {...register("courseSlug")} value={course.slug} />
 
         <fieldset className={styles.formSection}>

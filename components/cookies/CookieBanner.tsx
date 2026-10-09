@@ -1,72 +1,141 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import {
-  readConsentClient,
-  writeConsentClient,
-  CookieConsent
-} from "@/lib/cookies/consent";
+
+import { useConsent } from "@/components/cookies/ConsentProvider";
 
 type Props = {
-  policyHref: string; 
+  policyHref: string;
 };
+
+type PreferenceToggleProps = {
+  checked: boolean;
+  description: string;
+  label: string;
+  onChange: () => void;
+};
+
+function PreferenceToggle({ checked, description, label, onChange }: PreferenceToggleProps) {
+  return (
+    <div className="flex items-center justify-between gap-4">
+      <div>
+        <p className="text-sm font-medium">{label}</p>
+        <p className="text-xs text-neutral-600 dark:text-neutral-400">{description}</p>
+      </div>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        aria-label={label}
+        onClick={onChange}
+        className={`h-7 w-12 rounded-full border px-1 transition ${
+          checked ? "bg-black" : "bg-transparent"
+        }`}
+      >
+        <span
+          className={`block h-5 w-5 rounded-full bg-white transition ${
+            checked ? "translate-x-5" : "translate-x-0"
+          }`}
+        />
+      </button>
+    </div>
+  );
+}
+
+type PreferencesPanelProps = {
+  analytics: boolean;
+  canClose: boolean;
+  marketing: boolean;
+  onClose: () => void;
+  onReject: () => void;
+  onSave: (analytics: boolean, marketing: boolean) => void;
+};
+
+function PreferencesPanel({
+  analytics: initialAnalytics,
+  canClose,
+  marketing: initialMarketing,
+  onClose,
+  onReject,
+  onSave,
+}: PreferencesPanelProps) {
+  const t = useTranslations("cookies.banner");
+  const [analytics, setAnalytics] = useState(initialAnalytics);
+  const [marketing, setMarketing] = useState(initialMarketing);
+
+  return (
+    <div className="mt-4 space-y-3">
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <p className="text-sm font-medium">{t("necessaryTitle")}</p>
+          <p className="text-xs text-neutral-600 dark:text-neutral-400">
+            {t("necessaryDescription")}
+          </p>
+        </div>
+        <span className="rounded-full border px-2 py-1 text-xs font-semibold dark:border-neutral-700">
+          {t("alwaysActive")}
+        </span>
+      </div>
+
+      <PreferenceToggle
+        checked={analytics}
+        description={t("analyticsDescription")}
+        label={t("analyticsTitle")}
+        onChange={() => setAnalytics((value) => !value)}
+      />
+
+      <PreferenceToggle
+        checked={marketing}
+        description={t("marketingDescription")}
+        label={t("marketingTitle")}
+        onChange={() => setMarketing((value) => !value)}
+      />
+
+      <div className="flex flex-wrap gap-2 pt-2">
+        <button
+          type="button"
+          onClick={() => onSave(analytics, marketing)}
+          className="rounded-md bg-black px-3 py-2 text-sm text-white"
+        >
+          {t("save")}
+        </button>
+        <button
+          type="button"
+          onClick={onReject}
+          className="rounded-md border border-neutral-300 px-3 py-2 text-sm dark:border-neutral-700"
+        >
+          {t("reject")}
+        </button>
+        {canClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-md border border-neutral-300 px-3 py-2 text-sm dark:border-neutral-700"
+          >
+            {t("cancel")}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function CookieBanner({ policyHref }: Props) {
   const t = useTranslations("cookies.banner");
+  const {
+    consent,
+    initialized,
+    hasStoredConsent,
+    preferencesOpen,
+    acceptAll,
+    rejectAll,
+    updatePreferences,
+    openPreferences,
+    closePreferences,
+  } = useConsent();
 
-  const [visible, setVisible] = useState(false);
-  const [mode, setMode] = useState<"simple" | "custom">("simple");
-  const [analytics, setAnalytics] = useState(false);
-
-  
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      const existing = readConsentClient();
-      if (!existing) {
-        setVisible(true);
-        setAnalytics(false);
-        return;
-      }
-
-      setVisible(false);
-    }, 0);
-
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  function acceptAnalytics() {
-    const consent: CookieConsent = { version: 1, necessary: true, analytics: true };
-    writeConsentClient(consent);
-    setVisible(false);
-  }
-
-  function rejectAnalytics() {
-    const consent: CookieConsent = { version: 1, necessary: true, analytics: false };
-    writeConsentClient(consent);
-    setVisible(false);
-  }
-
-  function saveCustom() {
-    const consent: CookieConsent = { version: 1, necessary: true, analytics };
-    writeConsentClient(consent);
-    setVisible(false);
-  }
-
-  // Exponer una forma simple de reabrir el banner desde cualquier sitio:
-  // window.dispatchEvent(new Event("cookies:open"))
-  useEffect(() => {
-    const handler = () => {
-      const existing = readConsentClient();
-      setAnalytics(Boolean(existing?.analytics));
-      setMode("custom");
-      setVisible(true);
-    };
-    window.addEventListener("cookies:open", handler);
-    return () => window.removeEventListener("cookies:open", handler);
-  }, []);
-
-  if (!visible) return null;
+  if (!initialized || (hasStoredConsent && !preferencesOpen)) return null;
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-3xl">
@@ -78,7 +147,7 @@ export default function CookieBanner({ policyHref }: Props) {
               {t("text")}{" "}
               <a
                 href={policyHref}
-                className="underline underline-offset-2 text-neutral-900 dark:text-neutral-100"
+                className="text-neutral-900 underline underline-offset-2 dark:text-neutral-100"
               >
                 {t("policy")}
               </a>
@@ -87,82 +156,39 @@ export default function CookieBanner({ policyHref }: Props) {
           </div>
         </div>
 
-        {mode === "simple" ? (
+        {preferencesOpen ? (
+          <PreferencesPanel
+            key={consent.updatedAt}
+            analytics={consent.analytics}
+            marketing={consent.marketing}
+            canClose={hasStoredConsent}
+            onClose={closePreferences}
+            onReject={rejectAll}
+            onSave={(analytics, marketing) => updatePreferences({ analytics, marketing })}
+          />
+        ) : (
           <div className="mt-4 flex flex-wrap gap-2">
             <button
-              onClick={acceptAnalytics}
+              type="button"
+              onClick={acceptAll}
               className="rounded-md bg-black px-3 py-2 text-sm text-white"
             >
               {t("accept")}
             </button>
-
             <button
-              onClick={rejectAnalytics}
+              type="button"
+              onClick={rejectAll}
               className="rounded-md border border-neutral-300 px-3 py-2 text-sm dark:border-neutral-700"
             >
               {t("reject")}
             </button>
-
             <button
-              onClick={() => setMode("custom")}
+              type="button"
+              onClick={openPreferences}
               className="rounded-md border border-neutral-300 px-3 py-2 text-sm dark:border-neutral-700"
             >
               {t("customize")}
             </button>
-          </div>
-        ) : (
-          <div className="mt-4 space-y-3">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-medium">{t("necessary")}</p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  {t("necessary")}
-                </p>
-              </div>
-              <span className="text-xs font-semibold px-2 py-1 rounded-full border dark:border-neutral-700">
-                ON
-              </span>
-            </div>
-
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-medium">{t("analytics")}</p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  {t("analytics")}
-                </p>
-              </div>
-
-              <button
-                onClick={() => setAnalytics((v) => !v)}
-                className={`h-7 w-12 rounded-full border px-1 transition ${
-                  analytics ? "bg-black" : "bg-transparent"
-                }`}
-                aria-pressed={analytics}
-                aria-label={t("analytics")}
-              >
-                <span
-                  className={`block h-5 w-5 rounded-full bg-white transition ${
-                    analytics ? "translate-x-5" : "translate-x-0"
-                  }`}
-                />
-              </button>
-            </div>
-
-            <div className="flex flex-wrap gap-2 pt-2">
-              <button
-                onClick={saveCustom}
-                className="rounded-md bg-black px-3 py-2 text-sm text-white"
-              >
-                {t("save")}
-              </button>
-
-              <button
-                onClick={() => setMode("simple")}
-                className="rounded-md border border-neutral-300 px-3 py-2 text-sm dark:border-neutral-700"
-              >
-                {t("reject")}
-              </button>
-            </div>
           </div>
         )}
       </div>

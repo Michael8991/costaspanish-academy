@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { TrackedExternalLink } from "@/components/analytics/TrackedExternalLink";
+import { useConsent } from "@/components/cookies/ConsentProvider";
 import { COSTASPANISH_SOCIAL_LINKS, SITE_CREDITS } from "@/lib/constants/socialLinks";
 import styles from "./Footer.module.css";
 
@@ -23,6 +25,7 @@ const socials = [
 export const Footer = () => {
   const t = useTranslations("Footer");
   const { locale } = useParams<{ locale: string }>();
+  const { openPreferences } = useConsent();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -56,13 +59,13 @@ export const Footer = () => {
             <ul className={styles.socialList}>
               {socials.map(({ key, href, icon, wide }) => (
                 <li key={key}>
-                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={t("socialAria", { platform: t("socials." + key) })}>
+                  <TrackedExternalLink platform={key} sourceSection="footer" href={href} target="_blank" rel="noopener noreferrer" aria-label={t("socialAria", { platform: t("socials." + key) })}>
                     <span className={[styles.socialIcon, wide ? styles.preplyIcon : ""].join(" ")}>
                       <Image src={icon} alt="" fill sizes="56px" />
                     </span>
                     <span>{t("socials." + key)}</span>
                     <span className={styles.externalArrow} aria-hidden="true">↗</span>
-                  </a>
+                  </TrackedExternalLink>
                 </li>
               ))}
             </ul>
@@ -73,7 +76,7 @@ export const Footer = () => {
           <p>{t("rights", { year: currentYear })}</p>
           <div className={styles.legal}>
             <Link href={"/" + locale + "/cookiesPolicy"}>{t("legal.cookiesPolicy")}</Link>
-            <button type="button" onClick={() => window.dispatchEvent(new Event("cookies:open"))}>{t("legal.configureCookies")}</button>
+            <button type="button" onClick={openPreferences}>{t("legal.configureCookies")}</button>
             <Link href={"/" + locale + "/legalNotice"}>{t("legal.notice")}</Link>
             <Link href={"/" + locale + "/privacyPolicy"}>{t("legal.privacyPolicy")}</Link>
           </div>
