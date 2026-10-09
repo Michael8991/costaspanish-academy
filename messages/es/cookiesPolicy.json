@@ -19,27 +19,35 @@
     "used": {
       "title": "Cookies y tecnologías utilizadas en este sitio web",
       "items": {
-        "technical": {
-          "label": "Cookies técnicas",
-          "value": "Necesarias para la navegación, seguridad y funcionamiento del sitio web."
+        "cookieConsent": {
+          "label": "cookie_consent — Necesaria",
+          "value": "Almacena las preferencias de consentimiento del usuario. Duración aproximada: 1 año."
+        },
+        "ga": {
+          "label": "_ga — Analítica",
+          "value": "Proveedor: Google Analytics / Google LLC. Distingue navegadores o usuarios para la medición analítica. Duración: hasta 2 años, según la configuración y el navegador."
+        },
+        "gaProperty": {
+          "label": "_ga_30QRZM80ER — Analítica",
+          "value": "Proveedor: Google Analytics / Google LLC. Mantiene información y el estado de sesión de la propiedad GA4 de CostaSpanish. Duración: hasta 2 años, según la configuración y el navegador."
         },
         "vercelAnalytics": {
           "label": "Vercel Web Analytics",
-          "value": "Tecnología analítica first-party que realiza medición sin utilizar cookies. CostaSpanish la activa únicamente tras el consentimiento analítico."
+          "value": "Tecnología de medición first-party y sin cookies. Por decisión de CostaSpanish, se carga únicamente después de otorgar el consentimiento analítico."
         },
         "googleAnalytics": {
-          "label": "Google Analytics",
-          "value": "Proveedor analítico que puede utilizar cookies propias de medición después del consentimiento. Los detalles exactos dependen de la configuración publicada y requieren revisión legal y de política."
+          "label": "Google Analytics 4",
+          "value": "Servicio de medición analítica que solo se carga después de otorgar el consentimiento de Analíticas y que puede crear las cookies _ga y _ga_30QRZM80ER."
         },
         "tagManager": {
           "label": "Google Tag Manager",
-          "value": "Gestor de etiquetas que carga y configura Google Analytics únicamente después del consentimiento analítico; no se utiliza como proveedor de analítica independiente."
+          "value": "Gestor de etiquetas que carga y configura Google Analytics 4 después de otorgar el consentimiento de Analíticas. No es un proveedor analítico independiente."
         }
       }
     },
     "manage": {
       "title": "Gestión de cookies",
-      "p1": "El usuario puede aceptar, rechazar o configurar la categoría analítica a través del banner de cookies.",
+      "p1": "La categoría \"Analíticas\" del banner controla conjuntamente Vercel Web Analytics y Google Analytics 4. El usuario puede aceptarla, rechazarla o configurarla desde el banner de cookies.",
       "p2": "En cualquier momento puede modificar su consentimiento desde el enlace de configuración de cookies disponible en el pie de página."
     },
     "update": {

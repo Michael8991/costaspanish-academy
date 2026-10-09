@@ -47,7 +47,9 @@ export default async function Page({
       {
         title: t("sections.used.title"),
         items: [
-          { label: t("sections.used.items.technical.label"), value: t("sections.used.items.technical.value") },
+          { label: t("sections.used.items.cookieConsent.label"), value: t("sections.used.items.cookieConsent.value") },
+          { label: t("sections.used.items.ga.label"), value: t("sections.used.items.ga.value") },
+          { label: t("sections.used.items.gaProperty.label"), value: t("sections.used.items.gaProperty.value") },
           { label: t("sections.used.items.vercelAnalytics.label"), value: t("sections.used.items.vercelAnalytics.value") },
           { label: t("sections.used.items.googleAnalytics.label"), value: t("sections.used.items.googleAnalytics.value") },
           { label: t("sections.used.items.tagManager.label"), value: t("sections.used.items.tagManager.value") },

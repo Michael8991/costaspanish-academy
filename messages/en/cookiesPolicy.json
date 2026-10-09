@@ -19,27 +19,35 @@
     "used": {
       "title": "Cookies and technologies used on this website",
       "items": {
-        "technical": {
-          "label": "Technical cookies",
-          "value": "Necessary for navigation, security and proper website functioning."
+        "cookieConsent": {
+          "label": "cookie_consent — Necessary",
+          "value": "Stores the user's consent preferences. Approximate duration: 1 year."
+        },
+        "ga": {
+          "label": "_ga — Analytics",
+          "value": "Provider: Google Analytics / Google LLC. Distinguishes browsers or users for analytics measurement. Duration: up to 2 years, depending on configuration and browser."
+        },
+        "gaProperty": {
+          "label": "_ga_30QRZM80ER — Analytics",
+          "value": "Provider: Google Analytics / Google LLC. Maintains session information and state for CostaSpanish's GA4 property. Duration: up to 2 years, depending on configuration and browser."
         },
         "vercelAnalytics": {
           "label": "Vercel Web Analytics",
-          "value": "A first-party analytics technology that measures usage without cookies. CostaSpanish activates it only after analytics consent."
+          "value": "A first-party, cookieless measurement technology. By CostaSpanish's choice, it loads only after analytics consent is granted."
         },
         "googleAnalytics": {
-          "label": "Google Analytics",
-          "value": "An analytics provider that may use first-party measurement cookies after consent. Exact details depend on the published configuration and require legal and policy review."
+          "label": "Google Analytics 4",
+          "value": "An analytics measurement service that loads only after Analytics consent is granted and may create the _ga and _ga_30QRZM80ER cookies."
         },
         "tagManager": {
           "label": "Google Tag Manager",
-          "value": "A tag manager that loads and configures Google Analytics only after analytics consent; it is not used as a separate analytics provider."
+          "value": "A tag manager that loads and configures Google Analytics 4 after Analytics consent is granted. It is not a separate analytics provider."
         }
       }
     },
     "manage": {
       "title": "Cookie management",
-      "p1": "Users can accept, reject or configure the analytics category through the cookie banner.",
+      "p1": "The \"Analytics\" category in the banner controls both Vercel Web Analytics and Google Analytics 4. Users can accept, reject or configure it through the cookie banner.",
       "p2": "Consent can be modified at any time using the cookie settings link in the footer."
     },
     "update": {

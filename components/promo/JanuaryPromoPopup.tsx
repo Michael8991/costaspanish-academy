@@ -106,6 +106,8 @@ export default function JanuaryPromoPopup() {
   // auto-open solo si toca (1 vez/semana) y la promo sigue activa
   useEffect(() => {
   const left = getMsLeft(endDate);
+  // Initialise browser-only state after hydration.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   setMsLeft(left);
 
   if (left <= 0) return;
@@ -128,6 +130,8 @@ export default function JanuaryPromoPopup() {
   // si termina la promo, ocultar todo
   useEffect(() => {
     if (msLeft <= 0) {
+      // Keep the persisted and rendered states in sync when the offer expires.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOpen(false);
         setIsMinimized(false);
         setMinimized(false);          
